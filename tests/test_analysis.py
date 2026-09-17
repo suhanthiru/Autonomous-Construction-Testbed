@@ -1,6 +1,34 @@
 import pytest
 
-from excavation_sim.analysis import windowed_force
+from excavation_sim.analysis import vertical_momentum_audit, windowed_force
+
+
+def test_momentum_audit_detects_delayed_impulse_even_if_totals_match():
+    result = vertical_momentum_audit(
+        [0, 0.5, 0.5],
+        [0, 0, 0],
+        [1, 0, 0],
+        mass_kg=2,
+        dt_s=0.01,
+        gravity_m_s2=0,
+    )
+    assert result["same_step"]["signed_total_residual_n_s"] == 0
+    assert result["same_step"]["max_abs_step_residual_n_s"] == 1
+    assert result["one_step_lag"]["max_abs_step_residual_n_s"] == 0
+
+
+def test_momentum_audit_accounts_for_gravity_and_actuator():
+    result = vertical_momentum_audit(
+        [0.02],
+        [4],
+        [0],
+        mass_kg=2,
+        dt_s=0.01,
+        gravity_m_s2=0,
+    )
+    assert result["same_step"]["max_abs_step_residual_n_s"] == pytest.approx(0)
+    result = vertical_momentum_audit([-0.1], [0], [0], mass_kg=2, dt_s=0.01, gravity_m_s2=10)
+    assert result["same_step"]["max_abs_step_residual_n_s"] == pytest.approx(0)
 
 
 def test_measurement_windows_preserve_impulse_across_timesteps():

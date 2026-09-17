@@ -26,7 +26,10 @@ def run(
     with_soil: bool = True,
     drive: bool = False,
     control_dt: float | None = None,
+    coupling_iterations: int = 1,
 ) -> dict:
+    if type(coupling_iterations) is not int or coupling_iterations < 1:
+        raise ValueError("coupling_iterations must be a positive integer")
     control_dt = dt if control_dt is None else control_dt
     control_ticks = ticks_per_update(dt, control_dt)
     identity = source_identity(Path.cwd())
@@ -106,7 +109,7 @@ def run(
                 ]
                 if with_soil
                 else [],
-                iterations=1,
+                iterations=coupling_iterations,
             ),
         )
         state = model.state()
@@ -151,7 +154,10 @@ def run(
             velocities = state.body_qd.numpy()
             particle_velocities = state.particle_qd.numpy() if with_soil else np.empty((0, 3))
             soil_impulse = np.zeros(3)
+            applied_contact_impulse_z = 0.0
             if with_soil:
+                rigid_input_force = solver.entry_state("rigid", "input").body_f.numpy()
+                applied_contact_impulse_z = (float(rigid_input_force[0, 2]) - actuator_force) * dt
                 mpm = solver.solver("soil")
                 impulses, _, collider_ids = mpm.collect_collider_impulses(
                     solver.entry_state("soil")
@@ -178,6 +184,7 @@ def run(
                     "requested_vz_m_s": target_velocity if drive else None,
                     "actuator_force_z_n": actuator_force,
                     "soil_impulse_n_s": soil_impulse.tolist(),
+                    "applied_contact_impulse_z_n_s": applied_contact_impulse_z,
                     "soil_force_z_n": float(soil_impulse[2] / dt),
                     "soil_min_z_m": float(particles[:, 2].min()) if with_soil else None,
                 }
@@ -193,6 +200,8 @@ def run(
             "dt_s": dt,
             "control_dt_s": control_dt,
             "rigid_substeps": 4,
+            "coupling_iterations": coupling_iterations,
+            "coupling_mode": "lagged",
             "with_soil": with_soil,
             "drive": drive,
             "servo": {
@@ -216,6 +225,7 @@ if __name__ == "__main__":
     parser.add_argument("--steps", type=int, default=100)
     parser.add_argument("--dt", type=float, default=0.005)
     parser.add_argument("--control-dt", type=float, help="servo period; defaults to physics dt")
+    parser.add_argument("--coupling-iterations", type=int, default=1)
     parser.add_argument("--without-soil", action="store_true")
     parser.add_argument("--drive", action="store_true", help="force-limited down/up velocity servo")
     parser.add_argument("--output", type=Path, default=Path("runs/coupling-check.json"))
@@ -224,7 +234,14 @@ if __name__ == "__main__":
         parser.error("steps and dt must be positive and finite")
     if args.output.exists():
         parser.error("output already exists; choose a new path")
-    result = run(args.steps, args.dt, not args.without_soil, args.drive, args.control_dt)
+    result = run(
+        args.steps,
+        args.dt,
+        not args.without_soil,
+        args.drive,
+        args.control_dt,
+        args.coupling_iterations,
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
         json.dump(result, stream, indent=2, allow_nan=False)
