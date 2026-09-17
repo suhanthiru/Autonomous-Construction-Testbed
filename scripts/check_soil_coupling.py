@@ -16,11 +16,19 @@ import warp as wp
 from newton.solvers import SolverImplicitMPM, SolverXPBD
 from newton.solvers.experimental.coupled import SolverCoupledProxy
 
-from excavation_sim.actuation import vertical_servo_force
+from excavation_sim.actuation import ticks_per_update, vertical_servo_force
 from excavation_sim.provenance import environment_info, source_identity
 
 
-def run(steps: int, dt: float, with_soil: bool = True, drive: bool = False) -> dict:
+def run(
+    steps: int,
+    dt: float,
+    with_soil: bool = True,
+    drive: bool = False,
+    control_dt: float | None = None,
+) -> dict:
+    control_dt = dt if control_dt is None else control_dt
+    control_ticks = ticks_per_update(dt, control_dt)
     identity = source_identity(Path.cwd())
     wp.config.kernel_cache_dir = str(Path(".cache/warp").resolve())
     wp.init()
@@ -109,17 +117,20 @@ def run(steps: int, dt: float, with_soil: bool = True, drive: bool = False) -> d
         contacts = pipeline.contacts()
         trajectory = []
         mass = float(model.body_mass.numpy()[body])
+        actuator_force = 0.0
+        target_velocity = 0.0
         for tick in range(steps):
             state.clear_forces()
             before_velocity = float(state.body_qd.numpy()[body, 2])
-            target_velocity = -0.3 if tick * dt < 0.8 else 0.3
-            actuator_force = (
-                vertical_servo_force(
-                    target_velocity, before_velocity, gain=150.0, mass=mass, force_limit=60.0
+            if tick % control_ticks == 0:
+                target_velocity = -0.3 if tick * dt < 0.8 else 0.3
+                actuator_force = (
+                    vertical_servo_force(
+                        target_velocity, before_velocity, gain=150.0, mass=mass, force_limit=60.0
+                    )
+                    if drive
+                    else 0.0
                 )
-                if drive
-                else 0.0
-            )
             force_buffer = np.zeros((model.body_count, 6), dtype=np.float32)
             force_buffer[body, 2] = actuator_force
             state.body_f.assign(force_buffer)
@@ -153,12 +164,14 @@ def run(steps: int, dt: float, with_soil: bool = True, drive: bool = False) -> d
                 # This fixture has exactly one dynamic body. Static ground is excluded.
                 soil_impulse = impulses.numpy()[selected].sum(axis=0)
             if not all(
-                np.isfinite(a).all() for a in (q, particles, velocities, particle_velocities)
+                np.isfinite(a).all()
+                for a in (q, particles, velocities, particle_velocities, soil_impulse)
             ):
                 raise RuntimeError(f"Nonfinite state at tick {tick + 1}")
             trajectory.append(
                 {
                     "tick": tick + 1,
+                    "controller_updated": tick % control_ticks == 0,
                     "time_s": (tick + 1) * dt,
                     "body_z_m": float(q[2]),
                     "body_vz_m_s": float(velocities[body, 2]),
@@ -178,6 +191,8 @@ def run(steps: int, dt: float, with_soil: bool = True, drive: bool = False) -> d
             "initial_body_z_m": 0.35,
             "device": str(wp.get_device()),
             "dt_s": dt,
+            "control_dt_s": control_dt,
+            "rigid_substeps": 4,
             "with_soil": with_soil,
             "drive": drive,
             "servo": {
@@ -200,6 +215,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--steps", type=int, default=100)
     parser.add_argument("--dt", type=float, default=0.005)
+    parser.add_argument("--control-dt", type=float, help="servo period; defaults to physics dt")
     parser.add_argument("--without-soil", action="store_true")
     parser.add_argument("--drive", action="store_true", help="force-limited down/up velocity servo")
     parser.add_argument("--output", type=Path, default=Path("runs/coupling-check.json"))
@@ -208,7 +224,7 @@ if __name__ == "__main__":
         parser.error("steps and dt must be positive and finite")
     if args.output.exists():
         parser.error("output already exists; choose a new path")
-    result = run(args.steps, args.dt, not args.without_soil, args.drive)
+    result = run(args.steps, args.dt, not args.without_soil, args.drive, args.control_dt)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
         json.dump(result, stream, indent=2, allow_nan=False)

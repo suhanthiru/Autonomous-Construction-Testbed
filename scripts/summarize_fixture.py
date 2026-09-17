@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
+from excavation_sim.analysis import windowed_force
 from excavation_sim.provenance import fingerprint
 
 
@@ -17,6 +18,11 @@ def summarize(path: Path) -> dict:
         "canonical_json_sha256": fingerprint(run),
         "source_sha256": run["source"]["source_sha256"],
         "dt_s": dt,
+        "control_dt_s": run.get("control_dt_s", dt),
+        "peak_20ms_mean_soil_force_z_n": max(
+            windowed_force([row["soil_impulse_n_s"][2] for row in rows], dt, 0.02)
+        ),
+        "measurement_window_s": 0.02,
         "duration_s": rows[-1]["time_s"],
         "with_soil": run["with_soil"],
         "final_z_m": rows[-1]["body_z_m"],

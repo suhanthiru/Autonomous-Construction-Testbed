@@ -3,7 +3,8 @@
 The fixture now accepts `--drive`. This applies a vertical velocity servo to the
 dynamic box, commanding -0.3 m/s until 0.8 s and +0.3 m/s afterwards. The gain is
 150 N s/m, with gravity compensation inside a 60 N total actuator-force limit.
-Force is computed once per outer step and held across its four rigid substeps.
+By default, force is computed once per outer step. `--control-dt` sets an independent
+servo period; force is held until its next update, including across rigid substeps.
 The box remains a free rigid body; it is not a constrained excavator linkage.
 
 ```sh
@@ -44,7 +45,8 @@ hashes identify the implementation that actually ran.
 
 The timestep comparison changes the physics step and the servo update period
 together. It is a sensitivity check of the complete fixture, not an isolated solver
-convergence study. A future backend must expose these clocks separately.
+convergence study. The subsequent [fixed-controller study](CONTROL_CLOCK_STUDY.md)
+separates those clocks.
 
 The coupling is lagged. An impulse reported for one interval must not be assumed
 to equal the feedback actually applied to the rigid body during that same interval.

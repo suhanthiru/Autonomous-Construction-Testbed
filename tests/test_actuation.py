@@ -1,6 +1,18 @@
 import pytest
 
-from excavation_sim.actuation import vertical_servo_force
+from excavation_sim.actuation import ticks_per_update, vertical_servo_force
+
+
+def test_control_clock_preserves_requested_period():
+    for dt in (0.005, 0.0025, 0.00125):
+        ticks = ticks_per_update(dt, 0.005)
+        assert [i * dt for i in range(0, 16 * ticks, ticks)] == [i * 0.005 for i in range(16)]
+
+
+@pytest.mark.parametrize("dt,period", [(0.003, 0.005), (0.01, 0.005), (0, 0.005)])
+def test_unaligned_control_clock_is_rejected(dt, period):
+    with pytest.raises(ValueError):
+        ticks_per_update(dt, period)
 
 
 def test_gravity_compensation_is_inside_force_budget():

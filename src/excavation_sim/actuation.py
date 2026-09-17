@@ -1,6 +1,17 @@
 """Engine-independent, force-limited velocity servo in SI units."""
 
-from math import isfinite
+from math import isclose, isfinite
+
+
+def ticks_per_update(physics_dt_s: float, control_dt_s: float) -> int:
+    """Require aligned integer clocks rather than rounding a requested control rate."""
+    if not all(isfinite(v) and v > 0 for v in (physics_dt_s, control_dt_s)):
+        raise ValueError("clock periods must be finite and positive")
+    ratio = control_dt_s / physics_dt_s
+    ticks = round(ratio)
+    if ticks < 1 or not isclose(ratio, ticks, rel_tol=0, abs_tol=1e-9):
+        raise ValueError("control period must be an integer multiple of the physics timestep")
+    return ticks
 
 
 def vertical_servo_force(
