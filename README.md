@@ -12,6 +12,8 @@ An isolated GPU rigid-body/soil fixture runs with an empty-bed control; see the
 been performed. The full excavator and learning benchmarks are not implemented yet.
 The [force-limited penetration check](docs/ACTUATION_CHECK.md) records actuator and
 soil forces; its timestep study exposes unresolved peak-force sensitivity.
+The [fixed-controller follow-up](docs/CONTROL_CLOCK_STUDY.md) confirms that separating
+controller timing does not resolve the numerical sensitivity.
 
 ## Development setup
 

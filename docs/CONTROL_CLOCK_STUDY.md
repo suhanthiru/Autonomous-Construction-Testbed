@@ -30,3 +30,40 @@ No acceptance tolerance was established from physical data. This study reports
 sensitivity; it cannot certify physical accuracy. Rigid and soil integration steps
 still change together, and a single deterministic particle layout does not establish
 robustness across seeds or material conditions.
+
+## Results: convergence not established
+
+Executed on 2026-09-17 on the RTX 4060 laptop. All three records share the same
+source hash, report no source changes during execution, and contain exactly 240
+controller updates. The actuator force limit remained 60 N.
+
+| Metric | 5 ms | 2.5 ms | 1.25 ms |
+|---|---:|---:|---:|
+| Minimum box-center height (m) | 0.17469 | 0.17993 | 0.18818 |
+| Final box-center height (m) | 0.29504 | 0.29699 | 0.30409 |
+| Raw peak vertical soil force (N) | 50.46 | 106.37 | 211.93 |
+| Peak 20 ms mean soil force (N) | 43.59 | 39.36 | 49.51 |
+| Integrated vertical soil impulse (N s) | 10.3522 | 10.6921 | 11.7678 |
+
+The raw peaks occur at 0.485, 0.4825, and 0.48125 seconds, respectively. Multiplying
+each peak by its timestep gives approximately 0.2523, 0.2659, and 0.2649 N s.
+This is consistent with a brief contact impulse producing a timestep-dependent force
+peak. It does not identify the complete mechanism or validate the impact response.
+
+Fixed-window forces and integrated impulse also remain sensitive. In particular,
+integrated impulse changes by about 10.1% between the two finest runs, compared with
+3.3% between the coarser pair. The minimum-height change also grows. These three
+runs do not demonstrate a converged result. A fixed controller rate alone does not
+resolve the sensitivity, and averaging cannot be used to claim a pass.
+
+The [summary](evidence/fixed-control/summary.json) links record filenames and contains
+canonical JSON hashes. Full traces are stored alongside it. They remain separate from
+the earlier study, whose controller timing changed with the physics step.
+
+## Consequence for the platform
+
+Contact-force comparisons remain experimental. Before promoting this fixture into a
+research backend, investigate rigid/MPM impulse transfer and coupling lag, separately
+vary solver iterations and spatial resolution, and run controlled impact/penetration
+cases with momentum accounting. Material calibration cannot substitute for resolving
+these numerical sensitivities.

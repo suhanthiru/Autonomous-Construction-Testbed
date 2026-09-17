@@ -1,0 +1,3896 @@
+{
+  "purpose": "rigid/MPM coupling feasibility; not physical validation",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "excavation-sim": "0.1.0.dev0",
+      "newton": "1.6.0",
+      "warp-lang": "1.17.0",
+      "numpy": "2.5.3"
+    }
+  },
+  "source": {
+    "revision": "43db9f2600f1ffc1c755bf9a273e9cff55e29c58",
+    "working_tree_status": "M scripts/check_soil_coupling.py\n M scripts/summarize_fixture.py\n M src/excavation_sim/actuation.py\n M tests/test_actuation.py\n?? src/excavation_sim/analysis.py\n?? tests/test_analysis.py",
+    "source_sha256": "32d2e68190d13e4dfda6166ffd6d39b37c7ed4581d4b99234523c6da8abac921",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "861dfb3f319ecd81b5a505f3189b58eec5203ba2c78e6aa2350a2f9028dcc55e",
+      "src/excavation_sim/analysis.py": "d991ddf126a32c640c4d0598104ce078111e1c94c40bf8e52eceba96f8a65552",
+      "src/excavation_sim/cli.py": "c5a651562cd815e8c175694a09bf31494f667fbf5c8577f998f258008ebeafb3",
+      "src/excavation_sim/core.py": "b9bc9dd34724a5b994ccff0a4a05b20781daa17abad57efd3fca06dc22c2a720",
+      "src/excavation_sim/provenance.py": "d2134865b20d58c69e0e88ebeebb38558b43088bbc4fc280b5d0f140670c1ac1",
+      "src/excavation_sim/recording.py": "20823ce1d1f348327335caf712b2997a68d2c0a87820a638bbeec379fa91ab40",
+      "src/excavation_sim.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/excavation_sim.egg-info/entry_points.txt": "aab55348f36cc81c5d3b796fbe0408e6ba5e7f2a58ee260b9f051fa0db5e2e63",
+      "src/excavation_sim.egg-info/PKG-INFO": "cd901c0bcf2f56ed5f94adb21f368bf39b3decaacb906fc0281d6b8c01c2e49c",
+      "src/excavation_sim.egg-info/requires.txt": "34c31a1635f308155cf05b136c05077626f75af0ae24721b873072709e657c3a",
+      "src/excavation_sim.egg-info/SOURCES.txt": "a3a4a4a632e927ac257d6c2182f538a0416a33987be0718f37c6d5f0c507dbd1",
+      "src/excavation_sim.egg-info/top_level.txt": "52057b8c6b57495daa2173c1d1074e75811ccedf186cfe27e1c647d316d24d13",
+      "scripts/check_soil_coupling.py": "b4c90e52f698e2a9d08d2a22c92ed0a6e83504e7d6cd9cab91071931f0482f0f",
+      "scripts/summarize_fixture.py": "4d97d20a18873b182d395c78c1dcf6f348578fe9db2452aae56566318b26555e",
+      "pyproject.toml": "174cc4699049ab710dde8daaf44f10252b0ff27798f7b2ac9505e31388f570f9"
+    }
+  },
+  "source_changed_during_run": false,
+  "initial_body_z_m": 0.35,
+  "device": "cuda:0",
+  "dt_s": 0.005,
+  "control_dt_s": 0.005,
+  "rigid_substeps": 4,
+  "with_soil": true,
+  "drive": true,
+  "servo": {
+    "gain_n_s_m": 150.0,
+    "force_limit_n": 60.0,
+    "velocity_m_s": 0.3,
+    "reverse_time_s": 0.8
+  },
+  "steps": 240,
+  "particle_count": 4000,
+  "initial_soil_mass_kg": 51.199989318847656,
+  "body_mass_kg": 2.303999900817871,
+  "trajectory": [
+    {
+      "tick": 1,
+      "controller_updated": true,
+      "time_s": 0.005,
+      "body_z_m": 0.3496948182582855,
+      "body_vz_m_s": -0.09765625,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -22.397760972976684,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0099761001765728
+    },
+    {
+      "tick": 2,
+      "controller_updated": true,
+      "time_s": 0.01,
+      "body_z_m": 0.3490006923675537,
+      "body_vz_m_s": -0.1635233610868454,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -7.749323472976684,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00993371568620205
+    },
+    {
+      "tick": 3,
+      "controller_updated": true,
+      "time_s": 0.015,
+      "body_z_m": 0.3480442464351654,
+      "body_vz_m_s": -0.20794932544231415,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 2.1307431900501257,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009873500093817711
+    },
+    {
+      "tick": 4,
+      "controller_updated": true,
+      "time_s": 0.02,
+      "body_z_m": 0.34691086411476135,
+      "body_vz_m_s": -0.23791371285915375,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 8.79463784337044,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009796553291380405
+    },
+    {
+      "tick": 5,
+      "controller_updated": true,
+      "time_s": 0.025,
+      "body_z_m": 0.3456580936908722,
+      "body_vz_m_s": -0.25812408328056335,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 13.28929595589638,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009704859927296638
+    },
+    {
+      "tick": 6,
+      "controller_updated": true,
+      "time_s": 0.03,
+      "body_z_m": 0.34432491660118103,
+      "body_vz_m_s": -0.27175554633140564,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 16.32085151910782,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009599710814654827
+    },
+    {
+      "tick": 7,
+      "controller_updated": true,
+      "time_s": 0.035,
+      "body_z_m": 0.3429374098777771,
+      "body_vz_m_s": -0.2809496819972992,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 18.365570976734162,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009482525289058685
+    },
+    {
+      "tick": 8,
+      "controller_updated": true,
+      "time_s": 0.04,
+      "body_z_m": 0.3415132761001587,
+      "body_vz_m_s": -0.28715094923973083,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 19.744691326618195,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009353484958410263
+    },
+    {
+      "tick": 9,
+      "controller_updated": true,
+      "time_s": 0.045,
+      "body_z_m": 0.3400644361972809,
+      "body_vz_m_s": -0.2913336455821991,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 20.67488141298294,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009216142818331718
+    },
+    {
+      "tick": 10,
+      "controller_updated": true,
+      "time_s": 0.05,
+      "body_z_m": 0.33859893679618835,
+      "body_vz_m_s": -0.29415473341941833,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.30228586435318,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009069369174540043
+    },
+    {
+      "tick": 11,
+      "controller_updated": true,
+      "time_s": 0.055,
+      "body_z_m": 0.3371221721172333,
+      "body_vz_m_s": -0.2960575520992279,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.725449039936066,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00891431886702776
+    },
+    {
+      "tick": 12,
+      "controller_updated": true,
+      "time_s": 0.06,
+      "body_z_m": 0.3356378972530365,
+      "body_vz_m_s": -0.2973409593105316,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.010871841907502,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008743737824261189
+    },
+    {
+      "tick": 13,
+      "controller_updated": true,
+      "time_s": 0.065,
+      "body_z_m": 0.33414846658706665,
+      "body_vz_m_s": -0.29820653796195984,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.20338292360306,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008571500889956951
+    },
+    {
+      "tick": 14,
+      "controller_updated": true,
+      "time_s": 0.07,
+      "body_z_m": 0.3326556086540222,
+      "body_vz_m_s": -0.29879030585289,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.333219721317292,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008396480232477188
+    },
+    {
+      "tick": 15,
+      "controller_updated": true,
+      "time_s": 0.075,
+      "body_z_m": 0.33116042613983154,
+      "body_vz_m_s": -0.29918405413627625,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.420784904956818,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008217562921345234
+    },
+    {
+      "tick": 16,
+      "controller_updated": true,
+      "time_s": 0.08,
+      "body_z_m": 0.3296636939048767,
+      "body_vz_m_s": -0.2994496524333954,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.479847147464753,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00803819578140974
+    },
+    {
+      "tick": 17,
+      "controller_updated": true,
+      "time_s": 0.085,
+      "body_z_m": 0.3281658887863159,
+      "body_vz_m_s": -0.2996288239955902,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.519686892032624,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007856441661715508
+    },
+    {
+      "tick": 18,
+      "controller_updated": true,
+      "time_s": 0.09,
+      "body_z_m": 0.3266673684120178,
+      "body_vz_m_s": -0.2997497022151947,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.546562626361847,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007684833835810423
+    },
+    {
+      "tick": 19,
+      "controller_updated": true,
+      "time_s": 0.095,
+      "body_z_m": 0.3251683712005615,
+      "body_vz_m_s": -0.29983124136924744,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.56469435930252,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007515914738178253
+    },
+    {
+      "tick": 20,
+      "controller_updated": true,
+      "time_s": 0.1,
+      "body_z_m": 0.32366904616355896,
+      "body_vz_m_s": -0.29988619685173035,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.57692523241043,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0073539395816624165
+    },
+    {
+      "tick": 21,
+      "controller_updated": true,
+      "time_s": 0.105,
+      "body_z_m": 0.3221694827079773,
+      "body_vz_m_s": -0.29992327094078064,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.585168554782868,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007188819348812103
+    },
+    {
+      "tick": 22,
+      "controller_updated": true,
+      "time_s": 0.11,
+      "body_z_m": 0.3206698000431061,
+      "body_vz_m_s": -0.2999483048915863,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.590729668140412,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006999321281909943
+    },
+    {
+      "tick": 23,
+      "controller_updated": true,
+      "time_s": 0.115,
+      "body_z_m": 0.3191700279712677,
+      "body_vz_m_s": -0.29996511340141296,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59448476076126,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006813580170273781
+    },
+    {
+      "tick": 24,
+      "controller_updated": true,
+      "time_s": 0.12,
+      "body_z_m": 0.31767013669013977,
+      "body_vz_m_s": -0.2999764382839203,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59700603723526,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006638939958065748
+    },
+    {
+      "tick": 25,
+      "controller_updated": true,
+      "time_s": 0.125,
+      "body_z_m": 0.31617024540901184,
+      "body_vz_m_s": -0.29998406767845154,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59870476961136,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006472080945968628
+    },
+    {
+      "tick": 26,
+      "controller_updated": true,
+      "time_s": 0.13,
+      "body_z_m": 0.3146703541278839,
+      "body_vz_m_s": -0.2999893128871918,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.599849178791047,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006315407808870077
+    },
+    {
+      "tick": 27,
+      "controller_updated": true,
+      "time_s": 0.135,
+      "body_z_m": 0.3131703734397888,
+      "body_vz_m_s": -0.29999276995658875,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.600635960102082,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006174796726554632
+    },
+    {
+      "tick": 28,
+      "controller_updated": true,
+      "time_s": 0.14,
+      "body_z_m": 0.31167036294937134,
+      "body_vz_m_s": -0.29999515414237976,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601154520511628,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006043970584869385
+    },
+    {
+      "tick": 29,
+      "controller_updated": true,
+      "time_s": 0.145,
+      "body_z_m": 0.31017035245895386,
+      "body_vz_m_s": -0.2999967038631439,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60151214838028,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005892121698707342
+    },
+    {
+      "tick": 30,
+      "controller_updated": true,
+      "time_s": 0.15,
+      "body_z_m": 0.3086703419685364,
+      "body_vz_m_s": -0.2999977767467499,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601744606494904,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005724688991904259
+    },
+    {
+      "tick": 31,
+      "controller_updated": true,
+      "time_s": 0.155,
+      "body_z_m": 0.3071703314781189,
+      "body_vz_m_s": -0.2999984920024872,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601905539035798,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005532893817871809
+    },
+    {
+      "tick": 32,
+      "controller_updated": true,
+      "time_s": 0.16,
+      "body_z_m": 0.3056703209877014,
+      "body_vz_m_s": -0.2999989688396454,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602012827396393,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005334464367479086
+    },
+    {
+      "tick": 33,
+      "controller_updated": true,
+      "time_s": 0.165,
+      "body_z_m": 0.30417031049728394,
+      "body_vz_m_s": -0.29999932646751404,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602084352970124,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005126170814037323
+    },
+    {
+      "tick": 34,
+      "controller_updated": true,
+      "time_s": 0.17,
+      "body_z_m": 0.30267030000686646,
+      "body_vz_m_s": -0.29999956488609314,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60213799715042,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004925892688333988
+    },
+    {
+      "tick": 35,
+      "controller_updated": true,
+      "time_s": 0.17500000000000002,
+      "body_z_m": 0.301170289516449,
+      "body_vz_m_s": -0.2999996840953827,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602173759937287,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004742941353470087
+    },
+    {
+      "tick": 36,
+      "controller_updated": true,
+      "time_s": 0.18,
+      "body_z_m": 0.2996702790260315,
+      "body_vz_m_s": -0.29999980330467224,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60219164133072,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004560461267828941
+    },
+    {
+      "tick": 37,
+      "controller_updated": true,
+      "time_s": 0.185,
+      "body_z_m": 0.298170268535614,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602209522724152,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004420045763254166
+    },
+    {
+      "tick": 38,
+      "controller_updated": true,
+      "time_s": 0.19,
+      "body_z_m": 0.29667025804519653,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004273764789104462
+    },
+    {
+      "tick": 39,
+      "controller_updated": true,
+      "time_s": 0.195,
+      "body_z_m": 0.29517024755477905,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004144450183957815
+    },
+    {
+      "tick": 40,
+      "controller_updated": true,
+      "time_s": 0.2,
+      "body_z_m": 0.2936702370643616,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004058409482240677
+    },
+    {
+      "tick": 41,
+      "controller_updated": true,
+      "time_s": 0.20500000000000002,
+      "body_z_m": 0.2921702265739441,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003952187951654196
+    },
+    {
+      "tick": 42,
+      "controller_updated": true,
+      "time_s": 0.21,
+      "body_z_m": 0.2906702160835266,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003829571884125471
+    },
+    {
+      "tick": 43,
+      "controller_updated": true,
+      "time_s": 0.215,
+      "body_z_m": 0.28917020559310913,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003741633612662554
+    },
+    {
+      "tick": 44,
+      "controller_updated": true,
+      "time_s": 0.22,
+      "body_z_m": 0.28767019510269165,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0036763169337064028
+    },
+    {
+      "tick": 45,
+      "controller_updated": true,
+      "time_s": 0.225,
+      "body_z_m": 0.28617018461227417,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0036278541665524244
+    },
+    {
+      "tick": 46,
+      "controller_updated": true,
+      "time_s": 0.23,
+      "body_z_m": 0.2846701741218567,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0035747764632105827
+    },
+    {
+      "tick": 47,
+      "controller_updated": true,
+      "time_s": 0.23500000000000001,
+      "body_z_m": 0.2831701636314392,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003528774483129382
+    },
+    {
+      "tick": 48,
+      "controller_updated": true,
+      "time_s": 0.24,
+      "body_z_m": 0.28167015314102173,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003479955717921257
+    },
+    {
+      "tick": 49,
+      "controller_updated": true,
+      "time_s": 0.245,
+      "body_z_m": 0.28017014265060425,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003432814497500658
+    },
+    {
+      "tick": 50,
+      "controller_updated": true,
+      "time_s": 0.25,
+      "body_z_m": 0.27867013216018677,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003385659074410796
+    },
+    {
+      "tick": 51,
+      "controller_updated": true,
+      "time_s": 0.255,
+      "body_z_m": 0.2771701216697693,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0033304686658084393
+    },
+    {
+      "tick": 52,
+      "controller_updated": true,
+      "time_s": 0.26,
+      "body_z_m": 0.2756701111793518,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0032697832211852074
+    },
+    {
+      "tick": 53,
+      "controller_updated": true,
+      "time_s": 0.265,
+      "body_z_m": 0.2741701006889343,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0032088812440633774
+    },
+    {
+      "tick": 54,
+      "controller_updated": true,
+      "time_s": 0.27,
+      "body_z_m": 0.27267009019851685,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003144884714856744
+    },
+    {
+      "tick": 55,
+      "controller_updated": true,
+      "time_s": 0.275,
+      "body_z_m": 0.27117007970809937,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003085605101659894
+    },
+    {
+      "tick": 56,
+      "controller_updated": true,
+      "time_s": 0.28,
+      "body_z_m": 0.2696700692176819,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003042440628632903
+    },
+    {
+      "tick": 57,
+      "controller_updated": true,
+      "time_s": 0.28500000000000003,
+      "body_z_m": 0.2681700587272644,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0030165542848408222
+    },
+    {
+      "tick": 58,
+      "controller_updated": true,
+      "time_s": 0.29,
+      "body_z_m": 0.2666700482368469,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029914972838014364
+    },
+    {
+      "tick": 59,
+      "controller_updated": true,
+      "time_s": 0.295,
+      "body_z_m": 0.26517003774642944,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029724512714892626
+    },
+    {
+      "tick": 60,
+      "controller_updated": true,
+      "time_s": 0.3,
+      "body_z_m": 0.26367002725601196,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002943707164376974
+    },
+    {
+      "tick": 61,
+      "controller_updated": true,
+      "time_s": 0.305,
+      "body_z_m": 0.2621700167655945,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002913158619776368
+    },
+    {
+      "tick": 62,
+      "controller_updated": true,
+      "time_s": 0.31,
+      "body_z_m": 0.260670006275177,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002879093633964658
+    },
+    {
+      "tick": 63,
+      "controller_updated": true,
+      "time_s": 0.315,
+      "body_z_m": 0.2591699957847595,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002844954375177622
+    },
+    {
+      "tick": 64,
+      "controller_updated": true,
+      "time_s": 0.32,
+      "body_z_m": 0.25766998529434204,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0028140824288129807
+    },
+    {
+      "tick": 65,
+      "controller_updated": true,
+      "time_s": 0.325,
+      "body_z_m": 0.25616997480392456,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027862254064530134
+    },
+    {
+      "tick": 66,
+      "controller_updated": true,
+      "time_s": 0.33,
+      "body_z_m": 0.2546699643135071,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002758367219939828
+    },
+    {
+      "tick": 67,
+      "controller_updated": true,
+      "time_s": 0.335,
+      "body_z_m": 0.2531699538230896,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002733798697590828
+    },
+    {
+      "tick": 68,
+      "controller_updated": true,
+      "time_s": 0.34,
+      "body_z_m": 0.2516699433326721,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002709760330617428
+    },
+    {
+      "tick": 69,
+      "controller_updated": true,
+      "time_s": 0.34500000000000003,
+      "body_z_m": 0.25016993284225464,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026859412901103497
+    },
+    {
+      "tick": 70,
+      "controller_updated": true,
+      "time_s": 0.35000000000000003,
+      "body_z_m": 0.24866992235183716,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026631446089595556
+    },
+    {
+      "tick": 71,
+      "controller_updated": true,
+      "time_s": 0.355,
+      "body_z_m": 0.24716991186141968,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002640936989337206
+    },
+    {
+      "tick": 72,
+      "controller_updated": true,
+      "time_s": 0.36,
+      "body_z_m": 0.2456699013710022,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026062403339892626
+    },
+    {
+      "tick": 73,
+      "controller_updated": true,
+      "time_s": 0.365,
+      "body_z_m": 0.24416989088058472,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0025680388789623976
+    },
+    {
+      "tick": 74,
+      "controller_updated": true,
+      "time_s": 0.37,
+      "body_z_m": 0.24266988039016724,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0025361990556120872
+    },
+    {
+      "tick": 75,
+      "controller_updated": true,
+      "time_s": 0.375,
+      "body_z_m": 0.24116986989974976,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0025101869832724333
+    },
+    {
+      "tick": 76,
+      "controller_updated": true,
+      "time_s": 0.38,
+      "body_z_m": 0.23966985940933228,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0024866985622793436
+    },
+    {
+      "tick": 77,
+      "controller_updated": true,
+      "time_s": 0.385,
+      "body_z_m": 0.2381698489189148,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0024680616334080696
+    },
+    {
+      "tick": 78,
+      "controller_updated": true,
+      "time_s": 0.39,
+      "body_z_m": 0.23666983842849731,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0024515544064342976
+    },
+    {
+      "tick": 79,
+      "controller_updated": true,
+      "time_s": 0.395,
+      "body_z_m": 0.23516982793807983,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002436842303723097
+    },
+    {
+      "tick": 80,
+      "controller_updated": true,
+      "time_s": 0.4,
+      "body_z_m": 0.23366981744766235,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002424299716949463
+    },
+    {
+      "tick": 81,
+      "controller_updated": true,
+      "time_s": 0.405,
+      "body_z_m": 0.23216980695724487,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002410606713965535
+    },
+    {
+      "tick": 82,
+      "controller_updated": true,
+      "time_s": 0.41000000000000003,
+      "body_z_m": 0.2306697964668274,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0023991523776203394
+    },
+    {
+      "tick": 83,
+      "controller_updated": true,
+      "time_s": 0.41500000000000004,
+      "body_z_m": 0.2291697859764099,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0023866191040724516
+    },
+    {
+      "tick": 84,
+      "controller_updated": true,
+      "time_s": 0.42,
+      "body_z_m": 0.22766977548599243,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0023745172657072544
+    },
+    {
+      "tick": 85,
+      "controller_updated": true,
+      "time_s": 0.425,
+      "body_z_m": 0.22616976499557495,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002361970953643322
+    },
+    {
+      "tick": 86,
+      "controller_updated": true,
+      "time_s": 0.43,
+      "body_z_m": 0.22466975450515747,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0023507215082645416
+    },
+    {
+      "tick": 87,
+      "controller_updated": true,
+      "time_s": 0.435,
+      "body_z_m": 0.22316974401474,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0023392934817820787
+    },
+    {
+      "tick": 88,
+      "controller_updated": true,
+      "time_s": 0.44,
+      "body_z_m": 0.2216697335243225,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002329265931621194
+    },
+    {
+      "tick": 89,
+      "controller_updated": true,
+      "time_s": 0.445,
+      "body_z_m": 0.22016972303390503,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002320958534255624
+    },
+    {
+      "tick": 90,
+      "controller_updated": true,
+      "time_s": 0.45,
+      "body_z_m": 0.21866971254348755,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0023128273896872997
+    },
+    {
+      "tick": 91,
+      "controller_updated": true,
+      "time_s": 0.455,
+      "body_z_m": 0.21716970205307007,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0023061116226017475
+    },
+    {
+      "tick": 92,
+      "controller_updated": true,
+      "time_s": 0.46,
+      "body_z_m": 0.2156696915626526,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0023002384696155787
+    },
+    {
+      "tick": 93,
+      "controller_updated": true,
+      "time_s": 0.465,
+      "body_z_m": 0.2141696810722351,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022948177065700293
+    },
+    {
+      "tick": 94,
+      "controller_updated": true,
+      "time_s": 0.47000000000000003,
+      "body_z_m": 0.21266967058181763,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002290495438501239
+    },
+    {
+      "tick": 95,
+      "controller_updated": true,
+      "time_s": 0.47500000000000003,
+      "body_z_m": 0.21116966009140015,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002286548027768731
+    },
+    {
+      "tick": 96,
+      "controller_updated": true,
+      "time_s": 0.48,
+      "body_z_m": 0.20966964960098267,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022834334522485733
+    },
+    {
+      "tick": 97,
+      "controller_updated": true,
+      "time_s": 0.485,
+      "body_z_m": 0.20816963911056519,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        -0.0004494129680097103,
+        6.847502663731575e-05,
+        0.25229451060295105
+      ],
+      "soil_force_z_n": 50.45890426635742,
+      "soil_min_z_m": 0.0022805086337029934
+    },
+    {
+      "tick": 98,
+      "controller_updated": true,
+      "time_s": 0.49,
+      "body_z_m": 0.2070118486881256,
+      "body_vz_m_s": -0.19049713015556335,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.00019799399888142943,
+        5.629484076052904e-05,
+        0.19721782207489014
+      ],
+      "soil_force_z_n": 39.443565368652344,
+      "soil_min_z_m": 0.0022788946516811848
+    },
+    {
+      "tick": 99,
+      "controller_updated": true,
+      "time_s": 0.495,
+      "body_z_m": 0.20621547102928162,
+      "body_vz_m_s": -0.1405445635318756,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 6.176808550357819,
+      "soil_impulse_n_s": [
+        2.2131716832518578e-06,
+        3.063597250729799e-05,
+        0.07625062018632889
+      ],
+      "soil_force_z_n": 15.250123977661133,
+      "soil_min_z_m": 0.0022774231620132923
+    },
+    {
+      "tick": 100,
+      "controller_updated": true,
+      "time_s": 0.5,
+      "body_z_m": 0.20545396208763123,
+      "body_vz_m_s": -0.15935572981834412,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -1.3160764431953424,
+      "soil_impulse_n_s": [
+        -0.00012968748342245817,
+        -2.6238500140607357e-05,
+        0.04065171629190445
+      ],
+      "soil_force_z_n": 8.130343437194824,
+      "soil_min_z_m": 0.0022760878782719374
+    },
+    {
+      "tick": 101,
+      "controller_updated": true,
+      "time_s": 0.505,
+      "body_z_m": 0.2045692503452301,
+      "body_vz_m_s": -0.1874944269657135,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 1.5055984997749334,
+      "soil_impulse_n_s": [
+        -2.5697838282212615e-05,
+        -1.0557996574789286e-05,
+        0.06621135771274567
+      ],
+      "soil_force_z_n": 13.242271423339844,
+      "soil_min_z_m": 0.0022749565541744232
+    },
+    {
+      "tick": 102,
+      "controller_updated": true,
+      "time_s": 0.51,
+      "body_z_m": 0.20360712707042694,
+      "body_vz_m_s": -0.19537976384162903,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 5.726403071880341,
+      "soil_impulse_n_s": [
+        8.44696769490838e-05,
+        5.5192853324115276e-05,
+        0.0986790582537651
+      ],
+      "soil_force_z_n": 19.735811233520508,
+      "soil_min_z_m": 0.002273957012221217
+    },
+    {
+      "tick": 103,
+      "controller_updated": true,
+      "time_s": 0.515,
+      "body_z_m": 0.20265762507915497,
+      "body_vz_m_s": -0.18660637736320496,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 6.909203603267672,
+      "soil_impulse_n_s": [
+        7.547839777544141e-05,
+        5.355034954845905e-05,
+        0.11037061363458633
+      ],
+      "soil_force_z_n": 22.07412338256836,
+      "soil_min_z_m": 0.00227320846170187
+    },
+    {
+      "tick": 104,
+      "controller_updated": true,
+      "time_s": 0.52,
+      "body_z_m": 0.20175893604755402,
+      "body_vz_m_s": -0.17561444640159607,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 5.593195631504059,
+      "soil_impulse_n_s": [
+        2.556020626798272e-05,
+        4.0668994188308716e-05,
+        0.10506036132574081
+      ],
+      "soil_force_z_n": 21.012073516845703,
+      "soil_min_z_m": 0.0022730212658643723
+    },
+    {
+      "tick": 105,
+      "controller_updated": true,
+      "time_s": 0.525,
+      "body_z_m": 0.20089684426784515,
+      "body_vz_m_s": -0.17050543427467346,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.9444059872627264,
+      "soil_impulse_n_s": [
+        -2.8881418984383345e-05,
+        1.0554911568760872e-05,
+        0.09849783778190613
+      ],
+      "soil_force_z_n": 19.699567794799805,
+      "soil_min_z_m": 0.002272659679874778
+    },
+    {
+      "tick": 106,
+      "controller_updated": true,
+      "time_s": 0.53,
+      "body_z_m": 0.20004619657993317,
+      "body_vz_m_s": -0.1699078381061554,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.1780541682243353,
+      "soil_impulse_n_s": [
+        -9.592011338099837e-06,
+        9.222771041095257e-06,
+        0.04426244646310806
+      ],
+      "soil_force_z_n": 8.852489471435547,
+      "soil_min_z_m": 0.002272283658385277
+    },
+    {
+      "tick": 107,
+      "controller_updated": true,
+      "time_s": 0.535,
+      "body_z_m": 0.19912435114383698,
+      "body_vz_m_s": -0.19304439425468445,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.0884147429466253,
+      "soil_impulse_n_s": [
+        -5.025232894695364e-06,
+        8.568247721996158e-06,
+        0.040054257959127426
+      ],
+      "soil_force_z_n": 8.010851860046387,
+      "soil_min_z_m": 0.002271931851282716
+    },
+    {
+      "tick": 108,
+      "controller_updated": true,
+      "time_s": 0.54,
+      "body_z_m": 0.19810466468334198,
+      "body_vz_m_s": -0.21047601103782654,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 6.558898165225983,
+      "soil_impulse_n_s": [
+        -2.7672838768921793e-05,
+        -3.4495024010539055e-06,
+        0.04889742657542229
+      ],
+      "soil_force_z_n": 9.779485702514648,
+      "soil_min_z_m": 0.002271671313792467
+    },
+    {
+      "tick": 109,
+      "controller_updated": true,
+      "time_s": 0.545,
+      "body_z_m": 0.1970275491476059,
+      "body_vz_m_s": -0.21839508414268494,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 9.173640682697298,
+      "soil_impulse_n_s": [
+        -2.301714448549319e-05,
+        4.417554009705782e-06,
+        0.04642956703901291
+      ],
+      "soil_force_z_n": 9.285913467407227,
+      "soil_min_z_m": 0.0022715802770107985
+    },
+    {
+      "tick": 110,
+      "controller_updated": true,
+      "time_s": 0.55,
+      "body_z_m": 0.19591553509235382,
+      "body_vz_m_s": -0.224807471036911,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 10.361501648426058,
+      "soil_impulse_n_s": [
+        -1.403610804118216e-05,
+        7.759372238069773e-06,
+        0.047210704535245895
+      ],
+      "soil_force_z_n": 9.44214153289795,
+      "soil_min_z_m": 0.0022711108904331923
+    },
+    {
+      "tick": 111,
+      "controller_updated": true,
+      "time_s": 0.555,
+      "body_z_m": 0.19477903842926025,
+      "body_vz_m_s": -0.22879347205162048,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 11.32335968255997,
+      "soil_impulse_n_s": [
+        -1.348491059616208e-05,
+        6.1838650253775995e-06,
+        0.0493960902094841
+      ],
+      "soil_force_z_n": 9.879218101501465,
+      "soil_min_z_m": 0.0022712373174726963
+    },
+    {
+      "tick": 112,
+      "controller_updated": true,
+      "time_s": 0.56,
+      "body_z_m": 0.19362962245941162,
+      "body_vz_m_s": -0.2305333912372589,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 11.92125983476639,
+      "soil_impulse_n_s": [
+        -1.0586954886093736e-05,
+        9.066759957931936e-06,
+        0.050080206245183945
+      ],
+      "soil_force_z_n": 10.01604175567627,
+      "soil_min_z_m": 0.002271302742883563
+    },
+    {
+      "tick": 113,
+      "controller_updated": true,
+      "time_s": 0.5650000000000001,
+      "body_z_m": 0.19247421622276306,
+      "body_vz_m_s": -0.23140999674797058,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 12.182247712612154,
+      "soil_impulse_n_s": [
+        -9.663926903158426e-06,
+        9.302020771428943e-06,
+        0.05119278281927109
+      ],
+      "soil_force_z_n": 10.238556861877441,
+      "soil_min_z_m": 0.00227129808627069
+    },
+    {
+      "tick": 114,
+      "controller_updated": true,
+      "time_s": 0.5700000000000001,
+      "body_z_m": 0.19131682813167572,
+      "body_vz_m_s": -0.23151835799217224,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 12.313738539218905,
+      "soil_impulse_n_s": [
+        -9.608600521460176e-06,
+        -4.369154794403585e-06,
+        0.052599020302295685
+      ],
+      "soil_force_z_n": 10.519804000854492,
+      "soil_min_z_m": 0.002271276665851474
+    },
+    {
+      "tick": 115,
+      "controller_updated": true,
+      "time_s": 0.5750000000000001,
+      "body_z_m": 0.19016091525554657,
+      "body_vz_m_s": -0.23098114132881165,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 12.329992725849154,
+      "soil_impulse_n_s": [
+        -1.0720075806602836e-05,
+        4.4257026274863165e-06,
+        0.054467666894197464
+      ],
+      "soil_force_z_n": 10.893533706665039,
+      "soil_min_z_m": 0.0022712312638759613
+    },
+    {
+      "tick": 116,
+      "controller_updated": true,
+      "time_s": 0.58,
+      "body_z_m": 0.1890096813440323,
+      "body_vz_m_s": -0.2298077642917633,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 12.249410226345065,
+      "soil_impulse_n_s": [
+        -1.2272153981029987e-05,
+        5.451845481729833e-06,
+        0.05644435063004494
+      ],
+      "soil_force_z_n": 11.288870811462402,
+      "soil_min_z_m": 0.0022711690980941057
+    },
+    {
+      "tick": 117,
+      "controller_updated": true,
+      "time_s": 0.585,
+      "body_z_m": 0.18786580860614777,
+      "body_vz_m_s": -0.2281583845615387,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 12.073403670787814,
+      "soil_impulse_n_s": [
+        2.9172864742577076e-05,
+        3.560236655175686e-05,
+        0.09531573951244354
+      ],
+      "soil_force_z_n": 19.063148498535156,
+      "soil_min_z_m": 0.0022711127530783415
+    },
+    {
+      "tick": 118,
+      "controller_updated": true,
+      "time_s": 0.59,
+      "body_z_m": 0.18678121268749237,
+      "body_vz_m_s": -0.21017464995384216,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 11.825996711254122,
+      "soil_impulse_n_s": [
+        4.542432725429535e-05,
+        4.560430534183979e-05,
+        0.12356549501419067
+      ],
+      "soil_force_z_n": 24.71310043334961,
+      "soil_min_z_m": 0.0022710233461111784
+    },
+    {
+      "tick": 119,
+      "controller_updated": true,
+      "time_s": 0.595,
+      "body_z_m": 0.18580655753612518,
+      "body_vz_m_s": -0.18578383326530457,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 9.128436520099642,
+      "soil_impulse_n_s": [
+        -2.062530256807804e-05,
+        3.003142774105072e-05,
+        0.1384727507829666
+      ],
+      "soil_force_z_n": 27.694551467895508,
+      "soil_min_z_m": 0.0022707709576934576
+    },
+    {
+      "tick": 120,
+      "controller_updated": true,
+      "time_s": 0.6,
+      "body_z_m": 0.18494926393032074,
+      "body_vz_m_s": -0.16286256909370422,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 5.469814016819001,
+      "soil_impulse_n_s": [
+        -2.9513612389564514e-06,
+        3.694649785757065e-05,
+        0.1506819874048233
+      ],
+      "soil_force_z_n": 30.136398315429688,
+      "soil_min_z_m": 0.002270486205816269
+    },
+    {
+      "tick": 121,
+      "controller_updated": true,
+      "time_s": 0.605,
+      "body_z_m": 0.18419981002807617,
+      "body_vz_m_s": -0.14210346341133118,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 2.0316243910789495,
+      "soil_impulse_n_s": [
+        7.992563769221306e-05,
+        6.789714097976685e-05,
+        0.1587691754102707
+      ],
+      "soil_force_z_n": 31.753835678100586,
+      "soil_min_z_m": 0.002270362339913845
+    },
+    {
+      "tick": 122,
+      "controller_updated": true,
+      "time_s": 0.61,
+      "body_z_m": 0.18354400992393494,
+      "body_vz_m_s": -0.12459185719490051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -1.0822414612770075,
+      "soil_impulse_n_s": [
+        1.4389166608452797e-05,
+        2.3564090952277184e-05,
+        0.14594930410385132
+      ],
+      "soil_force_z_n": 29.189861297607422,
+      "soil_min_z_m": 0.002270469442009926
+    },
+    {
+      "tick": 123,
+      "controller_updated": true,
+      "time_s": 0.615,
+      "body_z_m": 0.18294057250022888,
+      "body_vz_m_s": -0.11834481358528137,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -3.708982393741607,
+      "soil_impulse_n_s": [
+        -6.451830267906189e-05,
+        -1.118774525821209e-05,
+        0.15796902775764465
+      ],
+      "soil_force_z_n": 31.59380531311035,
+      "soil_min_z_m": 0.002270603319630027
+    },
+    {
+      "tick": 124,
+      "controller_updated": true,
+      "time_s": 0.62,
+      "body_z_m": 0.18237832188606262,
+      "body_vz_m_s": -0.10891440510749817,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -4.646038935184478,
+      "soil_impulse_n_s": [
+        1.4523975551128387e-06,
+        4.1915569454431534e-05,
+        0.16729700565338135
+      ],
+      "soil_force_z_n": 33.45940017700195,
+      "soil_min_z_m": 0.002270742319524288
+    },
+    {
+      "tick": 125,
+      "controller_updated": true,
+      "time_s": 0.625,
+      "body_z_m": 0.18186627328395844,
+      "body_vz_m_s": -0.09850519895553589,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -6.060600206851959,
+      "soil_impulse_n_s": [
+        9.47895459830761e-05,
+        0.00010531232692301273,
+        0.17211510241031647
+      ],
+      "soil_force_z_n": 34.42301940917969,
+      "soil_min_z_m": 0.0022708596661686897
+    },
+    {
+      "tick": 126,
+      "controller_updated": true,
+      "time_s": 0.63,
+      "body_z_m": 0.18140222132205963,
+      "body_vz_m_s": -0.08939322829246521,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -7.621981129646301,
+      "soil_impulse_n_s": [
+        0.0002470514737069607,
+        6.403494626283646e-05,
+        0.17742858827114105
+      ],
+      "soil_force_z_n": 35.4857177734375,
+      "soil_min_z_m": 0.002270894590765238
+    },
+    {
+      "tick": 127,
+      "controller_updated": true,
+      "time_s": 0.635,
+      "body_z_m": 0.18098166584968567,
+      "body_vz_m_s": -0.08094120025634766,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -8.988776729106903,
+      "soil_impulse_n_s": [
+        0.0002654662821441889,
+        0.00011771987192332745,
+        0.18125632405281067
+      ],
+      "soil_force_z_n": 36.25126647949219,
+      "soil_min_z_m": 0.002270882483571768
+    },
+    {
+      "tick": 128,
+      "controller_updated": true,
+      "time_s": 0.64,
+      "body_z_m": 0.18059997260570526,
+      "body_vz_m_s": -0.07357913255691528,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -10.256580934524536,
+      "soil_impulse_n_s": [
+        0.00021115969866514206,
+        0.00018130382522940636,
+        0.18327999114990234
+      ],
+      "soil_force_z_n": 36.65599822998047,
+      "soil_min_z_m": 0.002270787488669157
+    },
+    {
+      "tick": 129,
+      "controller_updated": true,
+      "time_s": 0.645,
+      "body_z_m": 0.18025033175945282,
+      "body_vz_m_s": -0.0677352249622345,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -11.360891089439392,
+      "soil_impulse_n_s": [
+        0.00015106354840099812,
+        0.00017295964062213898,
+        0.18431924283504486
+      ],
+      "soil_force_z_n": 36.86384963989258,
+      "soil_min_z_m": 0.002270767232403159
+    },
+    {
+      "tick": 130,
+      "controller_updated": true,
+      "time_s": 0.65,
+      "body_z_m": 0.1799253672361374,
+      "body_vz_m_s": -0.06334257125854492,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -12.23747722864151,
+      "soil_impulse_n_s": [
+        7.705693133175373e-05,
+        0.00012640352360904217,
+        0.18494640290737152
+      ],
+      "soil_force_z_n": 36.989280700683594,
+      "soil_min_z_m": 0.0022707399912178516
+    },
+    {
+      "tick": 131,
+      "controller_updated": true,
+      "time_s": 0.655,
+      "body_z_m": 0.17961876094341278,
+      "body_vz_m_s": -0.06010761857032776,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -12.896375284194946,
+      "soil_impulse_n_s": [
+        -7.42180272936821e-05,
+        7.270369678735733e-06,
+        0.18405844271183014
+      ],
+      "soil_force_z_n": 36.81168746948242,
+      "soil_min_z_m": 0.002270745113492012
+    },
+    {
+      "tick": 132,
+      "controller_updated": true,
+      "time_s": 0.66,
+      "body_z_m": 0.17932383716106415,
+      "body_vz_m_s": -0.0583111047744751,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -13.38161818742752,
+      "soil_impulse_n_s": [
+        -6.448733620345592e-05,
+        -1.4211982488632202e-06,
+        0.18416884541511536
+      ],
+      "soil_force_z_n": 36.833770751953125,
+      "soil_min_z_m": 0.002270760713145137
+    },
+    {
+      "tick": 133,
+      "controller_updated": true,
+      "time_s": 0.665,
+      "body_z_m": 0.1790362149477005,
+      "body_vz_m_s": -0.05705147981643677,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -13.65109525680542,
+      "soil_impulse_n_s": [
+        -6.774114444851875e-05,
+        -1.950073055922985e-05,
+        0.18449752032756805
+      ],
+      "soil_force_z_n": 36.899505615234375,
+      "soil_min_z_m": 0.0022707730531692505
+    },
+    {
+      "tick": 134,
+      "controller_updated": true,
+      "time_s": 0.67,
+      "body_z_m": 0.178754061460495,
+      "body_vz_m_s": -0.056059256196022034,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -13.840039000511169,
+      "soil_impulse_n_s": [
+        -7.743667811155319e-05,
+        -8.735363371670246e-05,
+        0.18749746680259705
+      ],
+      "soil_force_z_n": 37.49949264526367,
+      "soil_min_z_m": 0.002270757220685482
+    },
+    {
+      "tick": 135,
+      "controller_updated": true,
+      "time_s": 0.675,
+      "body_z_m": 0.17847992479801178,
+      "body_vz_m_s": -0.05408792197704315,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -13.988872543573379,
+      "soil_impulse_n_s": [
+        -0.0001588510349392891,
+        -0.00020593497902154922,
+        0.1905597448348999
+      ],
+      "soil_force_z_n": 38.1119499206543,
+      "soil_min_z_m": 0.0022707427851855755
+    },
+    {
+      "tick": 136,
+      "controller_updated": true,
+      "time_s": 0.68,
+      "body_z_m": 0.1782177984714508,
+      "body_vz_m_s": -0.051429226994514465,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.284572676420211,
+      "soil_impulse_n_s": [
+        -0.00022511091083288193,
+        -0.00028445618227124214,
+        0.19321338832378387
+      ],
+      "soil_force_z_n": 38.642677307128906,
+      "soil_min_z_m": 0.0022707334719598293
+    },
+    {
+      "tick": 137,
+      "controller_updated": true,
+      "time_s": 0.685,
+      "body_z_m": 0.17796985805034637,
+      "body_vz_m_s": -0.048484206199645996,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.683376923799514,
+      "soil_impulse_n_s": [
+        -0.00024641910567879677,
+        -0.0003054589033126831,
+        0.19533851742744446
+      ],
+      "soil_force_z_n": 39.06770324707031,
+      "soil_min_z_m": 0.0022707257885485888
+    },
+    {
+      "tick": 138,
+      "controller_updated": true,
+      "time_s": 0.6900000000000001,
+      "body_z_m": 0.1777365356683731,
+      "body_vz_m_s": -0.045575499534606934,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.125130043029785,
+      "soil_impulse_n_s": [
+        -0.00014622462913393974,
+        -0.000262286514043808,
+        0.19701892137527466
+      ],
+      "soil_force_z_n": 39.403785705566406,
+      "soil_min_z_m": 0.0022707106545567513
+    },
+    {
+      "tick": 139,
+      "controller_updated": true,
+      "time_s": 0.6950000000000001,
+      "body_z_m": 0.17751707136631012,
+      "body_vz_m_s": -0.04288429021835327,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.561436042785644,
+      "soil_impulse_n_s": [
+        -8.876249194145203e-05,
+        -0.000229603610932827,
+        0.19741785526275635
+      ],
+      "soil_force_z_n": 39.48357009887695,
+      "soil_min_z_m": 0.002270590513944626
+    },
+    {
+      "tick": 140,
+      "controller_updated": true,
+      "time_s": 0.7000000000000001,
+      "body_z_m": 0.1773088574409485,
+      "body_vz_m_s": -0.0408959686756134,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.965117440223693,
+      "soil_impulse_n_s": [
+        -7.94045627117157e-05,
+        -0.00021377205848693848,
+        0.19752241671085358
+      ],
+      "soil_force_z_n": 39.504486083984375,
+      "soil_min_z_m": 0.002270472003147006
+    },
+    {
+      "tick": 141,
+      "controller_updated": true,
+      "time_s": 0.705,
+      "body_z_m": 0.17710871994495392,
+      "body_vz_m_s": -0.03950950503349304,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.263365671634674,
+      "soil_impulse_n_s": [
+        -6.701890379190445e-05,
+        -0.00019263848662376404,
+        0.1976337730884552
+      ],
+      "soil_force_z_n": 39.526756286621094,
+      "soil_min_z_m": 0.0022704012226313353
+    },
+    {
+      "tick": 142,
+      "controller_updated": true,
+      "time_s": 0.71,
+      "body_z_m": 0.176914244890213,
+      "body_vz_m_s": -0.0385260283946991,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.471335217952728,
+      "soil_impulse_n_s": [
+        5.455082282423973e-05,
+        4.049716517329216e-05,
+        0.19932392239570618
+      ],
+      "soil_force_z_n": 39.864784240722656,
+      "soil_min_z_m": 0.0022703539580106735
+    },
+    {
+      "tick": 143,
+      "controller_updated": true,
+      "time_s": 0.715,
+      "body_z_m": 0.17672596871852875,
+      "body_vz_m_s": -0.03712913393974304,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.61885671377182,
+      "soil_impulse_n_s": [
+        0.00017735082656145096,
+        0.00023213867098093033,
+        0.20103448629379272
+      ],
+      "soil_force_z_n": 40.2068977355957,
+      "soil_min_z_m": 0.002270318102091551
+    },
+    {
+      "tick": 144,
+      "controller_updated": true,
+      "time_s": 0.72,
+      "body_z_m": 0.17654559016227722,
+      "body_vz_m_s": -0.03544451296329498,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.828390882015228,
+      "soil_impulse_n_s": [
+        0.00026053842157125473,
+        0.0003313077613711357,
+        0.2024652361869812
+      ],
+      "soil_force_z_n": 40.49304962158203,
+      "soil_min_z_m": 0.002270278986543417
+    },
+    {
+      "tick": 145,
+      "controller_updated": true,
+      "time_s": 0.725,
+      "body_z_m": 0.17637385427951813,
+      "body_vz_m_s": -0.03368730843067169,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -17.081084028482437,
+      "soil_impulse_n_s": [
+        0.00029880739748477936,
+        0.0003523589111864567,
+        0.20355269312858582
+      ],
+      "soil_force_z_n": 40.710540771484375,
+      "soil_min_z_m": 0.002270238474011421
+    },
+    {
+      "tick": 146,
+      "controller_updated": true,
+      "time_s": 0.73,
+      "body_z_m": 0.17621059715747833,
+      "body_vz_m_s": -0.0320301353931427,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -17.34466470837593,
+      "soil_impulse_n_s": [
+        0.0002663903869688511,
+        0.000365682877600193,
+        0.2043825387954712
+      ],
+      "soil_force_z_n": 40.87650680541992,
+      "soil_min_z_m": 0.0022702037822455168
+    },
+    {
+      "tick": 147,
+      "controller_updated": true,
+      "time_s": 0.735,
+      "body_z_m": 0.17605505883693695,
+      "body_vz_m_s": -0.030552223324775696,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -17.59324066400528,
+      "soil_impulse_n_s": [
+        0.00026820553466677666,
+        0.00029092608019709587,
+        0.20487459003925323
+      ],
+      "soil_force_z_n": 40.974918365478516,
+      "soil_min_z_m": 0.002270170021802187
+    },
+    {
+      "tick": 148,
+      "controller_updated": true,
+      "time_s": 0.74,
+      "body_z_m": 0.17590607702732086,
+      "body_vz_m_s": -0.029341839253902435,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -17.81492747426033,
+      "soil_impulse_n_s": [
+        0.00023378664627671242,
+        0.00013292115181684494,
+        0.2052808701992035
+      ],
+      "soil_force_z_n": 41.056175231933594,
+      "soil_min_z_m": 0.0022701474372297525
+    },
+    {
+      "tick": 149,
+      "controller_updated": true,
+      "time_s": 0.745,
+      "body_z_m": 0.17576245963573456,
+      "body_vz_m_s": -0.02834910899400711,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -17.99648508489132,
+      "soil_impulse_n_s": [
+        0.00015814043581485748,
+        0.0001350422389805317,
+        0.20529213547706604
+      ],
+      "soil_force_z_n": 41.05842971801758,
+      "soil_min_z_m": 0.0022700910922139883
+    },
+    {
+      "tick": 150,
+      "controller_updated": true,
+      "time_s": 0.75,
+      "body_z_m": 0.17562280595302582,
+      "body_vz_m_s": -0.02767464518547058,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -18.145394623875617,
+      "soil_impulse_n_s": [
+        0.00037008896470069885,
+        -0.00029113516211509705,
+        0.2061685174703598
+      ],
+      "soil_force_z_n": 41.23370361328125,
+      "soil_min_z_m": 0.0022700782865285873
+    },
+    {
+      "tick": 151,
+      "controller_updated": true,
+      "time_s": 0.755,
+      "body_z_m": 0.17548705637454987,
+      "body_vz_m_s": -0.02683936059474945,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -18.246564195156097,
+      "soil_impulse_n_s": [
+        0.00024296948686242104,
+        -0.0006105052307248116,
+        0.2085677683353424
+      ],
+      "soil_force_z_n": 41.71355438232422,
+      "soil_min_z_m": 0.0022700545378029346
+    },
+    {
+      "tick": 152,
+      "controller_updated": true,
+      "time_s": 0.76,
+      "body_z_m": 0.1753578782081604,
+      "body_vz_m_s": -0.025234632194042206,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -18.371856883764266,
+      "soil_impulse_n_s": [
+        9.974930435419083e-05,
+        -0.0007798257283866405,
+        0.21171516180038452
+      ],
+      "soil_force_z_n": 42.34303283691406,
+      "soil_min_z_m": 0.002270037541165948
+    },
+    {
+      "tick": 153,
+      "controller_updated": true,
+      "time_s": 0.765,
+      "body_z_m": 0.17523936927318573,
+      "body_vz_m_s": -0.022786252200603485,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -18.612566143870353,
+      "soil_impulse_n_s": [
+        3.514159470796585e-05,
+        -0.0008063884451985359,
+        0.21319124102592468
+      ],
+      "soil_force_z_n": 42.638248443603516,
+      "soil_min_z_m": 0.0022700359113514423
+    },
+    {
+      "tick": 154,
+      "controller_updated": true,
+      "time_s": 0.77,
+      "body_z_m": 0.175132617354393,
+      "body_vz_m_s": -0.020494163036346436,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -18.97982314288616,
+      "soil_impulse_n_s": [
+        9.146519005298615e-06,
+        -0.0007788124494254589,
+        0.21418829262256622
+      ],
+      "soil_force_z_n": 42.8376579284668,
+      "soil_min_z_m": 0.0022700487170368433
+    },
+    {
+      "tick": 155,
+      "controller_updated": true,
+      "time_s": 0.775,
+      "body_z_m": 0.17503632605075836,
+      "body_vz_m_s": -0.018515489995479584,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -19.32363651752472,
+      "soil_impulse_n_s": [
+        3.8286205381155014e-05,
+        -0.0006401697173714638,
+        0.2160675972700119
+      ],
+      "soil_force_z_n": 43.21352005004883,
+      "soil_min_z_m": 0.0022700594272464514
+    },
+    {
+      "tick": 156,
+      "controller_updated": true,
+      "time_s": 0.78,
+      "body_z_m": 0.1749504655599594,
+      "body_vz_m_s": -0.01636524498462677,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -19.620437473654746,
+      "soil_impulse_n_s": [
+        0.00016478030011057854,
+        -0.00044924020767211914,
+        0.2172556072473526
+      ],
+      "soil_force_z_n": 43.45112228393555,
+      "soil_min_z_m": 0.002270066412165761
+    },
+    {
+      "tick": 157,
+      "controller_updated": true,
+      "time_s": 0.785,
+      "body_z_m": 0.17487478256225586,
+      "body_vz_m_s": -0.014399315230548382,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -19.94297422528267,
+      "soil_impulse_n_s": [
+        0.0003305296413600445,
+        -0.00022003520280122757,
+        0.217863991856575
+      ],
+      "soil_force_z_n": 43.57279968261719,
+      "soil_min_z_m": 0.0022700722329318523
+    },
+    {
+      "tick": 158,
+      "controller_updated": true,
+      "time_s": 0.79,
+      "body_z_m": 0.17480774223804474,
+      "body_vz_m_s": -0.012809253297746181,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -20.237863688394427,
+      "soil_impulse_n_s": [
+        0.0005152258090674877,
+        0.00013390928506851196,
+        0.217989981174469
+      ],
+      "soil_force_z_n": 43.59799575805664,
+      "soil_min_z_m": 0.002270083175972104
+    },
+    {
+      "tick": 159,
+      "controller_updated": true,
+      "time_s": 0.795,
+      "body_z_m": 0.17474721372127533,
+      "body_vz_m_s": -0.011682122014462948,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -20.476372978314757,
+      "soil_impulse_n_s": [
+        0.00051508704200387,
+        0.0001814565621316433,
+        0.2180086374282837
+      ],
+      "soil_force_z_n": 43.60173034667969,
+      "soil_min_z_m": 0.002270058961585164
+    },
+    {
+      "tick": 160,
+      "controller_updated": true,
+      "time_s": 0.8,
+      "body_z_m": 0.17469118535518646,
+      "body_vz_m_s": -0.01091379951685667,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -20.645442670807242,
+      "soil_impulse_n_s": [
+        0.0004520225338637829,
+        0.00030149659141898155,
+        0.21792522072792053
+      ],
+      "soil_force_z_n": 43.585044860839844,
+      "soil_min_z_m": 0.0022700591944158077
+    },
+    {
+      "tick": 161,
+      "controller_updated": true,
+      "time_s": 0.805,
+      "body_z_m": 0.17518581449985504,
+      "body_vz_m_s": 0.16483011841773987,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 60.0,
+      "soil_impulse_n_s": [
+        4.438171163201332e-05,
+        0.0001750555820763111,
+        0.1765047162771225
+      ],
+      "soil_force_z_n": 35.30094528198242,
+      "soil_min_z_m": 0.0022700484842061996
+    },
+    {
+      "tick": 162,
+      "controller_updated": true,
+      "time_s": 0.81,
+      "body_z_m": 0.17638686299324036,
+      "body_vz_m_s": 0.2854386866092682,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 42.877721264362336,
+      "soil_impulse_n_s": [
+        0.0008942494168877602,
+        0.0007135276682674885,
+        0.13587552309036255
+      ],
+      "soil_force_z_n": 27.175106048583984,
+      "soil_min_z_m": 0.002270071767270565
+    },
+    {
+      "tick": 163,
+      "controller_updated": true,
+      "time_s": 0.8150000000000001,
+      "body_z_m": 0.1780131757259369,
+      "body_vz_m_s": 0.34915247559547424,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 24.786436035633088,
+      "soil_impulse_n_s": [
+        0.0008594968821853399,
+        0.0007752401288598776,
+        0.09158504009246826
+      ],
+      "soil_force_z_n": 18.31700897216797,
+      "soil_min_z_m": 0.002270101336762309
+    },
+    {
+      "tick": 164,
+      "controller_updated": true,
+      "time_s": 0.8200000000000001,
+      "body_z_m": 0.17983314394950867,
+      "body_vz_m_s": 0.3729027807712555,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 15.229367687702178,
+      "soil_impulse_n_s": [
+        0.00040323869325220585,
+        0.0004378750454634428,
+        0.04429703205823898
+      ],
+      "soil_force_z_n": 8.859406471252441,
+      "soil_min_z_m": 0.0022701236885041
+    },
+    {
+      "tick": 165,
+      "controller_updated": true,
+      "time_s": 0.8250000000000001,
+      "body_z_m": 0.18168357014656067,
+      "body_vz_m_s": 0.3683975040912628,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 11.66682191133499,
+      "soil_impulse_n_s": [
+        -0.0009788614697754383,
+        -0.000516552827320993,
+        0.003741118125617504
+      ],
+      "soil_force_z_n": 0.7482236623764038,
+      "soil_min_z_m": 0.002270161174237728
+    },
+    {
+      "tick": 166,
+      "controller_updated": true,
+      "time_s": 0.8300000000000001,
+      "body_z_m": 0.18346107006072998,
+      "body_vz_m_s": 0.34775641560554504,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 12.342613413333892,
+      "soil_impulse_n_s": [
+        -3.731477475100997e-13,
+        5.379774859100295e-13,
+        -9.07997288468465e-12
+      ],
+      "soil_force_z_n": -1.8159945769369301e-09,
+      "soil_min_z_m": 0.002270230557769537
+    },
+    {
+      "tick": 167,
+      "controller_updated": true,
+      "time_s": 0.835,
+      "body_z_m": 0.18515127897262573,
+      "body_vz_m_s": 0.3322106897830963,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 15.438776686191558,
+      "soil_impulse_n_s": [
+        -5.598096855866097e-13,
+        -5.348177548611735e-14,
+        4.826484698017275e-12
+      ],
+      "soil_force_z_n": 9.652969534812428e-10,
+      "soil_min_z_m": 0.0022702752612531185
+    },
+    {
+      "tick": 168,
+      "controller_updated": true,
+      "time_s": 0.84,
+      "body_z_m": 0.18677955865859985,
+      "body_vz_m_s": 0.32172539830207825,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 17.77063555955887,
+      "soil_impulse_n_s": [
+        -1.9843570044031367e-05,
+        -3.607948383432813e-05,
+        -2.7893309379578568e-05
+      ],
+      "soil_force_z_n": -0.0055786618031561375,
+      "soil_min_z_m": 0.002270348137244582
+    },
+    {
+      "tick": 169,
+      "controller_updated": true,
+      "time_s": 0.845,
+      "body_z_m": 0.18836605548858643,
+      "body_vz_m_s": 0.3146412670612335,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 19.34342928171158,
+      "soil_impulse_n_s": [
+        -0.0001092075472115539,
+        -0.00010069941345136613,
+        -0.00010497395123820752
+      ],
+      "soil_force_z_n": -0.02099478989839554,
+      "soil_min_z_m": 0.0022704009898006916
+    },
+    {
+      "tick": 170,
+      "controller_updated": true,
+      "time_s": 0.85,
+      "body_z_m": 0.1899242103099823,
+      "body_vz_m_s": 0.30982962250709534,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 20.406048967838288,
+      "soil_impulse_n_s": [
+        -0.0002124811289831996,
+        -0.00019191336468793452,
+        -0.00020303227938711643
+      ],
+      "soil_force_z_n": -0.040606457740068436,
+      "soil_min_z_m": 0.002270447090268135
+    },
+    {
+      "tick": 171,
+      "controller_updated": true,
+      "time_s": 0.855,
+      "body_z_m": 0.19146308302879333,
+      "body_vz_m_s": 0.30654171109199524,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 21.127795650959015,
+      "soil_impulse_n_s": [
+        -0.00019854732090607285,
+        -0.0001814596907934174,
+        -0.00019135826732963324
+      ],
+      "soil_force_z_n": -0.03827165439724922,
+      "soil_min_z_m": 0.0022704945877194405
+    },
+    {
+      "tick": 172,
+      "controller_updated": true,
+      "time_s": 0.86,
+      "body_z_m": 0.19298887252807617,
+      "body_vz_m_s": 0.30432918667793274,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 21.62098236322403,
+      "soil_impulse_n_s": [
+        -0.00018975873535964638,
+        -0.00017397504416294396,
+        -0.00018368604651186615
+      ],
+      "soil_force_z_n": -0.03673721104860306,
+      "soil_min_z_m": 0.0022705222945660353
+    },
+    {
+      "tick": 173,
+      "controller_updated": true,
+      "time_s": 0.865,
+      "body_z_m": 0.19450587034225464,
+      "body_vz_m_s": 0.3028402626514435,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 21.952861025333405,
+      "soil_impulse_n_s": [
+        -0.00019369828805793077,
+        -0.00017707400547806174,
+        -0.00018779248057398945
+      ],
+      "soil_force_z_n": -0.03755849599838257,
+      "soil_min_z_m": 0.0022705469746142626
+    },
+    {
+      "tick": 174,
+      "controller_updated": true,
+      "time_s": 0.87,
+      "body_z_m": 0.19601693749427795,
+      "body_vz_m_s": 0.3018341362476349,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.176199629306794,
+      "soil_impulse_n_s": [
+        -0.00019473869178909808,
+        -0.0001779174926923588,
+        -0.0001893022417789325
+      ],
+      "soil_force_z_n": -0.0378604494035244,
+      "soil_min_z_m": 0.0022705509327352047
+    },
+    {
+      "tick": 175,
+      "controller_updated": true,
+      "time_s": 0.875,
+      "body_z_m": 0.19752398133277893,
+      "body_vz_m_s": 0.30115488171577454,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.327118589878083,
+      "soil_impulse_n_s": [
+        -0.00019603600958362222,
+        -0.00017885389388538897,
+        -0.00019100309873465449
+      ],
+      "soil_force_z_n": -0.03820062056183815,
+      "soil_min_z_m": 0.0022705832961946726
+    },
+    {
+      "tick": 176,
+      "controller_updated": true,
+      "time_s": 0.88,
+      "body_z_m": 0.19902831315994263,
+      "body_vz_m_s": 0.3006960451602936,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.429006769657136,
+      "soil_impulse_n_s": [
+        -0.00019689396140165627,
+        -0.00017962249694392085,
+        -0.0001923959207488224
+      ],
+      "soil_force_z_n": -0.03847918659448624,
+      "soil_min_z_m": 0.0022706161253154278
+    },
+    {
+      "tick": 177,
+      "controller_updated": true,
+      "time_s": 0.885,
+      "body_z_m": 0.20053082704544067,
+      "body_vz_m_s": 0.300385981798172,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.49783225297928,
+      "soil_impulse_n_s": [
+        2.6059701813997693e-13,
+        -9.838718652722261e-14,
+        2.9091095851696558e-11
+      ],
+      "soil_force_z_n": 5.818219239728251e-09,
+      "soil_min_z_m": 0.0022706659510731697
+    },
+    {
+      "tick": 178,
+      "controller_updated": true,
+      "time_s": 0.89,
+      "body_z_m": 0.20203237235546112,
+      "body_vz_m_s": 0.3002603352069855,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.544341757297516,
+      "soil_impulse_n_s": [
+        5.688095394001946e-13,
+        1.5457796989030298e-13,
+        2.476370844495257e-11
+      ],
+      "soil_force_z_n": 4.952741772257241e-09,
+      "soil_min_z_m": 0.0022707246243953705
+    },
+    {
+      "tick": 179,
+      "controller_updated": true,
+      "time_s": 0.895,
+      "body_z_m": 0.20353341102600098,
+      "body_vz_m_s": 0.30017557740211487,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.563188745975495,
+      "soil_impulse_n_s": [
+        5.688095394001946e-13,
+        1.545777801549228e-13,
+        2.4763718853293426e-11
+      ],
+      "soil_force_z_n": 4.95274399270329e-09,
+      "soil_min_z_m": 0.002270768629387021
+    },
+    {
+      "tick": 180,
+      "controller_updated": true,
+      "time_s": 0.9,
+      "body_z_m": 0.20503410696983337,
+      "body_vz_m_s": 0.30011847615242004,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.575902416706086,
+      "soil_impulse_n_s": [
+        5.687370062748554e-13,
+        1.5457431070797084e-13,
+        2.4763758751933374e-11
+      ],
+      "soil_force_z_n": 4.9527519863090674e-09,
+      "soil_min_z_m": 0.0022707998286932707
+    },
+    {
+      "tick": 181,
+      "controller_updated": true,
+      "time_s": 0.905,
+      "body_z_m": 0.20653457939624786,
+      "body_vz_m_s": 0.3000798523426056,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.58446760416031,
+      "soil_impulse_n_s": [
+        5.68696945004582e-13,
+        1.5457271150976643e-13,
+        2.4763783038062037e-11
+      ],
+      "soil_force_z_n": 4.952756871290376e-09,
+      "soil_min_z_m": 0.0022708240430802107
+    },
+    {
+      "tick": 182,
+      "controller_updated": true,
+      "time_s": 0.91,
+      "body_z_m": 0.20803488790988922,
+      "body_vz_m_s": 0.3000538647174835,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.590261175632477,
+      "soil_impulse_n_s": [
+        5.686788388283015e-13,
+        1.5457196612077284e-13,
+        2.476379518112637e-11
+      ],
+      "soil_force_z_n": 4.952759091736425e-09,
+      "soil_min_z_m": 0.002270839875563979
+    },
+    {
+      "tick": 183,
+      "controller_updated": true,
+      "time_s": 0.915,
+      "body_z_m": 0.20953510701656342,
+      "body_vz_m_s": 0.30003634095191956,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.594159319400788,
+      "soil_impulse_n_s": [
+        5.714855672023234e-13,
+        -1.1356861902723364e-13,
+        1.3791154850062437e-11
+      ],
+      "soil_force_z_n": 2.7582309769513813e-09,
+      "soil_min_z_m": 0.0022708564065396786
+    },
+    {
+      "tick": 184,
+      "controller_updated": true,
+      "time_s": 0.92,
+      "body_z_m": 0.21103525161743164,
+      "body_vz_m_s": 0.30002453923225403,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.596787884235383,
+      "soil_impulse_n_s": [
+        1.3137188277327627e-13,
+        -4.265190698998951e-14,
+        4.199687039102562e-12
+      ],
+      "soil_force_z_n": 8.399374529233228e-10,
+      "soil_min_z_m": 0.0022709034383296967
+    },
+    {
+      "tick": 185,
+      "controller_updated": true,
+      "time_s": 0.925,
+      "body_z_m": 0.21253535151481628,
+      "body_vz_m_s": 0.3000165522098541,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.59855814218521,
+      "soil_impulse_n_s": [
+        1.3732398572885196e-16,
+        -1.4089606222017595e-18,
+        1.9830814770456485e-16
+      ],
+      "soil_force_z_n": 3.966162996442944e-14,
+      "soil_min_z_m": 0.0022709171753376722
+    },
+    {
+      "tick": 186,
+      "controller_updated": true,
+      "time_s": 0.93,
+      "body_z_m": 0.21403542160987854,
+      "body_vz_m_s": 0.30001118779182434,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.599756195545197,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022709378972649574
+    },
+    {
+      "tick": 187,
+      "controller_updated": true,
+      "time_s": 0.935,
+      "body_z_m": 0.2155354768037796,
+      "body_vz_m_s": 0.30000749230384827,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.600560858249665,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022709572222083807
+    },
+    {
+      "tick": 188,
+      "controller_updated": true,
+      "time_s": 0.9400000000000001,
+      "body_z_m": 0.21703548729419708,
+      "body_vz_m_s": 0.30000510811805725,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.601115181446076,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002270973287522793
+    },
+    {
+      "tick": 189,
+      "controller_updated": true,
+      "time_s": 0.9450000000000001,
+      "body_z_m": 0.21853549778461456,
+      "body_vz_m_s": 0.30000343918800354,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60147280931473,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022709909826517105
+    },
+    {
+      "tick": 190,
+      "controller_updated": true,
+      "time_s": 0.9500000000000001,
+      "body_z_m": 0.22003550827503204,
+      "body_vz_m_s": 0.3000023663043976,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.601723148822785,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271010773256421
+    },
+    {
+      "tick": 191,
+      "controller_updated": true,
+      "time_s": 0.9550000000000001,
+      "body_z_m": 0.22153551876544952,
+      "body_vz_m_s": 0.3000016510486603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60188408136368,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271030331030488
+    },
+    {
+      "tick": 192,
+      "controller_updated": true,
+      "time_s": 0.96,
+      "body_z_m": 0.223035529255867,
+      "body_vz_m_s": 0.3000010550022125,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.601991369724274,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710533812642097
+    },
+    {
+      "tick": 193,
+      "controller_updated": true,
+      "time_s": 0.965,
+      "body_z_m": 0.22453553974628448,
+      "body_vz_m_s": 0.30000069737434387,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602080776691437,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711402270942926
+    },
+    {
+      "tick": 194,
+      "controller_updated": true,
+      "time_s": 0.97,
+      "body_z_m": 0.22603555023670197,
+      "body_vz_m_s": 0.30000045895576477,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602134420871735,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711562924087048
+    },
+    {
+      "tick": 195,
+      "controller_updated": true,
+      "time_s": 0.975,
+      "body_z_m": 0.22753556072711945,
+      "body_vz_m_s": 0.3000003397464752,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6021701836586,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711569909006357
+    },
+    {
+      "tick": 196,
+      "controller_updated": true,
+      "time_s": 0.98,
+      "body_z_m": 0.22903557121753693,
+      "body_vz_m_s": 0.30000022053718567,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602188065052033,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271164208650589
+    },
+    {
+      "tick": 197,
+      "controller_updated": true,
+      "time_s": 0.985,
+      "body_z_m": 0.2305355817079544,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602205946445466,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271167701110244
+    },
+    {
+      "tick": 198,
+      "controller_updated": true,
+      "time_s": 0.99,
+      "body_z_m": 0.2320355921983719,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711765486747026
+    },
+    {
+      "tick": 199,
+      "controller_updated": true,
+      "time_s": 0.995,
+      "body_z_m": 0.23353560268878937,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271275268867612
+    },
+    {
+      "tick": 200,
+      "controller_updated": true,
+      "time_s": 1.0,
+      "body_z_m": 0.23503561317920685,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022713374346494675
+    },
+    {
+      "tick": 201,
+      "controller_updated": true,
+      "time_s": 1.0050000000000001,
+      "body_z_m": 0.23653562366962433,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022713288199156523
+    },
+    {
+      "tick": 202,
+      "controller_updated": true,
+      "time_s": 1.01,
+      "body_z_m": 0.2380356341600418,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00227132230065763
+    },
+    {
+      "tick": 203,
+      "controller_updated": true,
+      "time_s": 1.0150000000000001,
+      "body_z_m": 0.2395356446504593,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271312056109309
+    },
+    {
+      "tick": 204,
+      "controller_updated": true,
+      "time_s": 1.02,
+      "body_z_m": 0.24103565514087677,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022712983191013336
+    },
+    {
+      "tick": 205,
+      "controller_updated": true,
+      "time_s": 1.025,
+      "body_z_m": 0.24253566563129425,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271293429657817
+    },
+    {
+      "tick": 206,
+      "controller_updated": true,
+      "time_s": 1.03,
+      "body_z_m": 0.24403567612171173,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022712890058755875
+    },
+    {
+      "tick": 207,
+      "controller_updated": true,
+      "time_s": 1.035,
+      "body_z_m": 0.2455356866121292,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271227538585663
+    },
+    {
+      "tick": 208,
+      "controller_updated": true,
+      "time_s": 1.04,
+      "body_z_m": 0.2470356971025467,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022712238132953644
+    },
+    {
+      "tick": 209,
+      "controller_updated": true,
+      "time_s": 1.045,
+      "body_z_m": 0.24853570759296417,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022712289355695248
+    },
+    {
+      "tick": 210,
+      "controller_updated": true,
+      "time_s": 1.05,
+      "body_z_m": 0.25003570318222046,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271240809932351
+    },
+    {
+      "tick": 211,
+      "controller_updated": true,
+      "time_s": 1.055,
+      "body_z_m": 0.25153571367263794,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710494231432676
+    },
+    {
+      "tick": 212,
+      "controller_updated": true,
+      "time_s": 1.06,
+      "body_z_m": 0.2530357241630554,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710447665303946
+    },
+    {
+      "tick": 213,
+      "controller_updated": true,
+      "time_s": 1.065,
+      "body_z_m": 0.2545357346534729,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710503544658422
+    },
+    {
+      "tick": 214,
+      "controller_updated": true,
+      "time_s": 1.07,
+      "body_z_m": 0.2560357451438904,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022709204349666834
+    },
+    {
+      "tick": 215,
+      "controller_updated": true,
+      "time_s": 1.075,
+      "body_z_m": 0.25753575563430786,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022709209006279707
+    },
+    {
+      "tick": 216,
+      "controller_updated": true,
+      "time_s": 1.08,
+      "body_z_m": 0.25903576612472534,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002270919969305396
+    },
+    {
+      "tick": 217,
+      "controller_updated": true,
+      "time_s": 1.085,
+      "body_z_m": 0.2605357766151428,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271000063046813
+    },
+    {
+      "tick": 218,
+      "controller_updated": true,
+      "time_s": 1.09,
+      "body_z_m": 0.2620357871055603,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711839992552996
+    },
+    {
+      "tick": 219,
+      "controller_updated": true,
+      "time_s": 1.095,
+      "body_z_m": 0.2635357975959778,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711181081831455
+    },
+    {
+      "tick": 220,
+      "controller_updated": true,
+      "time_s": 1.1,
+      "body_z_m": 0.26503580808639526,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711290512233973
+    },
+    {
+      "tick": 221,
+      "controller_updated": true,
+      "time_s": 1.105,
+      "body_z_m": 0.26653581857681274,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271137898787856
+    },
+    {
+      "tick": 222,
+      "controller_updated": true,
+      "time_s": 1.11,
+      "body_z_m": 0.2680358290672302,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271154196932912
+    },
+    {
+      "tick": 223,
+      "controller_updated": true,
+      "time_s": 1.115,
+      "body_z_m": 0.2695358395576477,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711518686264753
+    },
+    {
+      "tick": 224,
+      "controller_updated": true,
+      "time_s": 1.12,
+      "body_z_m": 0.2710358500480652,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271139994263649
+    },
+    {
+      "tick": 225,
+      "controller_updated": true,
+      "time_s": 1.125,
+      "body_z_m": 0.27253586053848267,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271148841828108
+    },
+    {
+      "tick": 226,
+      "controller_updated": true,
+      "time_s": 1.1300000000000001,
+      "body_z_m": 0.27403587102890015,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271039877086878
+    },
+    {
+      "tick": 227,
+      "controller_updated": true,
+      "time_s": 1.135,
+      "body_z_m": 0.2755358815193176,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710314951837063
+    },
+    {
+      "tick": 228,
+      "controller_updated": true,
+      "time_s": 1.1400000000000001,
+      "body_z_m": 0.2770358920097351,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271033823490143
+    },
+    {
+      "tick": 229,
+      "controller_updated": true,
+      "time_s": 1.145,
+      "body_z_m": 0.2785359025001526,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710408084094524
+    },
+    {
+      "tick": 230,
+      "controller_updated": true,
+      "time_s": 1.1500000000000001,
+      "body_z_m": 0.28003591299057007,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710494231432676
+    },
+    {
+      "tick": 231,
+      "controller_updated": true,
+      "time_s": 1.155,
+      "body_z_m": 0.28153592348098755,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271063160151243
+    },
+    {
+      "tick": 232,
+      "controller_updated": true,
+      "time_s": 1.16,
+      "body_z_m": 0.28303593397140503,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022709721233695745
+    },
+    {
+      "tick": 233,
+      "controller_updated": true,
+      "time_s": 1.165,
+      "body_z_m": 0.2845359444618225,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022709742188453674
+    },
+    {
+      "tick": 234,
+      "controller_updated": true,
+      "time_s": 1.17,
+      "body_z_m": 0.28603595495224,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710140328854322
+    },
+    {
+      "tick": 235,
+      "controller_updated": true,
+      "time_s": 1.175,
+      "body_z_m": 0.28753596544265747,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00227114325389266
+    },
+    {
+      "tick": 236,
+      "controller_updated": true,
+      "time_s": 1.18,
+      "body_z_m": 0.28903597593307495,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271161414682865
+    },
+    {
+      "tick": 237,
+      "controller_updated": true,
+      "time_s": 1.185,
+      "body_z_m": 0.29053598642349243,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710715420544147
+    },
+    {
+      "tick": 238,
+      "controller_updated": true,
+      "time_s": 1.19,
+      "body_z_m": 0.2920359969139099,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022710771299898624
+    },
+    {
+      "tick": 239,
+      "controller_updated": true,
+      "time_s": 1.195,
+      "body_z_m": 0.2935360074043274,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002271087607368827
+    },
+    {
+      "tick": 240,
+      "controller_updated": true,
+      "time_s": 1.2,
+      "body_z_m": 0.2950360178947449,
+      "body_vz_m_s": 0.3000001013278961,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6022238278389,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0022711078636348248
+    }
+  ]
+}
