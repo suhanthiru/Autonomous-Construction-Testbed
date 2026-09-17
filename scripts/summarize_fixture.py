@@ -1,9 +1,10 @@
 """Summarize fixture records without importing the physics engine."""
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
+
+from excavation_sim.provenance import fingerprint
 
 
 def summarize(path: Path) -> dict:
@@ -13,7 +14,7 @@ def summarize(path: Path) -> dict:
     dt = run["dt_s"]
     return {
         "file": path.name,
-        "sha256": hashlib.sha256(raw).hexdigest(),
+        "canonical_json_sha256": fingerprint(run),
         "source_sha256": run["source"]["source_sha256"],
         "dt_s": dt,
         "duration_s": rows[-1]["time_s"],

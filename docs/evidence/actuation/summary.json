@@ -1,7 +1,7 @@
 [
   {
     "file": "soil-5ms-record.json",
-    "sha256": "042ffb299045d251a6ff720f97d9e36c26441c46f76cdd942ee99beeb4b89544",
+    "canonical_json_sha256": "a1d49a79127eeb9b759081157b62f61f40ae684acb384b80e58f9cb835630460",
     "source_sha256": "0e00cf762d7b959ba738c670c3e7d8756e1c820c4c2f1dcff6d60c01256094dd",
     "dt_s": 0.005,
     "duration_s": 1.2,
@@ -17,7 +17,7 @@
   },
   {
     "file": "soil-2p5ms-record.json",
-    "sha256": "15cc8f47b16f455f1c781e7fbaa59c71d429aff913a72f2ff51dd138d423e818",
+    "canonical_json_sha256": "b69912fd767ec4210cfe6742919fc3b3cd29830a03e76999fc71184367eae5f6",
     "source_sha256": "0e00cf762d7b959ba738c670c3e7d8756e1c820c4c2f1dcff6d60c01256094dd",
     "dt_s": 0.0025,
     "duration_s": 1.2,
@@ -33,7 +33,7 @@
   },
   {
     "file": "empty-5ms-record.json",
-    "sha256": "474e41542317f909b9bca2ee8364e85a2c7ad9266e8cab72c847993e0f2e62c5",
+    "canonical_json_sha256": "b560a0dda9c5634ae266c87acb5ea99eaa7a9f7d95f62b7a4b7319e78928af92",
     "source_sha256": "0e00cf762d7b959ba738c670c3e7d8756e1c820c4c2f1dcff6d60c01256094dd",
     "dt_s": 0.005,
     "duration_s": 1.2,
