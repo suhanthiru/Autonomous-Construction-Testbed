@@ -10,6 +10,8 @@ Early implementation: core contracts, episode recording, runtime diagnostics, an
 An isolated GPU rigid-body/soil fixture runs with an empty-bed control; see the
 [measured feasibility results](docs/COUPLING_FEASIBILITY.md). Physical validation has not
 been performed. The full excavator and learning benchmarks are not implemented yet.
+The [force-limited penetration check](docs/ACTUATION_CHECK.md) records actuator and
+soil forces; its timestep study exposes unresolved peak-force sensitivity.
 
 ## Development setup
 

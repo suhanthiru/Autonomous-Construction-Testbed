@@ -1,0 +1,7253 @@
+{
+  "purpose": "rigid/MPM coupling feasibility; not physical validation",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "excavation-sim": "0.1.0.dev0",
+      "newton": "1.6.0",
+      "warp-lang": "1.17.0",
+      "numpy": "2.5.3"
+    }
+  },
+  "source": {
+    "revision": "eb4b15132fc7c7dd13dee3949f8e68d4b8f3f3be",
+    "working_tree_status": "M scripts/check_soil_coupling.py\n?? scripts/summarize_fixture.py\n?? src/excavation_sim/actuation.py\n?? tests/test_actuation.py",
+    "source_sha256": "0e00cf762d7b959ba738c670c3e7d8756e1c820c4c2f1dcff6d60c01256094dd",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "c5eb2e8c11e45102ed5ba613d5288fd2c2960b4e9053d683dd9711e51b5499bb",
+      "src/excavation_sim/cli.py": "c5a651562cd815e8c175694a09bf31494f667fbf5c8577f998f258008ebeafb3",
+      "src/excavation_sim/core.py": "b9bc9dd34724a5b994ccff0a4a05b20781daa17abad57efd3fca06dc22c2a720",
+      "src/excavation_sim/provenance.py": "d2134865b20d58c69e0e88ebeebb38558b43088bbc4fc280b5d0f140670c1ac1",
+      "src/excavation_sim/recording.py": "20823ce1d1f348327335caf712b2997a68d2c0a87820a638bbeec379fa91ab40",
+      "src/excavation_sim.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/excavation_sim.egg-info/entry_points.txt": "aab55348f36cc81c5d3b796fbe0408e6ba5e7f2a58ee260b9f051fa0db5e2e63",
+      "src/excavation_sim.egg-info/PKG-INFO": "cd901c0bcf2f56ed5f94adb21f368bf39b3decaacb906fc0281d6b8c01c2e49c",
+      "src/excavation_sim.egg-info/requires.txt": "34c31a1635f308155cf05b136c05077626f75af0ae24721b873072709e657c3a",
+      "src/excavation_sim.egg-info/SOURCES.txt": "a3a4a4a632e927ac257d6c2182f538a0416a33987be0718f37c6d5f0c507dbd1",
+      "src/excavation_sim.egg-info/top_level.txt": "52057b8c6b57495daa2173c1d1074e75811ccedf186cfe27e1c647d316d24d13",
+      "scripts/check_soil_coupling.py": "e06e4318676549223bc153c64caca8ab1e895d4efec11151aeb281af4f3e2acd",
+      "scripts/summarize_fixture.py": "e13f2e1cc4eb9938527020a77b9ab09b288351d31856cc8f006759c43c75383a",
+      "pyproject.toml": "174cc4699049ab710dde8daaf44f10252b0ff27798f7b2ac9505e31388f570f9"
+    }
+  },
+  "source_changed_during_run": false,
+  "initial_body_z_m": 0.35,
+  "device": "cuda:0",
+  "dt_s": 0.0025,
+  "with_soil": true,
+  "drive": true,
+  "servo": {
+    "gain_n_s_m": 150.0,
+    "force_limit_n": 60.0,
+    "velocity_m_s": 0.3,
+    "reverse_time_s": 0.8
+  },
+  "steps": 480,
+  "particle_count": 4000,
+  "initial_soil_mass_kg": 51.199989318847656,
+  "body_mass_kg": 2.303999900817871,
+  "trajectory": [
+    {
+      "tick": 1,
+      "time_s": 0.0025,
+      "body_z_m": 0.349923700094223,
+      "body_vz_m_s": -0.048828125,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -22.397760972976684,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009993929415941238
+    },
+    {
+      "tick": 2,
+      "time_s": 0.005,
+      "body_z_m": 0.3497377634048462,
+      "body_vz_m_s": -0.08970896154642105,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.073542222976684,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009983259253203869
+    },
+    {
+      "tick": 3,
+      "time_s": 0.0075,
+      "body_z_m": 0.34946000576019287,
+      "body_vz_m_s": -0.1239360049366951,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -8.941416741013526,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009967555291950703
+    },
+    {
+      "tick": 4,
+      "time_s": 0.01,
+      "body_z_m": 0.3491053879261017,
+      "body_vz_m_s": -0.1525922566652298,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -3.807360232472419,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009947726503014565
+    },
+    {
+      "tick": 5,
+      "time_s": 0.0125,
+      "body_z_m": 0.34868642687797546,
+      "body_vz_m_s": -0.1765843778848648,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 0.4910775268077856,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009924025274813175
+    },
+    {
+      "tick": 6,
+      "time_s": 0.015,
+      "body_z_m": 0.3482135534286499,
+      "body_vz_m_s": -0.19667156040668488,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.089895709753037,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009896489791572094
+    },
+    {
+      "tick": 7,
+      "time_s": 0.0175,
+      "body_z_m": 0.34769558906555176,
+      "body_vz_m_s": -0.21348936855793,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 7.102973088026049,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009865328669548035
+    },
+    {
+      "tick": 8,
+      "time_s": 0.02,
+      "body_z_m": 0.3471398651599884,
+      "body_vz_m_s": -0.22756989300251007,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 9.625644310712817,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009830132126808167
+    },
+    {
+      "tick": 9,
+      "time_s": 0.0225,
+      "body_z_m": 0.3465525209903717,
+      "body_vz_m_s": -0.23935861885547638,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 11.737722977399828,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00979224406182766
+    },
+    {
+      "tick": 10,
+      "time_s": 0.025,
+      "body_z_m": 0.34593871235847473,
+      "body_vz_m_s": -0.2492286115884781,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 13.506031855344775,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009750908240675926
+    },
+    {
+      "tick": 11,
+      "time_s": 0.0275,
+      "body_z_m": 0.3453027307987213,
+      "body_vz_m_s": -0.25749218463897705,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 14.986530765295031,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009705976583063602
+    },
+    {
+      "tick": 12,
+      "time_s": 0.03,
+      "body_z_m": 0.34464818239212036,
+      "body_vz_m_s": -0.26441073417663574,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 16.226066722869874,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009657672606408596
+    },
+    {
+      "tick": 13,
+      "time_s": 0.0325,
+      "body_z_m": 0.3439781069755554,
+      "body_vz_m_s": -0.27020323276519775,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 17.263849153518677,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00960827898234129
+    },
+    {
+      "tick": 14,
+      "time_s": 0.035,
+      "body_z_m": 0.34329503774642944,
+      "body_vz_m_s": -0.2750530242919922,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 18.13272394180298,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009556515142321587
+    },
+    {
+      "tick": 15,
+      "time_s": 0.0375,
+      "body_z_m": 0.34260106086730957,
+      "body_vz_m_s": -0.27911341190338135,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 18.860192670822144,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009501731023192406
+    },
+    {
+      "tick": 16,
+      "time_s": 0.04,
+      "body_z_m": 0.34189796447753906,
+      "body_vz_m_s": -0.282512903213501,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 19.469250812530518,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009445366449654102
+    },
+    {
+      "tick": 17,
+      "time_s": 0.0425,
+      "body_z_m": 0.3411872386932373,
+      "body_vz_m_s": -0.28535914421081543,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 19.979174509048462,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009386951103806496
+    },
+    {
+      "tick": 18,
+      "time_s": 0.045,
+      "body_z_m": 0.3404701352119446,
+      "body_vz_m_s": -0.28774213790893555,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 20.40611065864563,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00932656042277813
+    },
+    {
+      "tick": 19,
+      "time_s": 0.0475,
+      "body_z_m": 0.33974766731262207,
+      "body_vz_m_s": -0.2897372245788574,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 20.763559713363648,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009264305233955383
+    },
+    {
+      "tick": 20,
+      "time_s": 0.05,
+      "body_z_m": 0.339020699262619,
+      "body_vz_m_s": -0.29140758514404297,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.06282271385193,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009199445135891438
+    },
+    {
+      "tick": 21,
+      "time_s": 0.0525,
+      "body_z_m": 0.3382899761199951,
+      "body_vz_m_s": -0.29280614852905273,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.31337679862976,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009133518673479557
+    },
+    {
+      "tick": 22,
+      "time_s": 0.055,
+      "body_z_m": 0.3375561237335205,
+      "body_vz_m_s": -0.2939770221710205,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.523161306381226,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.009065557271242142
+    },
+    {
+      "tick": 23,
+      "time_s": 0.0575,
+      "body_z_m": 0.3368196487426758,
+      "body_vz_m_s": -0.2949572801589966,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.698792352676392,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008994144387543201
+    },
+    {
+      "tick": 24,
+      "time_s": 0.06,
+      "body_z_m": 0.33608096837997437,
+      "body_vz_m_s": -0.2957780361175537,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.845831050872803,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00892148818820715
+    },
+    {
+      "tick": 25,
+      "time_s": 0.0625,
+      "body_z_m": 0.3353404402732849,
+      "body_vz_m_s": -0.2964651584625244,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.968944444656373,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008846104145050049
+    },
+    {
+      "tick": 26,
+      "time_s": 0.065,
+      "body_z_m": 0.3345984220504761,
+      "body_vz_m_s": -0.2970404624938965,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.072012796401978,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00877018366008997
+    },
+    {
+      "tick": 27,
+      "time_s": 0.0675,
+      "body_z_m": 0.3338550925254822,
+      "body_vz_m_s": -0.2975221872329712,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.15830840110779,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008693412877619267
+    },
+    {
+      "tick": 28,
+      "time_s": 0.07,
+      "body_z_m": 0.33311063051223755,
+      "body_vz_m_s": -0.2979254722595215,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.230567111968995,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008615612983703613
+    },
+    {
+      "tick": 29,
+      "time_s": 0.0725,
+      "body_z_m": 0.3323653042316437,
+      "body_vz_m_s": -0.2982630729675293,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.29105986595154,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00853633601218462
+    },
+    {
+      "tick": 30,
+      "time_s": 0.075,
+      "body_z_m": 0.3316192030906677,
+      "body_vz_m_s": -0.2985457181930542,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.34169997215271,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008455888368189335
+    },
+    {
+      "tick": 31,
+      "time_s": 0.0775,
+      "body_z_m": 0.33087247610092163,
+      "body_vz_m_s": -0.29878246784210205,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.384096755981446,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008375582285225391
+    },
+    {
+      "tick": 32,
+      "time_s": 0.08,
+      "body_z_m": 0.33012521266937256,
+      "body_vz_m_s": -0.29898059368133545,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.419609203338624,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008294643834233284
+    },
+    {
+      "tick": 33,
+      "time_s": 0.0825,
+      "body_z_m": 0.3293774724006653,
+      "body_vz_m_s": -0.29914653301239014,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.449328079223633,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008212707936763763
+    },
+    {
+      "tick": 34,
+      "time_s": 0.085,
+      "body_z_m": 0.32862940430641174,
+      "body_vz_m_s": -0.2992854118347168,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.474218978881837,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008134322240948677
+    },
+    {
+      "tick": 35,
+      "time_s": 0.08750000000000001,
+      "body_z_m": 0.32788100838661194,
+      "body_vz_m_s": -0.29940176010131836,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.495050802230836,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.008057508617639542
+    },
+    {
+      "tick": 36,
+      "time_s": 0.09,
+      "body_z_m": 0.32713237404823303,
+      "body_vz_m_s": -0.29949915409088135,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.51250304222107,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007981841452419758
+    },
+    {
+      "tick": 37,
+      "time_s": 0.0925,
+      "body_z_m": 0.326383501291275,
+      "body_vz_m_s": -0.2995806932449341,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.527112140655518,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007905717939138412
+    },
+    {
+      "tick": 38,
+      "time_s": 0.095,
+      "body_z_m": 0.3256344497203827,
+      "body_vz_m_s": -0.2996490001678467,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.53934301376343,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007828275673091412
+    },
+    {
+      "tick": 39,
+      "time_s": 0.0975,
+      "body_z_m": 0.3248852491378784,
+      "body_vz_m_s": -0.2997061014175415,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.549589052200318,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007751769851893187
+    },
+    {
+      "tick": 40,
+      "time_s": 0.1,
+      "body_z_m": 0.3241358995437622,
+      "body_vz_m_s": -0.29975390434265137,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.55815423965454,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007675873581320047
+    },
+    {
+      "tick": 41,
+      "time_s": 0.10250000000000001,
+      "body_z_m": 0.32338643074035645,
+      "body_vz_m_s": -0.29979395866394043,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.56532467842102,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007599776145070791
+    },
+    {
+      "tick": 42,
+      "time_s": 0.105,
+      "body_z_m": 0.3226369023323059,
+      "body_vz_m_s": -0.2998274564743042,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.57133282661438,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007524343207478523
+    },
+    {
+      "tick": 43,
+      "time_s": 0.1075,
+      "body_z_m": 0.3218873143196106,
+      "body_vz_m_s": -0.2998555898666382,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.576357498168946,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007455849554389715
+    },
+    {
+      "tick": 44,
+      "time_s": 0.11,
+      "body_z_m": 0.32113760709762573,
+      "body_vz_m_s": -0.2998790740966797,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.580577507019044,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007374848239123821
+    },
+    {
+      "tick": 45,
+      "time_s": 0.1125,
+      "body_z_m": 0.32038789987564087,
+      "body_vz_m_s": -0.29989874362945557,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.58410014152527,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007289651315659285
+    },
+    {
+      "tick": 46,
+      "time_s": 0.115,
+      "body_z_m": 0.31963810324668884,
+      "body_vz_m_s": -0.2999151945114136,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.58705057144165,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007204166613519192
+    },
+    {
+      "tick": 47,
+      "time_s": 0.11750000000000001,
+      "body_z_m": 0.31888827681541443,
+      "body_vz_m_s": -0.29992902278900146,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.589518203735352,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007121877279132605
+    },
+    {
+      "tick": 48,
+      "time_s": 0.12,
+      "body_z_m": 0.31813845038414,
+      "body_vz_m_s": -0.2999405860900879,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.591592445373536,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.007043030112981796
+    },
+    {
+      "tick": 49,
+      "time_s": 0.1225,
+      "body_z_m": 0.3173886239528656,
+      "body_vz_m_s": -0.2999502420425415,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.5933269405365,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006966291926801205
+    },
+    {
+      "tick": 50,
+      "time_s": 0.125,
+      "body_z_m": 0.3166387379169464,
+      "body_vz_m_s": -0.29995834827423096,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59477533340454,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006890879478305578
+    },
+    {
+      "tick": 51,
+      "time_s": 0.1275,
+      "body_z_m": 0.31588879227638245,
+      "body_vz_m_s": -0.29996514320373535,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59599126815796,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0068152123130857944
+    },
+    {
+      "tick": 52,
+      "time_s": 0.13,
+      "body_z_m": 0.3151388466358185,
+      "body_vz_m_s": -0.2999708652496338,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59701050758362,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006742116995155811
+    },
+    {
+      "tick": 53,
+      "time_s": 0.1325,
+      "body_z_m": 0.3143889009952545,
+      "body_vz_m_s": -0.2999756336212158,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.597868814468384,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006672258488833904
+    },
+    {
+      "tick": 54,
+      "time_s": 0.135,
+      "body_z_m": 0.31363895535469055,
+      "body_vz_m_s": -0.299979567527771,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59858407020569,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0066033597104251385
+    },
+    {
+      "tick": 55,
+      "time_s": 0.1375,
+      "body_z_m": 0.3128890097141266,
+      "body_vz_m_s": -0.2999829053878784,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.599174156188965,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006535444408655167
+    },
+    {
+      "tick": 56,
+      "time_s": 0.14,
+      "body_z_m": 0.3121390640735626,
+      "body_vz_m_s": -0.2999856472015381,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59967483520508,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00647083530202508
+    },
+    {
+      "tick": 57,
+      "time_s": 0.14250000000000002,
+      "body_z_m": 0.31138911843299866,
+      "body_vz_m_s": -0.2999880313873291,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60008610725403,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006407871842384338
+    },
+    {
+      "tick": 58,
+      "time_s": 0.145,
+      "body_z_m": 0.3106391727924347,
+      "body_vz_m_s": -0.2999899387359619,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60044373512268,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006348409224301577
+    },
+    {
+      "tick": 59,
+      "time_s": 0.1475,
+      "body_z_m": 0.3098892271518707,
+      "body_vz_m_s": -0.2999916076660156,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.600729837417603,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.006286864168941975
+    },
+    {
+      "tick": 60,
+      "time_s": 0.15,
+      "body_z_m": 0.30913928151130676,
+      "body_vz_m_s": -0.2999929189682007,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60098017692566,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0062146857380867004
+    },
+    {
+      "tick": 61,
+      "time_s": 0.1525,
+      "body_z_m": 0.3083893358707428,
+      "body_vz_m_s": -0.2999941110610962,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60117687225342,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0061345030553638935
+    },
+    {
+      "tick": 62,
+      "time_s": 0.155,
+      "body_z_m": 0.30763939023017883,
+      "body_vz_m_s": -0.2999950647354126,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601355686187745,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0060472008772194386
+    },
+    {
+      "tick": 63,
+      "time_s": 0.1575,
+      "body_z_m": 0.30688944458961487,
+      "body_vz_m_s": -0.29999589920043945,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601498737335206,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005956820212304592
+    },
+    {
+      "tick": 64,
+      "time_s": 0.16,
+      "body_z_m": 0.3061394989490509,
+      "body_vz_m_s": -0.29999661445617676,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601623907089234,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005863254889845848
+    },
+    {
+      "tick": 65,
+      "time_s": 0.1625,
+      "body_z_m": 0.30538955330848694,
+      "body_vz_m_s": -0.2999972105026245,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60173119544983,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0057655745185911655
+    },
+    {
+      "tick": 66,
+      "time_s": 0.165,
+      "body_z_m": 0.304639607667923,
+      "body_vz_m_s": -0.2999976873397827,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601820602416993,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005670144688338041
+    },
+    {
+      "tick": 67,
+      "time_s": 0.1675,
+      "body_z_m": 0.303889662027359,
+      "body_vz_m_s": -0.29999804496765137,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601892127990723,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0055748699232935905
+    },
+    {
+      "tick": 68,
+      "time_s": 0.17,
+      "body_z_m": 0.30313971638679504,
+      "body_vz_m_s": -0.29999840259552,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60194577217102,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005478996783494949
+    },
+    {
+      "tick": 69,
+      "time_s": 0.17250000000000001,
+      "body_z_m": 0.3023897707462311,
+      "body_vz_m_s": -0.2999986410140991,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60199941635132,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005385417025536299
+    },
+    {
+      "tick": 70,
+      "time_s": 0.17500000000000002,
+      "body_z_m": 0.3016398251056671,
+      "body_vz_m_s": -0.2999988794326782,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602035179138184,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005297521594911814
+    },
+    {
+      "tick": 71,
+      "time_s": 0.1775,
+      "body_z_m": 0.30088987946510315,
+      "body_vz_m_s": -0.2999991178512573,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60207094192505,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005211829673498869
+    },
+    {
+      "tick": 72,
+      "time_s": 0.18,
+      "body_z_m": 0.3001399338245392,
+      "body_vz_m_s": -0.2999992370605469,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602106704711915,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.005132489372044802
+    },
+    {
+      "tick": 73,
+      "time_s": 0.1825,
+      "body_z_m": 0.2993899881839752,
+      "body_vz_m_s": -0.2999993562698364,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602124586105347,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0050573088228702545
+    },
+    {
+      "tick": 74,
+      "time_s": 0.185,
+      "body_z_m": 0.29864004254341125,
+      "body_vz_m_s": -0.299999475479126,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60214246749878,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004988118540495634
+    },
+    {
+      "tick": 75,
+      "time_s": 0.1875,
+      "body_z_m": 0.2978900969028473,
+      "body_vz_m_s": -0.2999995946884155,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602160348892212,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00492186238989234
+    },
+    {
+      "tick": 76,
+      "time_s": 0.19,
+      "body_z_m": 0.2971401512622833,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602178230285645,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004860626067966223
+    },
+    {
+      "tick": 77,
+      "time_s": 0.1925,
+      "body_z_m": 0.29639020562171936,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004796462133526802
+    },
+    {
+      "tick": 78,
+      "time_s": 0.195,
+      "body_z_m": 0.2956402599811554,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004738751333206892
+    },
+    {
+      "tick": 79,
+      "time_s": 0.1975,
+      "body_z_m": 0.29489031434059143,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004688207991421223
+    },
+    {
+      "tick": 80,
+      "time_s": 0.2,
+      "body_z_m": 0.29414036870002747,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004635899793356657
+    },
+    {
+      "tick": 81,
+      "time_s": 0.2025,
+      "body_z_m": 0.2933904230594635,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004587281960994005
+    },
+    {
+      "tick": 82,
+      "time_s": 0.20500000000000002,
+      "body_z_m": 0.29264047741889954,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004533399362117052
+    },
+    {
+      "tick": 83,
+      "time_s": 0.20750000000000002,
+      "body_z_m": 0.29189053177833557,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0044831084087491035
+    },
+    {
+      "tick": 84,
+      "time_s": 0.21,
+      "body_z_m": 0.2911405861377716,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004434952512383461
+    },
+    {
+      "tick": 85,
+      "time_s": 0.2125,
+      "body_z_m": 0.29039064049720764,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004388297442346811
+    },
+    {
+      "tick": 86,
+      "time_s": 0.215,
+      "body_z_m": 0.2896406948566437,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004344579763710499
+    },
+    {
+      "tick": 87,
+      "time_s": 0.2175,
+      "body_z_m": 0.2888907492160797,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004300354979932308
+    },
+    {
+      "tick": 88,
+      "time_s": 0.22,
+      "body_z_m": 0.28814080357551575,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004252293147146702
+    },
+    {
+      "tick": 89,
+      "time_s": 0.2225,
+      "body_z_m": 0.2873908579349518,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004205702804028988
+    },
+    {
+      "tick": 90,
+      "time_s": 0.225,
+      "body_z_m": 0.2866409122943878,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004165411926805973
+    },
+    {
+      "tick": 91,
+      "time_s": 0.2275,
+      "body_z_m": 0.28589096665382385,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0041278088465332985
+    },
+    {
+      "tick": 92,
+      "time_s": 0.23,
+      "body_z_m": 0.2851410210132599,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0040922448970377445
+    },
+    {
+      "tick": 93,
+      "time_s": 0.2325,
+      "body_z_m": 0.2843910753726959,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004058352671563625
+    },
+    {
+      "tick": 94,
+      "time_s": 0.23500000000000001,
+      "body_z_m": 0.28364112973213196,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.004025035537779331
+    },
+    {
+      "tick": 95,
+      "time_s": 0.23750000000000002,
+      "body_z_m": 0.282891184091568,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003991085570305586
+    },
+    {
+      "tick": 96,
+      "time_s": 0.24,
+      "body_z_m": 0.28214123845100403,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003960237838327885
+    },
+    {
+      "tick": 97,
+      "time_s": 0.2425,
+      "body_z_m": 0.28139129281044006,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003933335654437542
+    },
+    {
+      "tick": 98,
+      "time_s": 0.245,
+      "body_z_m": 0.2806413471698761,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003906588070094585
+    },
+    {
+      "tick": 99,
+      "time_s": 0.2475,
+      "body_z_m": 0.27989140152931213,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0038762236945331097
+    },
+    {
+      "tick": 100,
+      "time_s": 0.25,
+      "body_z_m": 0.27914145588874817,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0038419722113758326
+    },
+    {
+      "tick": 101,
+      "time_s": 0.2525,
+      "body_z_m": 0.2783915102481842,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0038071083836257458
+    },
+    {
+      "tick": 102,
+      "time_s": 0.255,
+      "body_z_m": 0.27764156460762024,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0037740268744528294
+    },
+    {
+      "tick": 103,
+      "time_s": 0.2575,
+      "body_z_m": 0.2768916189670563,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003740627784281969
+    },
+    {
+      "tick": 104,
+      "time_s": 0.26,
+      "body_z_m": 0.2761416733264923,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0037081739865243435
+    },
+    {
+      "tick": 105,
+      "time_s": 0.2625,
+      "body_z_m": 0.27539172768592834,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00367398327216506
+    },
+    {
+      "tick": 106,
+      "time_s": 0.265,
+      "body_z_m": 0.2746417820453644,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0036365585401654243
+    },
+    {
+      "tick": 107,
+      "time_s": 0.2675,
+      "body_z_m": 0.2738918364048004,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0036011096090078354
+    },
+    {
+      "tick": 108,
+      "time_s": 0.27,
+      "body_z_m": 0.27314189076423645,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003566591301932931
+    },
+    {
+      "tick": 109,
+      "time_s": 0.2725,
+      "body_z_m": 0.2723919451236725,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003532611532136798
+    },
+    {
+      "tick": 110,
+      "time_s": 0.275,
+      "body_z_m": 0.2716419994831085,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003501632483676076
+    },
+    {
+      "tick": 111,
+      "time_s": 0.2775,
+      "body_z_m": 0.27089205384254456,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0034731219056993723
+    },
+    {
+      "tick": 112,
+      "time_s": 0.28,
+      "body_z_m": 0.2701421082019806,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003448022995144129
+    },
+    {
+      "tick": 113,
+      "time_s": 0.28250000000000003,
+      "body_z_m": 0.2693921625614166,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003423841204494238
+    },
+    {
+      "tick": 114,
+      "time_s": 0.28500000000000003,
+      "body_z_m": 0.26864221692085266,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0034022005274891853
+    },
+    {
+      "tick": 115,
+      "time_s": 0.28750000000000003,
+      "body_z_m": 0.2678922712802887,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0033812762703746557
+    },
+    {
+      "tick": 116,
+      "time_s": 0.29,
+      "body_z_m": 0.26714232563972473,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0033621909096837044
+    },
+    {
+      "tick": 117,
+      "time_s": 0.2925,
+      "body_z_m": 0.26639237999916077,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0033447090536355972
+    },
+    {
+      "tick": 118,
+      "time_s": 0.295,
+      "body_z_m": 0.2656424343585968,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0033285983372479677
+    },
+    {
+      "tick": 119,
+      "time_s": 0.2975,
+      "body_z_m": 0.26489248871803284,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003313132096081972
+    },
+    {
+      "tick": 120,
+      "time_s": 0.3,
+      "body_z_m": 0.26414254307746887,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003295685164630413
+    },
+    {
+      "tick": 121,
+      "time_s": 0.3025,
+      "body_z_m": 0.2633925974369049,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0032782929483801126
+    },
+    {
+      "tick": 122,
+      "time_s": 0.305,
+      "body_z_m": 0.26264265179634094,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003260672325268388
+    },
+    {
+      "tick": 123,
+      "time_s": 0.3075,
+      "body_z_m": 0.261892706155777,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00324254366569221
+    },
+    {
+      "tick": 124,
+      "time_s": 0.31,
+      "body_z_m": 0.261142760515213,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0032243505120277405
+    },
+    {
+      "tick": 125,
+      "time_s": 0.3125,
+      "body_z_m": 0.26039281487464905,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003206373890861869
+    },
+    {
+      "tick": 126,
+      "time_s": 0.315,
+      "body_z_m": 0.2596428692340851,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003188620787113905
+    },
+    {
+      "tick": 127,
+      "time_s": 0.3175,
+      "body_z_m": 0.2588929235935211,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0031702814158052206
+    },
+    {
+      "tick": 128,
+      "time_s": 0.32,
+      "body_z_m": 0.25814297795295715,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003153039375320077
+    },
+    {
+      "tick": 129,
+      "time_s": 0.3225,
+      "body_z_m": 0.2573930323123932,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003136927029117942
+    },
+    {
+      "tick": 130,
+      "time_s": 0.325,
+      "body_z_m": 0.2566430866718292,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0031217571813613176
+    },
+    {
+      "tick": 131,
+      "time_s": 0.3275,
+      "body_z_m": 0.25589314103126526,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0031078646425157785
+    },
+    {
+      "tick": 132,
+      "time_s": 0.33,
+      "body_z_m": 0.2551431953907013,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0030953201930969954
+    },
+    {
+      "tick": 133,
+      "time_s": 0.3325,
+      "body_z_m": 0.25439324975013733,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0030841808766126633
+    },
+    {
+      "tick": 134,
+      "time_s": 0.335,
+      "body_z_m": 0.25364330410957336,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0030736124608665705
+    },
+    {
+      "tick": 135,
+      "time_s": 0.3375,
+      "body_z_m": 0.2528933584690094,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003063201904296875
+    },
+    {
+      "tick": 136,
+      "time_s": 0.34,
+      "body_z_m": 0.25214341282844543,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0030535785481333733
+    },
+    {
+      "tick": 137,
+      "time_s": 0.3425,
+      "body_z_m": 0.25139346718788147,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003044065088033676
+    },
+    {
+      "tick": 138,
+      "time_s": 0.34500000000000003,
+      "body_z_m": 0.2506435215473175,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.003035560715943575
+    },
+    {
+      "tick": 139,
+      "time_s": 0.34750000000000003,
+      "body_z_m": 0.24989356100559235,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0030272849835455418
+    },
+    {
+      "tick": 140,
+      "time_s": 0.35000000000000003,
+      "body_z_m": 0.2491435557603836,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0030192264821380377
+    },
+    {
+      "tick": 141,
+      "time_s": 0.3525,
+      "body_z_m": 0.24839355051517487,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0030084187164902687
+    },
+    {
+      "tick": 142,
+      "time_s": 0.355,
+      "body_z_m": 0.24764354526996613,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002998930402100086
+    },
+    {
+      "tick": 143,
+      "time_s": 0.3575,
+      "body_z_m": 0.24689354002475739,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002990331733599305
+    },
+    {
+      "tick": 144,
+      "time_s": 0.36,
+      "body_z_m": 0.24614353477954865,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002982106991112232
+    },
+    {
+      "tick": 145,
+      "time_s": 0.3625,
+      "body_z_m": 0.2453935295343399,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00297309341840446
+    },
+    {
+      "tick": 146,
+      "time_s": 0.365,
+      "body_z_m": 0.24464352428913116,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029633590020239353
+    },
+    {
+      "tick": 147,
+      "time_s": 0.3675,
+      "body_z_m": 0.24389351904392242,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029537491500377655
+    },
+    {
+      "tick": 148,
+      "time_s": 0.37,
+      "body_z_m": 0.24314351379871368,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029445476830005646
+    },
+    {
+      "tick": 149,
+      "time_s": 0.3725,
+      "body_z_m": 0.24239350855350494,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029356670565903187
+    },
+    {
+      "tick": 150,
+      "time_s": 0.375,
+      "body_z_m": 0.2416435033082962,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029266877099871635
+    },
+    {
+      "tick": 151,
+      "time_s": 0.3775,
+      "body_z_m": 0.24089349806308746,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029172536451369524
+    },
+    {
+      "tick": 152,
+      "time_s": 0.38,
+      "body_z_m": 0.24014349281787872,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0029077751096338034
+    },
+    {
+      "tick": 153,
+      "time_s": 0.3825,
+      "body_z_m": 0.23939348757266998,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0028986388351768255
+    },
+    {
+      "tick": 154,
+      "time_s": 0.385,
+      "body_z_m": 0.23864348232746124,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002889446448534727
+    },
+    {
+      "tick": 155,
+      "time_s": 0.3875,
+      "body_z_m": 0.2378934770822525,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002879560925066471
+    },
+    {
+      "tick": 156,
+      "time_s": 0.39,
+      "body_z_m": 0.23714347183704376,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002870535245165229
+    },
+    {
+      "tick": 157,
+      "time_s": 0.3925,
+      "body_z_m": 0.23639346659183502,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0028610453009605408
+    },
+    {
+      "tick": 158,
+      "time_s": 0.395,
+      "body_z_m": 0.23564346134662628,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0028526231180876493
+    },
+    {
+      "tick": 159,
+      "time_s": 0.3975,
+      "body_z_m": 0.23489345610141754,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0028441378381103277
+    },
+    {
+      "tick": 160,
+      "time_s": 0.4,
+      "body_z_m": 0.2341434508562088,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0028366241604089737
+    },
+    {
+      "tick": 161,
+      "time_s": 0.4025,
+      "body_z_m": 0.23339344561100006,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0028294033836573362
+    },
+    {
+      "tick": 162,
+      "time_s": 0.405,
+      "body_z_m": 0.23264344036579132,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002822450827807188
+    },
+    {
+      "tick": 163,
+      "time_s": 0.40750000000000003,
+      "body_z_m": 0.23189343512058258,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0028157883789390326
+    },
+    {
+      "tick": 164,
+      "time_s": 0.41000000000000003,
+      "body_z_m": 0.23114342987537384,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002809311496093869
+    },
+    {
+      "tick": 165,
+      "time_s": 0.41250000000000003,
+      "body_z_m": 0.2303934246301651,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002803431125357747
+    },
+    {
+      "tick": 166,
+      "time_s": 0.41500000000000004,
+      "body_z_m": 0.22964341938495636,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027977777644991875
+    },
+    {
+      "tick": 167,
+      "time_s": 0.4175,
+      "body_z_m": 0.22889341413974762,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002791790524497628
+    },
+    {
+      "tick": 168,
+      "time_s": 0.42,
+      "body_z_m": 0.22814340889453888,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027856759261339903
+    },
+    {
+      "tick": 169,
+      "time_s": 0.4225,
+      "body_z_m": 0.22739340364933014,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027799487579613924
+    },
+    {
+      "tick": 170,
+      "time_s": 0.425,
+      "body_z_m": 0.2266433984041214,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027747158892452717
+    },
+    {
+      "tick": 171,
+      "time_s": 0.4275,
+      "body_z_m": 0.22589339315891266,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002769812708720565
+    },
+    {
+      "tick": 172,
+      "time_s": 0.43,
+      "body_z_m": 0.22514338791370392,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027648655232042074
+    },
+    {
+      "tick": 173,
+      "time_s": 0.4325,
+      "body_z_m": 0.22439338266849518,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027602221816778183
+    },
+    {
+      "tick": 174,
+      "time_s": 0.435,
+      "body_z_m": 0.22364337742328644,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027559171430766582
+    },
+    {
+      "tick": 175,
+      "time_s": 0.4375,
+      "body_z_m": 0.2228933721780777,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002751853782683611
+    },
+    {
+      "tick": 176,
+      "time_s": 0.44,
+      "body_z_m": 0.22214336693286896,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027479110285639763
+    },
+    {
+      "tick": 177,
+      "time_s": 0.4425,
+      "body_z_m": 0.22139336168766022,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027445717714726925
+    },
+    {
+      "tick": 178,
+      "time_s": 0.445,
+      "body_z_m": 0.22064335644245148,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002740812487900257
+    },
+    {
+      "tick": 179,
+      "time_s": 0.4475,
+      "body_z_m": 0.21989335119724274,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027370674069970846
+    },
+    {
+      "tick": 180,
+      "time_s": 0.45,
+      "body_z_m": 0.219143345952034,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002733607543632388
+    },
+    {
+      "tick": 181,
+      "time_s": 0.4525,
+      "body_z_m": 0.21839334070682526,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027305756229907274
+    },
+    {
+      "tick": 182,
+      "time_s": 0.455,
+      "body_z_m": 0.21764333546161652,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027276489417999983
+    },
+    {
+      "tick": 183,
+      "time_s": 0.4575,
+      "body_z_m": 0.21689333021640778,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002724797697737813
+    },
+    {
+      "tick": 184,
+      "time_s": 0.46,
+      "body_z_m": 0.21614332497119904,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027216270100325346
+    },
+    {
+      "tick": 185,
+      "time_s": 0.4625,
+      "body_z_m": 0.2153933197259903,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027189943939447403
+    },
+    {
+      "tick": 186,
+      "time_s": 0.465,
+      "body_z_m": 0.21464331448078156,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027165133506059647
+    },
+    {
+      "tick": 187,
+      "time_s": 0.4675,
+      "body_z_m": 0.21389330923557281,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002714208560064435
+    },
+    {
+      "tick": 188,
+      "time_s": 0.47000000000000003,
+      "body_z_m": 0.21314330399036407,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027120064478367567
+    },
+    {
+      "tick": 189,
+      "time_s": 0.47250000000000003,
+      "body_z_m": 0.21239329874515533,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027099805884063244
+    },
+    {
+      "tick": 190,
+      "time_s": 0.47500000000000003,
+      "body_z_m": 0.2116432934999466,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027080702129751444
+    },
+    {
+      "tick": 191,
+      "time_s": 0.47750000000000004,
+      "body_z_m": 0.21089328825473785,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027063179295510054
+    },
+    {
+      "tick": 192,
+      "time_s": 0.48,
+      "body_z_m": 0.2101432830095291,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027047644834965467
+    },
+    {
+      "tick": 193,
+      "time_s": 0.4825,
+      "body_z_m": 0.20939327776432037,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0027033097576349974
+    },
+    {
+      "tick": 194,
+      "time_s": 0.485,
+      "body_z_m": 0.20864327251911163,
+      "body_vz_m_s": -0.2999997138977051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        -0.00010756647679954767,
+        -9.172759018838406e-05,
+        0.26790350675582886
+      ],
+      "soil_force_z_n": 107.16140747070312,
+      "soil_min_z_m": 0.002701911609619856
+    },
+    {
+      "tick": 195,
+      "time_s": 0.4875,
+      "body_z_m": 0.20807495713233948,
+      "body_vz_m_s": -0.18372218310832977,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602196111679078,
+      "soil_impulse_n_s": [
+        -1.0350951924920082e-05,
+        -1.5412457287311554e-05,
+        0.21061447262763977
+      ],
+      "soil_force_z_n": 84.24578857421875,
+      "soil_min_z_m": 0.0027008175384253263
+    },
+    {
+      "tick": 196,
+      "time_s": 0.49,
+      "body_z_m": 0.20772889256477356,
+      "body_vz_m_s": -0.11123506724834442,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 5.160566493272782,
+      "soil_impulse_n_s": [
+        0.00011010325397364795,
+        8.543819421902299e-05,
+        0.058481380343437195
+      ],
+      "soil_force_z_n": 23.392553329467773,
+      "soil_min_z_m": 0.002700015204027295
+    },
+    {
+      "tick": 197,
+      "time_s": 0.4925,
+      "body_z_m": 0.20744243264198303,
+      "body_vz_m_s": -0.11657597124576569,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -5.712500885725021,
+      "soil_impulse_n_s": [
+        -8.444587729172781e-05,
+        -4.493241067393683e-05,
+        0.0005480004474520683
+      ],
+      "soil_force_z_n": 0.21920017898082733,
+      "soil_min_z_m": 0.0026993064675480127
+    },
+    {
+      "tick": 198,
+      "time_s": 0.495,
+      "body_z_m": 0.20710471272468567,
+      "body_vz_m_s": -0.14619231224060059,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -4.911365286111831,
+      "soil_impulse_n_s": [
+        -6.724992272211239e-05,
+        -5.470828909892589e-05,
+        0.006442135665565729
+      ],
+      "soil_force_z_n": 2.5768542289733887,
+      "soil_min_z_m": 0.0026986508164554834
+    },
+    {
+      "tick": 199,
+      "time_s": 0.4975,
+      "body_z_m": 0.2067044973373413,
+      "body_vz_m_s": -0.16843003034591675,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -0.4689141368865961,
+      "soil_impulse_n_s": [
+        3.320776158943772e-05,
+        1.795834396034479e-05,
+        0.05114692449569702
+      ],
+      "soil_force_z_n": 20.458770751953125,
+      "soil_min_z_m": 0.002698057098314166
+    },
+    {
+      "tick": 200,
+      "time_s": 0.5,
+      "body_z_m": 0.20628464221954346,
+      "body_vz_m_s": -0.16764521598815918,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 2.866743578910828,
+      "soil_impulse_n_s": [
+        3.538100281730294e-05,
+        2.471089828759432e-05,
+        0.0837654322385788
+      ],
+      "soil_force_z_n": 33.50617218017578,
+      "soil_min_z_m": 0.002697515767067671
+    },
+    {
+      "tick": 201,
+      "time_s": 0.5025000000000001,
+      "body_z_m": 0.20588867366313934,
+      "body_vz_m_s": -0.1528308391571045,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 2.749021425247193,
+      "soil_impulse_n_s": [
+        2.4809385649859905e-05,
+        2.1884683519601822e-05,
+        0.08778926730155945
+      ],
+      "soil_force_z_n": 35.11570739746094,
+      "soil_min_z_m": 0.0026970491744577885
+    },
+    {
+      "tick": 202,
+      "time_s": 0.505,
+      "body_z_m": 0.20552870631217957,
+      "body_vz_m_s": -0.13868117332458496,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 0.5268649005889898,
+      "soil_impulse_n_s": [
+        -5.178793799132109e-06,
+        5.284091457724571e-06,
+        0.07302922010421753
+      ],
+      "soil_force_z_n": 29.211688995361328,
+      "soil_min_z_m": 0.0026966561563313007
+    },
+    {
+      "tick": 203,
+      "time_s": 0.5075000000000001,
+      "body_z_m": 0.2051904797554016,
+      "body_vz_m_s": -0.13324075937271118,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -1.5955849742889399,
+      "soil_impulse_n_s": [
+        -3.565012593753636e-05,
+        -1.523428363725543e-05,
+        0.05894852429628372
+      ],
+      "soil_force_z_n": 23.579410552978516,
+      "soil_min_z_m": 0.002696317620575428
+    },
+    {
+      "tick": 204,
+      "time_s": 0.51,
+      "body_z_m": 0.20485495030879974,
+      "body_vz_m_s": -0.13479727506637573,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -2.4116470670700068,
+      "soil_impulse_n_s": [
+        -3.332371124997735e-05,
+        -1.5910190995782614e-05,
+        0.058370936661958694
+      ],
+      "soil_force_z_n": 23.34837532043457,
+      "soil_min_z_m": 0.0026960077229887247
+    },
+    {
+      "tick": 205,
+      "time_s": 0.5125,
+      "body_z_m": 0.20451553165912628,
+      "body_vz_m_s": -0.1363511085510254,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -2.178169713020324,
+      "soil_impulse_n_s": [
+        -8.576811524108052e-06,
+        -5.747075192630291e-06,
+        0.06036960333585739
+      ],
+      "soil_force_z_n": 24.147842407226562,
+      "soil_min_z_m": 0.0026957339141517878
+    },
+    {
+      "tick": 206,
+      "time_s": 0.515,
+      "body_z_m": 0.2041739672422409,
+      "body_vz_m_s": -0.1367846131324768,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -1.9450946903228754,
+      "soil_impulse_n_s": [
+        1.6772159142419696e-05,
+        7.86257442086935e-06,
+        0.0640135407447815
+      ],
+      "soil_force_z_n": 25.605417251586914,
+      "soil_min_z_m": 0.002695489441975951
+    },
+    {
+      "tick": 207,
+      "time_s": 0.5175,
+      "body_z_m": 0.2038339078426361,
+      "body_vz_m_s": -0.13556593656539917,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -1.880069003105163,
+      "soil_impulse_n_s": [
+        1.8306804122403264e-05,
+        1.0034069418907166e-05,
+        0.06457875669002533
+      ],
+      "soil_force_z_n": 25.83150291442871,
+      "soil_min_z_m": 0.002695314586162567
+    },
+    {
+      "tick": 208,
+      "time_s": 0.52,
+      "body_z_m": 0.20349696278572083,
+      "body_vz_m_s": -0.13430029153823853,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -2.0628704881668085,
+      "soil_impulse_n_s": [
+        8.660310413688421e-06,
+        7.618276868015528e-06,
+        0.06781289726495743
+      ],
+      "soil_force_z_n": 27.125160217285156,
+      "soil_min_z_m": 0.0026951287873089314
+    },
+    {
+      "tick": 209,
+      "time_s": 0.5225,
+      "body_z_m": 0.20316506922245026,
+      "body_vz_m_s": -0.13183695077896118,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -2.252717242240905,
+      "soil_impulse_n_s": [
+        1.8890423234552145e-06,
+        4.7121429815888405e-06,
+        0.06801275908946991
+      ],
+      "soil_force_z_n": 27.20510482788086,
+      "soil_min_z_m": 0.0026949895545840263
+    },
+    {
+      "tick": 210,
+      "time_s": 0.525,
+      "body_z_m": 0.20283883810043335,
+      "body_vz_m_s": -0.12968778610229492,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -2.6222183561325068,
+      "soil_impulse_n_s": [
+        -4.349247319623828e-06,
+        8.129863999783993e-07,
+        0.06869707256555557
+      ],
+      "soil_force_z_n": 27.478830337524414,
+      "soil_min_z_m": 0.0026948447339236736
+    },
+    {
+      "tick": 211,
+      "time_s": 0.5275,
+      "body_z_m": 0.20251786708831787,
+      "body_vz_m_s": -0.12759143114089966,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -2.9445930576324457,
+      "soil_impulse_n_s": [
+        -1.705324393697083e-05,
+        -1.0468123946338892e-05,
+        0.06801924854516983
+      ],
+      "soil_force_z_n": 27.207700729370117,
+      "soil_min_z_m": 0.002694724127650261
+    },
+    {
+      "tick": 212,
+      "time_s": 0.53,
+      "body_z_m": 0.20220117270946503,
+      "body_vz_m_s": -0.12613046169281006,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -3.2590463018417353,
+      "soil_impulse_n_s": [
+        -6.198795745149255e-06,
+        -4.323141183704138e-06,
+        0.07083714008331299
+      ],
+      "soil_force_z_n": 28.334856033325195,
+      "soil_min_z_m": 0.002694616559892893
+    },
+    {
+      "tick": 213,
+      "time_s": 0.5325,
+      "body_z_m": 0.20188966393470764,
+      "body_vz_m_s": -0.12368424981832504,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -3.478191719055175,
+      "soil_impulse_n_s": [
+        -1.1080410331487656e-05,
+        -7.359194569289684e-06,
+        0.07051772624254227
+      ],
+      "soil_force_z_n": 28.207090377807617,
+      "soil_min_z_m": 0.002694511553272605
+    },
+    {
+      "tick": 214,
+      "time_s": 0.535,
+      "body_z_m": 0.20158341526985168,
+      "body_vz_m_s": -0.1217748150229454,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -3.8451235002279276,
+      "soil_impulse_n_s": [
+        -2.0082195987924933e-05,
+        -1.550721935927868e-05,
+        0.07026883214712143
+      ],
+      "soil_force_z_n": 28.107534408569336,
+      "soil_min_z_m": 0.002694412600249052
+    },
+    {
+      "tick": 215,
+      "time_s": 0.5375,
+      "body_z_m": 0.20128130912780762,
+      "body_vz_m_s": -0.12028419226408005,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -4.131538719534873,
+      "soil_impulse_n_s": [
+        -1.341640017926693e-05,
+        -1.0570976883172989e-05,
+        0.07047045230865479
+      ],
+      "soil_force_z_n": 28.188180923461914,
+      "soil_min_z_m": 0.0026943236589431763
+    },
+    {
+      "tick": 216,
+      "time_s": 0.54,
+      "body_z_m": 0.2009826898574829,
+      "body_vz_m_s": -0.11894869059324265,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -4.355132133364677,
+      "soil_impulse_n_s": [
+        -9.099254384636879e-06,
+        -7.666298188269138e-06,
+        0.07184433192014694
+      ],
+      "soil_force_z_n": 28.737733840942383,
+      "soil_min_z_m": 0.002694247290492058
+    },
+    {
+      "tick": 217,
+      "time_s": 0.5425,
+      "body_z_m": 0.20068800449371338,
+      "body_vz_m_s": -0.1172342523932457,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -4.555457383990287,
+      "soil_impulse_n_s": [
+        4.427699605002999e-05,
+        1.7139871488325298e-05,
+        0.036416564136743546
+      ],
+      "soil_force_z_n": 14.566625595092773,
+      "soil_min_z_m": 0.002694212133064866
+    },
+    {
+      "tick": 218,
+      "time_s": 0.545,
+      "body_z_m": 0.20037312805652618,
+      "body_vz_m_s": -0.1311754733324051,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -4.8126231139898294,
+      "soil_impulse_n_s": [
+        4.525794793153182e-05,
+        2.3935681383591145e-05,
+        0.0332513190805912
+      ],
+      "soil_force_z_n": 13.300527572631836,
+      "soil_min_z_m": 0.0026941958349198103
+    },
+    {
+      "tick": 219,
+      "time_s": 0.5475,
+      "body_z_m": 0.20002481341362,
+      "body_vz_m_s": -0.1442214399576187,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -2.7214399731159205,
+      "soil_impulse_n_s": [
+        9.02733336261008e-06,
+        3.1979288905858994e-06,
+        0.03574731573462486
+      ],
+      "soil_force_z_n": 14.29892635345459,
+      "soil_min_z_m": 0.002694183960556984
+    },
+    {
+      "tick": 220,
+      "time_s": 0.55,
+      "body_z_m": 0.1996488869190216,
+      "body_vz_m_s": -0.15406067669391632,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -0.764544979333877,
+      "soil_impulse_n_s": [
+        -1.4735571312485263e-05,
+        -1.0420626495033503e-05,
+        0.04404144734144211
+      ],
+      "soil_force_z_n": 17.616579055786133,
+      "soil_min_z_m": 0.0026941513642668724
+    },
+    {
+      "tick": 221,
+      "time_s": 0.5525,
+      "body_z_m": 0.19925649464130402,
+      "body_vz_m_s": -0.15869863331317902,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 0.7113405311107641,
+      "soil_impulse_n_s": [
+        -2.8386126359691843e-05,
+        -1.4829711290076375e-05,
+        0.04877414554357529
+      ],
+      "soil_force_z_n": 19.509658813476562,
+      "soil_min_z_m": 0.0026941243559122086
+    },
+    {
+      "tick": 222,
+      "time_s": 0.555,
+      "body_z_m": 0.1988568902015686,
+      "body_vz_m_s": -0.1605275422334671,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 1.4070340240001684,
+      "soil_impulse_n_s": [
+        -1.963836621143855e-05,
+        -7.864873623475432e-06,
+        0.05092853680253029
+      ],
+      "soil_force_z_n": 20.371416091918945,
+      "soil_min_z_m": 0.0026941169053316116
+    },
+    {
+      "tick": 223,
+      "time_s": 0.5575,
+      "body_z_m": 0.19845463335514069,
+      "body_vz_m_s": -0.16112376749515533,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 1.6813703620433813,
+      "soil_impulse_n_s": [
+        -1.3566750567406416e-05,
+        -7.219379767775536e-06,
+        0.040257446467876434
+      ],
+      "soil_force_z_n": 16.10297966003418,
+      "soil_min_z_m": 0.0026941108517348766
+    },
+    {
+      "tick": 224,
+      "time_s": 0.56,
+      "body_z_m": 0.1980438083410263,
+      "body_vz_m_s": -0.16625447571277618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 1.7708041512966162,
+      "soil_impulse_n_s": [
+        -9.584065992385149e-06,
+        -4.331741365604103e-06,
+        0.040087129920721054
+      ],
+      "soil_force_z_n": 16.034852981567383,
+      "soil_min_z_m": 0.0026940968818962574
+    },
+    {
+      "tick": 225,
+      "time_s": 0.5625,
+      "body_z_m": 0.19762134552001953,
+      "body_vz_m_s": -0.1706240326166153,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 2.5404103839397436,
+      "soil_impulse_n_s": [
+        -2.915447112172842e-06,
+        -1.5865516616031528e-06,
+        0.04006720334291458
+      ],
+      "soil_force_z_n": 16.02688217163086,
+      "soil_min_z_m": 0.002694082912057638
+    },
+    {
+      "tick": 226,
+      "time_s": 0.5650000000000001,
+      "body_z_m": 0.197189062833786,
+      "body_vz_m_s": -0.17429102957248688,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.1958439195156103,
+      "soil_impulse_n_s": [
+        -4.292407538741827e-06,
+        -2.6167253963649273e-06,
+        0.04032376781105995
+      ],
+      "soil_force_z_n": 16.129507064819336,
+      "soil_min_z_m": 0.002694062190130353
+    },
+    {
+      "tick": 227,
+      "time_s": 0.5675,
+      "body_z_m": 0.1967487335205078,
+      "body_vz_m_s": -0.17724986374378204,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.7458934628963476,
+      "soil_impulse_n_s": [
+        -4.829809768125415e-06,
+        -3.2330717658624053e-06,
+        0.04085065796971321
+      ],
+      "soil_force_z_n": 16.34026336669922,
+      "soil_min_z_m": 0.0026940330862998962
+    },
+    {
+      "tick": 228,
+      "time_s": 0.5700000000000001,
+      "body_z_m": 0.19630208611488342,
+      "body_vz_m_s": -0.17949838936328888,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.1897185885906225,
+      "soil_impulse_n_s": [
+        -6.133981514722109e-06,
+        -4.480651114135981e-06,
+        0.04523562639951706
+      ],
+      "soil_force_z_n": 18.09425163269043,
+      "soil_min_z_m": 0.0026940114330500364
+    },
+    {
+      "tick": 229,
+      "time_s": 0.5725,
+      "body_z_m": 0.19585338234901428,
+      "body_vz_m_s": -0.1794777661561966,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.526997431516648,
+      "soil_impulse_n_s": [
+        -1.0299889254383743e-05,
+        -6.145943189039826e-06,
+        0.04684709012508392
+      ],
+      "soil_force_z_n": 18.73883628845215,
+      "soil_min_z_m": 0.0026939893141388893
+    },
+    {
+      "tick": 230,
+      "time_s": 0.5750000000000001,
+      "body_z_m": 0.19540581107139587,
+      "body_vz_m_s": -0.1787610799074173,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.523903950452805,
+      "soil_impulse_n_s": [
+        -7.603492122143507e-06,
+        -3.727793227881193e-06,
+        0.046928342431783676
+      ],
+      "soil_force_z_n": 18.771337509155273,
+      "soil_min_z_m": 0.002693965332582593
+    },
+    {
+      "tick": 231,
+      "time_s": 0.5775,
+      "body_z_m": 0.19495990872383118,
+      "body_vz_m_s": -0.1781257539987564,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.416401013135911,
+      "soil_impulse_n_s": [
+        -5.204812623560429e-06,
+        -1.577791408635676e-06,
+        0.0467003658413887
+      ],
+      "soil_force_z_n": 18.680147171020508,
+      "soil_min_z_m": 0.0026939415838569403
+    },
+    {
+      "tick": 232,
+      "time_s": 0.58,
+      "body_z_m": 0.19451525807380676,
+      "body_vz_m_s": -0.17769278585910797,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.321102126836777,
+      "soil_impulse_n_s": [
+        -2.643128391355276e-05,
+        -1.569664163980633e-05,
+        0.04668114334344864
+      ],
+      "soil_force_z_n": 18.67245864868164,
+      "soil_min_z_m": 0.0026939231902360916
+    },
+    {
+      "tick": 233,
+      "time_s": 0.5825,
+      "body_z_m": 0.19407157599925995,
+      "body_vz_m_s": -0.17733867466449738,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.256156905889512,
+      "soil_impulse_n_s": [
+        -5.9764133766293526e-06,
+        -1.507665729150176e-06,
+        0.04787147417664528
+      ],
+      "soil_force_z_n": 19.148590087890625,
+      "soil_min_z_m": 0.0026938992086797953
+    },
+    {
+      "tick": 234,
+      "time_s": 0.585,
+      "body_z_m": 0.19362948834896088,
+      "body_vz_m_s": -0.1765255481004715,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.203040226697922,
+      "soil_impulse_n_s": [
+        -3.2372045097872615e-06,
+        6.786140147596598e-07,
+        0.04790904000401497
+      ],
+      "soil_force_z_n": 19.163616180419922,
+      "soil_min_z_m": 0.0026938728988170624
+    },
+    {
+      "tick": 235,
+      "time_s": 0.5875,
+      "body_z_m": 0.19318926334381104,
+      "body_vz_m_s": -0.1758284717798233,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 4.0810712420940405,
+      "soil_impulse_n_s": [
+        -1.2199743650853634e-06,
+        2.338245394639671e-06,
+        0.04795031249523163
+      ],
+      "soil_force_z_n": 19.180126190185547,
+      "soil_min_z_m": 0.002693848218768835
+    },
+    {
+      "tick": 236,
+      "time_s": 0.59,
+      "body_z_m": 0.19275063276290894,
+      "body_vz_m_s": -0.17522694170475006,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.9765097939968115,
+      "soil_impulse_n_s": [
+        -3.1082017812877893e-06,
+        3.9450242184102535e-07,
+        0.048909321427345276
+      ],
+      "soil_force_z_n": 19.56372833251953,
+      "soil_min_z_m": 0.0026938256341964006
+    },
+    {
+      "tick": 237,
+      "time_s": 0.5925,
+      "body_z_m": 0.1923139989376068,
+      "body_vz_m_s": -0.17430706322193146,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.886280282735825,
+      "soil_impulse_n_s": [
+        -4.191388143226504e-06,
+        -5.32490957994014e-07,
+        0.048965368419885635
+      ],
+      "soil_force_z_n": 19.58614730834961,
+      "soil_min_z_m": 0.0026938016526401043
+    },
+    {
+      "tick": 238,
+      "time_s": 0.595,
+      "body_z_m": 0.19187946617603302,
+      "body_vz_m_s": -0.17351259291172028,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.7482985103130346,
+      "soil_impulse_n_s": [
+        -3.264562110416591e-06,
+        -7.089111022651196e-07,
+        0.049674127250909805
+      ],
+      "soil_force_z_n": 19.869651794433594,
+      "soil_min_z_m": 0.0026937825605273247
+    },
+    {
+      "tick": 239,
+      "time_s": 0.5975,
+      "body_z_m": 0.1914472132921219,
+      "body_vz_m_s": -0.17253978550434113,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.6291279637813574,
+      "soil_impulse_n_s": [
+        -4.3019099393859506e-06,
+        6.686750566586852e-06,
+        0.04979991912841797
+      ],
+      "soil_force_z_n": 19.919967651367188,
+      "soil_min_z_m": 0.0026937590446323156
+    },
+    {
+      "tick": 240,
+      "time_s": 0.6,
+      "body_z_m": 0.19101721048355103,
+      "body_vz_m_s": -0.17167069017887115,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.483206852674485,
+      "soil_impulse_n_s": [
+        -6.385234883055091e-07,
+        -2.1318555809557438e-07,
+        0.04976294934749603
+      ],
+      "soil_force_z_n": 19.905179977416992,
+      "soil_min_z_m": 0.002693729242309928
+    },
+    {
+      "tick": 241,
+      "time_s": 0.6025,
+      "body_z_m": 0.19058914482593536,
+      "body_vz_m_s": -0.17095912992954254,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.352842553853989,
+      "soil_impulse_n_s": [
+        -9.212621080223471e-06,
+        -1.6596386558376253e-06,
+        0.049684327095746994
+      ],
+      "soil_force_z_n": 19.87373161315918,
+      "soil_min_z_m": 0.002693694783374667
+    },
+    {
+      "tick": 242,
+      "time_s": 0.605,
+      "body_z_m": 0.19016261398792267,
+      "body_vz_m_s": -0.17039747536182404,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.2461085164546972,
+      "soil_impulse_n_s": [
+        -7.406626536976546e-06,
+        -2.1329979063011706e-06,
+        0.04895602539181709
+      ],
+      "soil_force_z_n": 19.58241081237793,
+      "soil_min_z_m": 0.0026936717331409454
+    },
+    {
+      "tick": 243,
+      "time_s": 0.6075,
+      "body_z_m": 0.18973685801029205,
+      "body_vz_m_s": -0.17024333775043488,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.1618603312969213,
+      "soil_impulse_n_s": [
+        -2.4991313694044948e-06,
+        -1.8263599486090243e-06,
+        0.04888344183564186
+      ],
+      "soil_force_z_n": 19.553377151489258,
+      "soil_min_z_m": 0.0026936535723507404
+    },
+    {
+      "tick": 244,
+      "time_s": 0.61,
+      "body_z_m": 0.1893114149570465,
+      "body_vz_m_s": -0.17014582455158234,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.1387396895885473,
+      "soil_impulse_n_s": [
+        2.152053639292717e-06,
+        7.885973900556564e-07,
+        0.07886109501123428
+      ],
+      "soil_force_z_n": 31.5444393157959,
+      "soil_min_z_m": 0.0026936351787298918
+    },
+    {
+      "tick": 245,
+      "time_s": 0.6125,
+      "body_z_m": 0.1889065057039261,
+      "body_vz_m_s": -0.15705306828022003,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 3.1241127097606665,
+      "soil_impulse_n_s": [
+        -1.5006284229457378e-05,
+        -1.078285276889801e-05,
+        0.10110048949718475
+      ],
+      "soil_force_z_n": 40.4401969909668,
+      "soil_min_z_m": 0.002693643793463707
+    },
+    {
+      "tick": 246,
+      "time_s": 0.615,
+      "body_z_m": 0.1885460764169693,
+      "body_vz_m_s": -0.1364387422800064,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 1.1601992690563208,
+      "soil_impulse_n_s": [
+        7.68748577684164e-06,
+        -2.2284220904111862e-06,
+        0.1077893078327179
+      ],
+      "soil_force_z_n": 43.11572265625,
+      "soil_min_z_m": 0.002693617483600974
+    },
+    {
+      "tick": 247,
+      "time_s": 0.6175,
+      "body_z_m": 0.18823648989200592,
+      "body_vz_m_s": -0.11627650260925293,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -1.9319496309757227,
+      "soil_impulse_n_s": [
+        6.860087160021067e-05,
+        2.5546993128955364e-05,
+        0.10698830336332321
+      ],
+      "soil_force_z_n": 42.79532241821289,
+      "soil_min_z_m": 0.002693562302738428
+    },
+    {
+      "tick": 248,
+      "time_s": 0.62,
+      "body_z_m": 0.18797162175178528,
+      "body_vz_m_s": -0.09974351525306702,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -4.9562855815887445,
+      "soil_impulse_n_s": [
+        7.869699038565159e-05,
+        6.79738586768508e-05,
+        0.10164853185415268
+      ],
+      "soil_force_z_n": 40.6594123840332,
+      "soil_min_z_m": 0.0026934726629406214
+    },
+    {
+      "tick": 249,
+      "time_s": 0.6225,
+      "body_z_m": 0.1877402663230896,
+      "body_vz_m_s": -0.0882190465927124,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -7.4362336850166315,
+      "soil_impulse_n_s": [
+        -2.0633218809962273e-05,
+        7.662572897970676e-06,
+        0.09386080503463745
+      ],
+      "soil_force_z_n": 37.5443229675293,
+      "soil_min_z_m": 0.0026933986227959394
+    },
+    {
+      "tick": 250,
+      "time_s": 0.625,
+      "body_z_m": 0.187529519200325,
+      "body_vz_m_s": -0.08195039629936218,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -9.164903984069824,
+      "soil_impulse_n_s": [
+        -2.3961649276316166e-05,
+        -7.747206836938858e-06,
+        0.09211710095405579
+      ],
+      "soil_force_z_n": 36.846839904785156,
+      "soil_min_z_m": 0.002693360671401024
+    },
+    {
+      "tick": 251,
+      "time_s": 0.6275000000000001,
+      "body_z_m": 0.1873316615819931,
+      "body_vz_m_s": -0.07745885848999023,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -10.105201528072357,
+      "soil_impulse_n_s": [
+        -5.250831600278616e-05,
+        -3.7997844628989697e-05,
+        0.09452156722545624
+      ],
+      "soil_force_z_n": 37.80862808227539,
+      "soil_min_z_m": 0.002693343674764037
+    },
+    {
+      "tick": 252,
+      "time_s": 0.63,
+      "body_z_m": 0.18714553117752075,
+      "body_vz_m_s": -0.07265475392341614,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -10.778932199478149,
+      "soil_impulse_n_s": [
+        -7.625168655067682e-05,
+        -5.502335261553526e-05,
+        0.09696607291698456
+      ],
+      "soil_force_z_n": 38.78643035888672,
+      "soil_min_z_m": 0.002693334361538291
+    },
+    {
+      "tick": 253,
+      "time_s": 0.6325000000000001,
+      "body_z_m": 0.18697184324264526,
+      "body_vz_m_s": -0.06757158041000366,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -11.499547884464263,
+      "soil_impulse_n_s": [
+        -6.953894626349211e-05,
+        -4.9033667892217636e-05,
+        0.09826897084712982
+      ],
+      "soil_force_z_n": 39.30759048461914,
+      "soil_min_z_m": 0.002693325048312545
+    },
+    {
+      "tick": 254,
+      "time_s": 0.635,
+      "body_z_m": 0.1868104487657547,
+      "body_vz_m_s": -0.06275025010108948,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -12.262023911476135,
+      "soil_impulse_n_s": [
+        -4.688545595854521e-05,
+        -3.20713734254241e-05,
+        0.09829916805028915
+      ],
+      "soil_force_z_n": 39.31966781616211,
+      "soil_min_z_m": 0.0026933120097965
+    },
+    {
+      "tick": 255,
+      "time_s": 0.6375000000000001,
+      "body_z_m": 0.18665990233421326,
+      "body_vz_m_s": -0.058700546622276306,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -12.985223457813262,
+      "soil_impulse_n_s": [
+        -2.2894819267094135e-05,
+        -1.4614430256187916e-05,
+        0.09752842783927917
+      ],
+      "soil_force_z_n": 39.01137161254883,
+      "soil_min_z_m": 0.0026932950131595135
+    },
+    {
+      "tick": 256,
+      "time_s": 0.64,
+      "body_z_m": 0.18651792407035828,
+      "body_vz_m_s": -0.05564451217651367,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -13.592678979635238,
+      "soil_impulse_n_s": [
+        -1.7971033230423927e-05,
+        -1.125037670135498e-05,
+        0.09739763289690018
+      ],
+      "soil_force_z_n": 38.95905303955078,
+      "soil_min_z_m": 0.0026932754553854465
+    },
+    {
+      "tick": 257,
+      "time_s": 0.6425,
+      "body_z_m": 0.1863827258348465,
+      "body_vz_m_s": -0.05314263701438904,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.051084146499633,
+      "soil_impulse_n_s": [
+        -1.3802782632410526e-05,
+        -8.319271728396416e-06,
+        0.09727703034877777
+      ],
+      "soil_force_z_n": 38.91081237792969,
+      "soil_min_z_m": 0.002693254267796874
+    },
+    {
+      "tick": 258,
+      "time_s": 0.645,
+      "body_z_m": 0.18625305593013763,
+      "body_vz_m_s": -0.051100313663482666,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.426365420818328,
+      "soil_impulse_n_s": [
+        -7.078051567077637e-07,
+        1.04482751339674e-06,
+        0.09654462337493896
+      ],
+      "soil_force_z_n": 38.61785125732422,
+      "soil_min_z_m": 0.002693238900974393
+    },
+    {
+      "tick": 259,
+      "time_s": 0.6475,
+      "body_z_m": 0.1861274689435959,
+      "body_vz_m_s": -0.049708276987075806,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.732713923454284,
+      "soil_impulse_n_s": [
+        2.207164652645588e-05,
+        4.020752385258675e-06,
+        0.08230067789554596
+      ],
+      "soil_force_z_n": 32.92027282714844,
+      "soil_min_z_m": 0.0026932170148938894
+    },
+    {
+      "tick": 260,
+      "time_s": 0.65,
+      "body_z_m": 0.18599535524845123,
+      "body_vz_m_s": -0.054725080728530884,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.941519424915313,
+      "soil_impulse_n_s": [
+        5.001109093427658e-05,
+        2.955552190542221e-05,
+        0.08939360827207565
+      ],
+      "soil_force_z_n": 35.757442474365234,
+      "soil_min_z_m": 0.0026931932661682367
+    },
+    {
+      "tick": 261,
+      "time_s": 0.6525,
+      "body_z_m": 0.18585678935050964,
+      "body_vz_m_s": -0.05584682524204254,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.188998863697051,
+      "soil_impulse_n_s": [
+        7.306982297450304e-05,
+        4.551664460450411e-05,
+        0.09746035933494568
+      ],
+      "soil_force_z_n": 38.98414611816406,
+      "soil_min_z_m": 0.0026931536849588156
+    },
+    {
+      "tick": 262,
+      "time_s": 0.655,
+      "body_z_m": 0.18572115898132324,
+      "body_vz_m_s": -0.053284794092178345,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.020737186670303,
+      "soil_impulse_n_s": [
+        8.908461313694715e-05,
+        5.157897248864174e-05,
+        0.10313650965690613
+      ],
+      "soil_force_z_n": 41.25460433959961,
+      "soil_min_z_m": 0.0026931397151201963
+    },
+    {
+      "tick": 263,
+      "time_s": 0.6575,
+      "body_z_m": 0.18559513986110687,
+      "body_vz_m_s": -0.04867614805698395,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -14.405041859149932,
+      "soil_impulse_n_s": [
+        0.00010263372678309679,
+        6.167462561279535e-05,
+        0.10547835379838943
+      ],
+      "soil_force_z_n": 42.191341400146484,
+      "soil_min_z_m": 0.0026931269094347954
+    },
+    {
+      "tick": 264,
+      "time_s": 0.66,
+      "body_z_m": 0.18548107147216797,
+      "body_vz_m_s": -0.043801188468933105,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.096338764429092,
+      "soil_impulse_n_s": [
+        0.0001050999853760004,
+        7.095013279467821e-05,
+        0.10518984496593475
+      ],
+      "soil_force_z_n": 42.0759391784668,
+      "soil_min_z_m": 0.0026930992025882006
+    },
+    {
+      "tick": 265,
+      "time_s": 0.6625,
+      "body_z_m": 0.18537774682044983,
+      "body_vz_m_s": -0.039844900369644165,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.827582702636718,
+      "soil_impulse_n_s": [
+        0.00010406703222543001,
+        7.144769188016653e-05,
+        0.10490334033966064
+      ],
+      "soil_force_z_n": 41.96133804321289,
+      "soil_min_z_m": 0.0026930684689432383
+    },
+    {
+      "tick": 266,
+      "time_s": 0.665,
+      "body_z_m": 0.1852831095457077,
+      "body_vz_m_s": -0.03665688633918762,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.42102591753006,
+      "soil_impulse_n_s": [
+        6.394705269485712e-05,
+        5.263334605842829e-05,
+        0.10146202892065048
+      ],
+      "soil_force_z_n": 40.58481216430664,
+      "soil_min_z_m": 0.0026930340100079775
+    },
+    {
+      "tick": 267,
+      "time_s": 0.6675,
+      "body_z_m": 0.18519330024719238,
+      "body_vz_m_s": -0.03548137843608856,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.89922802209854,
+      "soil_impulse_n_s": [
+        1.2528384104371071e-05,
+        1.9915052689611912e-05,
+        0.09874315559864044
+      ],
+      "soil_force_z_n": 39.49726486206055,
+      "soil_min_z_m": 0.002693002112209797
+    },
+    {
+      "tick": 268,
+      "time_s": 0.67,
+      "body_z_m": 0.18510431051254272,
+      "body_vz_m_s": -0.03567726910114288,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -17.0755542075634,
+      "soil_impulse_n_s": [
+        3.4874537959694862e-06,
+        1.2689037248492241e-05,
+        0.0972517728805542
+      ],
+      "soil_force_z_n": 38.90071105957031,
+      "soil_min_z_m": 0.002692975802347064
+    },
+    {
+      "tick": 269,
+      "time_s": 0.6725,
+      "body_z_m": 0.18501386046409607,
+      "body_vz_m_s": -0.03648857772350311,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -17.04617060780525,
+      "soil_impulse_n_s": [
+        -1.1262367479503155e-05,
+        -1.7493730410933495e-06,
+        0.09661924093961716
+      ],
+      "soil_force_z_n": 38.64769744873047,
+      "soil_min_z_m": 0.0026929534506052732
+    },
+    {
+      "tick": 270,
+      "time_s": 0.675,
+      "body_z_m": 0.18492117524147034,
+      "body_vz_m_s": -0.037442371249198914,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.924474314451217,
+      "soil_impulse_n_s": [
+        -3.176520112901926e-05,
+        -2.1052313968539238e-05,
+        0.0966842845082283
+      ],
+      "soil_force_z_n": 38.67371368408203,
+      "soil_min_z_m": 0.00269293412566185
+    },
+    {
+      "tick": 271,
+      "time_s": 0.6775,
+      "body_z_m": 0.1848263442516327,
+      "body_vz_m_s": -0.03821270167827606,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.781405285596847,
+      "soil_impulse_n_s": [
+        -3.582949284464121e-05,
+        -2.444151323288679e-05,
+        0.09677011519670486
+      ],
+      "soil_force_z_n": 38.708045959472656,
+      "soil_min_z_m": 0.0026929150335490704
+    },
+    {
+      "tick": 272,
+      "time_s": 0.68,
+      "body_z_m": 0.18472985923290253,
+      "body_vz_m_s": -0.03882040083408356,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.665855721235275,
+      "soil_impulse_n_s": [
+        -5.541217979043722e-05,
+        -4.2903819121420383e-05,
+        0.09767315536737442
+      ],
+      "soil_force_z_n": 39.06926345825195,
+      "soil_min_z_m": 0.0026928961742669344
+    },
+    {
+      "tick": 273,
+      "time_s": 0.6825,
+      "body_z_m": 0.18463262915611267,
+      "body_vz_m_s": -0.03893724083900452,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.57470084786415,
+      "soil_impulse_n_s": [
+        -7.282441947609186e-05,
+        -5.756481550633907e-05,
+        0.0984305739402771
+      ],
+      "soil_force_z_n": 39.372230529785156,
+      "soil_min_z_m": 0.0026928859297186136
+    },
+    {
+      "tick": 274,
+      "time_s": 0.685,
+      "body_z_m": 0.1845356523990631,
+      "body_vz_m_s": -0.03870633244514465,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.557174847126007,
+      "soil_impulse_n_s": [
+        -7.679173722863197e-05,
+        -5.9754238463938236e-05,
+        0.0988990068435669
+      ],
+      "soil_force_z_n": 39.55960464477539,
+      "soil_min_z_m": 0.0026928798761218786
+    },
+    {
+      "tick": 275,
+      "time_s": 0.6875,
+      "body_z_m": 0.1844395101070404,
+      "body_vz_m_s": -0.03830967843532562,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.591811106204986,
+      "soil_impulse_n_s": [
+        -7.461849600076675e-05,
+        -5.774979945272207e-05,
+        0.09892458468675613
+      ],
+      "soil_force_z_n": 39.5698356628418,
+      "soil_min_z_m": 0.0026928770821541548
+    },
+    {
+      "tick": 276,
+      "time_s": 0.6900000000000001,
+      "body_z_m": 0.18434427678585052,
+      "body_vz_m_s": -0.03796648979187012,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.65130920767784,
+      "soil_impulse_n_s": [
+        -6.948062218725681e-05,
+        -5.355803295969963e-05,
+        0.09892790764570236
+      ],
+      "soil_force_z_n": 39.571163177490234,
+      "soil_min_z_m": 0.0026928747538477182
+    },
+    {
+      "tick": 277,
+      "time_s": 0.6925,
+      "body_z_m": 0.18424983322620392,
+      "body_vz_m_s": -0.03767772018909454,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.702787504196166,
+      "soil_impulse_n_s": [
+        -3.306637518107891e-05,
+        -2.359086647629738e-05,
+        0.09864187240600586
+      ],
+      "soil_force_z_n": 39.456748962402344,
+      "soil_min_z_m": 0.0026928663719445467
+    },
+    {
+      "tick": 278,
+      "time_s": 0.6950000000000001,
+      "body_z_m": 0.18415582180023193,
+      "body_vz_m_s": -0.03756009042263031,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.746102944612502,
+      "soil_impulse_n_s": [
+        -3.6874553188681602e-06,
+        -6.241025403141975e-07,
+        0.0982881560921669
+      ],
+      "soil_force_z_n": 39.31526184082031,
+      "soil_min_z_m": 0.0026928544975817204
+    },
+    {
+      "tick": 279,
+      "time_s": 0.6975,
+      "body_z_m": 0.18406182527542114,
+      "body_vz_m_s": -0.03761512041091919,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.763747409582137,
+      "soil_impulse_n_s": [
+        -1.103617250919342e-06,
+        1.2308591976761818e-06,
+        0.09826433658599854
+      ],
+      "soil_force_z_n": 39.30573654174805,
+      "soil_min_z_m": 0.002692841924726963
+    },
+    {
+      "tick": 280,
+      "time_s": 0.7000000000000001,
+      "body_z_m": 0.1839677095413208,
+      "body_vz_m_s": -0.03767155110836029,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.755492911338806,
+      "soil_impulse_n_s": [
+        6.89295120537281e-07,
+        2.326793037354946e-06,
+        0.09824910759925842
+      ],
+      "soil_force_z_n": 39.299644470214844,
+      "soil_min_z_m": 0.002692829817533493
+    },
+    {
+      "tick": 281,
+      "time_s": 0.7025,
+      "body_z_m": 0.18387344479560852,
+      "body_vz_m_s": -0.037725403904914856,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.74702830672264,
+      "soil_impulse_n_s": [
+        1.4015124179422855e-05,
+        1.0949675925076008e-05,
+        0.097885861992836
+      ],
+      "soil_force_z_n": 39.15434646606445,
+      "soil_min_z_m": 0.00269281561486423
+    },
+    {
+      "tick": 282,
+      "time_s": 0.705,
+      "body_z_m": 0.1837788075208664,
+      "body_vz_m_s": -0.03792814910411835,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.738950387239456,
+      "soil_impulse_n_s": [
+        2.176174893975258e-05,
+        1.5576835721731186e-05,
+        0.09754598885774612
+      ],
+      "soil_force_z_n": 39.01839828491211,
+      "soil_min_z_m": 0.002692801645025611
+    },
+    {
+      "tick": 283,
+      "time_s": 0.7075,
+      "body_z_m": 0.18368349969387054,
+      "body_vz_m_s": -0.038245394825935364,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.708538607358932,
+      "soil_impulse_n_s": [
+        2.3076310753822327e-05,
+        1.5146331861615181e-05,
+        0.09732066094875336
+      ],
+      "soil_force_z_n": 38.92826461791992,
+      "soil_min_z_m": 0.00269278883934021
+    },
+    {
+      "tick": 284,
+      "time_s": 0.71,
+      "body_z_m": 0.18358731269836426,
+      "body_vz_m_s": -0.038608819246292114,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.66095174908638,
+      "soil_impulse_n_s": [
+        1.790444366633892e-05,
+        1.103733666241169e-05,
+        0.09720385819673538
+      ],
+      "soil_force_z_n": 38.88154602050781,
+      "soil_min_z_m": 0.00269277673214674
+    },
+    {
+      "tick": 285,
+      "time_s": 0.7125,
+      "body_z_m": 0.18349023163318634,
+      "body_vz_m_s": -0.03896377980709076,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.606438086032867,
+      "soil_impulse_n_s": [
+        1.5783589333295822e-05,
+        9.730807505548e-06,
+        0.0972185879945755
+      ],
+      "soil_force_z_n": 38.88743591308594,
+      "soil_min_z_m": 0.0026927655562758446
+    },
+    {
+      "tick": 286,
+      "time_s": 0.715,
+      "body_z_m": 0.18339239060878754,
+      "body_vz_m_s": -0.03925459086894989,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.55319400191307,
+      "soil_impulse_n_s": [
+        1.332792453467846e-05,
+        8.249073289334774e-06,
+        0.09725099802017212
+      ],
+      "soil_force_z_n": 38.90039825439453,
+      "soil_min_z_m": 0.002692755311727524
+    },
+    {
+      "tick": 287,
+      "time_s": 0.7175,
+      "body_z_m": 0.1832938939332962,
+      "body_vz_m_s": -0.039483994245529175,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.5095723426342,
+      "soil_impulse_n_s": [
+        -4.1442690417170525e-06,
+        -1.6434350982308388e-06,
+        0.09730564057826996
+      ],
+      "soil_force_z_n": 38.92225646972656,
+      "soil_min_z_m": 0.0026927494909614325
+    },
+    {
+      "tick": 288,
+      "time_s": 0.72,
+      "body_z_m": 0.18319492042064667,
+      "body_vz_m_s": -0.039652347564697266,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.475161836147308,
+      "soil_impulse_n_s": [
+        -1.8145539797842503e-05,
+        -1.0204385034739971e-05,
+        0.09727706760168076
+      ],
+      "soil_force_z_n": 38.91082763671875,
+      "soil_min_z_m": 0.002692749723792076
+    },
+    {
+      "tick": 289,
+      "time_s": 0.7225,
+      "body_z_m": 0.1830955445766449,
+      "body_vz_m_s": -0.03980568051338196,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.449908838272094,
+      "soil_impulse_n_s": [
+        -1.9325874745845795e-05,
+        -1.0993215255439281e-05,
+        0.09728594869375229
+      ],
+      "soil_force_z_n": 38.91437911987305,
+      "soil_min_z_m": 0.0026927548460662365
+    },
+    {
+      "tick": 290,
+      "time_s": 0.725,
+      "body_z_m": 0.18299584090709686,
+      "body_vz_m_s": -0.03993020951747894,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.42690889596939,
+      "soil_impulse_n_s": [
+        -2.263975329697132e-05,
+        -1.3865646906197071e-05,
+        0.09718495607376099
+      ],
+      "soil_force_z_n": 38.87398147583008,
+      "soil_min_z_m": 0.0026927567087113857
+    },
+    {
+      "tick": 291,
+      "time_s": 0.7275,
+      "body_z_m": 0.18289579451084137,
+      "body_vz_m_s": -0.040078312158584595,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.408229545354843,
+      "soil_impulse_n_s": [
+        -2.3692846298217773e-05,
+        -1.525192055851221e-05,
+        0.09702751040458679
+      ],
+      "soil_force_z_n": 38.811004638671875,
+      "soil_min_z_m": 0.002692755777388811
+    },
+    {
+      "tick": 292,
+      "time_s": 0.73,
+      "body_z_m": 0.18279530107975006,
+      "body_vz_m_s": -0.04027062654495239,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.386014149188995,
+      "soil_impulse_n_s": [
+        -2.1206564269959927e-05,
+        -1.4155055396258831e-05,
+        0.09686931222677231
+      ],
+      "soil_force_z_n": 38.74772644042969,
+      "soil_min_z_m": 0.0026927527505904436
+    },
+    {
+      "tick": 293,
+      "time_s": 0.7325,
+      "body_z_m": 0.18269427120685577,
+      "body_vz_m_s": -0.04050031304359436,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.357166991233825,
+      "soil_impulse_n_s": [
+        -1.70624116435647e-05,
+        -1.1715223081409931e-05,
+        0.09672785550355911
+      ],
+      "soil_force_z_n": 38.69114303588867,
+      "soil_min_z_m": 0.0026927487924695015
+    },
+    {
+      "tick": 294,
+      "time_s": 0.735,
+      "body_z_m": 0.18259263038635254,
+      "body_vz_m_s": -0.04075402021408081,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.32271401643753,
+      "soil_impulse_n_s": [
+        -1.2646429240703583e-05,
+        -8.892035111784935e-06,
+        0.09661339223384857
+      ],
+      "soil_force_z_n": 38.64535903930664,
+      "soil_min_z_m": 0.0026927441358566284
+    },
+    {
+      "tick": 295,
+      "time_s": 0.7375,
+      "body_z_m": 0.18249033391475677,
+      "body_vz_m_s": -0.0410161018371582,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.284657940864562,
+      "soil_impulse_n_s": [
+        -8.916831575334072e-06,
+        -6.364891305565834e-06,
+        0.09652777761220932
+      ],
+      "soil_force_z_n": 38.61111068725586,
+      "soil_min_z_m": 0.002692739013582468
+    },
+    {
+      "tick": 296,
+      "time_s": 0.74,
+      "body_z_m": 0.18238739669322968,
+      "body_vz_m_s": -0.041272684931755066,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.245345697402954,
+      "soil_impulse_n_s": [
+        -8.929986506700516e-06,
+        -6.29061833024025e-06,
+        0.09654012322425842
+      ],
+      "soil_force_z_n": 38.616050720214844,
+      "soil_min_z_m": 0.0026927341241389513
+    },
+    {
+      "tick": 297,
+      "time_s": 0.7425,
+      "body_z_m": 0.1822838932275772,
+      "body_vz_m_s": -0.04148215055465698,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.206858233213424,
+      "soil_impulse_n_s": [
+        -5.795503966510296e-06,
+        -3.983732312917709e-06,
+        0.09650000929832458
+      ],
+      "soil_force_z_n": 38.600006103515625,
+      "soil_min_z_m": 0.0026927292346954346
+    },
+    {
+      "tick": 298,
+      "time_s": 0.745,
+      "body_z_m": 0.18217988312244415,
+      "body_vz_m_s": -0.04167494177818298,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.175438389778137,
+      "soil_impulse_n_s": [
+        -4.536123014986515e-06,
+        -2.6756897568702698e-06,
+        0.09642596542835236
+      ],
+      "soil_force_z_n": 38.57038879394531,
+      "soil_min_z_m": 0.002692726207897067
+    },
+    {
+      "tick": 299,
+      "time_s": 0.7475,
+      "body_z_m": 0.1820753961801529,
+      "body_vz_m_s": -0.04186849296092987,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.146519706249236,
+      "soil_impulse_n_s": [
+        -4.007597453892231e-06,
+        -1.942971721291542e-06,
+        0.096352219581604
+      ],
+      "soil_force_z_n": 38.540889739990234,
+      "soil_min_z_m": 0.0026927206199616194
+    },
+    {
+      "tick": 300,
+      "time_s": 0.75,
+      "body_z_m": 0.18197043240070343,
+      "body_vz_m_s": -0.04206255078315735,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.117487028837203,
+      "soil_impulse_n_s": [
+        -4.563364200294018e-06,
+        -2.248561941087246e-06,
+        0.09636348485946655
+      ],
+      "soil_force_z_n": 38.54539489746094,
+      "soil_min_z_m": 0.002692714799195528
+    },
+    {
+      "tick": 301,
+      "time_s": 0.7525000000000001,
+      "body_z_m": 0.18186502158641815,
+      "body_vz_m_s": -0.04222013056278229,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.08837835550308,
+      "soil_impulse_n_s": [
+        -4.925765097141266e-06,
+        -2.6260968297719955e-06,
+        0.09628766030073166
+      ],
+      "soil_force_z_n": 38.51506423950195,
+      "soil_min_z_m": 0.0026927106082439423
+    },
+    {
+      "tick": 302,
+      "time_s": 0.755,
+      "body_z_m": 0.18175920844078064,
+      "body_vz_m_s": -0.04238496720790863,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.06474138855934,
+      "soil_impulse_n_s": [
+        -6.427057087421417e-06,
+        -3.910507075488567e-06,
+        0.09617087244987488
+      ],
+      "soil_force_z_n": 38.46834945678711,
+      "soil_min_z_m": 0.002692706882953644
+    },
+    {
+      "tick": 303,
+      "time_s": 0.7575000000000001,
+      "body_z_m": 0.18165293335914612,
+      "body_vz_m_s": -0.04257366061210632,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.04001589179039,
+      "soil_impulse_n_s": [
+        -7.412745617330074e-06,
+        -4.907837137579918e-06,
+        0.09606331586837769
+      ],
+      "soil_force_z_n": 38.42532730102539,
+      "soil_min_z_m": 0.002692702692002058
+    },
+    {
+      "tick": 304,
+      "time_s": 0.76,
+      "body_z_m": 0.1815461814403534,
+      "body_vz_m_s": -0.04277832806110382,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -16.011711881160736,
+      "soil_impulse_n_s": [
+        -8.1618782132864e-06,
+        -5.687819793820381e-06,
+        0.09597041457891464
+      ],
+      "soil_force_z_n": 38.38816833496094,
+      "soil_min_z_m": 0.0026926982682198286
+    },
+    {
+      "tick": 305,
+      "time_s": 0.7625000000000001,
+      "body_z_m": 0.18143890798091888,
+      "body_vz_m_s": -0.04299001395702362,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.98101176381111,
+      "soil_impulse_n_s": [
+        -8.736853487789631e-06,
+        -6.275135092437267e-06,
+        0.09589485079050064
+      ],
+      "soil_force_z_n": 38.357940673828125,
+      "soil_min_z_m": 0.0026926936116069555
+    },
+    {
+      "tick": 306,
+      "time_s": 0.765,
+      "body_z_m": 0.1813310980796814,
+      "body_vz_m_s": -0.0432000458240509,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.949258879423141,
+      "soil_impulse_n_s": [
+        -9.186798706650734e-06,
+        -6.694113835692406e-06,
+        0.09583540260791779
+      ],
+      "soil_force_z_n": 38.334163665771484,
+      "soil_min_z_m": 0.0026926889549940825
+    },
+    {
+      "tick": 307,
+      "time_s": 0.7675000000000001,
+      "body_z_m": 0.1812227964401245,
+      "body_vz_m_s": -0.04340168833732605,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.917754099369049,
+      "soil_impulse_n_s": [
+        -9.51660331338644e-06,
+        -6.950343959033489e-06,
+        0.09578853845596313
+      ],
+      "soil_force_z_n": 38.31541442871094,
+      "soil_min_z_m": 0.0026926842983812094
+    },
+    {
+      "tick": 308,
+      "time_s": 0.77,
+      "body_z_m": 0.18111401796340942,
+      "body_vz_m_s": -0.043590858578681946,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.887507722377777,
+      "soil_impulse_n_s": [
+        -1.0351301170885563e-05,
+        -8.37724655866623e-06,
+        0.09580019861459732
+      ],
+      "soil_force_z_n": 38.3200798034668,
+      "soil_min_z_m": 0.0026926787104457617
+    },
+    {
+      "tick": 309,
+      "time_s": 0.7725,
+      "body_z_m": 0.18100479245185852,
+      "body_vz_m_s": -0.043744176626205444,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.859132186174392,
+      "soil_impulse_n_s": [
+        2.3851520381867886e-05,
+        2.5825807824730873e-05,
+        0.0961509570479393
+      ],
+      "soil_force_z_n": 38.460384368896484,
+      "soil_min_z_m": 0.002692667068913579
+    },
+    {
+      "tick": 310,
+      "time_s": 0.775,
+      "body_z_m": 0.18089546263217926,
+      "body_vz_m_s": -0.04372029006481171,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.836134479045867,
+      "soil_impulse_n_s": [
+        2.303288783878088e-05,
+        2.5640008971095085e-05,
+        0.09621863067150116
+      ],
+      "soil_force_z_n": 38.48745346069336,
+      "soil_min_z_m": 0.002692650770768523
+    },
+    {
+      "tick": 311,
+      "time_s": 0.7775,
+      "body_z_m": 0.18078623712062836,
+      "body_vz_m_s": -0.04367092251777649,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.839717463254928,
+      "soil_impulse_n_s": [
+        9.297626093029976e-06,
+        1.2178439646959305e-05,
+        0.0965907946228981
+      ],
+      "soil_force_z_n": 38.63631820678711,
+      "soil_min_z_m": 0.0026926379650831223
+    },
+    {
+      "tick": 312,
+      "time_s": 0.78,
+      "body_z_m": 0.1806773841381073,
+      "body_vz_m_s": -0.04346805810928345,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.84712259531021,
+      "soil_impulse_n_s": [
+        5.712732672691345e-06,
+        8.831266313791275e-06,
+        0.09663038700819016
+      ],
+      "soil_force_z_n": 38.652156829833984,
+      "soil_min_z_m": 0.0026926263235509396
+    },
+    {
+      "tick": 313,
+      "time_s": 0.7825,
+      "body_z_m": 0.18056902289390564,
+      "body_vz_m_s": -0.043281033635139465,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.877552256584167,
+      "soil_impulse_n_s": [
+        2.541113644838333e-06,
+        5.347537808120251e-06,
+        0.0966741293668747
+      ],
+      "soil_force_z_n": 38.66965103149414,
+      "soil_min_z_m": 0.002692615147680044
+    },
+    {
+      "tick": 314,
+      "time_s": 0.785,
+      "body_z_m": 0.1804610937833786,
+      "body_vz_m_s": -0.04310545325279236,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.905605927705764,
+      "soil_impulse_n_s": [
+        -1.2718955986201763e-05,
+        -1.3226643204689026e-05,
+        0.09671401232481003
+      ],
+      "soil_force_z_n": 38.685604095458984,
+      "soil_min_z_m": 0.002692603040486574
+    },
+    {
+      "tick": 315,
+      "time_s": 0.7875,
+      "body_z_m": 0.180353581905365,
+      "body_vz_m_s": -0.042941153049468994,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.93194298505783,
+      "soil_impulse_n_s": [
+        -1.8926861230283976e-05,
+        -2.0004867110401392e-05,
+        0.09663596749305725
+      ],
+      "soil_force_z_n": 38.654388427734375,
+      "soil_min_z_m": 0.002692590234801173
+    },
+    {
+      "tick": 316,
+      "time_s": 0.79,
+      "body_z_m": 0.18024638295173645,
+      "body_vz_m_s": -0.0428374707698822,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.956588015556335,
+      "soil_impulse_n_s": [
+        -1.8135295249521732e-05,
+        -1.89606798812747e-05,
+        0.09650670737028122
+      ],
+      "soil_force_z_n": 38.602684020996094,
+      "soil_min_z_m": 0.002692577661946416
+    },
+    {
+      "tick": 317,
+      "time_s": 0.7925,
+      "body_z_m": 0.18013934791088104,
+      "body_vz_m_s": -0.04280675947666168,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.972140357494354,
+      "soil_impulse_n_s": [
+        -1.8223770894110203e-05,
+        -1.8546474166214466e-05,
+        0.09651482850313187
+      ],
+      "soil_force_z_n": 38.605934143066406,
+      "soil_min_z_m": 0.0026925650890916586
+    },
+    {
+      "tick": 318,
+      "time_s": 0.795,
+      "body_z_m": 0.1800323724746704,
+      "body_vz_m_s": -0.04277752339839935,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.976747051477432,
+      "soil_impulse_n_s": [
+        -1.1569121852517128e-05,
+        -1.095322659239173e-05,
+        0.09635895490646362
+      ],
+      "soil_force_z_n": 38.543582916259766,
+      "soil_min_z_m": 0.0026925532147288322
+    },
+    {
+      "tick": 319,
+      "time_s": 0.7975,
+      "body_z_m": 0.1799253523349762,
+      "body_vz_m_s": -0.04282069206237793,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.981132463216781,
+      "soil_impulse_n_s": [
+        -3.45336738973856e-05,
+        -8.022278780117631e-05,
+        0.09618673473596573
+      ],
+      "soil_force_z_n": 38.474693298339844,
+      "soil_min_z_m": 0.002692542038857937
+    },
+    {
+      "tick": 320,
+      "time_s": 0.8,
+      "body_z_m": 0.17981812357902527,
+      "body_vz_m_s": -0.042931586503982544,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -15.974657163619995,
+      "soil_impulse_n_s": [
+        3.983639180660248e-05,
+        -8.792697917670012e-05,
+        0.09601984918117523
+      ],
+      "soil_force_z_n": 38.40793991088867,
+      "soil_min_z_m": 0.002692529698833823
+    },
+    {
+      "tick": 321,
+      "time_s": 0.8025,
+      "body_z_m": 0.17983931303024292,
+      "body_vz_m_s": 0.039322879165410995,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 60.0,
+      "soil_impulse_n_s": [
+        0.00011766690295189619,
+        -4.84405318275094e-05,
+        0.08122244477272034
+      ],
+      "soil_force_z_n": 32.48897933959961,
+      "soil_min_z_m": 0.0026925099082291126
+    },
+    {
+      "tick": 322,
+      "time_s": 0.805,
+      "body_z_m": 0.1800561100244522,
+      "body_vz_m_s": 0.11515485495328903,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 60.0,
+      "soil_impulse_n_s": [
+        0.0002687926171347499,
+        0.00014847272541373968,
+        0.057771116495132446
+      ],
+      "soil_force_z_n": 23.108448028564453,
+      "soil_min_z_m": 0.002692499663680792
+    },
+    {
+      "tick": 323,
+      "time_s": 0.8075,
+      "body_z_m": 0.18043018877506256,
+      "body_vz_m_s": 0.17031459510326385,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 50.32901078402996,
+      "soil_impulse_n_s": [
+        2.0662002498283982e-05,
+        0.00014537657261826098,
+        0.026072027161717415
+      ],
+      "soil_force_z_n": 10.428811073303223,
+      "soil_min_z_m": 0.0026924817357212305
+    },
+    {
+      "tick": 324,
+      "time_s": 0.81,
+      "body_z_m": 0.18090660870075226,
+      "body_vz_m_s": 0.2027382105588913,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 42.05504976153374,
+      "soil_impulse_n_s": [
+        6.317265797406435e-05,
+        0.0001294579851673916,
+        0.0013243958819657564
+      ],
+      "soil_force_z_n": 0.5297583937644958,
+      "soil_min_z_m": 0.002692481270059943
+    },
+    {
+      "tick": 325,
+      "time_s": 0.8125,
+      "body_z_m": 0.1814390867948532,
+      "body_vz_m_s": 0.21914337575435638,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 37.19150744318962,
+      "soil_impulse_n_s": [
+        -2.6809880270678432e-14,
+        2.6875610027385366e-13,
+        -8.199969349365066e-12
+      ],
+      "soil_force_z_n": -3.279987836890541e-09,
+      "soil_min_z_m": 0.002692484762519598
+    },
+    {
+      "tick": 326,
+      "time_s": 0.8150000000000001,
+      "body_z_m": 0.1820075362920761,
+      "body_vz_m_s": 0.23230360448360443,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 34.73073266386986,
+      "soil_impulse_n_s": [
+        -5.593808548282715e-15,
+        7.037240527720673e-14,
+        6.19249551810086e-13
+      ],
+      "soil_force_z_n": 2.4769983286709873e-10,
+      "soil_min_z_m": 0.00269248615950346
+    },
+    {
+      "tick": 327,
+      "time_s": 0.8175,
+      "body_z_m": 0.18260551989078522,
+      "body_vz_m_s": 0.24332188069820404,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 32.75669835448265,
+      "soil_impulse_n_s": [
+        -1.3122099517204333e-05,
+        -6.507397301902529e-06,
+        -9.823914297157899e-06
+      ],
+      "soil_force_z_n": -0.0039295656606554985,
+      "soil_min_z_m": 0.0026924884878098965
+    },
+    {
+      "tick": 328,
+      "time_s": 0.8200000000000001,
+      "body_z_m": 0.18322822451591492,
+      "body_vz_m_s": 0.25254255533218384,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 31.10395692229271,
+      "soil_impulse_n_s": [
+        -3.2571311749052256e-05,
+        -1.9049010006710887e-05,
+        -2.6381458155810833e-05
+      ],
+      "soil_force_z_n": -0.010552583262324333,
+      "soil_min_z_m": 0.0026924964040517807
+    },
+    {
+      "tick": 329,
+      "time_s": 0.8225,
+      "body_z_m": 0.18387162685394287,
+      "body_vz_m_s": 0.26025527715682983,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 29.72085572719574,
+      "soil_impulse_n_s": [
+        -7.4780524300877e-05,
+        -4.826659642276354e-05,
+        -6.160928023746237e-05
+      ],
+      "soil_force_z_n": -0.024643711745738983,
+      "soil_min_z_m": 0.0026924964040517807
+    },
+    {
+      "tick": 330,
+      "time_s": 0.8250000000000001,
+      "body_z_m": 0.18453232944011688,
+      "body_vz_m_s": 0.26669734716415405,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 28.56394745349884,
+      "soil_impulse_n_s": [
+        -7.349043880822137e-05,
+        -5.320777199813165e-05,
+        -6.34534444543533e-05
+      ],
+      "soil_force_z_n": -0.025381378829479218,
+      "soil_min_z_m": 0.0026924905832856894
+    },
+    {
+      "tick": 331,
+      "time_s": 0.8275,
+      "body_z_m": 0.18520750105381012,
+      "body_vz_m_s": 0.2720901370048523,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 27.597636952400208,
+      "soil_impulse_n_s": [
+        -7.304900645976886e-05,
+        -5.5119791795732453e-05,
+        -6.420855788746849e-05
+      ],
+      "soil_force_z_n": -0.02568342350423336,
+      "soil_min_z_m": 0.002692505484446883
+    },
+    {
+      "tick": 332,
+      "time_s": 0.8300000000000001,
+      "body_z_m": 0.18589478731155396,
+      "body_vz_m_s": 0.2766048312187195,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 26.78871847629547,
+      "soil_impulse_n_s": [
+        -7.29672028683126e-05,
+        -5.5213458836078644e-05,
+        -6.423340528272092e-05
+      ],
+      "soil_force_z_n": -0.025693362578749657,
+      "soil_min_z_m": 0.002692523645237088
+    },
+    {
+      "tick": 333,
+      "time_s": 0.8325,
+      "body_z_m": 0.1865922063589096,
+      "body_vz_m_s": 0.28038471937179565,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 26.111514344215394,
+      "soil_impulse_n_s": [
+        -7.308768545044586e-05,
+        -5.533268995350227e-05,
+        -6.437228876166046e-05
+      ],
+      "soil_force_z_n": -0.02574891597032547,
+      "soil_min_z_m": 0.002692542504519224
+    },
+    {
+      "tick": 334,
+      "time_s": 0.835,
+      "body_z_m": 0.18729811906814575,
+      "body_vz_m_s": 0.28354936838150024,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 25.544531121253968,
+      "soil_impulse_n_s": [
+        -7.326933700824156e-05,
+        -5.54197613382712e-05,
+        -6.452557863667607e-05
+      ],
+      "soil_force_z_n": -0.025810232385993004,
+      "soil_min_z_m": 0.00269256136380136
+    },
+    {
+      "tick": 335,
+      "time_s": 0.8375,
+      "body_z_m": 0.18801112473011017,
+      "body_vz_m_s": 0.2861989140510559,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 25.06983376979828,
+      "soil_impulse_n_s": [
+        -7.389278471237049e-05,
+        -5.635283014271408e-05,
+        -6.532435509143397e-05
+      ],
+      "soil_force_z_n": -0.026129743084311485,
+      "soil_min_z_m": 0.002692578127607703
+    },
+    {
+      "tick": 336,
+      "time_s": 0.84,
+      "body_z_m": 0.18873009085655212,
+      "body_vz_m_s": 0.2884168028831482,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 24.67240191936493,
+      "soil_impulse_n_s": [
+        -7.375253335339949e-05,
+        -5.7305951486341655e-05,
+        -6.574960571015254e-05
+      ],
+      "soil_force_z_n": -0.026299843564629555,
+      "soil_min_z_m": 0.0026925939600914717
+    },
+    {
+      "tick": 337,
+      "time_s": 0.8425,
+      "body_z_m": 0.18945403397083282,
+      "body_vz_m_s": 0.29027360677719116,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 24.339718594551087,
+      "soil_impulse_n_s": [
+        -7.336047565331683e-05,
+        -5.741542554460466e-05,
+        -6.562519411090761e-05
+      ],
+      "soil_force_z_n": -0.026250077411532402,
+      "soil_min_z_m": 0.0026926088612526655
+    },
+    {
+      "tick": 338,
+      "time_s": 0.845,
+      "body_z_m": 0.1901821494102478,
+      "body_vz_m_s": 0.2918282151222229,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 24.06119801044464,
+      "soil_impulse_n_s": [
+        -7.328230276471004e-05,
+        -5.736487219110131e-05,
+        -6.557790038641542e-05
+      ],
+      "soil_force_z_n": -0.026231160387396812,
+      "soil_min_z_m": 0.0026926230639219284
+    },
+    {
+      "tick": 339,
+      "time_s": 0.8475,
+      "body_z_m": 0.19091375172138214,
+      "body_vz_m_s": 0.29312974214553833,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.82800675868988,
+      "soil_impulse_n_s": [
+        -7.284420280484483e-05,
+        -5.685443102265708e-05,
+        -6.5118249040097e-05
+      ],
+      "soil_force_z_n": -0.026047300547361374,
+      "soil_min_z_m": 0.002692636102437973
+    },
+    {
+      "tick": 340,
+      "time_s": 0.85,
+      "body_z_m": 0.19164827466011047,
+      "body_vz_m_s": 0.2942196726799011,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.632777705192566,
+      "soil_impulse_n_s": [
+        -7.182238186942413e-05,
+        -5.604948819382116e-05,
+        -6.421716534532607e-05
+      ],
+      "soil_force_z_n": -0.02568686753511429,
+      "soil_min_z_m": 0.0026926484424620867
+    },
+    {
+      "tick": 341,
+      "time_s": 0.8525,
+      "body_z_m": 0.1923852562904358,
+      "body_vz_m_s": 0.295132577419281,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.469288125038148,
+      "soil_impulse_n_s": [
+        -7.124669355107471e-05,
+        -5.558862176258117e-05,
+        -6.371218478307128e-05
+      ],
+      "soil_force_z_n": -0.025484874844551086,
+      "soil_min_z_m": 0.0026926614809781313
+    },
+    {
+      "tick": 342,
+      "time_s": 0.855,
+      "body_z_m": 0.19312429428100586,
+      "body_vz_m_s": 0.2958971858024597,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.332352414131165,
+      "soil_impulse_n_s": [
+        -7.094618922565132e-05,
+        -5.5181859352160245e-05,
+        -6.337220111163333e-05
+      ],
+      "soil_force_z_n": -0.025348881259560585,
+      "soil_min_z_m": 0.002692674519494176
+    },
+    {
+      "tick": 343,
+      "time_s": 0.8575,
+      "body_z_m": 0.19386504590511322,
+      "body_vz_m_s": 0.29653745889663696,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.21766115665436,
+      "soil_impulse_n_s": [
+        -7.08547086105682e-05,
+        -5.504065484274179e-05,
+        -6.327040318865329e-05
+      ],
+      "soil_force_z_n": -0.025308161973953247,
+      "soil_min_z_m": 0.002692687790840864
+    },
+    {
+      "tick": 344,
+      "time_s": 0.86,
+      "body_z_m": 0.1946072280406952,
+      "body_vz_m_s": 0.2970735430717468,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.12162019252777,
+      "soil_impulse_n_s": [
+        -7.068766717566177e-05,
+        -5.4751886636950076e-05,
+        -6.305625720415264e-05
+      ],
+      "soil_force_z_n": -0.025222502648830414,
+      "soil_min_z_m": 0.0026926996652036905
+    },
+    {
+      "tick": 345,
+      "time_s": 0.8625,
+      "body_z_m": 0.19535061717033386,
+      "body_vz_m_s": 0.29752248525619507,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.041207566261292,
+      "soil_impulse_n_s": [
+        -7.017648022156209e-05,
+        -5.338794653653167e-05,
+        -6.21285944362171e-05
+      ],
+      "soil_force_z_n": -0.024851437658071518,
+      "soil_min_z_m": 0.002692710142582655
+    },
+    {
+      "tick": 346,
+      "time_s": 0.865,
+      "body_z_m": 0.19609501957893372,
+      "body_vz_m_s": 0.29789870977401733,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.973866238594056,
+      "soil_impulse_n_s": [
+        -7.005380030022934e-05,
+        -5.31970254087355e-05,
+        -6.198489427333698e-05
+      ],
+      "soil_force_z_n": -0.0247939582914114,
+      "soil_min_z_m": 0.002692718990147114
+    },
+    {
+      "tick": 347,
+      "time_s": 0.8675,
+      "body_z_m": 0.19684025645256042,
+      "body_vz_m_s": 0.29821377992630005,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.917432560920716,
+      "soil_impulse_n_s": [
+        -6.948762893443927e-05,
+        -5.1655108109116554e-05,
+        -6.0939004470128566e-05
+      ],
+      "soil_force_z_n": -0.02437560260295868,
+      "soil_min_z_m": 0.0026927278377115726
+    },
+    {
+      "tick": 348,
+      "time_s": 0.87,
+      "body_z_m": 0.19758620858192444,
+      "body_vz_m_s": 0.29847806692123413,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.87017203807831,
+      "soil_impulse_n_s": [
+        -6.932894029887393e-05,
+        -5.141070141689852e-05,
+        -6.07495749136433e-05
+      ],
+      "soil_force_z_n": -0.024299830198287964,
+      "soil_min_z_m": 0.002692736918106675
+    },
+    {
+      "tick": 349,
+      "time_s": 0.8725,
+      "body_z_m": 0.198332741856575,
+      "body_vz_m_s": 0.29869943857192993,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.830528988838196,
+      "soil_impulse_n_s": [
+        -6.902014138177037e-05,
+        -5.0945873226737604e-05,
+        -6.037332786945626e-05
+      ],
+      "soil_force_z_n": -0.0241493321955204,
+      "soil_min_z_m": 0.002692745765671134
+    },
+    {
+      "tick": 350,
+      "time_s": 0.875,
+      "body_z_m": 0.19907976686954498,
+      "body_vz_m_s": 0.29888492822647095,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.797323241233826,
+      "soil_impulse_n_s": [
+        -6.804566510254517e-05,
+        -4.818441811949015e-05,
+        -5.850723755429499e-05
+      ],
+      "soil_force_z_n": -0.023402895778417587,
+      "soil_min_z_m": 0.0026927560102194548
+    },
+    {
+      "tick": 351,
+      "time_s": 0.8775000000000001,
+      "body_z_m": 0.19982722401618958,
+      "body_vz_m_s": 0.2990409731864929,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.769499793052674,
+      "soil_impulse_n_s": [
+        -7.245969605308277e-15,
+        8.499611401529585e-15,
+        -1.101299954009427e-11
+      ],
+      "soil_force_z_n": -4.405199760526557e-09,
+      "soil_min_z_m": 0.0026927669532597065
+    },
+    {
+      "tick": 352,
+      "time_s": 0.88,
+      "body_z_m": 0.2005750685930252,
+      "body_vz_m_s": 0.2991970181465149,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.746093049049378,
+      "soil_impulse_n_s": [
+        -7.814654820600606e-15,
+        -9.092951204817644e-15,
+        8.631166094341669e-12
+      ],
+      "soil_force_z_n": 3.4524665348811823e-09,
+      "soil_min_z_m": 0.002692778594791889
+    },
+    {
+      "tick": 353,
+      "time_s": 0.8825000000000001,
+      "body_z_m": 0.2013232707977295,
+      "body_vz_m_s": 0.29932767152786255,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.722686305046082,
+      "soil_impulse_n_s": [
+        -8.07447963607202e-15,
+        7.0423403436895016e-15,
+        6.57010426965976e-12
+      ],
+      "soil_force_z_n": 2.628041784191737e-09,
+      "soil_min_z_m": 0.0026927904691547155
+    },
+    {
+      "tick": 354,
+      "time_s": 0.885,
+      "body_z_m": 0.20207175612449646,
+      "body_vz_m_s": 0.29943710565567017,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.703088297843934,
+      "soil_impulse_n_s": [
+        -3.8507989724993925e-15,
+        7.025267547604644e-15,
+        6.570108172787581e-12
+      ],
+      "soil_force_z_n": 2.6280433385039714e-09,
+      "soil_min_z_m": 0.00269280350767076
+    },
+    {
+      "tick": 355,
+      "time_s": 0.8875000000000001,
+      "body_z_m": 0.20282047986984253,
+      "body_vz_m_s": 0.2995287775993347,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.68667317867279,
+      "soil_impulse_n_s": [
+        -3.85145838764883e-15,
+        7.0252827941976945e-15,
+        6.570110341191926e-12
+      ],
+      "soil_force_z_n": 2.628044226682391e-09,
+      "soil_min_z_m": 0.0026928188744932413
+    },
+    {
+      "tick": 356,
+      "time_s": 0.89,
+      "body_z_m": 0.2035694271326065,
+      "body_vz_m_s": 0.29960542917251587,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.67292238712311,
+      "soil_impulse_n_s": [
+        -3.851860304782302e-15,
+        7.0252997348566396e-15,
+        6.570112509596271e-12
+      ],
+      "soil_force_z_n": 2.628045114860811e-09,
+      "soil_min_z_m": 0.002692833775654435
+    },
+    {
+      "tick": 357,
+      "time_s": 0.8925000000000001,
+      "body_z_m": 0.20431853830814362,
+      "body_vz_m_s": 0.29966968297958374,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.661424651145936,
+      "soil_impulse_n_s": [
+        -3.8521745540057335e-15,
+        7.025318369581479e-15,
+        6.570114244319747e-12
+      ],
+      "soil_force_z_n": 2.6280457809946256e-09,
+      "soil_min_z_m": 0.002692847978323698
+    },
+    {
+      "tick": 358,
+      "time_s": 0.895,
+      "body_z_m": 0.20506779849529266,
+      "body_vz_m_s": 0.29972344636917114,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.651786580085755,
+      "soil_impulse_n_s": [
+        -3.852448992680644e-15,
+        7.025335310240424e-15,
+        6.570116412724092e-12
+      ],
+      "soil_force_z_n": 2.6280466691730453e-09,
+      "soil_min_z_m": 0.0026928612496703863
+    },
+    {
+      "tick": 359,
+      "time_s": 0.8975,
+      "body_z_m": 0.20581717789173126,
+      "body_vz_m_s": 0.29976850748062134,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.643722071647645,
+      "soil_impulse_n_s": [
+        -3.852701832015399e-15,
+        7.025350556833475e-15,
+        6.570118581128437e-12
+      ],
+      "soil_force_z_n": 2.628047557351465e-09,
+      "soil_min_z_m": 0.002692874288186431
+    },
+    {
+      "tick": 360,
+      "time_s": 0.9,
+      "body_z_m": 0.20656666159629822,
+      "body_vz_m_s": 0.2998061776161194,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.636962904930115,
+      "soil_impulse_n_s": [
+        -3.852941542339472e-15,
+        7.02536749749242e-15,
+        6.570120749532782e-12
+      ],
+      "soil_force_z_n": 2.6280484455298847e-09,
+      "soil_min_z_m": 0.002692884998396039
+    },
+    {
+      "tick": 361,
+      "time_s": 0.9025,
+      "body_z_m": 0.20731621980667114,
+      "body_vz_m_s": 0.29983776807785034,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.63131238460541,
+      "soil_impulse_n_s": [
+        -3.853172358817599e-15,
+        7.0253861322172595e-15,
+        6.570122917937127e-12
+      ],
+      "soil_force_z_n": 2.6280493337083044e-09,
+      "soil_min_z_m": 0.0026928947772830725
+    },
+    {
+      "tick": 362,
+      "time_s": 0.905,
+      "body_z_m": 0.20806585252285004,
+      "body_vz_m_s": 0.29986411333084106,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.626573815345765,
+      "soil_impulse_n_s": [
+        -3.853397669581569e-15,
+        7.0254030728762046e-15,
+        6.570125086341472e-12
+      ],
+      "soil_force_z_n": 2.628049999842119e-09,
+      "soil_min_z_m": 0.002692903857678175
+    },
+    {
+      "tick": 363,
+      "time_s": 0.9075,
+      "body_z_m": 0.2088155448436737,
+      "body_vz_m_s": 0.2998862862586975,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.622622027397156,
+      "soil_impulse_n_s": [
+        -3.853618745180802e-15,
+        7.025418319469255e-15,
+        6.570126821064948e-12
+      ],
+      "soil_force_z_n": 2.628050888020539e-09,
+      "soil_min_z_m": 0.0026929134037345648
+    },
+    {
+      "tick": 364,
+      "time_s": 0.91,
+      "body_z_m": 0.20956529676914215,
+      "body_vz_m_s": 0.2999047636985779,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.61929608821869,
+      "soil_impulse_n_s": [
+        -3.8538364326482465e-15,
+        7.0254352601282e-15,
+        6.570128989469293e-12
+      ],
+      "soil_force_z_n": 2.6280515541543537e-09,
+      "soil_min_z_m": 0.0026929224841296673
+    },
+    {
+      "tick": 365,
+      "time_s": 0.9125,
+      "body_z_m": 0.21031507849693298,
+      "body_vz_m_s": 0.2999202609062195,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.616524472236634,
+      "soil_impulse_n_s": [
+        -3.854052426049796e-15,
+        7.02545389485304e-15,
+        6.570131157873638e-12
+      ],
+      "soil_force_z_n": 2.6280524423327734e-09,
+      "soil_min_z_m": 0.002692930167540908
+    },
+    {
+      "tick": 366,
+      "time_s": 0.915,
+      "body_z_m": 0.2110649049282074,
+      "body_vz_m_s": 0.2999332547187805,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.614199891090394,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002692937618121505
+    },
+    {
+      "tick": 367,
+      "time_s": 0.9175,
+      "body_z_m": 0.211814746260643,
+      "body_vz_m_s": 0.29994410276412964,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.61225081920624,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026929460000246763
+    },
+    {
+      "tick": 368,
+      "time_s": 0.92,
+      "body_z_m": 0.2125646322965622,
+      "body_vz_m_s": 0.2999531626701355,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.61062361240387,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002692955080419779
+    },
+    {
+      "tick": 369,
+      "time_s": 0.9225,
+      "body_z_m": 0.21331451833248138,
+      "body_vz_m_s": 0.29996079206466675,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60926462650299,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002692964393645525
+    },
+    {
+      "tick": 370,
+      "time_s": 0.925,
+      "body_z_m": 0.21406441926956177,
+      "body_vz_m_s": 0.2999672293663025,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.608120217323304,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002692973939701915
+    },
+    {
+      "tick": 371,
+      "time_s": 0.9275,
+      "body_z_m": 0.21481436491012573,
+      "body_vz_m_s": 0.2999725937843323,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.607154622077942,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002692983951419592
+    },
+    {
+      "tick": 372,
+      "time_s": 0.93,
+      "body_z_m": 0.2155643105506897,
+      "body_vz_m_s": 0.29997700452804565,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.606349959373475,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002692992566153407
+    },
+    {
+      "tick": 373,
+      "time_s": 0.9325,
+      "body_z_m": 0.21631425619125366,
+      "body_vz_m_s": 0.29998070001602173,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.605688347816468,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026930004823952913
+    },
+    {
+      "tick": 374,
+      "time_s": 0.935,
+      "body_z_m": 0.21706420183181763,
+      "body_vz_m_s": 0.29998379945755005,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.605134024620057,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693007467314601
+    },
+    {
+      "tick": 375,
+      "time_s": 0.9375,
+      "body_z_m": 0.2178141474723816,
+      "body_vz_m_s": 0.29998642206192017,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60466910839081,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693015616387129
+    },
+    {
+      "tick": 376,
+      "time_s": 0.9400000000000001,
+      "body_z_m": 0.21856409311294556,
+      "body_vz_m_s": 0.29998868703842163,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60427571773529,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026930230669677258
+    },
+    {
+      "tick": 377,
+      "time_s": 0.9425,
+      "body_z_m": 0.21931405365467072,
+      "body_vz_m_s": 0.2999904751777649,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60393597126007,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026930314488708973
+    },
+    {
+      "tick": 378,
+      "time_s": 0.9450000000000001,
+      "body_z_m": 0.22006405889987946,
+      "body_vz_m_s": 0.29999202489852905,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.603667750358582,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693039132282138
+    },
+    {
+      "tick": 379,
+      "time_s": 0.9475,
+      "body_z_m": 0.2208140641450882,
+      "body_vz_m_s": 0.2999933362007141,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.603435292243958,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00269304565154016
+    },
+    {
+      "tick": 380,
+      "time_s": 0.9500000000000001,
+      "body_z_m": 0.22156406939029694,
+      "body_vz_m_s": 0.29999440908432007,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6032385969162,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693052403628826
+    },
+    {
+      "tick": 381,
+      "time_s": 0.9525,
+      "body_z_m": 0.22231407463550568,
+      "body_vz_m_s": 0.2999953627586365,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.603077664375306,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026930603198707104
+    },
+    {
+      "tick": 382,
+      "time_s": 0.9550000000000001,
+      "body_z_m": 0.22306407988071442,
+      "body_vz_m_s": 0.2999960780143738,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602934613227845,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026930684689432383
+    },
+    {
+      "tick": 383,
+      "time_s": 0.9575,
+      "body_z_m": 0.22381408512592316,
+      "body_vz_m_s": 0.29999667406082153,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60282732486725,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693077316507697
+    },
+    {
+      "tick": 384,
+      "time_s": 0.96,
+      "body_z_m": 0.2245640903711319,
+      "body_vz_m_s": 0.2999972701072693,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602737917900086,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693084767088294
+    },
+    {
+      "tick": 385,
+      "time_s": 0.9625,
+      "body_z_m": 0.22531409561634064,
+      "body_vz_m_s": 0.2999977469444275,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602648510932923,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026930933818221092
+    },
+    {
+      "tick": 386,
+      "time_s": 0.965,
+      "body_z_m": 0.22606410086154938,
+      "body_vz_m_s": 0.29999810457229614,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602576985359192,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931005995720625
+    },
+    {
+      "tick": 387,
+      "time_s": 0.9675,
+      "body_z_m": 0.22681410610675812,
+      "body_vz_m_s": 0.2999984622001648,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602523341178895,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931059546768665
+    },
+    {
+      "tick": 388,
+      "time_s": 0.97,
+      "body_z_m": 0.22756411135196686,
+      "body_vz_m_s": 0.2999987006187439,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602469696998597,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931108441203833
+    },
+    {
+      "tick": 389,
+      "time_s": 0.9725,
+      "body_z_m": 0.2283141165971756,
+      "body_vz_m_s": 0.299998939037323,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60243393421173,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931155007332563
+    },
+    {
+      "tick": 390,
+      "time_s": 0.975,
+      "body_z_m": 0.22906412184238434,
+      "body_vz_m_s": 0.29999905824661255,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602398171424866,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693122485652566
+    },
+    {
+      "tick": 391,
+      "time_s": 0.9775,
+      "body_z_m": 0.22981412708759308,
+      "body_vz_m_s": 0.2999991774559021,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602380290031434,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693131333217025
+    },
+    {
+      "tick": 392,
+      "time_s": 0.98,
+      "body_z_m": 0.23056413233280182,
+      "body_vz_m_s": 0.29999929666519165,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602362408638,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931383181363344
+    },
+    {
+      "tick": 393,
+      "time_s": 0.9825,
+      "body_z_m": 0.23131413757801056,
+      "body_vz_m_s": 0.2999994158744812,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60234452724457,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931436732411385
+    },
+    {
+      "tick": 394,
+      "time_s": 0.985,
+      "body_z_m": 0.2320641428232193,
+      "body_vz_m_s": 0.29999953508377075,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602326645851136,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693149959668517
+    },
+    {
+      "tick": 395,
+      "time_s": 0.9875,
+      "body_z_m": 0.23281414806842804,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602308764457703,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931576430797577
+    },
+    {
+      "tick": 396,
+      "time_s": 0.99,
+      "body_z_m": 0.23356415331363678,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00269316672347486
+    },
+    {
+      "tick": 397,
+      "time_s": 0.9925,
+      "body_z_m": 0.23431415855884552,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931746397167444
+    },
+    {
+      "tick": 398,
+      "time_s": 0.995,
+      "body_z_m": 0.23506416380405426,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693183021619916
+    },
+    {
+      "tick": 399,
+      "time_s": 0.9975,
+      "body_z_m": 0.235814169049263,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026931907050311565
+    },
+    {
+      "tick": 400,
+      "time_s": 1.0,
+      "body_z_m": 0.23656417429447174,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693195827305317
+    },
+    {
+      "tick": 401,
+      "time_s": 1.0025,
+      "body_z_m": 0.23731417953968048,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693198388442397
+    },
+    {
+      "tick": 402,
+      "time_s": 1.0050000000000001,
+      "body_z_m": 0.23806418478488922,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932016480714083
+    },
+    {
+      "tick": 403,
+      "time_s": 1.0075,
+      "body_z_m": 0.23881419003009796,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932049077004194
+    },
+    {
+      "tick": 404,
+      "time_s": 1.01,
+      "body_z_m": 0.2395641952753067,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693209797143936
+    },
+    {
+      "tick": 405,
+      "time_s": 1.0125,
+      "body_z_m": 0.24031420052051544,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693215850740671
+    },
+    {
+      "tick": 406,
+      "time_s": 1.0150000000000001,
+      "body_z_m": 0.24106420576572418,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693221904337406
+    },
+    {
+      "tick": 407,
+      "time_s": 1.0175,
+      "body_z_m": 0.24181421101093292,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932284235954285
+    },
+    {
+      "tick": 408,
+      "time_s": 1.02,
+      "body_z_m": 0.24256421625614166,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932363398373127
+    },
+    {
+      "tick": 409,
+      "time_s": 1.0225,
+      "body_z_m": 0.2433142215013504,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693244256079197
+    },
+    {
+      "tick": 410,
+      "time_s": 1.025,
+      "body_z_m": 0.24406422674655914,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932493783533573
+    },
+    {
+      "tick": 411,
+      "time_s": 1.0275,
+      "body_z_m": 0.24481423199176788,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932547334581614
+    },
+    {
+      "tick": 412,
+      "time_s": 1.03,
+      "body_z_m": 0.24556423723697662,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00269326101988554
+    },
+    {
+      "tick": 413,
+      "time_s": 1.0325,
+      "body_z_m": 0.24631424248218536,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693266374990344
+    },
+    {
+      "tick": 414,
+      "time_s": 1.035,
+      "body_z_m": 0.2470642477273941,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693269168958068
+    },
+    {
+      "tick": 415,
+      "time_s": 1.0375,
+      "body_z_m": 0.24781425297260284,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932733599096537
+    },
+    {
+      "tick": 416,
+      "time_s": 1.04,
+      "body_z_m": 0.24856425821781158,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932794135063887
+    },
+    {
+      "tick": 417,
+      "time_s": 1.0425,
+      "body_z_m": 0.24931426346302032,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932854671031237
+    },
+    {
+      "tick": 418,
+      "time_s": 1.045,
+      "body_z_m": 0.25006425380706787,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026932924520224333
+    },
+    {
+      "tick": 419,
+      "time_s": 1.0475,
+      "body_z_m": 0.25081419944763184,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693300833925605
+    },
+    {
+      "tick": 420,
+      "time_s": 1.05,
+      "body_z_m": 0.2515641450881958,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933082845062017
+    },
+    {
+      "tick": 421,
+      "time_s": 1.0525,
+      "body_z_m": 0.25231409072875977,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933157350867987
+    },
+    {
+      "tick": 422,
+      "time_s": 1.055,
+      "body_z_m": 0.25306403636932373,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933217886835337
+    },
+    {
+      "tick": 423,
+      "time_s": 1.0575,
+      "body_z_m": 0.2538139820098877,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933273766189814
+    },
+    {
+      "tick": 424,
+      "time_s": 1.06,
+      "body_z_m": 0.25456392765045166,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933299377560616
+    },
+    {
+      "tick": 425,
+      "time_s": 1.0625,
+      "body_z_m": 0.2553138732910156,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693329704925418
+    },
+    {
+      "tick": 426,
+      "time_s": 1.065,
+      "body_z_m": 0.2560638189315796,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933273766189814
+    },
+    {
+      "tick": 427,
+      "time_s": 1.0675000000000001,
+      "body_z_m": 0.25681376457214355,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693326212465763
+    },
+    {
+      "tick": 428,
+      "time_s": 1.07,
+      "body_z_m": 0.2575637102127075,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693329006433487
+    },
+    {
+      "tick": 429,
+      "time_s": 1.0725,
+      "body_z_m": 0.2583136558532715,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693331800401211
+    },
+    {
+      "tick": 430,
+      "time_s": 1.075,
+      "body_z_m": 0.25906360149383545,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693335758522153
+    },
+    {
+      "tick": 431,
+      "time_s": 1.0775000000000001,
+      "body_z_m": 0.2598135471343994,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933413464576006
+    },
+    {
+      "tick": 432,
+      "time_s": 1.08,
+      "body_z_m": 0.2605634927749634,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693346468731761
+    },
+    {
+      "tick": 433,
+      "time_s": 1.0825,
+      "body_z_m": 0.26131343841552734,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693349961191416
+    },
+    {
+      "tick": 434,
+      "time_s": 1.085,
+      "body_z_m": 0.2620633840560913,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933527551591396
+    },
+    {
+      "tick": 435,
+      "time_s": 1.0875000000000001,
+      "body_z_m": 0.2628133296966553,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933536864817142
+    },
+    {
+      "tick": 436,
+      "time_s": 1.09,
+      "body_z_m": 0.26356327533721924,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693356480449438
+    },
+    {
+      "tick": 437,
+      "time_s": 1.0925,
+      "body_z_m": 0.2643132209777832,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693361369892955
+    },
+    {
+      "tick": 438,
+      "time_s": 1.095,
+      "body_z_m": 0.26506316661834717,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933662593364716
+    },
+    {
+      "tick": 439,
+      "time_s": 1.0975,
+      "body_z_m": 0.26581311225891113,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933716144412756
+    },
+    {
+      "tick": 440,
+      "time_s": 1.1,
+      "body_z_m": 0.2665630578994751,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693373942747712
+    },
+    {
+      "tick": 441,
+      "time_s": 1.1025,
+      "body_z_m": 0.26731300354003906,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.00269337254576385
+    },
+    {
+      "tick": 442,
+      "time_s": 1.105,
+      "body_z_m": 0.268062949180603,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693374175578356
+    },
+    {
+      "tick": 443,
+      "time_s": 1.1075,
+      "body_z_m": 0.268812894821167,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693376736715436
+    },
+    {
+      "tick": 444,
+      "time_s": 1.11,
+      "body_z_m": 0.26956284046173096,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933811604976654
+    },
+    {
+      "tick": 445,
+      "time_s": 1.1125,
+      "body_z_m": 0.2703127861022949,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026933872140944004
+    },
+    {
+      "tick": 446,
+      "time_s": 1.115,
+      "body_z_m": 0.2710627317428589,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693392802029848
+    },
+    {
+      "tick": 447,
+      "time_s": 1.1175,
+      "body_z_m": 0.27181267738342285,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693398855626583
+    },
+    {
+      "tick": 448,
+      "time_s": 1.12,
+      "body_z_m": 0.2725626230239868,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934058405458927
+    },
+    {
+      "tick": 449,
+      "time_s": 1.1225,
+      "body_z_m": 0.2733125686645508,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934118941426277
+    },
+    {
+      "tick": 450,
+      "time_s": 1.125,
+      "body_z_m": 0.27406251430511475,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934139896184206
+    },
+    {
+      "tick": 451,
+      "time_s": 1.1275,
+      "body_z_m": 0.2748124599456787,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693413058295846
+    },
+    {
+      "tick": 452,
+      "time_s": 1.1300000000000001,
+      "body_z_m": 0.2755624055862427,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934118941426277
+    },
+    {
+      "tick": 453,
+      "time_s": 1.1325,
+      "body_z_m": 0.27631235122680664,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934121269732714
+    },
+    {
+      "tick": 454,
+      "time_s": 1.135,
+      "body_z_m": 0.2770622968673706,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934135239571333
+    },
+    {
+      "tick": 455,
+      "time_s": 1.1375,
+      "body_z_m": 0.27781224250793457,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693415619432926
+    },
+    {
+      "tick": 456,
+      "time_s": 1.1400000000000001,
+      "body_z_m": 0.27856218814849854,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934179477393627
+    },
+    {
+      "tick": 457,
+      "time_s": 1.1425,
+      "body_z_m": 0.2793121337890625,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693420508876443
+    },
+    {
+      "tick": 458,
+      "time_s": 1.145,
+      "body_z_m": 0.28006207942962646,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934233028441668
+    },
+    {
+      "tick": 459,
+      "time_s": 1.1475,
+      "body_z_m": 0.28081202507019043,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934260968118906
+    },
+    {
+      "tick": 460,
+      "time_s": 1.1500000000000001,
+      "body_z_m": 0.2815619707107544,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934288907796144
+    },
+    {
+      "tick": 461,
+      "time_s": 1.1525,
+      "body_z_m": 0.28231191635131836,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693429822102189
+    },
+    {
+      "tick": 462,
+      "time_s": 1.155,
+      "body_z_m": 0.2830618619918823,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934293564409018
+    },
+    {
+      "tick": 463,
+      "time_s": 1.1575,
+      "body_z_m": 0.2838118076324463,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934302877634764
+    },
+    {
+      "tick": 464,
+      "time_s": 1.16,
+      "body_z_m": 0.28456175327301025,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934323832392693
+    },
+    {
+      "tick": 465,
+      "time_s": 1.1625,
+      "body_z_m": 0.2853116989135742,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693435177206993
+    },
+    {
+      "tick": 466,
+      "time_s": 1.165,
+      "body_z_m": 0.2860616445541382,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693439368158579
+    },
+    {
+      "tick": 467,
+      "time_s": 1.1675,
+      "body_z_m": 0.28681159019470215,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934451889246702
+    },
+    {
+      "tick": 468,
+      "time_s": 1.17,
+      "body_z_m": 0.2875615358352661,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693450078368187
+    },
+    {
+      "tick": 469,
+      "time_s": 1.1725,
+      "body_z_m": 0.2883114814758301,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693451941013336
+    },
+    {
+      "tick": 470,
+      "time_s": 1.175,
+      "body_z_m": 0.28906142711639404,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934545021504164
+    },
+    {
+      "tick": 471,
+      "time_s": 1.1775,
+      "body_z_m": 0.289811372756958,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934556663036346
+    },
+    {
+      "tick": 472,
+      "time_s": 1.18,
+      "body_z_m": 0.290561318397522,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693456131964922
+    },
+    {
+      "tick": 473,
+      "time_s": 1.1825,
+      "body_z_m": 0.29131126403808594,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693457528948784
+    },
+    {
+      "tick": 474,
+      "time_s": 1.185,
+      "body_z_m": 0.2920612096786499,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934596244245768
+    },
+    {
+      "tick": 475,
+      "time_s": 1.1875,
+      "body_z_m": 0.29281115531921387,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693463582545519
+    },
+    {
+      "tick": 476,
+      "time_s": 1.19,
+      "body_z_m": 0.29356110095977783,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934684719890356
+    },
+    {
+      "tick": 477,
+      "time_s": 1.1925000000000001,
+      "body_z_m": 0.2943110466003418,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693470334634185
+    },
+    {
+      "tick": 478,
+      "time_s": 1.195,
+      "body_z_m": 0.29506099224090576,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934698689728975
+    },
+    {
+      "tick": 479,
+      "time_s": 1.1975,
+      "body_z_m": 0.2958109378814697,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.0026934698689728975
+    },
+    {
+      "tick": 480,
+      "time_s": 1.2,
+      "body_z_m": 0.2965608835220337,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": 0.002693468239158392
+    }
+  ]
+}

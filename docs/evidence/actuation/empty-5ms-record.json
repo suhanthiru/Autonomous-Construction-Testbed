@@ -1,0 +1,3653 @@
+{
+  "purpose": "rigid/MPM coupling feasibility; not physical validation",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "excavation-sim": "0.1.0.dev0",
+      "newton": "1.6.0",
+      "warp-lang": "1.17.0",
+      "numpy": "2.5.3"
+    }
+  },
+  "source": {
+    "revision": "eb4b15132fc7c7dd13dee3949f8e68d4b8f3f3be",
+    "working_tree_status": "M scripts/check_soil_coupling.py\n?? docs/ACTUATION_CHECK.md\n?? scripts/summarize_fixture.py\n?? src/excavation_sim/actuation.py\n?? tests/test_actuation.py",
+    "source_sha256": "0e00cf762d7b959ba738c670c3e7d8756e1c820c4c2f1dcff6d60c01256094dd",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "c5eb2e8c11e45102ed5ba613d5288fd2c2960b4e9053d683dd9711e51b5499bb",
+      "src/excavation_sim/cli.py": "c5a651562cd815e8c175694a09bf31494f667fbf5c8577f998f258008ebeafb3",
+      "src/excavation_sim/core.py": "b9bc9dd34724a5b994ccff0a4a05b20781daa17abad57efd3fca06dc22c2a720",
+      "src/excavation_sim/provenance.py": "d2134865b20d58c69e0e88ebeebb38558b43088bbc4fc280b5d0f140670c1ac1",
+      "src/excavation_sim/recording.py": "20823ce1d1f348327335caf712b2997a68d2c0a87820a638bbeec379fa91ab40",
+      "src/excavation_sim.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/excavation_sim.egg-info/entry_points.txt": "aab55348f36cc81c5d3b796fbe0408e6ba5e7f2a58ee260b9f051fa0db5e2e63",
+      "src/excavation_sim.egg-info/PKG-INFO": "cd901c0bcf2f56ed5f94adb21f368bf39b3decaacb906fc0281d6b8c01c2e49c",
+      "src/excavation_sim.egg-info/requires.txt": "34c31a1635f308155cf05b136c05077626f75af0ae24721b873072709e657c3a",
+      "src/excavation_sim.egg-info/SOURCES.txt": "a3a4a4a632e927ac257d6c2182f538a0416a33987be0718f37c6d5f0c507dbd1",
+      "src/excavation_sim.egg-info/top_level.txt": "52057b8c6b57495daa2173c1d1074e75811ccedf186cfe27e1c647d316d24d13",
+      "scripts/check_soil_coupling.py": "e06e4318676549223bc153c64caca8ab1e895d4efec11151aeb281af4f3e2acd",
+      "scripts/summarize_fixture.py": "e13f2e1cc4eb9938527020a77b9ab09b288351d31856cc8f006759c43c75383a",
+      "pyproject.toml": "174cc4699049ab710dde8daaf44f10252b0ff27798f7b2ac9505e31388f570f9"
+    }
+  },
+  "source_changed_during_run": false,
+  "initial_body_z_m": 0.35,
+  "device": "cuda:0",
+  "dt_s": 0.005,
+  "with_soil": false,
+  "drive": true,
+  "servo": {
+    "gain_n_s_m": 150.0,
+    "force_limit_n": 60.0,
+    "velocity_m_s": 0.3,
+    "reverse_time_s": 0.8
+  },
+  "steps": 240,
+  "particle_count": 0,
+  "initial_soil_mass_kg": 0.0,
+  "body_mass_kg": 2.303999900817871,
+  "trajectory": [
+    {
+      "tick": 1,
+      "time_s": 0.005,
+      "body_z_m": 0.3496948182582855,
+      "body_vz_m_s": -0.09765625,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -22.397760972976684,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 2,
+      "time_s": 0.01,
+      "body_z_m": 0.3490006923675537,
+      "body_vz_m_s": -0.1635233610868454,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": -7.749323472976684,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 3,
+      "time_s": 0.015,
+      "body_z_m": 0.3480442464351654,
+      "body_vz_m_s": -0.20794932544231415,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 2.1307431900501257,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 4,
+      "time_s": 0.02,
+      "body_z_m": 0.34691086411476135,
+      "body_vz_m_s": -0.23791371285915375,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 8.79463784337044,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 5,
+      "time_s": 0.025,
+      "body_z_m": 0.3456580936908722,
+      "body_vz_m_s": -0.25812408328056335,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 13.28929595589638,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 6,
+      "time_s": 0.03,
+      "body_z_m": 0.34432491660118103,
+      "body_vz_m_s": -0.27175554633140564,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 16.32085151910782,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 7,
+      "time_s": 0.035,
+      "body_z_m": 0.3429374098777771,
+      "body_vz_m_s": -0.2809496819972992,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 18.365570976734162,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 8,
+      "time_s": 0.04,
+      "body_z_m": 0.3415132761001587,
+      "body_vz_m_s": -0.28715094923973083,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 19.744691326618195,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 9,
+      "time_s": 0.045,
+      "body_z_m": 0.3400644361972809,
+      "body_vz_m_s": -0.2913336455821991,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 20.67488141298294,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 10,
+      "time_s": 0.05,
+      "body_z_m": 0.33859893679618835,
+      "body_vz_m_s": -0.29415473341941833,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.30228586435318,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 11,
+      "time_s": 0.055,
+      "body_z_m": 0.3371221721172333,
+      "body_vz_m_s": -0.2960575520992279,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 21.725449039936066,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 12,
+      "time_s": 0.06,
+      "body_z_m": 0.3356378972530365,
+      "body_vz_m_s": -0.2973409593105316,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.010871841907502,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 13,
+      "time_s": 0.065,
+      "body_z_m": 0.33414846658706665,
+      "body_vz_m_s": -0.29820653796195984,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.20338292360306,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 14,
+      "time_s": 0.07,
+      "body_z_m": 0.3326556086540222,
+      "body_vz_m_s": -0.29879030585289,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.333219721317292,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 15,
+      "time_s": 0.075,
+      "body_z_m": 0.33116042613983154,
+      "body_vz_m_s": -0.29918405413627625,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.420784904956818,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 16,
+      "time_s": 0.08,
+      "body_z_m": 0.3296636939048767,
+      "body_vz_m_s": -0.2994496524333954,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.479847147464753,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 17,
+      "time_s": 0.085,
+      "body_z_m": 0.3281658887863159,
+      "body_vz_m_s": -0.2996288239955902,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.519686892032624,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 18,
+      "time_s": 0.09,
+      "body_z_m": 0.3266673684120178,
+      "body_vz_m_s": -0.2997497022151947,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.546562626361847,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 19,
+      "time_s": 0.095,
+      "body_z_m": 0.3251683712005615,
+      "body_vz_m_s": -0.29983124136924744,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.56469435930252,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 20,
+      "time_s": 0.1,
+      "body_z_m": 0.32366904616355896,
+      "body_vz_m_s": -0.29988619685173035,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.57692523241043,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 21,
+      "time_s": 0.105,
+      "body_z_m": 0.3221694827079773,
+      "body_vz_m_s": -0.29992327094078064,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.585168554782868,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 22,
+      "time_s": 0.11,
+      "body_z_m": 0.3206698000431061,
+      "body_vz_m_s": -0.2999483048915863,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.590729668140412,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 23,
+      "time_s": 0.115,
+      "body_z_m": 0.3191700279712677,
+      "body_vz_m_s": -0.29996511340141296,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59448476076126,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 24,
+      "time_s": 0.12,
+      "body_z_m": 0.31767013669013977,
+      "body_vz_m_s": -0.2999764382839203,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59700603723526,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 25,
+      "time_s": 0.125,
+      "body_z_m": 0.31617024540901184,
+      "body_vz_m_s": -0.29998406767845154,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.59870476961136,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 26,
+      "time_s": 0.13,
+      "body_z_m": 0.3146703541278839,
+      "body_vz_m_s": -0.2999893128871918,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.599849178791047,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 27,
+      "time_s": 0.135,
+      "body_z_m": 0.3131703734397888,
+      "body_vz_m_s": -0.29999276995658875,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.600635960102082,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 28,
+      "time_s": 0.14,
+      "body_z_m": 0.31167036294937134,
+      "body_vz_m_s": -0.29999515414237976,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601154520511628,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 29,
+      "time_s": 0.145,
+      "body_z_m": 0.31017035245895386,
+      "body_vz_m_s": -0.2999967038631439,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60151214838028,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 30,
+      "time_s": 0.15,
+      "body_z_m": 0.3086703419685364,
+      "body_vz_m_s": -0.2999977767467499,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601744606494904,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 31,
+      "time_s": 0.155,
+      "body_z_m": 0.3071703314781189,
+      "body_vz_m_s": -0.2999984920024872,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.601905539035798,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 32,
+      "time_s": 0.16,
+      "body_z_m": 0.3056703209877014,
+      "body_vz_m_s": -0.2999989688396454,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602012827396393,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 33,
+      "time_s": 0.165,
+      "body_z_m": 0.30417031049728394,
+      "body_vz_m_s": -0.29999932646751404,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602084352970124,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 34,
+      "time_s": 0.17,
+      "body_z_m": 0.30267030000686646,
+      "body_vz_m_s": -0.29999956488609314,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60213799715042,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 35,
+      "time_s": 0.17500000000000002,
+      "body_z_m": 0.301170289516449,
+      "body_vz_m_s": -0.2999996840953827,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602173759937287,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 36,
+      "time_s": 0.18,
+      "body_z_m": 0.2996702790260315,
+      "body_vz_m_s": -0.29999980330467224,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.60219164133072,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 37,
+      "time_s": 0.185,
+      "body_z_m": 0.298170268535614,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602209522724152,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 38,
+      "time_s": 0.19,
+      "body_z_m": 0.29667025804519653,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 39,
+      "time_s": 0.195,
+      "body_z_m": 0.29517024755477905,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 40,
+      "time_s": 0.2,
+      "body_z_m": 0.2936702370643616,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 41,
+      "time_s": 0.20500000000000002,
+      "body_z_m": 0.2921702265739441,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 42,
+      "time_s": 0.21,
+      "body_z_m": 0.2906702160835266,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 43,
+      "time_s": 0.215,
+      "body_z_m": 0.28917020559310913,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 44,
+      "time_s": 0.22,
+      "body_z_m": 0.28767019510269165,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 45,
+      "time_s": 0.225,
+      "body_z_m": 0.28617018461227417,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 46,
+      "time_s": 0.23,
+      "body_z_m": 0.2846701741218567,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 47,
+      "time_s": 0.23500000000000001,
+      "body_z_m": 0.2831701636314392,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 48,
+      "time_s": 0.24,
+      "body_z_m": 0.28167015314102173,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 49,
+      "time_s": 0.245,
+      "body_z_m": 0.28017014265060425,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 50,
+      "time_s": 0.25,
+      "body_z_m": 0.27867013216018677,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 51,
+      "time_s": 0.255,
+      "body_z_m": 0.2771701216697693,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 52,
+      "time_s": 0.26,
+      "body_z_m": 0.2756701111793518,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 53,
+      "time_s": 0.265,
+      "body_z_m": 0.2741701006889343,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 54,
+      "time_s": 0.27,
+      "body_z_m": 0.27267009019851685,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 55,
+      "time_s": 0.275,
+      "body_z_m": 0.27117007970809937,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 56,
+      "time_s": 0.28,
+      "body_z_m": 0.2696700692176819,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 57,
+      "time_s": 0.28500000000000003,
+      "body_z_m": 0.2681700587272644,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 58,
+      "time_s": 0.29,
+      "body_z_m": 0.2666700482368469,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 59,
+      "time_s": 0.295,
+      "body_z_m": 0.26517003774642944,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 60,
+      "time_s": 0.3,
+      "body_z_m": 0.26367002725601196,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 61,
+      "time_s": 0.305,
+      "body_z_m": 0.2621700167655945,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 62,
+      "time_s": 0.31,
+      "body_z_m": 0.260670006275177,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 63,
+      "time_s": 0.315,
+      "body_z_m": 0.2591699957847595,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 64,
+      "time_s": 0.32,
+      "body_z_m": 0.25766998529434204,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 65,
+      "time_s": 0.325,
+      "body_z_m": 0.25616997480392456,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 66,
+      "time_s": 0.33,
+      "body_z_m": 0.2546699643135071,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 67,
+      "time_s": 0.335,
+      "body_z_m": 0.2531699538230896,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 68,
+      "time_s": 0.34,
+      "body_z_m": 0.2516699433326721,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 69,
+      "time_s": 0.34500000000000003,
+      "body_z_m": 0.25016993284225464,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 70,
+      "time_s": 0.35000000000000003,
+      "body_z_m": 0.24866992235183716,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 71,
+      "time_s": 0.355,
+      "body_z_m": 0.24716991186141968,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 72,
+      "time_s": 0.36,
+      "body_z_m": 0.2456699013710022,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 73,
+      "time_s": 0.365,
+      "body_z_m": 0.24416989088058472,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 74,
+      "time_s": 0.37,
+      "body_z_m": 0.24266988039016724,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 75,
+      "time_s": 0.375,
+      "body_z_m": 0.24116986989974976,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 76,
+      "time_s": 0.38,
+      "body_z_m": 0.23966985940933228,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 77,
+      "time_s": 0.385,
+      "body_z_m": 0.2381698489189148,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 78,
+      "time_s": 0.39,
+      "body_z_m": 0.23666983842849731,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 79,
+      "time_s": 0.395,
+      "body_z_m": 0.23516982793807983,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 80,
+      "time_s": 0.4,
+      "body_z_m": 0.23366981744766235,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 81,
+      "time_s": 0.405,
+      "body_z_m": 0.23216980695724487,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 82,
+      "time_s": 0.41000000000000003,
+      "body_z_m": 0.2306697964668274,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 83,
+      "time_s": 0.41500000000000004,
+      "body_z_m": 0.2291697859764099,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 84,
+      "time_s": 0.42,
+      "body_z_m": 0.22766977548599243,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 85,
+      "time_s": 0.425,
+      "body_z_m": 0.22616976499557495,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 86,
+      "time_s": 0.43,
+      "body_z_m": 0.22466975450515747,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 87,
+      "time_s": 0.435,
+      "body_z_m": 0.22316974401474,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 88,
+      "time_s": 0.44,
+      "body_z_m": 0.2216697335243225,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 89,
+      "time_s": 0.445,
+      "body_z_m": 0.22016972303390503,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 90,
+      "time_s": 0.45,
+      "body_z_m": 0.21866971254348755,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 91,
+      "time_s": 0.455,
+      "body_z_m": 0.21716970205307007,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 92,
+      "time_s": 0.46,
+      "body_z_m": 0.2156696915626526,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 93,
+      "time_s": 0.465,
+      "body_z_m": 0.2141696810722351,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 94,
+      "time_s": 0.47000000000000003,
+      "body_z_m": 0.21266967058181763,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 95,
+      "time_s": 0.47500000000000003,
+      "body_z_m": 0.21116966009140015,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 96,
+      "time_s": 0.48,
+      "body_z_m": 0.20966964960098267,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 97,
+      "time_s": 0.485,
+      "body_z_m": 0.20816963911056519,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 98,
+      "time_s": 0.49,
+      "body_z_m": 0.2066696286201477,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 99,
+      "time_s": 0.495,
+      "body_z_m": 0.20516961812973022,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 100,
+      "time_s": 0.5,
+      "body_z_m": 0.20366960763931274,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 101,
+      "time_s": 0.505,
+      "body_z_m": 0.20216959714889526,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 102,
+      "time_s": 0.51,
+      "body_z_m": 0.20066958665847778,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 103,
+      "time_s": 0.515,
+      "body_z_m": 0.1991695761680603,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 104,
+      "time_s": 0.52,
+      "body_z_m": 0.19766956567764282,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 105,
+      "time_s": 0.525,
+      "body_z_m": 0.19616955518722534,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 106,
+      "time_s": 0.53,
+      "body_z_m": 0.19466954469680786,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 107,
+      "time_s": 0.535,
+      "body_z_m": 0.19316953420639038,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 108,
+      "time_s": 0.54,
+      "body_z_m": 0.1916695237159729,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 109,
+      "time_s": 0.545,
+      "body_z_m": 0.19016951322555542,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 110,
+      "time_s": 0.55,
+      "body_z_m": 0.18866950273513794,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 111,
+      "time_s": 0.555,
+      "body_z_m": 0.18716949224472046,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 112,
+      "time_s": 0.56,
+      "body_z_m": 0.18566948175430298,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 113,
+      "time_s": 0.5650000000000001,
+      "body_z_m": 0.1841694712638855,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 114,
+      "time_s": 0.5700000000000001,
+      "body_z_m": 0.18266946077346802,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 115,
+      "time_s": 0.5750000000000001,
+      "body_z_m": 0.18116945028305054,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 116,
+      "time_s": 0.58,
+      "body_z_m": 0.17966943979263306,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 117,
+      "time_s": 0.585,
+      "body_z_m": 0.17816942930221558,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 118,
+      "time_s": 0.59,
+      "body_z_m": 0.1766694188117981,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 119,
+      "time_s": 0.595,
+      "body_z_m": 0.17516940832138062,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 120,
+      "time_s": 0.6,
+      "body_z_m": 0.17366939783096313,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 121,
+      "time_s": 0.605,
+      "body_z_m": 0.17216938734054565,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 122,
+      "time_s": 0.61,
+      "body_z_m": 0.17066937685012817,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 123,
+      "time_s": 0.615,
+      "body_z_m": 0.1691693663597107,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 124,
+      "time_s": 0.62,
+      "body_z_m": 0.1676693558692932,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 125,
+      "time_s": 0.625,
+      "body_z_m": 0.16616934537887573,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 126,
+      "time_s": 0.63,
+      "body_z_m": 0.16466933488845825,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 127,
+      "time_s": 0.635,
+      "body_z_m": 0.16316932439804077,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 128,
+      "time_s": 0.64,
+      "body_z_m": 0.1616693139076233,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 129,
+      "time_s": 0.645,
+      "body_z_m": 0.1601693034172058,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 130,
+      "time_s": 0.65,
+      "body_z_m": 0.15866929292678833,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 131,
+      "time_s": 0.655,
+      "body_z_m": 0.15716928243637085,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 132,
+      "time_s": 0.66,
+      "body_z_m": 0.15566927194595337,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 133,
+      "time_s": 0.665,
+      "body_z_m": 0.1541692614555359,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 134,
+      "time_s": 0.67,
+      "body_z_m": 0.1526692509651184,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 135,
+      "time_s": 0.675,
+      "body_z_m": 0.15116924047470093,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 136,
+      "time_s": 0.68,
+      "body_z_m": 0.14966922998428345,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 137,
+      "time_s": 0.685,
+      "body_z_m": 0.14816921949386597,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 138,
+      "time_s": 0.6900000000000001,
+      "body_z_m": 0.1466692090034485,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 139,
+      "time_s": 0.6950000000000001,
+      "body_z_m": 0.145169198513031,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 140,
+      "time_s": 0.7000000000000001,
+      "body_z_m": 0.14366918802261353,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 141,
+      "time_s": 0.705,
+      "body_z_m": 0.14216917753219604,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 142,
+      "time_s": 0.71,
+      "body_z_m": 0.14066916704177856,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 143,
+      "time_s": 0.715,
+      "body_z_m": 0.13916915655136108,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 144,
+      "time_s": 0.72,
+      "body_z_m": 0.1376691460609436,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 145,
+      "time_s": 0.725,
+      "body_z_m": 0.13616913557052612,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 146,
+      "time_s": 0.73,
+      "body_z_m": 0.13466912508010864,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 147,
+      "time_s": 0.735,
+      "body_z_m": 0.13316911458969116,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 148,
+      "time_s": 0.74,
+      "body_z_m": 0.13166910409927368,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 149,
+      "time_s": 0.745,
+      "body_z_m": 0.1301690936088562,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 150,
+      "time_s": 0.75,
+      "body_z_m": 0.12866908311843872,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 151,
+      "time_s": 0.755,
+      "body_z_m": 0.12716907262802124,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 152,
+      "time_s": 0.76,
+      "body_z_m": 0.12566906213760376,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 153,
+      "time_s": 0.765,
+      "body_z_m": 0.12416905164718628,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 154,
+      "time_s": 0.77,
+      "body_z_m": 0.1226690411567688,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 155,
+      "time_s": 0.775,
+      "body_z_m": 0.12116903066635132,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 156,
+      "time_s": 0.78,
+      "body_z_m": 0.11966902017593384,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 157,
+      "time_s": 0.785,
+      "body_z_m": 0.11816900968551636,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 158,
+      "time_s": 0.79,
+      "body_z_m": 0.11666899919509888,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 159,
+      "time_s": 0.795,
+      "body_z_m": 0.1151689887046814,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 160,
+      "time_s": 0.8,
+      "body_z_m": 0.11366897821426392,
+      "body_vz_m_s": -0.2999999225139618,
+      "requested_vz_m_s": -0.3,
+      "actuator_force_z_n": 22.602227404117585,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 161,
+      "time_s": 0.805,
+      "body_z_m": 0.11242258548736572,
+      "body_vz_m_s": -0.21884161233901978,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 60.0,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 162,
+      "time_s": 0.81,
+      "body_z_m": 0.11158200353384018,
+      "body_vz_m_s": -0.13768327236175537,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 60.0,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 163,
+      "time_s": 0.8150000000000001,
+      "body_z_m": 0.11114721745252609,
+      "body_vz_m_s": -0.056524936109781265,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 60.0,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 164,
+      "time_s": 0.8200000000000001,
+      "body_z_m": 0.11111821979284286,
+      "body_vz_m_s": 0.024633394554257393,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 60.0,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 165,
+      "time_s": 0.8250000000000001,
+      "body_z_m": 0.1114950105547905,
+      "body_vz_m_s": 0.10579173266887665,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 60.0,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 166,
+      "time_s": 0.8300000000000001,
+      "body_z_m": 0.11222152411937714,
+      "body_vz_m_s": 0.16901056468486786,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 51.73347912669182,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 167,
+      "time_s": 0.835,
+      "body_z_m": 0.11319983005523682,
+      "body_vz_m_s": 0.21165035665035248,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 42.25065432429314,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 168,
+      "time_s": 0.84,
+      "body_z_m": 0.11434795707464218,
+      "body_vz_m_s": 0.24041001498699188,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 35.854685529470444,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 169,
+      "time_s": 0.845,
+      "body_z_m": 0.11561062932014465,
+      "body_vz_m_s": 0.2598077654838562,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 31.540736778974534,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 170,
+      "time_s": 0.85,
+      "body_z_m": 0.11695055663585663,
+      "body_vz_m_s": 0.27289122343063354,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 28.631074204444886,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 171,
+      "time_s": 0.855,
+      "body_z_m": 0.11834259331226349,
+      "body_vz_m_s": 0.2817156910896301,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 26.668555512428284,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 172,
+      "time_s": 0.86,
+      "body_z_m": 0.11976977437734604,
+      "body_vz_m_s": 0.28766757249832153,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 25.344885363578797,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 173,
+      "time_s": 0.865,
+      "body_z_m": 0.1212206557393074,
+      "body_vz_m_s": 0.29168206453323364,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 24.452103152275086,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 174,
+      "time_s": 0.87,
+      "body_z_m": 0.12268752604722977,
+      "body_vz_m_s": 0.29438966512680054,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.84992934703827,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 175,
+      "time_s": 0.875,
+      "body_z_m": 0.12416518479585648,
+      "body_vz_m_s": 0.2962159514427185,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.443789258003235,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 176,
+      "time_s": 0.88,
+      "body_z_m": 0.12565010786056519,
+      "body_vz_m_s": 0.29744774103164673,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 23.16984631061554,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 177,
+      "time_s": 0.885,
+      "body_z_m": 0.12713994085788727,
+      "body_vz_m_s": 0.2982785105705261,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.985077872276307,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 178,
+      "time_s": 0.89,
+      "body_z_m": 0.12863308191299438,
+      "body_vz_m_s": 0.29883891344070435,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.860462441444398,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 179,
+      "time_s": 0.895,
+      "body_z_m": 0.13012844324111938,
+      "body_vz_m_s": 0.2992169260978699,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.776402010917664,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 180,
+      "time_s": 0.9,
+      "body_z_m": 0.13162532448768616,
+      "body_vz_m_s": 0.29947179555892944,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.719700112342835,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 181,
+      "time_s": 0.905,
+      "body_z_m": 0.1331232190132141,
+      "body_vz_m_s": 0.29964369535446167,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.6814696931839,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 182,
+      "time_s": 0.91,
+      "body_z_m": 0.13462179899215698,
+      "body_vz_m_s": 0.2997596859931946,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.655684723854066,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 183,
+      "time_s": 0.915,
+      "body_z_m": 0.13612084090709686,
+      "body_vz_m_s": 0.2998378872871399,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.63828612804413,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 184,
+      "time_s": 0.92,
+      "body_z_m": 0.13762019574642181,
+      "body_vz_m_s": 0.2998906970024109,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.626555933952332,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 185,
+      "time_s": 0.925,
+      "body_z_m": 0.13911975920200348,
+      "body_vz_m_s": 0.299926221370697,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.618634476661683,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 186,
+      "time_s": 0.93,
+      "body_z_m": 0.14061947166919708,
+      "body_vz_m_s": 0.29995018243789673,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.613305821418763,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 187,
+      "time_s": 0.935,
+      "body_z_m": 0.14211927354335785,
+      "body_vz_m_s": 0.29996639490127563,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.609711661338807,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 188,
+      "time_s": 0.9400000000000001,
+      "body_z_m": 0.1436191350221634,
+      "body_vz_m_s": 0.2999773621559143,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60727979183197,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 189,
+      "time_s": 0.9450000000000001,
+      "body_z_m": 0.14511904120445251,
+      "body_vz_m_s": 0.29998475313186646,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60563470363617,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 190,
+      "time_s": 0.9500000000000001,
+      "body_z_m": 0.14661899209022522,
+      "body_vz_m_s": 0.2999897599220276,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.604526057243348,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 191,
+      "time_s": 0.9550000000000001,
+      "body_z_m": 0.14811894297599792,
+      "body_vz_m_s": 0.299993097782135,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.603775038719178,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 192,
+      "time_s": 0.96,
+      "body_z_m": 0.14961889386177063,
+      "body_vz_m_s": 0.2999953627586365,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.603274359703065,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 193,
+      "time_s": 0.965,
+      "body_z_m": 0.15111887454986572,
+      "body_vz_m_s": 0.29999691247940063,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602934613227845,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 194,
+      "time_s": 0.97,
+      "body_z_m": 0.1526188850402832,
+      "body_vz_m_s": 0.29999786615371704,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60270215511322,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 195,
+      "time_s": 0.975,
+      "body_z_m": 0.15411889553070068,
+      "body_vz_m_s": 0.29999858140945435,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60255910396576,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 196,
+      "time_s": 0.98,
+      "body_z_m": 0.15561890602111816,
+      "body_vz_m_s": 0.29999905824661255,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602451815605164,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 197,
+      "time_s": 0.985,
+      "body_z_m": 0.15711891651153564,
+      "body_vz_m_s": 0.2999994158744812,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602380290031434,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 198,
+      "time_s": 0.99,
+      "body_z_m": 0.15861892700195312,
+      "body_vz_m_s": 0.2999996542930603,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602326645851136,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 199,
+      "time_s": 0.995,
+      "body_z_m": 0.1601189374923706,
+      "body_vz_m_s": 0.29999977350234985,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.60229088306427,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 200,
+      "time_s": 1.0,
+      "body_z_m": 0.16161894798278809,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602273001670838,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 201,
+      "time_s": 1.0050000000000001,
+      "body_z_m": 0.16311895847320557,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 202,
+      "time_s": 1.01,
+      "body_z_m": 0.16461896896362305,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 203,
+      "time_s": 1.0150000000000001,
+      "body_z_m": 0.16611897945404053,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 204,
+      "time_s": 1.02,
+      "body_z_m": 0.167618989944458,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 205,
+      "time_s": 1.025,
+      "body_z_m": 0.1691190004348755,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 206,
+      "time_s": 1.03,
+      "body_z_m": 0.17061901092529297,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 207,
+      "time_s": 1.035,
+      "body_z_m": 0.17211902141571045,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 208,
+      "time_s": 1.04,
+      "body_z_m": 0.17361903190612793,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 209,
+      "time_s": 1.045,
+      "body_z_m": 0.1751190423965454,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 210,
+      "time_s": 1.05,
+      "body_z_m": 0.1766190528869629,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 211,
+      "time_s": 1.055,
+      "body_z_m": 0.17811906337738037,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 212,
+      "time_s": 1.06,
+      "body_z_m": 0.17961907386779785,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 213,
+      "time_s": 1.065,
+      "body_z_m": 0.18111908435821533,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 214,
+      "time_s": 1.07,
+      "body_z_m": 0.1826190948486328,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 215,
+      "time_s": 1.075,
+      "body_z_m": 0.1841191053390503,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 216,
+      "time_s": 1.08,
+      "body_z_m": 0.18561911582946777,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 217,
+      "time_s": 1.085,
+      "body_z_m": 0.18711912631988525,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 218,
+      "time_s": 1.09,
+      "body_z_m": 0.18861913681030273,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 219,
+      "time_s": 1.095,
+      "body_z_m": 0.19011914730072021,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 220,
+      "time_s": 1.1,
+      "body_z_m": 0.1916191577911377,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 221,
+      "time_s": 1.105,
+      "body_z_m": 0.19311916828155518,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 222,
+      "time_s": 1.11,
+      "body_z_m": 0.19461917877197266,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 223,
+      "time_s": 1.115,
+      "body_z_m": 0.19611918926239014,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 224,
+      "time_s": 1.12,
+      "body_z_m": 0.19761919975280762,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 225,
+      "time_s": 1.125,
+      "body_z_m": 0.1991192102432251,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 226,
+      "time_s": 1.1300000000000001,
+      "body_z_m": 0.20061922073364258,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 227,
+      "time_s": 1.135,
+      "body_z_m": 0.20211923122406006,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 228,
+      "time_s": 1.1400000000000001,
+      "body_z_m": 0.20361924171447754,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 229,
+      "time_s": 1.145,
+      "body_z_m": 0.20511925220489502,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 230,
+      "time_s": 1.1500000000000001,
+      "body_z_m": 0.2066192626953125,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 231,
+      "time_s": 1.155,
+      "body_z_m": 0.20811927318572998,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 232,
+      "time_s": 1.16,
+      "body_z_m": 0.20961928367614746,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 233,
+      "time_s": 1.165,
+      "body_z_m": 0.21111929416656494,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 234,
+      "time_s": 1.17,
+      "body_z_m": 0.21261930465698242,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 235,
+      "time_s": 1.175,
+      "body_z_m": 0.2141193151473999,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 236,
+      "time_s": 1.18,
+      "body_z_m": 0.21561932563781738,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 237,
+      "time_s": 1.185,
+      "body_z_m": 0.21711933612823486,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 238,
+      "time_s": 1.19,
+      "body_z_m": 0.21861934661865234,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 239,
+      "time_s": 1.195,
+      "body_z_m": 0.22011935710906982,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    },
+    {
+      "tick": 240,
+      "time_s": 1.2,
+      "body_z_m": 0.2216193675994873,
+      "body_vz_m_s": 0.2999998927116394,
+      "requested_vz_m_s": 0.3,
+      "actuator_force_z_n": 22.602255120277405,
+      "soil_impulse_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "soil_force_z_n": 0.0,
+      "soil_min_z_m": null
+    }
+  ]
+}
