@@ -65,3 +65,30 @@ Repeat the same 1.2-second driven motion at a 5 ms physics and controller period
 using one and two coupling iterations. Preserve four rigid substeps and every
 material/geometry setting. Audit measured rigid input force in both cases. This is
 a coupling-iteration sensitivity check, not a numerical or physical validation pass.
+
+## Follow-up results
+
+Both runs completed on the RTX 4060 laptop with matching source hashes and no source
+changes during execution. Full records, [momentum residuals](evidence/momentum/coupling-audit.json),
+and [trajectory summaries](evidence/momentum/coupling-summary.json) are preserved.
+
+| Metric | One iteration | Two iterations |
+|---|---:|---:|
+| Maximum residual against actual rigid input (N s) | 1.420e-7 | 1.423e-7 |
+| Maximum residual against same-step generated impulse (N s) | 0.252294 | 0.031027 |
+| Minimum box-center height (m) | 0.17469 | 0.17716 |
+| Final box-center height (m) | 0.29504 | 0.29507 |
+| Peak 20 ms mean soil force (N) | 43.59 | 39.67 |
+| Integrated generated soil impulse (N s) | 10.35224 | 10.38782 |
+
+The measured rigid input accounts for body momentum in both cases. Two iterations
+reduce the mismatch against the generated same-step impulse but leave a measurable
+residual. The body's applied impulse comes from the feedback available before the
+last MPM solve; the final generated impulse need not equal that feedback when the
+coupling iteration has not converged. A one-step shift is therefore not a general
+substitute for measuring applied force.
+
+The default remains one iteration. These results do not justify selecting a new
+default, declaring timestep convergence, or claiming full-system conservation.
+The remaining investigation needs coupled body/soil momentum accounting including
+ground impulse, and separate tests of spatial resolution and solver convergence.

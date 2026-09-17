@@ -14,6 +14,8 @@ The [force-limited penetration check](docs/ACTUATION_CHECK.md) records actuator 
 soil forces; its timestep study exposes unresolved peak-force sensitivity.
 The [fixed-controller follow-up](docs/CONTROL_CLOCK_STUDY.md) confirms that separating
 controller timing does not resolve the numerical sensitivity.
+The [momentum audit](docs/MOMENTUM_AUDIT.md) verifies rigid-body impulse accounting
+and distinguishes generated soil impulse from delayed applied feedback.
 
 ## Development setup
 
