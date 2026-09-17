@@ -7,7 +7,8 @@ evaluation. Physics claims are tied to measured evidence and a stated operating 
 ## Current status
 
 Early implementation: core contracts, episode recording, runtime diagnostics, and tests.
-The coupled soil backend is under feasibility evaluation. Physical validation has not
+An isolated GPU rigid-body/soil fixture runs with an empty-bed control; see the
+[measured feasibility results](docs/COUPLING_FEASIBILITY.md). Physical validation has not
 been performed. The full excavator and learning benchmarks are not implemented yet.
 
 ## Development setup
@@ -35,4 +36,3 @@ not imply GPU or physical validation.
 The stable simulator is the main deliverable. Probing, QAM, and cooperative manipulation
 are separate experiments. Necessary physics changes receive new versions and rerun the
 affected validation; experiments cannot silently alter their testbed.
-
