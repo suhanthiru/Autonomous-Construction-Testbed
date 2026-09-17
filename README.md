@@ -16,6 +16,8 @@ The [fixed-controller follow-up](docs/CONTROL_CLOCK_STUDY.md) confirms that sepa
 controller timing does not resolve the numerical sensitivity.
 The [momentum audit](docs/MOMENTUM_AUDIT.md) verifies rigid-body impulse accounting
 and distinguishes generated soil impulse from delayed applied feedback.
+The [combined body/soil/ground ledger](docs/SYSTEM_MOMENTUM.md) isolates a smaller
+soil-side residual that is also present in a stationary-tool control.
 
 ## Development setup
 

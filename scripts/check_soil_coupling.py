@@ -27,7 +27,11 @@ def run(
     drive: bool = False,
     control_dt: float | None = None,
     coupling_iterations: int = 1,
+    hold: bool = False,
 ) -> dict:
+    if drive and hold:
+        raise ValueError("choose either the driven trajectory or the stationary control")
+    servo_enabled = drive or hold
     if type(coupling_iterations) is not int or coupling_iterations < 1:
         raise ValueError("coupling_iterations must be a positive integer")
     control_dt = dt if control_dt is None else control_dt
@@ -120,18 +124,21 @@ def run(
         contacts = pipeline.contacts()
         trajectory = []
         mass = float(model.body_mass.numpy()[body])
+        particle_masses = (
+            model.particle_mass.numpy().astype(np.float64) if with_soil else np.empty(0)
+        )
         actuator_force = 0.0
         target_velocity = 0.0
         for tick in range(steps):
             state.clear_forces()
             before_velocity = float(state.body_qd.numpy()[body, 2])
             if tick % control_ticks == 0:
-                target_velocity = -0.3 if tick * dt < 0.8 else 0.3
+                target_velocity = 0.0 if hold else (-0.3 if tick * dt < 0.8 else 0.3)
                 actuator_force = (
                     vertical_servo_force(
                         target_velocity, before_velocity, gain=150.0, mass=mass, force_limit=60.0
                     )
-                    if drive
+                    if servo_enabled
                     else 0.0
                 )
             force_buffer = np.zeros((model.body_count, 6), dtype=np.float32)
@@ -154,6 +161,8 @@ def run(
             velocities = state.body_qd.numpy()
             particle_velocities = state.particle_qd.numpy() if with_soil else np.empty((0, 3))
             soil_impulse = np.zeros(3)
+            ground_impulse = np.zeros(3)
+            unmapped_impulse = np.zeros(3)
             applied_contact_impulse_z = 0.0
             if with_soil:
                 rigid_input_force = solver.entry_state("rigid", "input").body_f.numpy()
@@ -168,7 +177,13 @@ def run(
                 selected = np.zeros(len(ids), dtype=bool)
                 selected[valid] = mapping[ids[valid]] >= 0
                 # This fixture has exactly one dynamic body. Static ground is excluded.
-                soil_impulse = impulses.numpy()[selected].sum(axis=0)
+                impulse_values = impulses.numpy().astype(np.float64)
+                soil_impulse = impulse_values[selected].sum(axis=0)
+                ground_selected = np.zeros(len(ids), dtype=bool)
+                ground_selected[valid] = mapping[ids[valid]] == -1
+                ground_impulse = impulse_values[ground_selected].sum(axis=0)
+                unmapped_impulse = impulse_values[~(selected | ground_selected)].sum(axis=0)
+            soil_momentum = (particle_masses[:, None] * particle_velocities).sum(axis=0)
             if not all(
                 np.isfinite(a).all()
                 for a in (q, particles, velocities, particle_velocities, soil_impulse)
@@ -181,9 +196,16 @@ def run(
                     "time_s": (tick + 1) * dt,
                     "body_z_m": float(q[2]),
                     "body_vz_m_s": float(velocities[body, 2]),
-                    "requested_vz_m_s": target_velocity if drive else None,
+                    "requested_vz_m_s": target_velocity if servo_enabled else None,
                     "actuator_force_z_n": actuator_force,
                     "soil_impulse_n_s": soil_impulse.tolist(),
+                    "impulse_on_ground_n_s": ground_impulse.tolist(),
+                    "unmapped_collider_impulse_n_s": unmapped_impulse.tolist(),
+                    "soil_momentum_kg_m_s": soil_momentum.tolist(),
+                    "soil_mass_kg": float(particle_masses.sum()),
+                    "mass_below_ground_tolerance_kg": float(
+                        particle_masses[particles[:, 2] < -0.04].sum()
+                    ),
                     "applied_contact_impulse_z_n_s": applied_contact_impulse_z,
                     "soil_force_z_n": float(soil_impulse[2] / dt),
                     "soil_min_z_m": float(particles[:, 2].min()) if with_soil else None,
@@ -204,17 +226,20 @@ def run(
             "coupling_mode": "lagged",
             "with_soil": with_soil,
             "drive": drive,
+            "hold": hold,
             "servo": {
                 "gain_n_s_m": 150.0,
                 "force_limit_n": 60.0,
-                "velocity_m_s": 0.3,
-                "reverse_time_s": 0.8,
+                "velocity_m_s": 0.0 if hold else 0.3,
+                "reverse_time_s": None if hold else 0.8,
             }
-            if drive
+            if servo_enabled
             else None,
             "steps": steps,
             "particle_count": model.particle_count,
-            "initial_soil_mass_kg": float(model.particle_mass.numpy().sum()) if with_soil else 0.0,
+            "initial_soil_mass_kg": float(particle_masses.sum()),
+            "initial_soil_momentum_kg_m_s": [0.0, 0.0, 0.0],
+            "ground_tolerance_m": 0.04,
             "body_mass_kg": float(model.body_mass.numpy()[body]),
             "trajectory": trajectory,
         }
@@ -228,6 +253,7 @@ if __name__ == "__main__":
     parser.add_argument("--coupling-iterations", type=int, default=1)
     parser.add_argument("--without-soil", action="store_true")
     parser.add_argument("--drive", action="store_true", help="force-limited down/up velocity servo")
+    parser.add_argument("--hold", action="store_true", help="stationary tool above settling soil")
     parser.add_argument("--output", type=Path, default=Path("runs/coupling-check.json"))
     args = parser.parse_args()
     if args.steps <= 0 or not np.isfinite(args.dt) or args.dt <= 0:
@@ -241,6 +267,7 @@ if __name__ == "__main__":
         args.drive,
         args.control_dt,
         args.coupling_iterations,
+        args.hold,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
