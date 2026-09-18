@@ -1,0 +1,40 @@
+[
+  {
+    "file": "drive-low-drag-5ms.json",
+    "canonical_json_sha256": "a995fb54a37a48ea4ecd5915d45bdf2224d132dcd4e43e8a925e52a05be46d38",
+    "source_sha256": "b3199f79208d3e85a0c4fc8e25c46453b7e5cb395f67dc8ff60575d683670957",
+    "dt_s": 0.005,
+    "control_dt_s": 0.005,
+    "peak_20ms_mean_soil_force_z_n": 43.541856245974486,
+    "measurement_window_s": 0.02,
+    "duration_s": 1.2,
+    "with_soil": true,
+    "final_z_m": 0.29502466320991516,
+    "minimum_z_m": 0.17467311024665833,
+    "peak_abs_actuator_force_n": 60.0,
+    "peak_soil_force_z_n": 50.4823659081012,
+    "integrated_soil_impulse_z_n_s": 10.350855218436994,
+    "actuator_work_z_j": -0.5163484461805845,
+    "work_definition": "vertical force held over each step times vertical displacement",
+    "status": "diagnostic only; no convergence or physical validation verdict"
+  },
+  {
+    "file": "drive-low-drag-2p5ms.json",
+    "canonical_json_sha256": "9ce282d5cf226d6adeacacccc293c1784135c5d0cf676167b0254584f5259d8a",
+    "source_sha256": "b3199f79208d3e85a0c4fc8e25c46453b7e5cb395f67dc8ff60575d683670957",
+    "dt_s": 0.0025,
+    "control_dt_s": 0.005,
+    "peak_20ms_mean_soil_force_z_n": 39.366798720812135,
+    "measurement_window_s": 0.02,
+    "duration_s": 1.2,
+    "with_soil": true,
+    "final_z_m": 0.297026127576828,
+    "minimum_z_m": 0.17997054755687714,
+    "peak_abs_actuator_force_n": 60.0,
+    "peak_soil_force_z_n": 106.31540482863784,
+    "integrated_soil_impulse_z_n_s": 10.697562161184397,
+    "actuator_work_z_j": -0.26168361560288933,
+    "work_definition": "vertical force held over each step times vertical displacement",
+    "status": "diagnostic only; no convergence or physical validation verdict"
+  }
+]

@@ -28,7 +28,19 @@ def run(
     control_dt: float | None = None,
     coupling_iterations: int = 1,
     hold: bool = False,
+    mpm_iterations: int = 50,
+    mpm_tolerance: float = 1e-4,
+    voxel_size: float = 0.04,
+    particle_spacing: float = 0.02,
+    air_drag: float = 1.0,
 ) -> dict:
+    if not np.isfinite(air_drag) or air_drag < 0:
+        raise ValueError("air_drag must be finite and nonnegative")
+    if type(mpm_iterations) is not int or mpm_iterations < 1:
+        raise ValueError("mpm_iterations must be a positive integer")
+    if not all(np.isfinite(v) and v > 0 for v in (mpm_tolerance, voxel_size, particle_spacing)):
+        raise ValueError("MPM tolerance and spatial sizes must be finite and positive")
+    dims = [ticks_per_update(particle_spacing, extent) for extent in (0.4, 0.4, 0.2)]
     if drive and hold:
         raise ValueError("choose either the driven trajectory or the stationary control")
     servo_enabled = drive or hold
@@ -53,14 +65,14 @@ def run(
             cfg=newton.ModelBuilder.ShapeConfig(density=2000.0, mu=0.5),
         )
         builder.add_ground_plane()
-        spacing = 0.02
+        spacing = particle_spacing
         builder.add_particle_grid(
-            pos=wp.vec3(-0.19, -0.19, 0.01),
+            pos=wp.vec3(-0.2 + spacing / 2, -0.2 + spacing / 2, spacing / 2),
             rot=wp.quat_identity(),
             vel=wp.vec3(0),
-            dim_x=20,
-            dim_y=20,
-            dim_z=10 if with_soil else 0,
+            dim_x=dims[0],
+            dim_y=dims[1],
+            dim_z=dims[2] if with_soil else 0,
             cell_x=spacing,
             cell_y=spacing,
             cell_z=spacing,
@@ -71,11 +83,13 @@ def run(
         )
         model = builder.finalize()
         config = SolverImplicitMPM.Config()
-        config.voxel_size = 0.04
+        config.voxel_size = voxel_size
         config.grid_type = "fixed"
         config.grid_padding = 10
         config.max_active_cell_count = 1 << 15
-        config.max_iterations = 50
+        config.max_iterations = mpm_iterations
+        config.tolerance = mpm_tolerance
+        config.air_drag = air_drag
         config.strain_basis = "P0"
         config.critical_fraction = 0.0
         solver = SolverCoupledProxy(
@@ -224,6 +238,13 @@ def run(
             "rigid_substeps": 4,
             "coupling_iterations": coupling_iterations,
             "coupling_mode": "lagged",
+            "numerics": {
+                "mpm_iterations": mpm_iterations,
+                "mpm_tolerance": mpm_tolerance,
+                "voxel_size_m": voxel_size,
+                "particle_spacing_m": spacing,
+                "air_drag": air_drag,
+            },
             "with_soil": with_soil,
             "drive": drive,
             "hold": hold,
@@ -251,6 +272,11 @@ if __name__ == "__main__":
     parser.add_argument("--dt", type=float, default=0.005)
     parser.add_argument("--control-dt", type=float, help="servo period; defaults to physics dt")
     parser.add_argument("--coupling-iterations", type=int, default=1)
+    parser.add_argument("--mpm-iterations", type=int, default=50)
+    parser.add_argument("--mpm-tolerance", type=float, default=1e-4)
+    parser.add_argument("--voxel-size", type=float, default=0.04)
+    parser.add_argument("--particle-spacing", type=float, default=0.02)
+    parser.add_argument("--air-drag", type=float, default=1.0)
     parser.add_argument("--without-soil", action="store_true")
     parser.add_argument("--drive", action="store_true", help="force-limited down/up velocity servo")
     parser.add_argument("--hold", action="store_true", help="stationary tool above settling soil")
@@ -268,6 +294,11 @@ if __name__ == "__main__":
         args.control_dt,
         args.coupling_iterations,
         args.hold,
+        args.mpm_iterations,
+        args.mpm_tolerance,
+        args.voxel_size,
+        args.particle_spacing,
+        args.air_drag,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
