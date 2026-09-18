@@ -1,6 +1,6 @@
 # Validation plan and public experimental data
 
-Status: mandatory implementation specification, updated 2026-09-18. Public subsets have been downloaded and inspected; see DATA_ADMISSION.md. Data transforms and an exploratory terrain replay are implemented. Initial terrain replay attempts fail numerical stability. No simulator has passed physical validation. This document is part of SCOPE.md and defines how validation evidence is admitted and used. Full probing/QAM studies are separate experiments; their relevant controls apply when making those research claims.
+Status: mandatory implementation specification, updated 2026-09-18. Public subsets have been downloaded and inspected; see DATA_ADMISSION.md. Data transforms and exploratory terrain and penetration replays are implemented. Plane boundaries allow the terrain replay to finish, but convergence remains unresolved; initial thin-boundary attempts failed. No simulator has passed physical validation. This document is part of SCOPE.md and defines how validation evidence is admitted and used. Full probing/QAM studies are separate experiments; their relevant controls apply when making those research claims.
 
 ## Claims and evidence
 

@@ -50,9 +50,11 @@ def source_identity(root: Path) -> dict[str, Any]:
 
     # Include uncommitted and untracked source, not just git diff (which misses new files).
     hashes = {}
-    for folder in ("src", "configs", "experiments", "scripts"):
+    for folder in ("src", "configs", "experiments", "scripts", "tests"):
         for path in sorted((root / folder).rglob("*")):
-            if path.is_file() and "__pycache__" not in path.parts:
+            if path.is_file() and not any(
+                part == "__pycache__" or part.endswith(".egg-info") for part in path.parts
+            ):
                 hashes[path.relative_to(root).as_posix()] = hashlib.sha256(
                     path.read_bytes()
                 ).hexdigest()

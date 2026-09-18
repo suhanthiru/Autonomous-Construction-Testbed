@@ -1,0 +1,26 @@
+{
+  "runs": [
+    {
+      "case": "development",
+      "force_mae_n": 3.261535345310436,
+      "force_rmse_n": 3.5146870202459275,
+      "particle_count": 108240,
+      "source_changed_during_run": false,
+      "final_force_n": 1.8048255846896981,
+      "peak_force_n": 1.8048255846896981
+    },
+    {
+      "case": "refinement",
+      "force_mae_n": 3.1362394657549553,
+      "force_rmse_n": 3.363106860211938,
+      "particle_count": 361340,
+      "source_changed_during_run": false,
+      "final_force_n": 1.7998563729665893,
+      "peak_force_n": 1.8100180235425591
+    }
+  ],
+  "mean_absolute_force_difference_n": 0.26939256466513867,
+  "maximum_absolute_force_difference_n": 1.0126521458912252,
+  "same_source": true,
+  "status": "exploratory; convergence and physical acceptance not established"
+}

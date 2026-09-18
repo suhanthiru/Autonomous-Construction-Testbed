@@ -1,0 +1,335 @@
+{
+  "status": "exploratory replay; not physically validated",
+  "trial": 0,
+  "complete_trajectory": true,
+  "role": "development",
+  "source": {
+    "revision": "013c49d2cc59ca5613615995c02ffdf89632bb3a",
+    "working_tree_status": "M src/excavation_sim/cli.py\n?? Industrial_Autonomy_Outreach_Pipeline_2026.xlsx\n?? src/excavation_sim/validation.py\n?? tests/test_validation.py\n?? validation/",
+    "source_sha256": "986f47767bd08ed572ff73436117908b34696f170386d07c90cd9f6d00f94108",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "861dfb3f319ecd81b5a505f3189b58eec5203ba2c78e6aa2350a2f9028dcc55e",
+      "src/excavation_sim/analysis.py": "6d51f1cf1251168b4661923adfc9274baa034f66a0a0af119f6edc4c43f83426",
+      "src/excavation_sim/cli.py": "bc146c977fd80c7d92b4187e4f5a7161f85d48c45ac626ca1009c40e63c77b13",
+      "src/excavation_sim/core.py": "b9bc9dd34724a5b994ccff0a4a05b20781daa17abad57efd3fca06dc22c2a720",
+      "src/excavation_sim/datasets.py": "d994de1aa72ea64c370ec8b76831febe4437a1ea1269fab52c1ebe161efa4c87",
+      "src/excavation_sim/provenance.py": "d2134865b20d58c69e0e88ebeebb38558b43088bbc4fc280b5d0f140670c1ac1",
+      "src/excavation_sim/recording.py": "20823ce1d1f348327335caf712b2997a68d2c0a87820a638bbeec379fa91ab40",
+      "src/excavation_sim/validation.py": "8dbb3bf3b87fbfe8242658a3ddf6896c82a273ca9174678168fae80afbcefcdc",
+      "src/excavation_sim.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/excavation_sim.egg-info/entry_points.txt": "aab55348f36cc81c5d3b796fbe0408e6ba5e7f2a58ee260b9f051fa0db5e2e63",
+      "src/excavation_sim.egg-info/PKG-INFO": "68947b43198d7b3ea0f9d6743c9426c67a3e427e2028215e00b0dfe3cd9f686c",
+      "src/excavation_sim.egg-info/requires.txt": "6bfe6d51f08506b1cdff3bd4ee9443c7a13e59fdbb8fd2e2d26b53a939ec6c05",
+      "src/excavation_sim.egg-info/SOURCES.txt": "a3ef05c9625e77d85b93d4d07107766f8a0619a19be44c499dd306d36432f7d0",
+      "src/excavation_sim.egg-info/top_level.txt": "52057b8c6b57495daa2173c1d1074e75811ccedf186cfe27e1c647d316d24d13",
+      "scripts/audit_momentum.py": "0dffc9dc74e6af4dd6c4ae1656297346c1b3376ce4f8fedfc8fa99ca0212391e",
+      "scripts/audit_system_momentum.py": "9e001b7422844b669c10d78eb90385e8a7a41f190fdd681dcc7022588019102e",
+      "scripts/check_soil_coupling.py": "020f6a22a6a011c91de62e18cd10af6ed18a329e2dddcf2cbaafc3c1af2927fc",
+      "scripts/fetch_validation_sources.py": "40c3bb8ab343d346f9917d1df24e4cd3ee1ecce127631ce7cbdd8cf65cbbeb0a",
+      "scripts/plot_validation.py": "09c1f7f25bce78017932912ac661384278fc6a34946a252a6bd234a20cd8225c",
+      "scripts/replay_ddbot.py": "042b6977904fd5e5cd41ca542d4bc181a4870d70e68c1e6195e396b5d877097e",
+      "scripts/summarize_fixture.py": "4d97d20a18873b182d395c78c1dcf6f348578fe9db2452aae56566318b26555e",
+      "pyproject.toml": "ba3d4ad27ff8e366a42af3c75bd60bb2ae7ae3b7c4dad2ea6f53ccc5a1895d1a"
+    }
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "excavation-sim": "0.1.0.dev0",
+      "newton": "1.6.0",
+      "warp-lang": "1.17.0",
+      "numpy": "2.5.3"
+    }
+  },
+  "source_changed_during_run": true,
+  "config": {
+    "data": "data\\raw\\admission\\ddbot\\e642f7c73f37539c21161bd29669fa8d91912b88",
+    "trial": 0,
+    "dt": 0.0025,
+    "voxel": 0.014,
+    "spacing": 0.007,
+    "friction": 0.9,
+    "tool_friction": 0.5,
+    "wall_friction": 0.5,
+    "density": 1600,
+    "air_drag": 1.0,
+    "tool_geometry": "mesh",
+    "boundary": "planes",
+    "limit_actions": 0,
+    "output": "runs\\ddbot-friction09"
+  },
+  "input_hashes": {
+    "mesh": "83e44113c31f052c7092a62ab9718ac4a2ca1767858e7ec49455ed27bd9d6813",
+    "target": "e3ff62c6ded9d7967c21bee4f333445268906566aea42816d825828f57e77223",
+    "actions": "e047152c3161ac4eb0f5ee6efc7c1e075eec65f9ba67ba487e16607ce8df2799"
+  },
+  "mae_m": 0.01008379849139601,
+  "rmse_m": 0.014222534137787412,
+  "unchanged_initial_surface_mae_m": 0.011039726114831864,
+  "empty_surface_cells": 6,
+  "particle_count": 16000,
+  "trace": [
+    {
+      "action": 1,
+      "tool_position_m": [
+        0.2,
+        0.2,
+        0.205
+      ],
+      "soil_min_m": [
+        0.06349915266036987,
+        0.0634990856051445,
+        0.018483707681298256
+      ],
+      "soil_max_m": [
+        0.336521714925766,
+        0.33652129769325256,
+        0.08149980008602142
+      ]
+    },
+    {
+      "action": 26,
+      "tool_position_m": [
+        0.20921096267434564,
+        0.2000003055181621,
+        0.2049754016290675
+      ],
+      "soil_min_m": [
+        0.06349910795688629,
+        0.06349751353263855,
+        0.018480652943253517
+      ],
+      "soil_max_m": [
+        0.3365257978439331,
+        0.3365241587162018,
+        0.08230463415384293
+      ]
+    },
+    {
+      "action": 51,
+      "tool_position_m": [
+        0.26001654444080474,
+        0.20000456463515343,
+        0.2049753859619833
+      ],
+      "soil_min_m": [
+        0.06349921226501465,
+        0.06349532306194305,
+        0.018468234688043594
+      ],
+      "soil_max_m": [
+        0.336603581905365,
+        0.33653101325035095,
+        0.0852309837937355
+      ]
+    },
+    {
+      "action": 76,
+      "tool_position_m": [
+        0.2879648468309906,
+        0.19998755773071403,
+        0.2049754092773464
+      ],
+      "soil_min_m": [
+        0.06349924206733704,
+        0.06349476426839828,
+        0.01844749040901661
+      ],
+      "soil_max_m": [
+        0.3367193937301636,
+        0.33653298020362854,
+        0.08513068407773972
+      ]
+    },
+    {
+      "action": 101,
+      "tool_position_m": [
+        0.29215569029432525,
+        0.19999166566945809,
+        0.19531142540774596
+      ],
+      "soil_min_m": [
+        0.0634990930557251,
+        0.06349238753318787,
+        0.018354469910264015
+      ],
+      "soil_max_m": [
+        0.3369777500629425,
+        0.3365521728992462,
+        0.08463166654109955
+      ]
+    },
+    {
+      "action": 126,
+      "tool_position_m": [
+        0.2921542646024962,
+        0.1999890477941461,
+        0.164489034200645
+      ],
+      "soil_min_m": [
+        0.06349605321884155,
+        0.06346859782934189,
+        0.01747295819222927
+      ],
+      "soil_max_m": [
+        0.33938345313072205,
+        0.3366967737674713,
+        0.09078262001276016
+      ]
+    },
+    {
+      "action": 151,
+      "tool_position_m": [
+        0.28811213451799206,
+        0.19998265886436178,
+        0.15417594285663408
+      ],
+      "soil_min_m": [
+        0.06348725408315659,
+        0.06346514075994492,
+        0.016786271706223488
+      ],
+      "soil_max_m": [
+        0.3420741558074951,
+        0.33670446276664734,
+        0.0912071093916893
+      ]
+    },
+    {
+      "action": 176,
+      "tool_position_m": [
+        0.24524880513592645,
+        0.19999604244262564,
+        0.15417586558125632
+      ],
+      "soil_min_m": [
+        0.06343451887369156,
+        0.0634663850069046,
+        0.01667848974466324
+      ],
+      "soil_max_m": [
+        0.34205612540245056,
+        0.33675211668014526,
+        0.10384663194417953
+      ]
+    },
+    {
+      "action": 201,
+      "tool_position_m": [
+        0.1901522496468721,
+        0.19998930165238332,
+        0.1541759767280896
+      ],
+      "soil_min_m": [
+        0.06334955245256424,
+        0.06346388161182404,
+        0.016672249883413315
+      ],
+      "soil_max_m": [
+        0.34204959869384766,
+        0.3367936611175537,
+        0.11701144278049469
+      ]
+    },
+    {
+      "action": 226,
+      "tool_position_m": [
+        0.17154792593914375,
+        0.19997147326094616,
+        0.15521805710039108
+      ],
+      "soil_min_m": [
+        0.06332042068243027,
+        0.06346304714679718,
+        0.01667173020541668
+      ],
+      "soil_max_m": [
+        0.3420482277870178,
+        0.33680129051208496,
+        0.1149955689907074
+      ]
+    },
+    {
+      "action": 251,
+      "tool_position_m": [
+        0.17008349348756396,
+        0.19998803689676953,
+        0.1743361726579791
+      ],
+      "soil_min_m": [
+        0.06332152336835861,
+        0.0634646788239479,
+        0.016671476885676384
+      ],
+      "soil_max_m": [
+        0.342048317193985,
+        0.3368000388145447,
+        0.1147410199046135
+      ]
+    },
+    {
+      "action": 276,
+      "tool_position_m": [
+        0.170084125683943,
+        0.199990308362807,
+        0.22063723267193439
+      ],
+      "soil_min_m": [
+        0.06332152336835861,
+        0.0634646862745285,
+        0.016671476885676384
+      ],
+      "soil_max_m": [
+        0.342048317193985,
+        0.33680015802383423,
+        0.11452692747116089
+      ]
+    },
+    {
+      "action": 301,
+      "tool_position_m": [
+        0.17008234080739743,
+        0.19998388266494788,
+        0.2569770782323753
+      ],
+      "soil_min_m": [
+        0.06332152336835861,
+        0.0634646862745285,
+        0.016671475023031235
+      ],
+      "soil_max_m": [
+        0.342048317193985,
+        0.33680015802383423,
+        0.11444665491580963
+      ]
+    },
+    {
+      "action": 311,
+      "tool_position_m": [
+        0.17008051731057988,
+        0.19997732550271657,
+        0.26600464108038097
+      ],
+      "soil_min_m": [
+        0.06332152336835861,
+        0.0634646862745285,
+        0.016671475023031235
+      ],
+      "soil_max_m": [
+        0.342048317193985,
+        0.33680015802383423,
+        0.11443045735359192
+      ]
+    }
+  ],
+  "limitations": [
+    "planned rather than measured tool motion",
+    "uncalibrated Newton material",
+    "uniform initial bed inferred from published apparatus",
+    "no acceptance tolerance from repeat trials",
+    "boundary geometry is an explicit approximation; see config.boundary",
+    "no initial settling stage"
+  ]
+}

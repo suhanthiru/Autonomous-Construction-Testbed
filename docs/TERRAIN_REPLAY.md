@@ -63,3 +63,22 @@ height-map arrays, and selected earlier failures are retained together.
 ![Development surface comparison](evidence/terrain-replay/development-comparison.png)
 
 The subsequent development runs are governed by [TERRAIN_PROTOCOL.md](TERRAIN_PROTOCOL.md).
+
+## Spatial and material sensitivity
+
+| Development setting | Height MAE | RMSE | Empty cells |
+|---|---:|---:|---:|
+| 10 mm grid / 5 mm particles, 1 ms, friction 0.6 | 7.12 mm | 9.52 mm | 0 |
+| 14 mm grid / 7 mm particles, 2.5 ms, friction 0.35 | 6.48 mm | 9.43 mm | 3 |
+| 14 mm grid / 7 mm particles, 2.5 ms, friction 0.9 | 10.08 mm | 14.22 mm | 6 |
+
+The fine-grid surface differs from the earlier coarse-grid 1 ms surface by 2.74 mm
+MAE. A better development fit does not establish spatial convergence or select a
+physically valid friction coefficient. No independent trial was evaluated.
+
+[Reports and maps](evidence/terrain-sensitivity/summary.json) preserve a provenance
+limitation: these runs recorded source changes during execution. Generated package
+metadata and unrelated reporting work changed while they ran. The replay script hash
+also differs from the earlier timestep baseline, so these are exploratory comparisons,
+not a strict frozen-source convergence study. The dataset transform hash matches.
+Future source fingerprints exclude generated package metadata and include test code.

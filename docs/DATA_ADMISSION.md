@@ -61,6 +61,16 @@ numerical stability/convergence, calibration on development data only, and asses
 uncertainty from initial preparation, motion tracking, walls, and surface processing.
 Executing one uncalibrated comparison does not satisfy those gates.
 
-The replay uses physical side walls instead of the upstream numerical boundary and
-does not impose the upstream top clipping plane. This choice is recorded explicitly
-and must be assessed as a model difference before claiming reproduction of its simulator.
+The successful replay uses infinite plane side walls instead of the upstream numerical
+boundary and does not impose the upstream top clipping plane. Infinite wall height is
+an approximation to the finite physical bin. This choice is recorded explicitly and
+must be assessed before claiming reproduction of either simulator or physical apparatus.
+
+## Additional force source screened
+
+The [soil-bin dataset](https://data.mendeley.com/datasets/4wfc8vh9n7/1) declares
+CC BY 4.0 and provides measured and predicted forces. Its treatments use flexible
+S/VCO supports, moist loamy sand, several duckfoot widths, and varying compaction,
+depth, and speed. The present dry-soil, rigid-tool fixture does not represent support
+compliance or moisture. It is not admitted as a direct physical acceptance test.
+Those mechanisms and measured-column definitions must be reconstructed first.

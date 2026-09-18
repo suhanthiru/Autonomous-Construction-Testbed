@@ -1,0 +1,71 @@
+{
+  "scope": "Implemented CPU contracts, data transforms, accounting analysis, and evidence reporting only; not full simulator coverage",
+  "source": {
+    "revision": "013c49d2cc59ca5613615995c02ffdf89632bb3a",
+    "working_tree_status": "M README.md\n M docs/DATA_ADMISSION.md\n M docs/TERRAIN_REPLAY.md\n M docs/VALIDATION_PLAN.md\n M src/excavation_sim/cli.py\n M src/excavation_sim/provenance.py\n M tests/test_contracts.py\n?? Industrial_Autonomy_Outreach_Pipeline_2026.xlsx\n?? docs/VALIDATION_STATUS.md\n?? docs/evidence/force-replay/\n?? docs/evidence/terrain-sensitivity/\n?? scripts/replay_rheometer.py\n?? src/excavation_sim/validation.py\n?? tests/test_validation.py\n?? validation/",
+    "source_sha256": "4e0f0ea5682653b194d448f1e8b0097d8045e09bdb585b173cc5ee17484928f4",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "861dfb3f319ecd81b5a505f3189b58eec5203ba2c78e6aa2350a2f9028dcc55e",
+      "src/excavation_sim/analysis.py": "6d51f1cf1251168b4661923adfc9274baa034f66a0a0af119f6edc4c43f83426",
+      "src/excavation_sim/cli.py": "bc146c977fd80c7d92b4187e4f5a7161f85d48c45ac626ca1009c40e63c77b13",
+      "src/excavation_sim/core.py": "b9bc9dd34724a5b994ccff0a4a05b20781daa17abad57efd3fca06dc22c2a720",
+      "src/excavation_sim/datasets.py": "d994de1aa72ea64c370ec8b76831febe4437a1ea1269fab52c1ebe161efa4c87",
+      "src/excavation_sim/provenance.py": "cd0d3c553bf474924e0af69e6f6f1c0c0466e689eed2bcf9d44ec154fc58c062",
+      "src/excavation_sim/recording.py": "20823ce1d1f348327335caf712b2997a68d2c0a87820a638bbeec379fa91ab40",
+      "src/excavation_sim/validation.py": "5074cf9c88834a9262012acbc09fd00c1ce7e2bb0bde3eabd6ab95c7e43d1bf2",
+      "scripts/audit_momentum.py": "0dffc9dc74e6af4dd6c4ae1656297346c1b3376ce4f8fedfc8fa99ca0212391e",
+      "scripts/audit_system_momentum.py": "9e001b7422844b669c10d78eb90385e8a7a41f190fdd681dcc7022588019102e",
+      "scripts/check_soil_coupling.py": "020f6a22a6a011c91de62e18cd10af6ed18a329e2dddcf2cbaafc3c1af2927fc",
+      "scripts/fetch_validation_sources.py": "40c3bb8ab343d346f9917d1df24e4cd3ee1ecce127631ce7cbdd8cf65cbbeb0a",
+      "scripts/plot_validation.py": "09c1f7f25bce78017932912ac661384278fc6a34946a252a6bd234a20cd8225c",
+      "scripts/replay_ddbot.py": "042b6977904fd5e5cd41ca542d4bc181a4870d70e68c1e6195e396b5d877097e",
+      "scripts/replay_rheometer.py": "0c07aa3a231db23f78a1a4777497a0969463acfb026c3e32bc655877c90d3e0e",
+      "scripts/summarize_fixture.py": "4d97d20a18873b182d395c78c1dcf6f348578fe9db2452aae56566318b26555e",
+      "tests/test_actuation.py": "6abfab485a8a7e9c31876dae652a3890ad70e023acbe85e10e8b63652b67ae08",
+      "tests/test_analysis.py": "cb98e5e304983b990906e5d57f5fe1e0ed8c0a574e91fddcff2adf53954cee75",
+      "tests/test_contracts.py": "52d5a02b555aa8164d2d6362c55e5b4cdfae90e2355c9d8e5ae04e74d98e1f97",
+      "tests/test_datasets.py": "1ed474c931cca3c32a9ac94b445925f30de3d6068ef0c6f70596be54359561cc",
+      "tests/test_system_momentum.py": "2c2c0cd7cc8384f0f6c037253bb07f97cfb3e837f3c25cfe4092f2563afd7b97",
+      "tests/test_validation.py": "e5b49bbcbb9dd26e5007c579d26bc2ddb9029bc1556ac79557299bd9f5166b7c",
+      "pyproject.toml": "ba3d4ad27ff8e366a42af3c75bd60bb2ae7ae3b7c4dad2ea6f53ccc5a1895d1a"
+    }
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "excavation-sim": "0.1.0.dev0",
+      "newton": "1.6.0",
+      "warp-lang": "1.17.0",
+      "numpy": "2.5.3"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stdout": "................................                                         [100%]\n32 passed in 0.79s\n",
+      "stderr": ""
+    }
+  ]
+}

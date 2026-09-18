@@ -1,0 +1,35 @@
+[
+  {
+    "case": "fine-grid",
+    "mae_m": 0.007121235562954098,
+    "rmse_m": 0.009515628447332425,
+    "empty_surface_cells": 0,
+    "source_changed_during_run": true,
+    "physics_files_match_baseline": {
+      "scripts/replay_ddbot.py": false,
+      "src/excavation_sim/datasets.py": true
+    }
+  },
+  {
+    "case": "friction035",
+    "mae_m": 0.006476936140097677,
+    "rmse_m": 0.009429389166358739,
+    "empty_surface_cells": 3,
+    "source_changed_during_run": true,
+    "physics_files_match_baseline": {
+      "scripts/replay_ddbot.py": false,
+      "src/excavation_sim/datasets.py": true
+    }
+  },
+  {
+    "case": "friction09",
+    "mae_m": 0.01008379849139601,
+    "rmse_m": 0.014222534137787412,
+    "empty_surface_cells": 6,
+    "source_changed_during_run": true,
+    "physics_files_match_baseline": {
+      "scripts/replay_ddbot.py": false,
+      "src/excavation_sim/datasets.py": true
+    }
+  }
+]

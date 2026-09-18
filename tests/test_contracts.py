@@ -77,3 +77,19 @@ def test_source_identity_includes_untracked_code(tmp_path):
     before = source_identity(tmp_path)["source_sha256"]
     file.write_text("x = 2\n")
     assert before != source_identity(tmp_path)["source_sha256"]
+
+
+def test_generated_package_metadata_is_not_source(tmp_path):
+    from excavation_sim.provenance import source_identity
+
+    generated = tmp_path / "src" / "example.egg-info"
+    generated.mkdir(parents=True)
+    metadata = generated / "PKG-INFO"
+    metadata.write_text("first build")
+    first = source_identity(tmp_path)["source_sha256"]
+    metadata.write_text("second build")
+    assert source_identity(tmp_path)["source_sha256"] == first
+    tests = tmp_path / "tests"
+    tests.mkdir()
+    (tests / "test_behavior.py").write_text("assert True")
+    assert source_identity(tmp_path)["source_sha256"] != first

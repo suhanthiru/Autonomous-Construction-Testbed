@@ -1,0 +1,64 @@
+{
+  "scope": "Initial excavation testbed; component verification is not physical validation",
+  "gates": [
+    {
+      "id": "software_contracts",
+      "status": "passed",
+      "reason": "32 implemented CPU tests and lint pass for the pinned source; this does not assess unimplemented components or physics.",
+      "evidence": {
+        "path": "docs/evidence/software-contracts.json",
+        "canonical_json_sha256": "f80af61fc242186dc45264b440b04413fd3d7742f6781cf106b480ec694ab701"
+      }
+    },
+    {
+      "id": "rigid_momentum",
+      "status": "not_assessed",
+      "reason": "Fixture accounting matches applied force; acceptance criteria and full mechanism coverage remain open."
+    },
+    {
+      "id": "soil_momentum",
+      "status": "not_assessed",
+      "reason": "Air-drag contribution isolated; direct complete impulse budget remains open."
+    },
+    {
+      "id": "contact_convergence",
+      "status": "failed",
+      "reason": "Dynamic penetration remains timestep-sensitive."
+    },
+    {
+      "id": "terrain_convergence",
+      "status": "failed",
+      "reason": "Successive development surface differences do not decrease monotonically."
+    },
+    {
+      "id": "force_data_admission",
+      "status": "not_assessed",
+      "reason": "Rheometer transforms reproduced; independent repeat grouping and uncertainty unresolved."
+    },
+    {
+      "id": "terrain_data_admission",
+      "status": "not_assessed",
+      "reason": "Conditional replay reconstructed; planned-motion and initial-state uncertainty remain."
+    },
+    {
+      "id": "physical_force",
+      "status": "not_assessed",
+      "reason": "Two uncalibrated resolution trials underpredict measured resistance; preparation, convergence, uncertainty, and independent acceptance remain unresolved."
+    },
+    {
+      "id": "physical_terrain",
+      "status": "not_assessed",
+      "reason": "Development comparison executed; numerical gate, calibration, tolerances, and independent evaluation remain."
+    },
+    {
+      "id": "repeated_excavation",
+      "status": "not_assessed",
+      "reason": "Repeated scoop/deposit sequence is not implemented."
+    },
+    {
+      "id": "machine_actuation",
+      "status": "not_assessed",
+      "reason": "The fixture uses a single tool; articulated excavator actuation is not implemented."
+    }
+  ]
+}

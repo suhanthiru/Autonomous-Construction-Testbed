@@ -22,6 +22,10 @@ The [air-drag isolation](docs/AIR_DRAG_CHECK.md) explains most of that small res
 [Public-data admission](docs/DATA_ADMISSION.md) and a [terrain replay](docs/TERRAIN_REPLAY.md)
 are now implemented. The replay completes with plane boundaries, but numerical
 convergence and physical acceptance remain unresolved.
+The [validation coverage report](docs/VALIDATION_STATUS.md) lists required gates and
+returns a nonzero exit status until the recorded evidence supports completion.
+An [exploratory penetration replay](docs/FORCE_REPLAY.md) completes at two spatial
+resolutions and substantially underpredicts the published laboratory resistance.
 
 ## Development setup
 
