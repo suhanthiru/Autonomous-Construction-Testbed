@@ -18,9 +18,10 @@ contain pose, velocity, and action-averaged generated soil reaction force. The l
 coupling limitation still applies. Diagnostics and inspection snapshots are privileged.
 
 The optional HTML inspection artifact provides offline orbit/zoom, playback, pause,
-single-step, and playback reset. It displays a sampled particle cloud and tool center,
-not full collision geometry. It is an early inspection view, not the finished live
-excavator viewer. Playback never steps physics. HTML templates ship with the package.
+single-step, and playback reset. It displays a sampled particle cloud, body centers,
+and box collision geometry. Display frames are sampled separately from full-rate
+recordings. Playback never steps physics. HTML templates ship with the package.
+The live machine controls are described in `USER_WORKFLOWS.md`.
 
 Reset reconstructs the solver and its hidden state. Same-device tests produced zero
 position/force differences across two identical five-action sequences, with and without
@@ -29,13 +30,17 @@ Those results are preserved in `evidence/world-adapter/reset-isolation.json`; th
 not imply cross-device determinism, checkpoint fidelity, or physical validation.
 
 Particle finiteness and escaped mass are reduced on the GPU. The escape envelope is
-|x| and |y| <= 1 m, -0.04 <= z <= 1 m; it is an audit region, not a container. Particle
+the intersection of |x| and |y| <= 1 m, -0.04 <= z <= 1 m with a conservative interior
+of the fixed grid's support domain; it is an audit region, not a container. Particle
 arrays are copied to the host only for explicit inspection. Collider impulse arrays
 are currently copied for force observation; this cost remains to be benchmarked.
 
 The procedural machine asset defines slew, boom, stick, and bucket joints at bench
 scale, with explicit limits and an open four-wall bucket. An empty-machine fixture
 runs for one second. Its simple position servo has a 0.194 rad final boom offset under
-gravity; this is not a tracking pass. Coupled machine/soil integration and bucket
-retention/dumping remain pending. The asset is original primitive geometry, not a
-commercial excavator model or validated machine parameterization.
+gravity; this historical fixture is not a tracking pass. The current articulated
+backend uses Featherstone dynamics and gravity compensation, with executed coupled
+motion, retention controls, and a partial pickup/deposit result. See
+`ARTICULATED_MACHINE.md` and `IMPLEMENTATION_PROGRESS.md` for the current evidence.
+The asset is original primitive geometry, not a commercial excavator model or
+validated machine parameterization.

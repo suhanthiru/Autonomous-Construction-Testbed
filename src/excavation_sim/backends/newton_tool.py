@@ -143,6 +143,7 @@ class NewtonToolWorld:
             self._build()
         self.tick = 0
         self._force = np.zeros(3)
+        self._body_forces = np.zeros((self.model.body_count, 3))
         self._actuator = np.zeros(3)
         self._ready = True
         return self._observation()
@@ -306,7 +307,7 @@ class NewtonToolWorld:
     def step(self, command: ToolCommand) -> Observation:
         self._require_ready()
         dt = self.clock.dt_s
-        total_impulse = np.zeros(3)
+        total_impulse = np.zeros((self.model.body_count, 3))
         with wp.ScopedDevice(self.device):
             buffer = self._command_forces(command)
             for _ in range(self.clock.substeps_per_action):
@@ -320,9 +321,13 @@ class NewtonToolWorld:
                     impulse, _, ids = mpm.collect_collider_impulses(self.solver.entry_state("soil"))
                     ids, mapping = ids.numpy(), mpm.collider_body_index.numpy()
                     valid = (ids >= 0) & (ids < len(mapping))
-                    selected = np.zeros(len(ids), dtype=bool)
-                    selected[valid] = mapping[ids[valid]] == self.body
-                    total_impulse += impulse.numpy()[selected].sum(axis=0, dtype=np.float64)
+                    body_ids = np.full(len(ids), -1, dtype=int)
+                    body_ids[valid] = mapping[ids[valid]]
+                    impulses = impulse.numpy()
+                    for body in range(self.model.body_count):
+                        total_impulse[body] += impulses[body_ids == body].sum(
+                            axis=0, dtype=np.float64
+                        )
                 else:
                     for _ in range(4):
                         self.state.clear_forces()
@@ -333,7 +338,8 @@ class NewtonToolWorld:
                         )
                         self.state, self.baseline_output = self.baseline_output, self.state
                 self.tick += 1
-            self._force = total_impulse / self.config.action_dt_s
+            self._body_forces = total_impulse / self.config.action_dt_s
+            self._force = self._body_forces[self.body].copy()
             diagnostics = self.diagnostics()
             if not diagnostics.finite:
                 raise RuntimeError(f"nonfinite soil at tick {self.tick}")

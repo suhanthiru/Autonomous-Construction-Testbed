@@ -53,10 +53,15 @@ properties. Checkpoints use non-pickled NumPy arrays and an explicit feature sch
 Training records whole-episode hashes, fit error, runtime, and provenance. A completed
 simulation may have failed its task; this is stated explicitly in training reports.
 
-A development checkpoint was fitted to an unsuccessful scripted episode to exercise
-the training path. That is not evidence of a successful excavation policy or independent
-research result. Successful demonstrations, closed-loop evaluation, frozen scenario
-splits, and uncertainty/robustness studies remain required.
+A development checkpoint was fitted to the cutting-edge episode and evaluated closed
+loop for 27 seconds with delayed, noisy sensors. It deposited zero material and failed
+the task. This checks the full training/checkpoint/loading/feedback path; it is not a
+successful excavation baseline or independent research result. Stronger demonstrations,
+frozen scenario splits, and uncertainty/robustness studies remain required.
+
+Offline viewers sample display frames at 10 Hz and round displayed geometry to five
+decimal places to keep long replays manageable. Full-rate transition records and
+evaluator measurements are not decimated. Playback uses recorded timestamps.
 
 ## Reproducible software check
 

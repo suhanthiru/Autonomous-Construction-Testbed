@@ -39,7 +39,7 @@ python -m venv .venv
 python -m pip install -e ".[dev]"
 excavation-sim doctor
 python -m pytest
-python -m ruff check .
+python -m ruff check src scripts tests experiments
 ```
 
 The optional physics dependency is installed with `python -m pip install -e ".[physics]"`.
@@ -67,9 +67,13 @@ python scripts/run_tool_episode.py --actions 100 --inspect --output runs/tool-de
 For an experimental machine episode (task success is reported separately):
 
 ```sh
-python scripts/run_tool_episode.py --machine --policy experiments/excavator_scripted.py --policy-class ExcavatorPolicy --world-config configs/machine-development.json --actions 1200 --task deposit --inspect --output runs/machine-demo
+python scripts/run_tool_episode.py --machine --policy experiments/excavator_edge_cut.py --policy-class ExcavatorPolicy --world-config configs/machine-development.json --actions 1350 --task deposit --inspect --output runs/machine-demo
 ```
 
 Open the generated `inspection.html` locally to inspect the episode. It uses no external
-web assets. The current scripted excavation attempts have failed to retain/deposit soil;
-a completed simulation is not a successful excavation demonstration.
+web assets. The cutting-edge development run deposited 0.4224 kg, below its unchanged
+0.5 kg task goal. A linear behavior-cloning evaluation with delayed, noisy sensors
+deposited zero. A completed simulation is not a successful excavation demonstration.
+
+The [shared-soil two-tool fixture](docs/SHARED_TOOLS.md) also executes contact, but its
+first repeated-trajectory check diverged. Multiagent reproducibility remains unresolved.

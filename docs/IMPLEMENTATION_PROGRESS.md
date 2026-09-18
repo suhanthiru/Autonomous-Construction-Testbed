@@ -14,8 +14,8 @@ is not a passed research benchmark. The full contract remains in SCOPE.md.
 | Probe/scoop/deposit tasks | Implemented; deposit timeout executed | Successful task runs and further accounting tests |
 | Sensors | Delay/noise channels implemented and unit tested | Surface visibility and executed sensor comparisons |
 | Scenarios and frozen splits | Pending | Versioned generation and admission checks |
-| Behavior-cloning baseline | Development fit executed | Successful demonstrations and independent closed-loop evaluation |
-| Two-tool shared soil | Pending | Order/isolation and load-accounting regression |
+| Behavior-cloning baseline | Fit and closed-loop delayed/noisy evaluation executed; deposits zero | Stronger demonstrations, frozen splits and independent evaluation |
+| Two-tool shared soil | Implemented; first contact replay check diverges | Isolate repeated-run variation, verify load budgets and supported envelope |
 | Repeated excavation and obstacles | Pending | Executed fixtures and material/impulse accounting |
 | Numerical verification | Incomplete | Resolve existing timestep and spatial sensitivity |
 | Public physical comparisons | Executed development replays | Calibration, independent trials, tolerances, uncertainty |

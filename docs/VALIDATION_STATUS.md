@@ -6,7 +6,7 @@ Passing assessments require a repository-local JSON evidence record with a match
 canonical SHA-256 digest. This command checks recorded assessments and evidence
 integrity; it does not rerun experiments or judge scientific sufficiency automatically.
 
-The implemented software contracts pass 32 CPU tests and lint, with a pinned assessment
+The implemented software contracts pass 42 CPU tests and lint, with a pinned assessment
 in `docs/evidence/software-contracts.json`. This is limited to implemented functionality.
 Numerical contact and terrain
 convergence remain unresolved. Public-data replays are development comparisons;
@@ -20,8 +20,11 @@ neither establishes an independent physical pass.
 - Declare useful force and terrain tolerances before independent evaluation.
 - Freeze calibration and execute the reserved terrain trial once those gates permit it.
 - Admit independent force trials with known preparation and repeat grouping.
-- Implement and assess repeated scoop/deposit and articulated machine actuation.
+- Assess repeated scoop/deposit and articulated machine actuation.
+- Resolve the shared-soil contact trajectory repeatability discrepancy.
 
-The last two integrated mechanisms are not implemented by the current single-tool
-fixtures. Public final-surface scans and penetration curves do not supply evidence for
-them. Completing the available replay runs cannot close those gaps.
+The articulated machine now executes a cutting-edge cycle and deposits 0.4224 kg,
+below its 0.5 kg task goal. That development result does not establish repeated-cycle
+reliability or actuator accuracy. Public final-surface scans and penetration curves
+do not supply evidence for those integrated mechanisms. Completing the available
+replay runs cannot close those gaps.

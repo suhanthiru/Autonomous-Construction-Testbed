@@ -4,10 +4,10 @@
     {
       "id": "software_contracts",
       "status": "passed",
-      "reason": "41 implemented CPU tests, lint, package build and clean base-package installation pass for the pinned source; this excludes GPU integration and physics.",
+      "reason": "42 implemented CPU tests, lint, build and clean base-package installation pass for the pinned source; excludes GPU and physical validation.",
       "evidence": {
         "path": "docs/evidence/software-contracts.json",
-        "canonical_json_sha256": "46b44d7c06fffde08970d05505f6a58a381c3d7fedcd3c6ec2259f109a5443b4"
+        "canonical_json_sha256": "5d2ed104ab98b2d1ba6600e6c162754d444b971999c76c16cc9d3af2042e9256"
       }
     },
     {
@@ -59,6 +59,11 @@
       "id": "machine_actuation",
       "status": "not_assessed",
       "reason": "Four-joint force-limited articulation and gravity compensation executed; actuator validation and numerical operating envelope remain unresolved."
+    },
+    {
+      "id": "shared_tool_repeatability",
+      "status": "failed",
+      "reason": "Physics-rate servo reduces reversed-order trajectory differences to 0.116 mm and 1.052 N, but exact replay still fails. Same-order repeats also differ; an accepted statistical operating envelope remains unresolved."
     }
   ]
 }
