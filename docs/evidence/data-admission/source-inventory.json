@@ -1,0 +1,297 @@
+[
+  {
+    "repository": "IanYangChina/DDBot-IEEE-TRO-2025",
+    "revision": "e642f7c73f37539c21161bd29669fa8d91912b88",
+    "files_checked": 23,
+    "checksum_failures": [],
+    "skipped": [
+      {
+        "path": "data/system-identification-targets/sand/pcd_0.ply",
+        "size": 49568190,
+        "reason": "over 30 MB admission limit"
+      },
+      {
+        "path": "data/system-identification-targets/sand/pcd_1.ply",
+        "size": 49119006,
+        "reason": "over 30 MB admission limit"
+      }
+    ],
+    "files": [
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/LICENSE",
+        "size": 1069,
+        "sha256": "2214b742d187772630f695a2799a354f1bd5f8f6eef7255372b7fcb7c3b5647f",
+        "lfs": false
+      },
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/README.md",
+        "size": 4974,
+        "sha256": "bcbc8589ec450498353e3b7bf2ff63f0072d870fb5f5c58e4523ed695972718a",
+        "lfs": false
+      },
+      {
+        "path": "data/system-identification-targets/sand/pcd_0_cropped_norm_z_aligned.ply",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/system-identification-targets/sand/pcd_0_cropped_norm_z_aligned.ply",
+        "size": 11227277,
+        "sha256": "1cb75718d5c7640f434beda1e3375d68348013657dbbfa563e29b49c31156e81",
+        "lfs": true
+      },
+      {
+        "path": "data/system-identification-targets/sand/pcd_0_cropped_norm_z_aligned_height_map-res40.npy",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/system-identification-targets/sand/pcd_0_cropped_norm_z_aligned_height_map-res40.npy",
+        "size": 6528,
+        "sha256": "e3ff62c6ded9d7967c21bee4f333445268906566aea42816d825828f57e77223",
+        "lfs": true
+      },
+      {
+        "path": "data/system-identification-targets/sand/pcd_0_cropped_norm_z_aligned_res40.ply",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/system-identification-targets/sand/pcd_0_cropped_norm_z_aligned_res40.ply",
+        "size": 38547,
+        "sha256": "2498f20af994fa329dd5ce9cf101ce4576cb1b97f6eba8665950827d3262b332",
+        "lfs": true
+      },
+      {
+        "path": "data/system-identification-targets/sand/pcd_1_cropped_norm_z_aligned.ply",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/system-identification-targets/sand/pcd_1_cropped_norm_z_aligned.ply",
+        "size": 11103413,
+        "sha256": "9b339542a2237b4d1398c7bb880852b94ebd2069ffdf5d1b8636a1b1185e1027",
+        "lfs": true
+      },
+      {
+        "path": "data/system-identification-targets/sand/pcd_1_cropped_norm_z_aligned_height_map-res40.npy",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/system-identification-targets/sand/pcd_1_cropped_norm_z_aligned_height_map-res40.npy",
+        "size": 6528,
+        "sha256": "780057b48b6fe25875db0d0273ab4433c2fe783cb8b4261889db1aeaf5967499",
+        "lfs": true
+      },
+      {
+        "path": "data/system-identification-targets/sand/pcd_1_cropped_norm_z_aligned_res40.ply",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/system-identification-targets/sand/pcd_1_cropped_norm_z_aligned_res40.ply",
+        "size": 38547,
+        "sha256": "edb69f20e41cdf2ccc85ca40975a2bb9627d10d8b43ba6ebab87d495d32cb6b9",
+        "lfs": true
+      },
+      {
+        "path": "data/trajectories/sys_id_0_timestamps.npy",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/trajectories/sys_id_0_timestamps.npy",
+        "size": 760,
+        "sha256": "f430c957d5aed10c63ead3f6ac1e529eeb5e70c793d20454026fc8d6da9db610",
+        "lfs": true
+      },
+      {
+        "path": "data/trajectories/sys_id_0_v.npy",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/trajectories/sys_id_0_v.npy",
+        "size": 3920,
+        "sha256": "2ae0ab28fb901ab7c648d57fa7bfb3360190bb8230a57b300c23e335c0fa30e6",
+        "lfs": true
+      },
+      {
+        "path": "data/trajectories/sys_id_1_timestamps.npy",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/trajectories/sys_id_1_timestamps.npy",
+        "size": 1056,
+        "sha256": "0f1961f7f6589b9cae958284e2df13a4886c3b8a960fe7849e0e43bce0ab0d3c",
+        "lfs": true
+      },
+      {
+        "path": "data/trajectories/sys_id_1_v.npy",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/trajectories/sys_id_1_v.npy",
+        "size": 5696,
+        "sha256": "7862634279e65fe9d4af617a3e0fd9389f641989d93ab357217e4ab5bf0a64d8",
+        "lfs": true
+      },
+      {
+        "path": "data/trajectories/sys_id_sim_0_pos-dt_0.01.npy",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/trajectories/sys_id_sim_0_pos-dt_0.01.npy",
+        "size": 15056,
+        "sha256": "e047152c3161ac4eb0f5ee6efc7c1e075eec65f9ba67ba487e16607ce8df2799",
+        "lfs": true
+      },
+      {
+        "path": "data/trajectories/sys_id_sim_1_pos-dt_0.01.npy",
+        "url": "https://media.githubusercontent.com/media/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/data/trajectories/sys_id_sim_1_pos-dt_0.01.npy",
+        "size": 21440,
+        "sha256": "ccc78730a09d5b014efc0b47213d0b556c7829bf27de8cf8f2cb9fe6408d9b01",
+        "lfs": true
+      },
+      {
+        "path": "scripts/run_si.py",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/scripts/run_si.py",
+        "size": 22030,
+        "sha256": "e34d87f00a6fa493a854cc59aaba6bd013b49c94e03d6cfc39a34f07433dca40",
+        "lfs": false
+      },
+      {
+        "path": "simulator/doma/assets/meshes/processed/ShovelEEF-ShovelEEF.obj",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/simulator/doma/assets/meshes/processed/ShovelEEF-ShovelEEF.obj",
+        "size": 92790,
+        "sha256": "83e44113c31f052c7092a62ab9718ac4a2ca1767858e7ec49455ed27bd9d6813",
+        "lfs": false
+      },
+      {
+        "path": "simulator/doma/engine/configs/manipulator_cfgs/shovel_eef.yaml",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/simulator/doma/engine/configs/manipulator_cfgs/shovel_eef.yaml",
+        "size": 688,
+        "sha256": "f8bd2d3ae27d1d4df51f5e51990b48bb32d0041e7758889615e5a2ddf99ee7a6",
+        "lfs": false
+      },
+      {
+        "path": "simulator/doma/engine/loss_function/pcd_emd_hm_loss.py",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/simulator/doma/engine/loss_function/pcd_emd_hm_loss.py",
+        "size": 11141,
+        "sha256": "d6dd7de98a2d30fb09725dd7b3a08e8035bed70bc8d6e34ed0320ca2e3f517ec",
+        "lfs": false
+      },
+      {
+        "path": "simulator/doma/engine/manipulator/effector.py",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/simulator/doma/engine/manipulator/effector.py",
+        "size": 12425,
+        "sha256": "52553ee69f32a942184814dd585d1bfaa3a3c165556c917e9862c143bef9fd79",
+        "lfs": false
+      },
+      {
+        "path": "simulator/doma/engine/object/mesh.py",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/simulator/doma/engine/object/mesh.py",
+        "size": 24219,
+        "sha256": "bddbbbec05765e39bb30030ef7da760d235407305691fe83bd9b4fce76d43cf5",
+        "lfs": false
+      },
+      {
+        "path": "simulator/doma/engine/utils/transform_ti.py",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/simulator/doma/engine/utils/transform_ti.py",
+        "size": 1836,
+        "sha256": "223b594ab0bba6d130dd62f46b954ac277e307a973803a3cecf99e03c29df25f",
+        "lfs": false
+      },
+      {
+        "path": "simulator/doma/envs/planting_env.py",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/simulator/doma/envs/planting_env.py",
+        "size": 181,
+        "sha256": "9d811f884b47ea17e5e19e842eab895ccbd590587d24f171706b85a66f9eac6f",
+        "lfs": false
+      },
+      {
+        "path": "simulator/doma/envs/planting_env_v1.py",
+        "url": "https://raw.githubusercontent.com/IanYangChina/DDBot-IEEE-TRO-2025/e642f7c73f37539c21161bd29669fa8d91912b88/simulator/doma/envs/planting_env_v1.py",
+        "size": 11859,
+        "sha256": "c97ebfcc3e7822efda7ae7ffe1353a134fed5100fae69169c7316575d9e1aa3e",
+        "lfs": false
+      }
+    ]
+  },
+  {
+    "repository": "johnruck-sed/GRL_2023_RobotRheometer",
+    "revision": "f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1",
+    "files_checked": 15,
+    "checksum_failures": [],
+    "skipped": [],
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/README.md",
+        "size": 1092,
+        "sha256": "26ca62c126e9164ea3d0c5b223347022f896613995607ffd7a11034e8dd4ee7f",
+        "lfs": false
+      },
+      {
+        "path": "jupyter_notebooks/Robot_Geometric_Trials.ipynb",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/jupyter_notebooks/Robot_Geometric_Trials.ipynb",
+        "size": 26628,
+        "sha256": "db079234dc5a205e24eb5b80becfd21f9979de372769563473a80a3ecd17dc4f",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M01S8.csv",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M01S8.csv",
+        "size": 190073,
+        "sha256": "c8e00139890205bb3ea69ad986ecf98ce604f0d93c23e774d4d66297d0f4823e",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M01S8.txt",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M01S8.txt",
+        "size": 197910,
+        "sha256": "3c2e09d5d0b1f20e149372a8e4e3b4527b01ae607129c274d28f3ede28d66c7b",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M02S10.csv",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M02S10.csv",
+        "size": 189587,
+        "sha256": "c365378c4bacb7a3a63c11a6191c804b776d357aacbae33c99a3d02fa166bdc2",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M02S10.txt",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M02S10.txt",
+        "size": 197928,
+        "sha256": "f8bc87d817d74361ce91e5456efaaa38f46e142857575fb7e9c79d4cbb0d5838",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M03S8.csv",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M03S8.csv",
+        "size": 189954,
+        "sha256": "b8b938bd9101bc9d2177f60e881d9b262c2808c8ec5c88ecb9a9a362d1672063",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M03S8.txt",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M03S8.txt",
+        "size": 197936,
+        "sha256": "b75b665468c948a3add43b58b7e932b583799cc0a309f23f49605e9943a316e4",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M04S8.csv",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M04S8.csv",
+        "size": 190173,
+        "sha256": "a7901f00e7159c27eea9e3c975ace29d39486f4d514485c20a01a38a27fd1b1f",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M04S8.txt",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M04S8.txt",
+        "size": 197911,
+        "sha256": "ce342d98ffc60641be38a2ceae5c3500cc2ff8efb7c3da3a8b88b1a06005dd9a",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M05S6.csv",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M05S6.csv",
+        "size": 189586,
+        "sha256": "8c78e91e976e99ca30b1d9cf6207e1d0f202f4d2e2443be457fdaee235ac12a3",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/M05S6.txt",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/M05S6.txt",
+        "size": 197873,
+        "sha256": "e9b8185fb02bedcb9dea724ffd89589617cb836c68872bbefbdae9f2d472f0fa",
+        "lfs": false
+      },
+      {
+        "path": "lab_data/VolumeFracTrials.csv",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/lab_data/VolumeFracTrials.csv",
+        "size": 79904,
+        "sha256": "b95b285cd600b5075ebc8ee14d50c80b8690a9a0669581603b434970b0a5d9b4",
+        "lfs": false
+      },
+      {
+        "path": "matlab_files/FyAnalysis_Wissahickon_share.m",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/matlab_files/FyAnalysis_Wissahickon_share.m",
+        "size": 2246,
+        "sha256": "e0565f918c6be54491eae506e1b0d2384c50d478563a76481f0e7506feb24250",
+        "lfs": false
+      },
+      {
+        "path": "matlab_files/WissahickonDataAnalysis_20200703_share.m",
+        "url": "https://raw.githubusercontent.com/johnruck-sed/GRL_2023_RobotRheometer/f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1/matlab_files/WissahickonDataAnalysis_20200703_share.m",
+        "size": 5782,
+        "sha256": "f263f0cdbab6d32aa076c82e0c7e43a2422731187c517baaadceb1ca4067b337",
+        "lfs": false
+      }
+    ]
+  }
+]

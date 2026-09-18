@@ -18,6 +18,10 @@ The [momentum audit](docs/MOMENTUM_AUDIT.md) verifies rigid-body impulse account
 and distinguishes generated soil impulse from delayed applied feedback.
 The [combined body/soil/ground ledger](docs/SYSTEM_MOMENTUM.md) isolates a smaller
 soil-side residual that is also present in a stationary-tool control.
+The [air-drag isolation](docs/AIR_DRAG_CHECK.md) explains most of that small residual.
+[Public-data admission](docs/DATA_ADMISSION.md) and a [terrain replay](docs/TERRAIN_REPLAY.md)
+are now implemented. The replay completes with plane boundaries, but numerical
+convergence and physical acceptance remain unresolved.
 
 ## Development setup
 

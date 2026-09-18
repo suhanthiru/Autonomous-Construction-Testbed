@@ -12,7 +12,9 @@ dependencies = []
 
 [project.optional-dependencies]
 physics = ["newton==1.6.0"]
-dev = ["pytest==9.1.1", "ruff==0.16.8", "build==1.6.1"]
+data = ["numpy==2.5.3"]
+plots = ["matplotlib==3.11.2"]
+dev = ["pytest==9.1.1", "ruff==0.16.8", "build==1.6.1", "numpy==2.5.3"]
 
 [project.scripts]
 excavation-sim = "excavation_sim.cli:main"

@@ -1,0 +1,30 @@
+{
+  "status": "convergence_not_established",
+  "runs": [
+    {
+      "dt_s": 0.005,
+      "mae_m": 0.007619050908833742,
+      "rmse_m": 0.011464040095335888,
+      "empty_cells": 7,
+      "source_sha256": "9dc9fb4f2b61e36ef4f86e34d068621b36db66a5b08907524bc3e727b68e4c61"
+    },
+    {
+      "dt_s": 0.0025,
+      "mae_m": 0.007950116621796042,
+      "rmse_m": 0.011993307020088268,
+      "empty_cells": 8,
+      "source_sha256": "9dc9fb4f2b61e36ef4f86e34d068621b36db66a5b08907524bc3e727b68e4c61"
+    },
+    {
+      "dt_s": 0.001,
+      "mae_m": 0.008415550255449489,
+      "rmse_m": 0.012585535658304186,
+      "empty_cells": 8,
+      "source_sha256": "9dc9fb4f2b61e36ef4f86e34d068621b36db66a5b08907524bc3e727b68e4c61"
+    }
+  ],
+  "adjacent_surface_mae_m": [
+    0.001347559413406998,
+    0.0015973431209567934
+  ]
+}

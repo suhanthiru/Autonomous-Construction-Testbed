@@ -1,0 +1,46 @@
+{
+  "status": "failed",
+  "reason": "nonfinite particles after action 42",
+  "source": {
+    "revision": "3e802aa845e82f05920669c126efe494f7c9765b",
+    "working_tree_status": "M pyproject.toml\n M scripts/check_soil_coupling.py\n?? Industrial_Autonomy_Outreach_Pipeline_2026.xlsx\n?? scripts/fetch_validation_sources.py\n?? scripts/replay_ddbot.py\n?? src/excavation_sim/datasets.py\n?? tests/test_datasets.py",
+    "source_sha256": "58b8d0b3cb9e0e3c224287ba91eaba2bbeeb294a7d80afc48f39ed3ccc845744",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "861dfb3f319ecd81b5a505f3189b58eec5203ba2c78e6aa2350a2f9028dcc55e",
+      "src/excavation_sim/analysis.py": "6d51f1cf1251168b4661923adfc9274baa034f66a0a0af119f6edc4c43f83426",
+      "src/excavation_sim/cli.py": "c5a651562cd815e8c175694a09bf31494f667fbf5c8577f998f258008ebeafb3",
+      "src/excavation_sim/core.py": "b9bc9dd34724a5b994ccff0a4a05b20781daa17abad57efd3fca06dc22c2a720",
+      "src/excavation_sim/datasets.py": "d994de1aa72ea64c370ec8b76831febe4437a1ea1269fab52c1ebe161efa4c87",
+      "src/excavation_sim/provenance.py": "d2134865b20d58c69e0e88ebeebb38558b43088bbc4fc280b5d0f140670c1ac1",
+      "src/excavation_sim/recording.py": "20823ce1d1f348327335caf712b2997a68d2c0a87820a638bbeec379fa91ab40",
+      "src/excavation_sim.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/excavation_sim.egg-info/entry_points.txt": "aab55348f36cc81c5d3b796fbe0408e6ba5e7f2a58ee260b9f051fa0db5e2e63",
+      "src/excavation_sim.egg-info/PKG-INFO": "cd901c0bcf2f56ed5f94adb21f368bf39b3decaacb906fc0281d6b8c01c2e49c",
+      "src/excavation_sim.egg-info/requires.txt": "34c31a1635f308155cf05b136c05077626f75af0ae24721b873072709e657c3a",
+      "src/excavation_sim.egg-info/SOURCES.txt": "a3a4a4a632e927ac257d6c2182f538a0416a33987be0718f37c6d5f0c507dbd1",
+      "src/excavation_sim.egg-info/top_level.txt": "52057b8c6b57495daa2173c1d1074e75811ccedf186cfe27e1c647d316d24d13",
+      "scripts/audit_momentum.py": "0dffc9dc74e6af4dd6c4ae1656297346c1b3376ce4f8fedfc8fa99ca0212391e",
+      "scripts/audit_system_momentum.py": "9e001b7422844b669c10d78eb90385e8a7a41f190fdd681dcc7022588019102e",
+      "scripts/check_soil_coupling.py": "020f6a22a6a011c91de62e18cd10af6ed18a329e2dddcf2cbaafc3c1af2927fc",
+      "scripts/fetch_validation_sources.py": "6c633bf66432a1631ceb52571cfa2acf406e49be1f40a8ef583f78d749de0313",
+      "scripts/replay_ddbot.py": "a008e47a7abaf25ecdde545da17d89e3f5b34bac01b54076a951e5db7997567a",
+      "scripts/summarize_fixture.py": "4d97d20a18873b182d395c78c1dcf6f348578fe9db2452aae56566318b26555e",
+      "pyproject.toml": "25948a2dd99f3e4c0080c379e3ace94736b0b9c850bc808c81e0c2c5f7e1d37e"
+    }
+  },
+  "config": {
+    "data": "data\\raw\\admission\\ddbot\\e642f7c73f37539c21161bd29669fa8d91912b88",
+    "trial": 0,
+    "dt": 0.005,
+    "voxel": 0.014,
+    "spacing": 0.007,
+    "friction": 0.6,
+    "tool_friction": 0.5,
+    "wall_friction": 0.5,
+    "density": 1600,
+    "air_drag": 1.0,
+    "limit_actions": 0,
+    "output": "runs\\ddbot-development-default-drag"
+  }
+}
