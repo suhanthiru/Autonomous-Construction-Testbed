@@ -6,6 +6,7 @@ from math import isclose, isfinite
 from pathlib import Path
 
 from excavation_sim.core import JointCommand, Observation, ToolCommand
+from excavation_sim.surface import SurfacePacket
 
 
 @dataclass(frozen=True)
@@ -40,6 +41,11 @@ def observation_from_dict(data):
         raise ValueError("sensor capture cannot be in the future")
     if type(data.get("sensor_valid", True)) is not bool:
         raise ValueError("sensor validity must be boolean")
+    if data.get("surface") is not None:
+        surface = dict(data["surface"])
+        for name in ("origin_xy_m", "heights_m", "visible"):
+            surface[name] = tuple(surface[name])
+        data["surface"] = SurfacePacket(**surface)
     return Observation(**data)
 
 

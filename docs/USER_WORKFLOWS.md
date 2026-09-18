@@ -38,7 +38,8 @@ age, and validity are explicit. Initial packets are invalid until the first dela
 sample arrives; the provided policies hold zero commanded velocity during that window.
 Noise has independent reproducible random streams per channel. Task evaluation still
 uses the underlying uncorrupted observation, not sensor noise as apparent progress.
-Surface visibility measurements remain unimplemented.
+An ideal masked overhead terrain grid is available through `configs/sensors-surface.json`.
+Its geometric limitations and GPU checks are documented in `SURFACE_SENSOR.md`.
 
 ## Baseline training
 

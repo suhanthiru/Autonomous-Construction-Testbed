@@ -397,6 +397,11 @@ class NewtonToolWorld:
             ),
         }
 
+    def capture_surface(self):
+        from excavation_sim.backends.newton_surface import capture_surface
+
+        return capture_surface(self)
+
     def close(self):
         self._ready = False
         for name in (

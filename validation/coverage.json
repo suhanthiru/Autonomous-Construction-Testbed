@@ -4,10 +4,10 @@
     {
       "id": "software_contracts",
       "status": "passed",
-      "reason": "42 implemented CPU tests, lint, build and clean base-package installation pass for the pinned source; excludes GPU and physical validation.",
+      "reason": "44 implemented CPU tests, lint, build and clean base-package installation pass for the pinned source; excludes GPU and physical validation.",
       "evidence": {
         "path": "docs/evidence/software-contracts.json",
-        "canonical_json_sha256": "5d2ed104ab98b2d1ba6600e6c162754d444b971999c76c16cc9d3af2042e9256"
+        "canonical_json_sha256": "56843e9658312dfc98793a201f076259d854f59bbc2baaf28c1b593b8e85cac9"
       }
     },
     {

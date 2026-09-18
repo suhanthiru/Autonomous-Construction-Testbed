@@ -11,6 +11,7 @@ from excavation_sim.core import Clock, Observation
 
 @dataclass(frozen=True)
 class SensorConfig:
+    surface_enabled: bool = False
     sample_every_actions: int = 1
     latency_actions: int = 0
     position_noise_std_m: float = 0.0
@@ -20,6 +21,8 @@ class SensorConfig:
     joint_velocity_noise_std_rad_s: float = 0.0
 
     def __post_init__(self):
+        if type(self.surface_enabled) is not bool:
+            raise ValueError("surface_enabled must be boolean")
         if type(self.sample_every_actions) is not int or self.sample_every_actions < 1:
             raise ValueError("sample period must be a positive number of actions")
         if type(self.latency_actions) is not int or self.latency_actions < 0:
@@ -104,11 +107,20 @@ class ObservedWorld:
     def reset(self, seed):
         self.stream.reset(seed)
         self.raw = self.world.reset(seed)
-        return self.stream.sample(self.raw)
+        return self._sample()
 
     def step(self, command):
         self.raw = self.world.step(command)
-        return self.stream.sample(self.raw)
+        return self._sample()
+
+    def _sample(self):
+        raw = self.raw
+        period = self.stream.config.sample_every_actions * self.clock.substeps_per_action
+        if self.stream.config.surface_enabled and raw.tick % period == 0:
+            if not hasattr(self.world, "capture_surface"):
+                raise ValueError("backend does not support surface observations")
+            raw = replace(raw, surface=self.world.capture_surface())
+        return self.stream.sample(raw)
 
     def evaluation_observation(self):
         return self.raw

@@ -5,6 +5,8 @@ from enum import StrEnum
 from math import isfinite
 from typing import Protocol
 
+from excavation_sim.surface import SurfacePacket
+
 
 class Capability(StrEnum):
     GRANULAR_SOIL = "granular_soil"
@@ -86,6 +88,7 @@ class Observation:
     sensor_capture_tick: int | None = None
     sensor_age_s: float = 0.0
     sensor_valid: bool = True
+    surface: SurfacePacket | None = None
 
 
 @dataclass(frozen=True)
