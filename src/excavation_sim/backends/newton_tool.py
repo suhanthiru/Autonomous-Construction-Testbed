@@ -4,8 +4,8 @@
 """Reusable experimental single-tool Newton world. No physical validation claim."""
 
 import os
-from dataclasses import dataclass
-from math import isfinite
+from dataclasses import dataclass, replace
+from math import ceil, isfinite
 from pathlib import Path
 
 import newton
@@ -32,22 +32,39 @@ class ToolWorldConfig:
     with_soil: bool = True
     voxel_size_m: float = 0.04
     particle_spacing_m: float = 0.02
+    grid_margin_m: float = 0.5
+    max_active_cells: int = 1 << 18
+    mpm_iterations: int = 50
+    mpm_tolerance: float = 1e-4
+    coupling_iterations: int = 1
     air_drag: float = 1.0
+    soil_friction: float = 0.6
+    soil_density_kg_m3: float = 1600.0
     force_limit_n: float = 60.0
     servo_gain: float = 150.0
     velocity_limit_m_s: float = 0.3
 
     def __post_init__(self):
+        if any(
+            type(v) is not int or v < 1
+            for v in (self.mpm_iterations, self.coupling_iterations, self.max_active_cells)
+        ):
+            raise ValueError("solver iteration counts must be positive integers")
         ticks_per_update(self.physics_dt_s, self.action_dt_s)
         for value in (
             self.voxel_size_m,
+            self.mpm_tolerance,
+            self.grid_margin_m,
             self.particle_spacing_m,
             self.force_limit_n,
             self.servo_gain,
             self.velocity_limit_m_s,
+            self.soil_density_kg_m3,
         ):
             if not isfinite(value) or value <= 0:
                 raise ValueError("world scales and actuator limits must be finite and positive")
+        if not isfinite(self.soil_friction) or self.soil_friction < 0:
+            raise ValueError("soil friction must be finite and nonnegative")
         if not isfinite(self.air_drag) or self.air_drag < 0:
             raise ValueError("air_drag must be finite and nonnegative")
         for extent in (0.4, 0.4, 0.2):
@@ -60,6 +77,8 @@ def audit_particles(
     v: wp.array(dtype=wp.vec3),
     mass: wp.array(dtype=float),
     result: wp.array(dtype=float),
+    lower: wp.vec3,
+    upper: wp.vec3,
 ):
     i = wp.tid()
     p = q[i]
@@ -73,8 +92,15 @@ def audit_particles(
         or not wp.isfinite(velocity[2])
     ):
         wp.atomic_add(result, 1, 1.0)
-    # Declared audit envelope, not a collision boundary or particle deletion rule.
-    if wp.abs(p[0]) > 1.0 or wp.abs(p[1]) > 1.0 or p[2] < -0.04 or p[2] > 1.0:
+    # Conservative fixed-grid support envelope; not a physical wall or deletion rule.
+    if (
+        p[0] < lower[0]
+        or p[1] < lower[1]
+        or p[2] < lower[2]
+        or p[0] > upper[0]
+        or p[1] > upper[1]
+        or p[2] > upper[2]
+    ):
         wp.atomic_add(result, 0, mass[i])
 
 
@@ -94,6 +120,10 @@ class NewtonToolWorld:
     def __init__(self, config: ToolWorldConfig | None = None):
         config = ToolWorldConfig() if config is None else config
         self.config = config
+        if not config.with_soil:
+            self.info = replace(
+                self.info, capabilities=self.info.capabilities - {Capability.GRANULAR_SOIL}
+            )
         self.clock = Clock(
             config.physics_dt_s, ticks_per_update(config.physics_dt_s, config.action_dt_s)
         )
@@ -119,44 +149,22 @@ class NewtonToolWorld:
 
     def _build(self):
         with_soil = self.config.with_soil
-        particle_spacing = self.config.particle_spacing_m
-        dims = [ticks_per_update(particle_spacing, extent) for extent in (0.4, 0.4, 0.2)]
         voxel_size = self.config.voxel_size_m
         air_drag = self.config.air_drag
-        mpm_iterations, mpm_tolerance, coupling_iterations = 50, 1e-4, 1
+        mpm_iterations = self.config.mpm_iterations
+        mpm_tolerance = self.config.mpm_tolerance
+        coupling_iterations = self.config.coupling_iterations
         builder = newton.ModelBuilder()
         SolverImplicitMPM.register_custom_attributes(builder)
-        body = builder.add_body(xform=wp.transform(wp.vec3(0, 0, 0.35), wp.quat_identity()))
-        builder.add_shape_box(
-            body,
-            hx=0.06,
-            hy=0.06,
-            hz=0.04,
-            cfg=newton.ModelBuilder.ShapeConfig(density=2000.0, mu=0.5),
-        )
+        bodies, joints, body = self._add_robot(builder)
         builder.add_ground_plane()
-        spacing = particle_spacing
-        builder.add_particle_grid(
-            pos=wp.vec3(-0.2 + spacing / 2, -0.2 + spacing / 2, spacing / 2),
-            rot=wp.quat_identity(),
-            vel=wp.vec3(0),
-            dim_x=dims[0],
-            dim_y=dims[1],
-            dim_z=dims[2] if with_soil else 0,
-            cell_x=spacing,
-            cell_y=spacing,
-            cell_z=spacing,
-            mass=1600 * spacing**3,
-            jitter=0.0,
-            radius_mean=spacing / 2,
-            custom_attributes={"mpm:friction": 0.6},
-        )
+        self._add_soil(builder)
         model = builder.finalize()
         config = SolverImplicitMPM.Config()
         config.voxel_size = voxel_size
         config.grid_type = "fixed"
-        config.grid_padding = 10
-        config.max_active_cell_count = 1 << 15
+        config.grid_padding = ceil(self.config.grid_margin_m / voxel_size)
+        config.max_active_cell_count = self.config.max_active_cells
         config.max_iterations = mpm_iterations
         config.tolerance = mpm_tolerance
         config.air_drag = air_drag
@@ -167,8 +175,9 @@ class NewtonToolWorld:
             entries=[
                 SolverCoupledProxy.Entry(
                     name="rigid",
-                    solver=lambda view: SolverXPBD(view, iterations=10),
-                    bodies=[body],
+                    solver=self._rigid_solver,
+                    bodies=bodies,
+                    joints=joints,
                     substeps=4,
                 ),
                 *(
@@ -189,7 +198,7 @@ class NewtonToolWorld:
                     SolverCoupledProxy.Proxy(
                         source="rigid",
                         destination="soil",
-                        bodies=[body],
+                        bodies=bodies,
                         mass_scale=1.0,
                         mode="lagged",
                         collision_pipeline=lambda _: None,
@@ -201,7 +210,7 @@ class NewtonToolWorld:
             ),
         )
         state = model.state()
-        baseline_solver = SolverXPBD(model, iterations=10) if not with_soil else None
+        baseline_solver = self._rigid_solver(model) if not with_soil else None
         baseline_output = model.state() if not with_soil else None
         control = model.control()
         pipeline = newton.CollisionPipeline(model, soft_contact_max=0)
@@ -213,6 +222,52 @@ class NewtonToolWorld:
         self.mass = float(model.body_mass.numpy()[body])
         self.soil_mass = float(model.particle_mass.numpy().astype(np.float64).sum())
         self._audit = wp.zeros(2, dtype=float)
+        lower, upper = np.array([-1.0, -1.0, -0.04]), np.array([1.0, 1.0, 1.0])
+        if model.particle_count:
+            initial = model.particle_q.numpy()
+            margin = (config.grid_padding - 2) * config.voxel_size
+            lower = np.maximum(lower, initial.min(axis=0) - margin)
+            upper = np.minimum(upper, initial.max(axis=0) + margin)
+        self._audit_lower, self._audit_upper = wp.vec3(*lower), wp.vec3(*upper)
+        self._initialize_state()
+
+    def _add_soil(self, builder):
+        particle_spacing = self.config.particle_spacing_m
+        dims = [ticks_per_update(particle_spacing, extent) for extent in (0.4, 0.4, 0.2)]
+        with_soil = self.config.with_soil
+        spacing = particle_spacing
+        builder.add_particle_grid(
+            pos=wp.vec3(-0.2 + spacing / 2, -0.2 + spacing / 2, spacing / 2),
+            rot=wp.quat_identity(),
+            vel=wp.vec3(0),
+            dim_x=dims[0],
+            dim_y=dims[1],
+            dim_z=dims[2] if with_soil else 0,
+            cell_x=spacing,
+            cell_y=spacing,
+            cell_z=spacing,
+            mass=self.config.soil_density_kg_m3 * spacing**3,
+            jitter=0.0,
+            radius_mean=spacing / 2,
+            custom_attributes={"mpm:friction": self.config.soil_friction},
+        )
+
+    def _rigid_solver(self, model):
+        return SolverXPBD(model, iterations=10)
+
+    def _add_robot(self, builder):
+        body = builder.add_body(xform=wp.transform(wp.vec3(0, 0, 0.35), wp.quat_identity()))
+        builder.add_shape_box(
+            body,
+            hx=0.06,
+            hy=0.06,
+            hz=0.04,
+            cfg=newton.ModelBuilder.ShapeConfig(density=2000.0, mu=0.5),
+        )
+        return [body], [], body
+
+    def _initialize_state(self):
+        pass
 
     def _require_ready(self):
         if not self._ready:
@@ -232,23 +287,30 @@ class NewtonToolWorld:
             tuple(map(float, self._force)),
         )
 
-    def step(self, command: ToolCommand) -> Observation:
-        self._require_ready()
+    def _command_forces(self, command):
         target = np.clip(
             command.velocity_m_s, -self.config.velocity_limit_m_s, self.config.velocity_limit_m_s
         )
+        velocity = self.state.body_qd.numpy()[self.body, :3]
+        force = self.config.servo_gain * (target - velocity)
+        force[2] += self.mass * 9.81
+        force *= min(1.0, self.config.force_limit_n / max(float(np.linalg.norm(force)), 1e-12))
+        self._actuator = force.copy()
+        buffer = np.zeros((self.model.body_count, 6), dtype=np.float32)
+        buffer[self.body, :3] = force
+        return buffer
+
+    def _substep_forces(self, command, buffer):
+        return buffer
+
+    def step(self, command: ToolCommand) -> Observation:
+        self._require_ready()
         dt = self.clock.dt_s
         total_impulse = np.zeros(3)
         with wp.ScopedDevice(self.device):
-            velocity = self.state.body_qd.numpy()[self.body, :3]
-            force = self.config.servo_gain * (target - velocity)
-            force[2] += self.mass * 9.81
-            # Bound total resultant actuator force, including gravity compensation.
-            force *= min(1.0, self.config.force_limit_n / max(float(np.linalg.norm(force)), 1e-12))
-            self._actuator = force.copy()
-            buffer = np.zeros((self.model.body_count, 6), dtype=np.float32)
-            buffer[self.body, :3] = force
+            buffer = self._command_forces(command)
             for _ in range(self.clock.substeps_per_action):
+                buffer = self._substep_forces(command, buffer)
                 self.state.clear_forces()
                 self.state.body_f.assign(buffer)
                 self.pipeline.collide(self.state, self.contacts)
@@ -290,6 +352,8 @@ class NewtonToolWorld:
                         self.state.particle_qd,
                         self.model.particle_mass,
                         self._audit,
+                        self._audit_lower,
+                        self._audit_upper,
                     ],
                 )
             audit = self._audit.numpy()
@@ -308,6 +372,17 @@ class NewtonToolWorld:
         self._require_ready()
         return {
             "tick": self.tick,
+            "shapes": [
+                {"body": int(body), "pose": pose.tolist(), "half": scale.tolist()}
+                for body, pose, scale, kind in zip(
+                    self.model.shape_body.numpy(),
+                    self.model.shape_transform.numpy(),
+                    self.model.shape_scale.numpy(),
+                    self.model.shape_type.numpy(),
+                    strict=True,
+                )
+                if kind == int(newton.GeoType.BOX)
+            ],
             "body_poses": self.state.body_q.numpy().copy(),
             "particles": (
                 self.state.particle_q.numpy().copy()
@@ -328,6 +403,9 @@ class NewtonToolWorld:
             "baseline_solver",
             "baseline_output",
             "_audit",
+            "_material_metrics",
+            "_lift_dwell",
+            "_ever_lifted",
         ):
             if hasattr(self, name):
                 delattr(self, name)

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=75"]
+requires = ["setuptools==84.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -14,7 +14,7 @@ dependencies = []
 physics = ["newton==1.6.0"]
 data = ["numpy==2.5.3"]
 plots = ["matplotlib==3.11.2"]
-dev = ["pytest==9.1.1", "ruff==0.16.8", "build==1.6.1", "numpy==2.5.3"]
+dev = ["pytest==9.1.1", "ruff==0.16.8", "build==1.6.1", "numpy==2.5.3", "setuptools==84.0.0"]
 
 [project.scripts]
 excavation-sim = "excavation_sim.cli:main"
@@ -35,4 +35,4 @@ target-version = "py312"
 select = ["E", "F", "I", "B", "UP"]
 
 [tool.setuptools.package-data]
-excavation_sim = ["inspection.html"]
+excavation_sim = ["inspection.html", "live.js"]

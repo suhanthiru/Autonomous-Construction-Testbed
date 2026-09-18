@@ -1,0 +1,1877 @@
+{
+  "source": {
+    "revision": "6be9b3db1b3aa56ab70e2c5e55df397f25491039",
+    "working_tree_status": "M README.md\n M scripts/run_tool_episode.py\n M src/excavation_sim/backends/newton_tool.py\n M src/excavation_sim/core.py\n M src/excavation_sim/inspection.html\n M src/excavation_sim/inspection.py\n M src/excavation_sim/recording.py\n M src/excavation_sim/robots/excavator.py\n M src/excavation_sim/rollout.py\n M tests/test_contracts.py\n?? Industrial_Autonomy_Outreach_Pipeline_2026.xlsx\n?? configs/\n?? docs/ARTICULATED_MACHINE.md\n?? docs/IMPLEMENTATION_PROGRESS.md\n?? docs/evidence/machine-development/\n?? experiments/behavior_cloning.py\n?? experiments/excavator_hold.py\n?? experiments/excavator_scripted.py\n?? scripts/check_bucket_retention.py\n?? scripts/check_loaded_bucket.py\n?? src/excavation_sim/backends/newton_excavator.py\n?? src/excavation_sim/episodes.py\n?? src/excavation_sim/tasks.py\n?? tests/test_episodes.py\n?? tests/test_tasks.py",
+    "source_sha256": "b2cce295208607b23176c4d5a0ccebc1b50ba4f87335938130f8439f697bd46b",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "861dfb3f319ecd81b5a505f3189b58eec5203ba2c78e6aa2350a2f9028dcc55e",
+      "src/excavation_sim/analysis.py": "6d51f1cf1251168b4661923adfc9274baa034f66a0a0af119f6edc4c43f83426",
+      "src/excavation_sim/backends/__init__.py": "9fd078a1e430cbea86dbc266d001296f6ed98b155d7151833306f27532e811d8",
+      "src/excavation_sim/backends/newton_excavator.py": "c586416f17a9971be24e36817b890009fdaa2b28518c04468a120a1fd916ea5a",
+      "src/excavation_sim/backends/newton_tool.py": "08672315a2f5e9082da25f21c737f956b18d64699d145cfcac6c19170fcaa241",
+      "src/excavation_sim/cli.py": "bc146c977fd80c7d92b4187e4f5a7161f85d48c45ac626ca1009c40e63c77b13",
+      "src/excavation_sim/core.py": "266af26d044c408072a8b23f466b9911ce09eb9af4d070d27ced93ee3bba7f65",
+      "src/excavation_sim/datasets.py": "d994de1aa72ea64c370ec8b76831febe4437a1ea1269fab52c1ebe161efa4c87",
+      "src/excavation_sim/episodes.py": "c2da43a697ca73a0922333aa391ba7b90bb8e3779e57ac85109cd5d8ec47beba",
+      "src/excavation_sim/inspection.html": "d84f4fe0f9cfd366536feba75d71e339bba37609f44c32280fcff24599099a80",
+      "src/excavation_sim/inspection.py": "81640c63cd88c98088bfb3755204bd34b2b7bb0a61f9e810c947e8258101b8d7",
+      "src/excavation_sim/provenance.py": "cd0d3c553bf474924e0af69e6f6f1c0c0466e689eed2bcf9d44ec154fc58c062",
+      "src/excavation_sim/recording.py": "e0634fff6501eb4751fdee6c45128beff489b01e9caaf973a62092991798d418",
+      "src/excavation_sim/robots/__init__.py": "1c33a9a19cc4b867266e93a01c1c0e0f6f4c976b9d59be09ab6cd442654ef7c6",
+      "src/excavation_sim/robots/excavator.py": "68de31d367e8be195ead0d8e68a3e44efa9dce68dbcba89d403727a54868794b",
+      "src/excavation_sim/rollout.py": "793398c82cb92eadd72d22bc50ee7d8e8511616e5f95bbde17ec366887623069",
+      "src/excavation_sim/tasks.py": "e726d6862a814c063b55a1c7bf792f37ed184fdd40f91e8f7703753f6c68f569",
+      "src/excavation_sim/validation.py": "5074cf9c88834a9262012acbc09fd00c1ce7e2bb0bde3eabd6ab95c7e43d1bf2",
+      "configs/machine-development.json": "a6234793c1933906cf90bcdd7fa2aed6d511adbae5b24d3f035f32b2db293735",
+      "configs/machine-fine.json": "16c3c67ab6ff4976bae0c9ce19843ac4c3332ba671d85ba084bf42e33e47764e",
+      "experiments/behavior_cloning.py": "ada49fe91ecc7a01bfa3c4e9a3ed994e150598efb65f04094082ebc277bdc0f8",
+      "experiments/excavator_hold.py": "a515fe15a1a3d5ac9b6bb945b888d00577508f27941f6669e2acae37ceb3d110",
+      "experiments/excavator_scripted.py": "4fa57c53387393570d217cd4eddd74e3bc9a6905c4faff8af5409f288607e8e6",
+      "experiments/tool_probe.py": "faee9eb128e406bbb06ad378e0ca05d3886836c3decf4652a3adaabf2b872065",
+      "scripts/audit_momentum.py": "0dffc9dc74e6af4dd6c4ae1656297346c1b3376ce4f8fedfc8fa99ca0212391e",
+      "scripts/audit_system_momentum.py": "9e001b7422844b669c10d78eb90385e8a7a41f190fdd681dcc7022588019102e",
+      "scripts/check_bucket_retention.py": "01ccfe920b528b588b987955891f455aab9d63b85b8a0037b23dc53bca2fb478",
+      "scripts/check_excavator.py": "cbe36d7edf673c6e40c2b959545e9e2fd25817f937f143871a0f5a44b6a339b0",
+      "scripts/check_loaded_bucket.py": "f4179feb529907871bea3e3be4c785ed81787feee10cda21963c0ce8f6fc2eef",
+      "scripts/check_soil_coupling.py": "020f6a22a6a011c91de62e18cd10af6ed18a329e2dddcf2cbaafc3c1af2927fc",
+      "scripts/check_world_reset.py": "457966f5ed05018487c19435eafe214eca8788277a954bd9be4ec144ae01c305",
+      "scripts/fetch_validation_sources.py": "40c3bb8ab343d346f9917d1df24e4cd3ee1ecce127631ce7cbdd8cf65cbbeb0a",
+      "scripts/plot_validation.py": "09c1f7f25bce78017932912ac661384278fc6a34946a252a6bd234a20cd8225c",
+      "scripts/replay_ddbot.py": "042b6977904fd5e5cd41ca542d4bc181a4870d70e68c1e6195e396b5d877097e",
+      "scripts/replay_rheometer.py": "0c07aa3a231db23f78a1a4777497a0969463acfb026c3e32bc655877c90d3e0e",
+      "scripts/run_tool_episode.py": "a6a8e1bbe89beb41ccbd69f7dd6e49d0e758b7495a8923ca58a55ddb1950c963",
+      "scripts/summarize_fixture.py": "4d97d20a18873b182d395c78c1dcf6f348578fe9db2452aae56566318b26555e",
+      "tests/test_actuation.py": "6abfab485a8a7e9c31876dae652a3890ad70e023acbe85e10e8b63652b67ae08",
+      "tests/test_analysis.py": "cb98e5e304983b990906e5d57f5fe1e0ed8c0a574e91fddcff2adf53954cee75",
+      "tests/test_contracts.py": "356e9e1dddc0b7dce7ed81d1459779c7ebb85d5a38ca2d5f70d93592570e48e5",
+      "tests/test_datasets.py": "1ed474c931cca3c32a9ac94b445925f30de3d6068ef0c6f70596be54359561cc",
+      "tests/test_episodes.py": "39460235e22762f2f9ea28f1b72371f9d9c3023a9fb1d0b6f417a60a0d7681d3",
+      "tests/test_rollout.py": "3ac9d04399e3df04d618fd0a5fb75a0d5cac1f3f8a3dc6db81422a8b3c2a12d2",
+      "tests/test_system_momentum.py": "2c2c0cd7cc8384f0f6c037253bb07f97cfb3e837f3c25cfe4092f2563afd7b97",
+      "tests/test_tasks.py": "130c21607145411cb1a1b22bb40fa38f8e109c7697b193e0d213ee6544b0c24a",
+      "tests/test_validation.py": "e5b49bbcbb9dd26e5007c579d26bc2ddb9029bc1556ac79557299bd9f5166b7c",
+      "pyproject.toml": "be70fc692a33e8ee4b58a9e5db715b4c6b5fa51671bb44fe88a3e93d1c99fa47"
+    }
+  },
+  "orientation_free": true,
+  "grid_margin_m": 0.5,
+  "results": [
+    {
+      "with_soil": false,
+      "trace": [
+        {
+          "time_s": 0.02,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.04,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.06,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.08,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.1,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.12,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.14,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.16,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.18,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.2,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.22,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.24,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.26,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.28,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.3,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.32,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.34,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.36,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.38,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.4,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.42,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.44,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.46,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.48,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.5,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.52,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.54,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.56,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.58,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.6,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.62,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.64,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.66,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.68,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.7000000000000001,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.72,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.74,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.76,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.78,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.8,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.8200000000000001,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.84,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.86,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.88,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.9,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.92,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.9400000000000001,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.96,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 0.98,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.0,
+          "height_m": 0.40000003576278687,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.02,
+          "height_m": 0.4008626937866211,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.04,
+          "height_m": 0.40291786193847656,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.06,
+          "height_m": 0.40549999475479126,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.08,
+          "height_m": 0.4083150625228882,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.1,
+          "height_m": 0.411233127117157,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.12,
+          "height_m": 0.41419661045074463,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.1400000000000001,
+          "height_m": 0.41718024015426636,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.16,
+          "height_m": 0.4201728105545044,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.18,
+          "height_m": 0.42316919565200806,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.2,
+          "height_m": 0.4261675477027893,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.22,
+          "height_m": 0.42916589975357056,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.24,
+          "height_m": 0.43216472864151,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.26,
+          "height_m": 0.4351649880409241,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.28,
+          "height_m": 0.43816524744033813,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.3,
+          "height_m": 0.4411655068397522,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.32,
+          "height_m": 0.44416576623916626,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.34,
+          "height_m": 0.4471660256385803,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.36,
+          "height_m": 0.4501662850379944,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.3800000000000001,
+          "height_m": 0.45316654443740845,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.4000000000000001,
+          "height_m": 0.4561668038368225,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.42,
+          "height_m": 0.4591670632362366,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.44,
+          "height_m": 0.46216732263565063,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.46,
+          "height_m": 0.4651675820350647,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.48,
+          "height_m": 0.46816784143447876,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.5,
+          "height_m": 0.4711681008338928,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.52,
+          "height_m": 0.4741683602333069,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.54,
+          "height_m": 0.47716861963272095,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.56,
+          "height_m": 0.480168879032135,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.58,
+          "height_m": 0.4831691384315491,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.6,
+          "height_m": 0.48616939783096313,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.62,
+          "height_m": 0.4891696572303772,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.6400000000000001,
+          "height_m": 0.49216991662979126,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.6600000000000001,
+          "height_m": 0.4951701760292053,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.68,
+          "height_m": 0.4981704354286194,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.7,
+          "height_m": 0.5011706948280334,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.72,
+          "height_m": 0.5041709542274475,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.74,
+          "height_m": 0.5071712136268616,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.76,
+          "height_m": 0.5101714730262756,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.78,
+          "height_m": 0.5131717324256897,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.8,
+          "height_m": 0.5161719918251038,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.82,
+          "height_m": 0.5191722512245178,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.84,
+          "height_m": 0.5221725106239319,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.86,
+          "height_m": 0.525172770023346,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.8800000000000001,
+          "height_m": 0.52817302942276,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.9000000000000001,
+          "height_m": 0.5311732888221741,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.92,
+          "height_m": 0.5341735482215881,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.94,
+          "height_m": 0.5371738076210022,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.96,
+          "height_m": 0.5401740670204163,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.98,
+          "height_m": 0.5431743264198303,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.0,
+          "height_m": 0.5461745858192444,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.02,
+          "height_m": 0.5483113527297974,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.04,
+          "height_m": 0.5492557287216187,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.06,
+          "height_m": 0.5496731996536255,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.08,
+          "height_m": 0.5498576164245605,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.1,
+          "height_m": 0.5499393343925476,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.12,
+          "height_m": 0.5499753952026367,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.14,
+          "height_m": 0.549991250038147,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.16,
+          "height_m": 0.5499982833862305,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.18,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.2,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.22,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.24,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.2600000000000002,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.2800000000000002,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.3000000000000003,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.32,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.34,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.36,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.38,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.4,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.42,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.44,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.46,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.48,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.5,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.52,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.54,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.56,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.58,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.6,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.62,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.64,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.66,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.68,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.7,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.72,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.74,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.7600000000000002,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.7800000000000002,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.8000000000000003,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.82,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.84,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.86,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.88,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.9,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.92,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.94,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.96,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.98,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 3.0,
+          "height_m": 0.550001323223114,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        }
+      ],
+      "status": "completed",
+      "reason": "scheduled motion finished"
+    },
+    {
+      "with_soil": true,
+      "trace": [
+        {
+          "time_s": 0.02,
+          "height_m": 0.3999614715576172,
+          "soil_force_z_n": -1.592947552876467,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.04,
+          "height_m": 0.39983803033828735,
+          "soil_force_z_n": -2.2256713008800943,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.06,
+          "height_m": 0.39963409304618835,
+          "soil_force_z_n": -3.017686855789825,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.08,
+          "height_m": 0.39931702613830566,
+          "soil_force_z_n": -4.5163824905948475,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.1,
+          "height_m": 0.39893674850463867,
+          "soil_force_z_n": -4.276409823087478,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.12,
+          "height_m": 0.3985460698604584,
+          "soil_force_z_n": -5.572789407835652,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.14,
+          "height_m": 0.3981515169143677,
+          "soil_force_z_n": -4.047695885253947,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.16,
+          "height_m": 0.3978527784347534,
+          "soil_force_z_n": -3.9190116345404133,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.18,
+          "height_m": 0.3976341187953949,
+          "soil_force_z_n": -3.5795730246864688,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.2,
+          "height_m": 0.3974878787994385,
+          "soil_force_z_n": -3.6671695585743818,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.22,
+          "height_m": 0.3973979949951172,
+          "soil_force_z_n": -3.8580733837168215,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.24,
+          "height_m": 0.397358238697052,
+          "soil_force_z_n": -3.627187671394201,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.26,
+          "height_m": 0.3973635733127594,
+          "soil_force_z_n": -4.056746098503766,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.28,
+          "height_m": 0.39739954471588135,
+          "soil_force_z_n": -3.7764078971235766,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.3,
+          "height_m": 0.3974979519844055,
+          "soil_force_z_n": -3.7212836019687825,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.32,
+          "height_m": 0.3976372480392456,
+          "soil_force_z_n": -3.848732252191618,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.34,
+          "height_m": 0.39781540632247925,
+          "soil_force_z_n": -3.7890169414941375,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.36,
+          "height_m": 0.39803463220596313,
+          "soil_force_z_n": -3.739940814928248,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.38,
+          "height_m": 0.39829206466674805,
+          "soil_force_z_n": -3.7822562411224703,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.4,
+          "height_m": 0.3985830545425415,
+          "soil_force_z_n": -3.7502863866955067,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.42,
+          "height_m": 0.39891499280929565,
+          "soil_force_z_n": -3.489085658186746,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.44,
+          "height_m": 0.3992809057235718,
+          "soil_force_z_n": -3.8973845323495655,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.46,
+          "height_m": 0.39965274930000305,
+          "soil_force_z_n": -3.7905086232669714,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.48,
+          "height_m": 0.40004587173461914,
+          "soil_force_z_n": -3.720902450238242,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.5,
+          "height_m": 0.4004595875740051,
+          "soil_force_z_n": -3.7451163557336478,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.52,
+          "height_m": 0.40088629722595215,
+          "soil_force_z_n": -3.750937442300156,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.54,
+          "height_m": 0.4013228118419647,
+          "soil_force_z_n": -3.6957474608256713,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.56,
+          "height_m": 0.40176746249198914,
+          "soil_force_z_n": -3.6358628108830886,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.58,
+          "height_m": 0.40221717953681946,
+          "soil_force_z_n": -3.665288265386208,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.6,
+          "height_m": 0.40266305208206177,
+          "soil_force_z_n": -3.6552462893162883,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.62,
+          "height_m": 0.4031049609184265,
+          "soil_force_z_n": -3.4822954119398544,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.64,
+          "height_m": 0.4035451412200928,
+          "soil_force_z_n": -3.385616031311889,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.66,
+          "height_m": 0.4039795994758606,
+          "soil_force_z_n": -3.252490496714443,
+          "inside_mass_kg": 0.384
+        },
+        {
+          "time_s": 0.68,
+          "height_m": 0.40440380573272705,
+          "soil_force_z_n": -3.1259550169188506,
+          "inside_mass_kg": 0.3776
+        },
+        {
+          "time_s": 0.7000000000000001,
+          "height_m": 0.40481364727020264,
+          "soil_force_z_n": -2.9977266830158027,
+          "inside_mass_kg": 0.3744
+        },
+        {
+          "time_s": 0.72,
+          "height_m": 0.40520796179771423,
+          "soil_force_z_n": -2.739335127186105,
+          "inside_mass_kg": 0.3648
+        },
+        {
+          "time_s": 0.74,
+          "height_m": 0.40558314323425293,
+          "soil_force_z_n": -2.5499296915035026,
+          "inside_mass_kg": 0.35200000000000004
+        },
+        {
+          "time_s": 0.76,
+          "height_m": 0.405940443277359,
+          "soil_force_z_n": -2.12599391997768,
+          "inside_mass_kg": 0.3392
+        },
+        {
+          "time_s": 0.78,
+          "height_m": 0.40627989172935486,
+          "soil_force_z_n": -1.9068273189804068,
+          "inside_mass_kg": 0.32
+        },
+        {
+          "time_s": 0.8,
+          "height_m": 0.4065900444984436,
+          "soil_force_z_n": -1.5578761650473412,
+          "inside_mass_kg": 0.2912
+        },
+        {
+          "time_s": 0.8200000000000001,
+          "height_m": 0.4068704843521118,
+          "soil_force_z_n": -1.2865060431571924,
+          "inside_mass_kg": 0.2592
+        },
+        {
+          "time_s": 0.84,
+          "height_m": 0.4071148633956909,
+          "soil_force_z_n": -0.8722152619289684,
+          "inside_mass_kg": 0.22080000000000002
+        },
+        {
+          "time_s": 0.86,
+          "height_m": 0.4073214828968048,
+          "soil_force_z_n": -0.5424588642488998,
+          "inside_mass_kg": 0.18560000000000001
+        },
+        {
+          "time_s": 0.88,
+          "height_m": 0.40748366713523865,
+          "soil_force_z_n": -0.2793295857880613,
+          "inside_mass_kg": 0.1408
+        },
+        {
+          "time_s": 0.9,
+          "height_m": 0.4075884222984314,
+          "soil_force_z_n": -0.16597878504029434,
+          "inside_mass_kg": 0.09920000000000001
+        },
+        {
+          "time_s": 0.92,
+          "height_m": 0.4076259136199951,
+          "soil_force_z_n": -0.025697386517045798,
+          "inside_mass_kg": 0.057600000000000005
+        },
+        {
+          "time_s": 0.9400000000000001,
+          "height_m": 0.40758782625198364,
+          "soil_force_z_n": -0.00567700440506235,
+          "inside_mass_kg": 0.028800000000000003
+        },
+        {
+          "time_s": 0.96,
+          "height_m": 0.4074651002883911,
+          "soil_force_z_n": -1.0615226558709988e-08,
+          "inside_mass_kg": 0.0048000000000000004
+        },
+        {
+          "time_s": 0.98,
+          "height_m": 0.407253235578537,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.0,
+          "height_m": 0.40695106983184814,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.02,
+          "height_m": 0.40742021799087524,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.04,
+          "height_m": 0.4089900851249695,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.06,
+          "height_m": 0.41099613904953003,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.08,
+          "height_m": 0.41314539313316345,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.1,
+          "height_m": 0.41530928015708923,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.12,
+          "height_m": 0.41743186116218567,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.1400000000000001,
+          "height_m": 0.419489324092865,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.16,
+          "height_m": 0.4214722812175751,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.18,
+          "height_m": 0.4233776330947876,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.2,
+          "height_m": 0.4252054691314697,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.22,
+          "height_m": 0.4269569516181946,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.24,
+          "height_m": 0.42863407731056213,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.26,
+          "height_m": 0.4302400052547455,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.28,
+          "height_m": 0.43177664279937744,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.3,
+          "height_m": 0.4332468807697296,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.32,
+          "height_m": 0.43465369939804077,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.34,
+          "height_m": 0.43600019812583923,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.36,
+          "height_m": 0.43728965520858765,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.3800000000000001,
+          "height_m": 0.43852537870407104,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.4000000000000001,
+          "height_m": 0.4397108554840088,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.42,
+          "height_m": 0.440849632024765,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.44,
+          "height_m": 0.4419453740119934,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.46,
+          "height_m": 0.4430018365383148,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.48,
+          "height_m": 0.4440227448940277,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.5,
+          "height_m": 0.44501200318336487,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.52,
+          "height_m": 0.44597354531288147,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.54,
+          "height_m": 0.4469113051891327,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.56,
+          "height_m": 0.44782939553260803,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.58,
+          "height_m": 0.4487318992614746,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.6,
+          "height_m": 0.44962289929389954,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.62,
+          "height_m": 0.4505065083503723,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.6400000000000001,
+          "height_m": 0.45138683915138245,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.6600000000000001,
+          "height_m": 0.452268123626709,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.68,
+          "height_m": 0.45315447449684143,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.7,
+          "height_m": 0.4540500044822693,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.72,
+          "height_m": 0.45495885610580444,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.74,
+          "height_m": 0.4558851420879364,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.76,
+          "height_m": 0.4568328857421875,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.78,
+          "height_m": 0.45780614018440247,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.8,
+          "height_m": 0.4588088393211365,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.82,
+          "height_m": 0.4598449468612671,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.84,
+          "height_m": 0.46091824769973755,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.86,
+          "height_m": 0.4620325565338135,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.8800000000000001,
+          "height_m": 0.46319153904914856,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.9000000000000001,
+          "height_m": 0.4643988311290741,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.92,
+          "height_m": 0.46565791964530945,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.94,
+          "height_m": 0.4669722616672516,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.96,
+          "height_m": 0.46834510564804077,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 1.98,
+          "height_m": 0.4697796404361725,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.0,
+          "height_m": 0.47127896547317505,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.02,
+          "height_m": 0.47198253870010376,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.04,
+          "height_m": 0.4715642035007477,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.06,
+          "height_m": 0.4706921875476837,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.08,
+          "height_m": 0.4696628451347351,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.1,
+          "height_m": 0.46860891580581665,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.12,
+          "height_m": 0.4675896167755127,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.14,
+          "height_m": 0.46663254499435425,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.16,
+          "height_m": 0.46575093269348145,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.18,
+          "height_m": 0.46495139598846436,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.2,
+          "height_m": 0.46423640847206116,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.22,
+          "height_m": 0.4636104702949524,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.24,
+          "height_m": 0.46307477355003357,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.2600000000000002,
+          "height_m": 0.46263039112091064,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.2800000000000002,
+          "height_m": 0.4622781574726105,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.3000000000000003,
+          "height_m": 0.46201881766319275,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.32,
+          "height_m": 0.4618528485298157,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.34,
+          "height_m": 0.4617805778980255,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.36,
+          "height_m": 0.4618021547794342,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.38,
+          "height_m": 0.46191754937171936,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.4,
+          "height_m": 0.46212655305862427,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.42,
+          "height_m": 0.4624287188053131,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.44,
+          "height_m": 0.4628234803676605,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.46,
+          "height_m": 0.4633100628852844,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.48,
+          "height_m": 0.4638875126838684,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.5,
+          "height_m": 0.46455472707748413,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.52,
+          "height_m": 0.46531033515930176,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.54,
+          "height_m": 0.46615296602249146,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.56,
+          "height_m": 0.46708089113235474,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.58,
+          "height_m": 0.46809232234954834,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.6,
+          "height_m": 0.4691852927207947,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.62,
+          "height_m": 0.47035762667655945,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.64,
+          "height_m": 0.4716070592403412,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.66,
+          "height_m": 0.4729311466217041,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.68,
+          "height_m": 0.4743272662162781,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.7,
+          "height_m": 0.47579264640808105,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.72,
+          "height_m": 0.477324515581131,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.74,
+          "height_m": 0.4789198338985443,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.7600000000000002,
+          "height_m": 0.48057547211647034,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.7800000000000002,
+          "height_m": 0.4822882115840912,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.8000000000000003,
+          "height_m": 0.48405471444129944,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.82,
+          "height_m": 0.48587143421173096,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.84,
+          "height_m": 0.4877348244190216,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.86,
+          "height_m": 0.4896412789821625,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.88,
+          "height_m": 0.4915870130062103,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.9,
+          "height_m": 0.4935682415962219,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.92,
+          "height_m": 0.49558112025260925,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.94,
+          "height_m": 0.49762165546417236,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.96,
+          "height_m": 0.4996858835220337,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 2.98,
+          "height_m": 0.5017697811126709,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        },
+        {
+          "time_s": 3.0,
+          "height_m": 0.5038691163063049,
+          "soil_force_z_n": 0.0,
+          "inside_mass_kg": 0.0
+        }
+      ],
+      "status": "completed",
+      "reason": "scheduled motion finished"
+    }
+  ],
+  "source_changed": false,
+  "scope": "preloaded dynamic lift; not an excavation or physical-validation pass"
+}

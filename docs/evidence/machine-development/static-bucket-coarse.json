@@ -1,0 +1,185 @@
+{
+  "source": {
+    "revision": "6be9b3db1b3aa56ab70e2c5e55df397f25491039",
+    "working_tree_status": "M scripts/run_tool_episode.py\n M src/excavation_sim/backends/newton_tool.py\n M src/excavation_sim/core.py\n M src/excavation_sim/inspection.html\n M src/excavation_sim/inspection.py\n M src/excavation_sim/recording.py\n M src/excavation_sim/robots/excavator.py\n M src/excavation_sim/rollout.py\n?? Industrial_Autonomy_Outreach_Pipeline_2026.xlsx\n?? docs/ARTICULATED_MACHINE.md\n?? docs/IMPLEMENTATION_PROGRESS.md\n?? experiments/behavior_cloning.py\n?? experiments/excavator_hold.py\n?? experiments/excavator_scripted.py\n?? scripts/check_bucket_retention.py\n?? src/excavation_sim/backends/newton_excavator.py\n?? src/excavation_sim/tasks.py\n?? tests/test_tasks.py",
+    "source_sha256": "cfab776dee2fb65d58114f316d3f804ea076044d176b0bf2ac060617ff1ce3f7",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "861dfb3f319ecd81b5a505f3189b58eec5203ba2c78e6aa2350a2f9028dcc55e",
+      "src/excavation_sim/analysis.py": "6d51f1cf1251168b4661923adfc9274baa034f66a0a0af119f6edc4c43f83426",
+      "src/excavation_sim/backends/__init__.py": "9fd078a1e430cbea86dbc266d001296f6ed98b155d7151833306f27532e811d8",
+      "src/excavation_sim/backends/newton_excavator.py": "9bba764385e41bcc038c3fa366b5034974ed8635613e1fd2556f8da2bd5312c4",
+      "src/excavation_sim/backends/newton_tool.py": "79e6220c6770d389ce566e839b1aec47643715d787fb89fa17c28ad3a7663d4e",
+      "src/excavation_sim/cli.py": "bc146c977fd80c7d92b4187e4f5a7161f85d48c45ac626ca1009c40e63c77b13",
+      "src/excavation_sim/core.py": "266af26d044c408072a8b23f466b9911ce09eb9af4d070d27ced93ee3bba7f65",
+      "src/excavation_sim/datasets.py": "d994de1aa72ea64c370ec8b76831febe4437a1ea1269fab52c1ebe161efa4c87",
+      "src/excavation_sim/inspection.html": "d84f4fe0f9cfd366536feba75d71e339bba37609f44c32280fcff24599099a80",
+      "src/excavation_sim/inspection.py": "81640c63cd88c98088bfb3755204bd34b2b7bb0a61f9e810c947e8258101b8d7",
+      "src/excavation_sim/provenance.py": "cd0d3c553bf474924e0af69e6f6f1c0c0466e689eed2bcf9d44ec154fc58c062",
+      "src/excavation_sim/recording.py": "e0634fff6501eb4751fdee6c45128beff489b01e9caaf973a62092991798d418",
+      "src/excavation_sim/robots/__init__.py": "1c33a9a19cc4b867266e93a01c1c0e0f6f4c976b9d59be09ab6cd442654ef7c6",
+      "src/excavation_sim/robots/excavator.py": "68de31d367e8be195ead0d8e68a3e44efa9dce68dbcba89d403727a54868794b",
+      "src/excavation_sim/rollout.py": "793398c82cb92eadd72d22bc50ee7d8e8511616e5f95bbde17ec366887623069",
+      "src/excavation_sim/tasks.py": "e726d6862a814c063b55a1c7bf792f37ed184fdd40f91e8f7703753f6c68f569",
+      "src/excavation_sim/validation.py": "5074cf9c88834a9262012acbc09fd00c1ce7e2bb0bde3eabd6ab95c7e43d1bf2",
+      "experiments/behavior_cloning.py": "ada49fe91ecc7a01bfa3c4e9a3ed994e150598efb65f04094082ebc277bdc0f8",
+      "experiments/excavator_hold.py": "a515fe15a1a3d5ac9b6bb945b888d00577508f27941f6669e2acae37ceb3d110",
+      "experiments/excavator_scripted.py": "4ab5b69ed27cfef682a2777721cdaf8150bb53d85d758855c409e2f11d2bc2d8",
+      "experiments/tool_probe.py": "faee9eb128e406bbb06ad378e0ca05d3886836c3decf4652a3adaabf2b872065",
+      "scripts/audit_momentum.py": "0dffc9dc74e6af4dd6c4ae1656297346c1b3376ce4f8fedfc8fa99ca0212391e",
+      "scripts/audit_system_momentum.py": "9e001b7422844b669c10d78eb90385e8a7a41f190fdd681dcc7022588019102e",
+      "scripts/check_bucket_retention.py": "01ccfe920b528b588b987955891f455aab9d63b85b8a0037b23dc53bca2fb478",
+      "scripts/check_excavator.py": "cbe36d7edf673c6e40c2b959545e9e2fd25817f937f143871a0f5a44b6a339b0",
+      "scripts/check_soil_coupling.py": "020f6a22a6a011c91de62e18cd10af6ed18a329e2dddcf2cbaafc3c1af2927fc",
+      "scripts/check_world_reset.py": "457966f5ed05018487c19435eafe214eca8788277a954bd9be4ec144ae01c305",
+      "scripts/fetch_validation_sources.py": "40c3bb8ab343d346f9917d1df24e4cd3ee1ecce127631ce7cbdd8cf65cbbeb0a",
+      "scripts/plot_validation.py": "09c1f7f25bce78017932912ac661384278fc6a34946a252a6bd234a20cd8225c",
+      "scripts/replay_ddbot.py": "042b6977904fd5e5cd41ca542d4bc181a4870d70e68c1e6195e396b5d877097e",
+      "scripts/replay_rheometer.py": "0c07aa3a231db23f78a1a4777497a0969463acfb026c3e32bc655877c90d3e0e",
+      "scripts/run_tool_episode.py": "d21e9f1c06237cc869376546ccc53b94489fb9f68f59ebc8f5d0a2939c091463",
+      "scripts/summarize_fixture.py": "4d97d20a18873b182d395c78c1dcf6f348578fe9db2452aae56566318b26555e",
+      "tests/test_actuation.py": "6abfab485a8a7e9c31876dae652a3890ad70e023acbe85e10e8b63652b67ae08",
+      "tests/test_analysis.py": "cb98e5e304983b990906e5d57f5fe1e0ed8c0a574e91fddcff2adf53954cee75",
+      "tests/test_contracts.py": "52d5a02b555aa8164d2d6362c55e5b4cdfae90e2355c9d8e5ae04e74d98e1f97",
+      "tests/test_datasets.py": "1ed474c931cca3c32a9ac94b445925f30de3d6068ef0c6f70596be54359561cc",
+      "tests/test_rollout.py": "3ac9d04399e3df04d618fd0a5fb75a0d5cac1f3f8a3dc6db81422a8b3c2a12d2",
+      "tests/test_system_momentum.py": "2c2c0cd7cc8384f0f6c037253bb07f97cfb3e837f3c25cfe4092f2563afd7b97",
+      "tests/test_tasks.py": "130c21607145411cb1a1b22bb40fa38f8e109c7697b193e0d213ee6544b0c24a",
+      "tests/test_validation.py": "e5b49bbcbb9dd26e5007c579d26bc2ddb9029bc1556ac79557299bd9f5166b7c",
+      "pyproject.toml": "be70fc692a33e8ee4b58a9e5db715b4c6b5fa51671bb44fe88a3e93d1c99fa47"
+    }
+  },
+  "voxel_m": 0.04,
+  "dt_s": 0.0025,
+  "initial_mass_kg": 0.38399999029934406,
+  "trace": [
+    {
+      "time_s": 0.0025,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3749893605709076,
+      "max_z_m": 0.41498449444770813
+    },
+    {
+      "time_s": 0.0525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.37328609824180603,
+      "max_z_m": 0.4124256670475006
+    },
+    {
+      "time_s": 0.10250000000000001,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.37040039896965027,
+      "max_z_m": 0.40753278136253357
+    },
+    {
+      "time_s": 0.1525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3680118918418884,
+      "max_z_m": 0.4025529623031616
+    },
+    {
+      "time_s": 0.2025,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3666999340057373,
+      "max_z_m": 0.3992481827735901
+    },
+    {
+      "time_s": 0.2525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3663153648376465,
+      "max_z_m": 0.3987679183483124
+    },
+    {
+      "time_s": 0.3025,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3661952018737793,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.3525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3661035895347595,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.4025,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3660222887992859,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.4525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.36594972014427185,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.5025000000000001,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.36588406562805176,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.5525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.36582353711128235,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.6025,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3657682240009308,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.6525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3657173812389374,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.7025,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.36567050218582153,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.7525000000000001,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.36562371253967285,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.8025,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.36557894945144653,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.8525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.36553773283958435,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.9025,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.3655001223087311,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 0.9525,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.36546576023101807,
+      "max_z_m": 0.3987683355808258
+    },
+    {
+      "time_s": 1.0,
+      "inside_mass_kg": 0.38399999029934406,
+      "min_z_m": 0.365435391664505,
+      "max_z_m": 0.3987683355808258
+    }
+  ],
+  "scope": "preloaded static open bucket; not physical validation",
+  "source_changed": false
+}

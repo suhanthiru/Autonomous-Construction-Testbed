@@ -11,9 +11,12 @@ class InspectionRecorder:
             raise ValueError("particle stride must be a positive integer")
         self.stride = particle_stride
         self.frames = []
+        self.shapes = []
 
     def __call__(self, world, observation):
         snapshot = world.inspection_state()
+        if not self.frames:
+            self.shapes = snapshot.get("shapes", [])
         self.frames.append(
             {
                 "observation": asdict(observation),
@@ -24,6 +27,9 @@ class InspectionRecorder:
 
     def write(self, output: Path):
         template = Path(__file__).with_name("inspection.html").read_text(encoding="utf-8")
-        data = json.dumps({"frames": self.frames, "particle_stride": self.stride}, allow_nan=False)
+        data = json.dumps(
+            {"frames": self.frames, "particle_stride": self.stride, "shapes": self.shapes},
+            allow_nan=False,
+        )
         with output.open("x", encoding="utf-8") as stream:
             stream.write(template.replace("__EPISODE_DATA__", data.replace("<", "\\u003c")))

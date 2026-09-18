@@ -4,10 +4,10 @@
     {
       "id": "software_contracts",
       "status": "passed",
-      "reason": "32 implemented CPU tests and lint pass for the pinned source; this does not assess unimplemented components or physics.",
+      "reason": "41 implemented CPU tests, lint, package build and clean base-package installation pass for the pinned source; this excludes GPU integration and physics.",
       "evidence": {
         "path": "docs/evidence/software-contracts.json",
-        "canonical_json_sha256": "f80af61fc242186dc45264b440b04413fd3d7742f6781cf106b480ec694ab701"
+        "canonical_json_sha256": "46b44d7c06fffde08970d05505f6a58a381c3d7fedcd3c6ec2259f109a5443b4"
       }
     },
     {
@@ -58,7 +58,7 @@
     {
       "id": "machine_actuation",
       "status": "not_assessed",
-      "reason": "The fixture uses a single tool; articulated excavator actuation is not implemented."
+      "reason": "Four-joint force-limited articulation and gravity compensation executed; actuator validation and numerical operating envelope remain unresolved."
     }
   ]
 }

@@ -1,4 +1,4 @@
-"""Procedural bench-scale fixed-base excavator, asset version 1.
+"""Procedural bench-scale fixed-base excavator, asset version 2.
 
 Original primitive geometry; not a model of a commercial machine. SI units.
 Joint order: slew (Z), boom (Y), stick (Y), bucket (Y). Quaternion order XYZW.
@@ -25,7 +25,7 @@ def add_excavator(builder) -> ExcavatorAsset:
     bodies, joints = [], []
     lower, upper = (-1.5, -1.2, -0.3, -1.8), (1.5, 0.8, 1.8, 1.2)
     efforts = (80.0, 120.0, 80.0, 40.0)
-    anchors = [(-0.5, 0.0, 0.35), (0.0, 0.0, 0.0), (0.4, 0.0, 0.0), (0.35, 0.0, 0.0)]
+    anchors = [(-0.65, 0.0, 0.35), (0.0, 0.0, 0.0), (0.4, 0.0, 0.0), (0.35, 0.0, 0.0)]
     names = ("slew", "boom", "stick", "bucket")
     for i, name in enumerate(names):
         body = builder.add_link(label=name)
@@ -63,20 +63,24 @@ def add_excavator(builder) -> ExcavatorAsset:
                 cfg=cfg,
             )
         else:
-            # Open top and front (+X): floor, back wall, and two side walls.
-            for center, half in [
-                ((0.06, 0.0, -0.06), (0.10, 0.10, 0.02)),
-                ((-0.02, 0.0, 0.0), (0.02, 0.10, 0.06)),
-                ((0.06, -0.08, 0.0), (0.10, 0.02, 0.06)),
-                ((0.06, 0.08, 0.0), (0.10, 0.02, 0.06)),
-            ]:
-                builder.add_shape_box(
-                    body,
-                    xform=wp.transform(wp.vec3(*center), wp.quat_identity()),
-                    hx=half[0],
-                    hy=half[1],
-                    hz=half[2],
-                    cfg=cfg,
-                )
-    builder.add_articulation(joints, label="fixed_base_excavator_v1")
+            add_bucket(builder, body, cfg)
+    builder.add_articulation(joints, label="fixed_base_excavator_v2")
     return ExcavatorAsset(tuple(bodies), tuple(joints), bodies[-1])
+
+
+def add_bucket(builder, body, cfg):
+    # Open top and front (+X): floor, back wall, and two side walls.
+    for center, half in [
+        ((0.06, 0.0, -0.06), (0.10, 0.10, 0.02)),
+        ((-0.02, 0.0, 0.0), (0.02, 0.10, 0.06)),
+        ((0.06, -0.08, 0.0), (0.10, 0.02, 0.06)),
+        ((0.06, 0.08, 0.0), (0.10, 0.02, 0.06)),
+    ]:
+        builder.add_shape_box(
+            body,
+            xform=wp.transform(wp.vec3(*center), wp.quat_identity()),
+            hx=half[0],
+            hy=half[1],
+            hz=half[2],
+            cfg=cfg,
+        )

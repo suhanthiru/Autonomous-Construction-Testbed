@@ -20,6 +20,7 @@ def rollout(
     config: dict,
     source_root: Path,
     inspect: Callable | None = None,
+    task=None,
 ) -> dict:
     if type(actions) is not int or actions < 1:
         raise ValueError("actions must be a positive integer")
@@ -36,21 +37,35 @@ def rollout(
             "config": config,
             "source": identity,
             "environment": environment_info(),
-            "observation_access": "ideal tool pose, velocity, action-averaged soil force",
+            "observation_access": {
+                "channels": "tool pose, velocity, action-averaged soil force; optional joints",
+                "sensors": config.get("sensors", "ideal instantaneous"),
+                "privileged_evaluation_excluded": True,
+            },
             "physical_validation": "not validated",
         },
     )
     completed = 0
+    task_result = None
     try:
         observation = world.reset(seed)
         policy.reset(seed)
+        if task is not None:
+            task.reset()
         if inspect is not None:
             inspect(world, observation)
         for _ in range(actions):
             command = policy.act(observation)
             after = world.step(command)
             diagnostics = world.diagnostics()
-            writer.append(observation, command, after, diagnostics)
+            if task is not None:
+                evaluation = (
+                    world.evaluation_observation()
+                    if hasattr(world, "evaluation_observation")
+                    else after
+                )
+                task_result = task.evaluate(evaluation, diagnostics)
+            writer.append(observation, command, after, diagnostics, task_result)
             completed += 1
             if not diagnostics.finite:
                 raise RuntimeError("nonfinite world diagnostics")
@@ -59,9 +74,17 @@ def rollout(
             observation = after
             if inspect is not None:
                 inspect(world, observation)
-        writer.close("completed", "action budget exhausted; not a task-success claim")
+            if task_result is not None and (task_result.terminated or task_result.truncated):
+                break
+        reason = "action budget exhausted; not a task-success claim"
+        if task_result is not None:
+            reason = (
+                "task succeeded" if task_result.success else "task budget exhausted without success"
+            )
+        writer.close("completed", reason)
         return {
             "actions": completed,
+            "task_result": asdict(task_result) if task_result is not None else None,
             "simulated_time_s": observation.time_s,
             "wall_time_s": perf_counter() - started,
             "source_changed": identity["source_sha256"]

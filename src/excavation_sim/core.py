@@ -60,6 +60,19 @@ class ToolCommand:
 
 
 @dataclass(frozen=True)
+class JointCommand:
+    """Normalized slew, boom, stick, bucket velocity requests, each in [-1, 1]."""
+
+    velocity_targets: tuple[float, float, float, float]
+
+    def __post_init__(self):
+        if len(self.velocity_targets) != 4 or not all(
+            isfinite(v) and -1 <= v <= 1 for v in self.velocity_targets
+        ):
+            raise ValueError("four finite normalized joint commands are required")
+
+
+@dataclass(frozen=True)
 class Observation:
     """Declared ideal sensor packet; never contains hidden material parameters."""
 
@@ -68,6 +81,11 @@ class Observation:
     tool_position_m: tuple[float, float, float]
     tool_velocity_m_s: tuple[float, float, float]
     soil_force_n: tuple[float, float, float]
+    joint_position_rad: tuple[float, ...] = ()
+    joint_velocity_rad_s: tuple[float, ...] = ()
+    sensor_capture_tick: int | None = None
+    sensor_age_s: float = 0.0
+    sensor_valid: bool = True
 
 
 @dataclass(frozen=True)
@@ -78,6 +96,10 @@ class Diagnostics:
     escaped_mass_kg: float
     finite: bool
     actuator_force_n: tuple[float, float, float]
+    actuator_torque_nm: tuple[float, ...] = ()
+    lifted_bucket_mass_kg: float | None = None
+    deposited_mass_kg: float | None = None
+    positive_actuator_work_j: float | None = None
 
 
 class World(Protocol):
@@ -86,7 +108,7 @@ class World(Protocol):
 
     def reset(self, seed: int) -> Observation: ...
 
-    def step(self, command: ToolCommand) -> Observation: ...
+    def step(self, command: ToolCommand | JointCommand) -> Observation: ...
 
     def diagnostics(self) -> Diagnostics: ...
 
@@ -96,4 +118,4 @@ class World(Protocol):
 class Policy(Protocol):
     def reset(self, seed: int) -> None: ...
 
-    def act(self, observation: Observation) -> ToolCommand: ...
+    def act(self, observation: Observation) -> ToolCommand | JointCommand: ...

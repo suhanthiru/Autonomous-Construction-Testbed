@@ -8,6 +8,8 @@ class ProbePolicy:
         self.seed = seed
 
     def act(self, observation: Observation) -> ToolCommand:
+        if not observation.sensor_valid:
+            return ToolCommand((0.0, 0.0, 0.0))
         velocity = -0.15 if observation.time_s < 1.0 else 0.15
         if abs(observation.soil_force_n[2]) > 50:
             velocity = 0.15

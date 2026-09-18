@@ -1,0 +1,9 @@
+{
+  "sample_every_actions": 2,
+  "latency_actions": 1,
+  "position_noise_std_m": 0.001,
+  "velocity_noise_std_m_s": 0.002,
+  "force_noise_std_n": 0.1,
+  "joint_position_noise_std_rad": 0.001,
+  "joint_velocity_noise_std_rad_s": 0.002
+}

@@ -93,3 +93,14 @@ def test_generated_package_metadata_is_not_source(tmp_path):
     tests.mkdir()
     (tests / "test_behavior.py").write_text("assert True")
     assert source_identity(tmp_path)["source_sha256"] != first
+
+
+def test_normalized_machine_actions_reject_wrong_shape_and_out_of_range():
+    from excavation_sim.core import JointCommand
+
+    with pytest.raises(ValueError):
+        JointCommand((0.0, 0.0, 0.0))
+    with pytest.raises(ValueError):
+        JointCommand((0.0, 0.0, 0.0, 1.01))
+    with pytest.raises(ValueError):
+        JointCommand((0.0, 0.0, 0.0, float("nan")))

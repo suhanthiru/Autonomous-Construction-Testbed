@@ -6,10 +6,12 @@ evaluation. Physics claims are tied to measured evidence and a stated operating 
 
 ## Current status
 
-Early implementation: core contracts, episode recording, runtime diagnostics, and tests.
+Implementation in progress: reusable coupled worlds, articulated machine prototype,
+external policy execution, typed episode loading, task evaluation, and offline inspection.
 An isolated GPU rigid-body/soil fixture runs with an empty-bed control; see the
-[measured feasibility results](docs/COUPLING_FEASIBILITY.md). Physical validation has not
-been performed. The full excavator and learning benchmarks are not implemented yet.
+[measured feasibility results](docs/COUPLING_FEASIBILITY.md). Physical validation has
+not passed. The articulated prototype runs, but successful scoop/deposit and completed
+learning benchmarks remain open.
 The [force-limited penetration check](docs/ACTUATION_CHECK.md) records actuator and
 soil forces; its timestep study exposes unresolved peak-force sensitivity.
 The [fixed-controller follow-up](docs/CONTROL_CLOCK_STUDY.md) confirms that separating
@@ -52,3 +54,22 @@ not imply GPU or physical validation.
 The stable simulator is the main deliverable. Probing, QAM, and cooperative manipulation
 are separate experiments. Necessary physics changes receive new versions and rerun the
 affected validation; experiments cannot silently alter their testbed.
+
+## Executed development workflows
+
+See [the world adapter](docs/WORLD_ADAPTER.md), [machine implementation](docs/ARTICULATED_MACHINE.md),
+and [release ledger](docs/IMPLEMENTATION_PROGRESS.md). For a recorded tool episode:
+
+```sh
+python scripts/run_tool_episode.py --actions 100 --inspect --output runs/tool-demo
+```
+
+For an experimental machine episode (task success is reported separately):
+
+```sh
+python scripts/run_tool_episode.py --machine --policy experiments/excavator_scripted.py --policy-class ExcavatorPolicy --world-config configs/machine-development.json --actions 1200 --task deposit --inspect --output runs/machine-demo
+```
+
+Open the generated `inspection.html` locally to inspect the episode. It uses no external
+web assets. The current scripted excavation attempts have failed to retain/deposit soil;
+a completed simulation is not a successful excavation demonstration.

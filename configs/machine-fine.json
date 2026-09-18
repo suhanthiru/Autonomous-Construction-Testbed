@@ -1,0 +1,14 @@
+{
+  "physics_dt_s": 0.0025,
+  "action_dt_s": 0.02,
+  "with_soil": true,
+  "voxel_size_m": 0.02,
+  "particle_spacing_m": 0.01,
+  "soil_friction": 0.6,
+  "soil_density_kg_m3": 1600.0,
+  "air_drag": 1.0,
+  "mpm_iterations": 100,
+  "mpm_tolerance": 1e-05,
+  "grid_margin_m": 0.5,
+  "max_active_cells": 262144
+}

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from excavation_sim.core import Diagnostics, Observation, ToolCommand
+from excavation_sim.core import Diagnostics, JointCommand, Observation, ToolCommand
 from excavation_sim.provenance import canonical_json
 
 
@@ -21,9 +21,10 @@ class EpisodeWriter:
     def append(
         self,
         before: Observation,
-        command: ToolCommand,
+        command: ToolCommand | JointCommand,
         after: Observation,
         diagnostics: Diagnostics,
+        task_result: Any = None,
     ) -> None:
         if self._closed:
             raise RuntimeError("episode is closed")
@@ -39,7 +40,9 @@ class EpisodeWriter:
                 "duration_s": after.time_s - before.time_s,
             }
         )
-        evaluation = canonical_json({"tick": after.tick, "diagnostics": diagnostics})
+        evaluation = canonical_json(
+            {"tick": after.tick, "diagnostics": diagnostics, "task": task_result}
+        )
         self._transitions.write(transition + "\n")
         self._evaluation.write(evaluation + "\n")
         self._transitions.flush()
