@@ -1,0 +1,296 @@
+{
+  "source": {
+    "revision": "ecc18369232c3e786d63ec50d3531f52ccfe450b",
+    "working_tree_status": "M .gitignore\n?? Industrial_Autonomy_Outreach_Pipeline_2026.xlsx\n?? experiments/\n?? scripts/check_world_reset.py\n?? scripts/run_tool_episode.py\n?? src/excavation_sim/backends/\n?? src/excavation_sim/rollout.py\n?? tests/test_rollout.py",
+    "source_sha256": "30359a60f7d834922e0532536e2903343ac042491242d289ddcbf351deee9346",
+    "files": {
+      "src/excavation_sim/__init__.py": "91af767ebe59586879d7e3b5e17e19a01f3846b34a509a9998becf626e648744",
+      "src/excavation_sim/actuation.py": "861dfb3f319ecd81b5a505f3189b58eec5203ba2c78e6aa2350a2f9028dcc55e",
+      "src/excavation_sim/analysis.py": "6d51f1cf1251168b4661923adfc9274baa034f66a0a0af119f6edc4c43f83426",
+      "src/excavation_sim/backends/__init__.py": "9fd078a1e430cbea86dbc266d001296f6ed98b155d7151833306f27532e811d8",
+      "src/excavation_sim/backends/newton_tool.py": "ffa75801d6cea209247f154cff29c86bb412adae8dd2c5de17ba577204f6e4bc",
+      "src/excavation_sim/cli.py": "bc146c977fd80c7d92b4187e4f5a7161f85d48c45ac626ca1009c40e63c77b13",
+      "src/excavation_sim/core.py": "b9bc9dd34724a5b994ccff0a4a05b20781daa17abad57efd3fca06dc22c2a720",
+      "src/excavation_sim/datasets.py": "d994de1aa72ea64c370ec8b76831febe4437a1ea1269fab52c1ebe161efa4c87",
+      "src/excavation_sim/provenance.py": "cd0d3c553bf474924e0af69e6f6f1c0c0466e689eed2bcf9d44ec154fc58c062",
+      "src/excavation_sim/recording.py": "20823ce1d1f348327335caf712b2997a68d2c0a87820a638bbeec379fa91ab40",
+      "src/excavation_sim/rollout.py": "261d22982df4bc6a154e7f53417fa446b9c8bc1122fc9d0a870fd33161fd9501",
+      "src/excavation_sim/validation.py": "5074cf9c88834a9262012acbc09fd00c1ce7e2bb0bde3eabd6ab95c7e43d1bf2",
+      "experiments/tool_probe.py": "faee9eb128e406bbb06ad378e0ca05d3886836c3decf4652a3adaabf2b872065",
+      "scripts/audit_momentum.py": "0dffc9dc74e6af4dd6c4ae1656297346c1b3376ce4f8fedfc8fa99ca0212391e",
+      "scripts/audit_system_momentum.py": "9e001b7422844b669c10d78eb90385e8a7a41f190fdd681dcc7022588019102e",
+      "scripts/check_soil_coupling.py": "020f6a22a6a011c91de62e18cd10af6ed18a329e2dddcf2cbaafc3c1af2927fc",
+      "scripts/check_world_reset.py": "457966f5ed05018487c19435eafe214eca8788277a954bd9be4ec144ae01c305",
+      "scripts/fetch_validation_sources.py": "40c3bb8ab343d346f9917d1df24e4cd3ee1ecce127631ce7cbdd8cf65cbbeb0a",
+      "scripts/plot_validation.py": "09c1f7f25bce78017932912ac661384278fc6a34946a252a6bd234a20cd8225c",
+      "scripts/replay_ddbot.py": "042b6977904fd5e5cd41ca542d4bc181a4870d70e68c1e6195e396b5d877097e",
+      "scripts/replay_rheometer.py": "0c07aa3a231db23f78a1a4777497a0969463acfb026c3e32bc655877c90d3e0e",
+      "scripts/run_tool_episode.py": "aae08f6655d3e12029dedbdd33049b05e1cb4491bc2c4d260c07403c216141b8",
+      "scripts/summarize_fixture.py": "4d97d20a18873b182d395c78c1dcf6f348578fe9db2452aae56566318b26555e",
+      "tests/test_actuation.py": "6abfab485a8a7e9c31876dae652a3890ad70e023acbe85e10e8b63652b67ae08",
+      "tests/test_analysis.py": "cb98e5e304983b990906e5d57f5fe1e0ed8c0a574e91fddcff2adf53954cee75",
+      "tests/test_contracts.py": "52d5a02b555aa8164d2d6362c55e5b4cdfae90e2355c9d8e5ae04e74d98e1f97",
+      "tests/test_datasets.py": "1ed474c931cca3c32a9ac94b445925f30de3d6068ef0c6f70596be54359561cc",
+      "tests/test_rollout.py": "3ac9d04399e3df04d618fd0a5fb75a0d5cac1f3f8a3dc6db81422a8b3c2a12d2",
+      "tests/test_system_momentum.py": "2c2c0cd7cc8384f0f6c037253bb07f97cfb3e837f3c25cfe4092f2563afd7b97",
+      "tests/test_validation.py": "e5b49bbcbb9dd26e5007c579d26bc2ddb9029bc1556ac79557299bd9f5166b7c",
+      "pyproject.toml": "ba3d4ad27ff8e366a42af3c75bd60bb2ae7ae3b7c4dad2ea6f53ccc5a1895d1a"
+    }
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "excavation-sim": "0.1.0.dev0",
+      "newton": "1.6.0",
+      "warp-lang": "1.17.0",
+      "numpy": "2.5.3"
+    }
+  },
+  "results": [
+    {
+      "with_soil": false,
+      "max_absolute_repeat_difference": 0.0,
+      "independent_world_unchanged": true,
+      "observations": [
+        {
+          "tick": 0,
+          "time_s": 0.0,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.3499999940395355
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 8,
+          "time_s": 0.02,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.3486572206020355
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.1302083134651184
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 16,
+          "time_s": 0.04,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.34645867347717285
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.09087449312210083
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 24,
+          "time_s": 0.06,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.34451866149902344
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.1027565598487854
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 32,
+          "time_s": 0.08,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.3425005376338959
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.09916740655899048
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 40,
+          "time_s": 0.1,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.34050601720809937
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.10025149583816528
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "with_soil": true,
+      "max_absolute_repeat_difference": 0.0,
+      "independent_world_unchanged": true,
+      "observations": [
+        {
+          "tick": 0,
+          "time_s": 0.0,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.3499999940395355
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 8,
+          "time_s": 0.02,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.3486572206020355
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.1302083134651184
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 16,
+          "time_s": 0.04,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.34645867347717285
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.09087449312210083
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 24,
+          "time_s": 0.06,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.34451866149902344
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.1027565598487854
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 32,
+          "time_s": 0.08,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.3425005376338959
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.09916740655899048
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "tick": 40,
+          "time_s": 0.1,
+          "tool_position_m": [
+            0.0,
+            0.0,
+            0.34050601720809937
+          ],
+          "tool_velocity_m_s": [
+            0.0,
+            0.0,
+            -0.10025149583816528
+          ],
+          "soil_force_n": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "source_changed": false,
+  "scope": "same-device reset, isolation, and actuator bounds; not physical validation"
+}

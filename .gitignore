@@ -13,3 +13,6 @@ data/processed/
 .env
 .env.*
 !.env.example
+
+# Short CUDA kernel cache path for Windows MAX_PATH limits.
+.w/
