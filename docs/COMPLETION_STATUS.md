@@ -12,6 +12,11 @@ The system also provides live controls, masked terrain sensing, external policie
 tasks, action chunks, named material/terrain/obstacle scenarios, shared-soil tools,
 source/configuration hashes, tests and CI. See `REPRODUCE.md` and `API.md`.
 
+Current reusable Newton backends report revision 0.2 and apply a source-checked
+initialization correction for inactive residual scratch entries. The original
+frozen operational release remains revision 0.1. See `CONTACT_ISOLATION.md` for
+the reproducer, correction and remaining numerical failures.
+
 New headless episodes, live episodes and evaluation suites capture a checksummed
 validation assessment. The optional `--require-passed-gates` launch flag refuses
 missing, malformed, failed or incomplete global assessments before loading a policy.

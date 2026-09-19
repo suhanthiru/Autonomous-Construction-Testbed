@@ -1,0 +1,69 @@
+{
+  "file": "report.json.gz",
+  "canonical_json_sha256": "b9c804182669139cf4bca919074364c9429edbab69f56f66e2694fc170b91602",
+  "workaround": "newton-1.6.0-initialize-stress-delta-v1",
+  "cases": [
+    {
+      "mode": "untouched",
+      "coverage": [
+        {
+          "strain_nodes": 1000,
+          "colored_nodes": 8,
+          "uncolored_nodes": 992,
+          "nonfinite_delta_nodes": 0,
+          "nonfinite_active_delta_nodes": 0,
+          "nonfinite_empty_delta_nodes": 0
+        }
+      ],
+      "positions_finite": true,
+      "velocities_finite": true
+    },
+    {
+      "mode": "zero",
+      "coverage": [
+        {
+          "strain_nodes": 1000,
+          "colored_nodes": 8,
+          "uncolored_nodes": 992,
+          "nonfinite_delta_nodes": 0,
+          "nonfinite_active_delta_nodes": 0,
+          "nonfinite_empty_delta_nodes": 0
+        }
+      ],
+      "positions_finite": true,
+      "velocities_finite": true
+    },
+    {
+      "mode": "poison",
+      "coverage": [
+        {
+          "strain_nodes": 1000,
+          "colored_nodes": 8,
+          "uncolored_nodes": 992,
+          "nonfinite_delta_nodes": 992,
+          "nonfinite_active_delta_nodes": 0,
+          "nonfinite_empty_delta_nodes": 992
+        }
+      ],
+      "positions_finite": true,
+      "velocities_finite": true
+    },
+    {
+      "mode": "recovered",
+      "coverage": [
+        {
+          "strain_nodes": 1000,
+          "colored_nodes": 8,
+          "uncolored_nodes": 992,
+          "nonfinite_delta_nodes": 0,
+          "nonfinite_active_delta_nodes": 0,
+          "nonfinite_empty_delta_nodes": 0
+        }
+      ],
+      "positions_finite": true,
+      "velocities_finite": true
+    }
+  ],
+  "encoding": "gzip-compressed JSON; hash applies to canonical decompressed content",
+  "claim": "Residual initialization correction only; no physical qualification"
+}

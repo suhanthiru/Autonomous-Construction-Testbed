@@ -15,6 +15,7 @@ from newton.solvers import SolverImplicitMPM, SolverXPBD
 from newton.solvers.experimental.coupled import SolverCoupledProxy
 
 from excavation_sim.actuation import ticks_per_update
+from excavation_sim.backends.newton_compat import install_stress_delta_initialization
 from excavation_sim.core import (
     BackendInfo,
     Capability,
@@ -127,6 +128,11 @@ class NewtonToolWorld:
     )
 
     def __init__(self, config: ToolWorldConfig | None = None):
+        correction = install_stress_delta_initialization()
+        self.info = replace(
+            self.info, version="0.2",
+            limitations=(*self.info.limitations, f"Solver correction: {correction}"),
+        )
         config = ToolWorldConfig() if config is None else config
         self.config = config
         if not config.with_soil:

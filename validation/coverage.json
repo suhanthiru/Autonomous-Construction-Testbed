@@ -7,7 +7,7 @@
       "reason": "57 CPU tests, lint, build and clean base-package installation pass for the recorded source. Physical qualification remains unresolved.",
       "evidence": {
         "path": "docs/evidence/software-contracts.json",
-        "canonical_json_sha256": "8d2046ad694a0a3951cc1edfa61d7f3849abfc0b1623446b780248bb2d318a4b"
+        "canonical_json_sha256": "a317687d831238e367c83fa4a8e353569b962b083a2ead9ce85990191cb80dc9"
       }
     },
     {

@@ -135,6 +135,34 @@ changes remain 7.7% and 8.8%; this does not establish convergence. These records
 are in `evidence/contact-prescribed-compliant/`. The material is a diagnostic
 contrast, not a fitted sand model or a production default.
 
+#### Reproduced inactive-entry defect and backend revision 0.2
+
+A smaller fixture has 64 particles and 1,000 strain nodes. Only 8 nodes are
+included in the colored solve. Poisoning the temporary stress-update array leaves
+992 nonfinite entries, all at empty nodes; active nodes remain finite. The reported
+residual becomes nonfinite and the solve runs to its iteration limit. Zeroing the
+array restores a finite residual and termination after 46 reported iterations.
+
+`scripts/check_mpm_scratch.py` reproduces this independently of digging or a moving
+tool. `newton_compat.py` implements the narrow initialization correction. It checks
+both Newton version 1.6.0 and the reviewed constructor's source checksum, installs
+once per process, and refuses an unreviewed dependency change. It does not edit
+installed dependency files. Because the hook is process-wide, other Newton MPM
+solvers subsequently created in that process also receive initialized scratch.
+
+New reusable testbed worlds identify themselves as backend revision **0.2** and
+record the correction identifier in their backend metadata. Frozen revision-0.1
+results remain unchanged and must not be represented as reruns of revision 0.2.
+The earlier private-API diagnostic intervention remains separately identified.
+
+```sh
+python scripts/check_mpm_scratch.py --apply-workaround --output runs/mpm-scratch-correction
+```
+
+This corrects a demonstrated residual-storage defect. It does not solve the
+remaining iteration-limit or timestep-convergence failures, and it provides no
+new real-machine physical validation claim.
+
 The operating workflow remains usable for explicitly labeled experiments on its
 discrete dynamics. Contact-force prediction and real-world transfer remain unqualified.
 No material coefficient, acceptance tolerance, or frozen result was changed to make
