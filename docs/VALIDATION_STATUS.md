@@ -6,7 +6,7 @@ Passing assessments require a repository-local JSON evidence record with a match
 canonical SHA-256 digest. This command checks recorded assessments and evidence
 integrity; it does not rerun experiments or judge scientific sufficiency automatically.
 
-The implemented software contracts pass 50 CPU tests and lint, with a pinned assessment
+The implemented software contracts pass 52 CPU tests and lint, with a pinned assessment
 in `docs/evidence/software-contracts.json`. This is limited to implemented functionality.
 Numerical contact and terrain
 convergence remain unresolved. Public-data replays are development comparisons;

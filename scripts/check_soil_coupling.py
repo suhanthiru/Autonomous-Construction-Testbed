@@ -34,9 +34,15 @@ def run(
     particle_spacing: float = 0.02,
     air_drag: float = 1.0,
     proxy_mode: str = "lagged",
+    proxy_relaxation: float = 1.0,
+    relaxation_mode: str = "fixed",
 ) -> dict:
     if proxy_mode not in {"lagged", "staggered"}:
         raise ValueError("unsupported proxy transfer mode")
+    if relaxation_mode not in {"fixed", "aitken"}:
+        raise ValueError("unsupported relaxation mode")
+    if not np.isfinite(proxy_relaxation) or not 0.1 <= proxy_relaxation <= 1.0:
+        raise ValueError("diagnostic proxy relaxation must be between 0.1 and 1.0")
     if not np.isfinite(air_drag) or air_drag < 0:
         raise ValueError("air_drag must be finite and nonnegative")
     if type(mpm_iterations) is not int or mpm_iterations < 1:
@@ -125,6 +131,8 @@ def run(
                         bodies=[body],
                         mass_scale=1.0,
                         mode=proxy_mode,
+                        proxy_relaxation=proxy_relaxation,
+                        proxy_relaxation_mode=relaxation_mode,
                         collision_pipeline=lambda _: None,
                     )
                 ]
@@ -248,6 +256,8 @@ def run(
                 "particle_spacing_m": spacing,
                 "air_drag": air_drag,
                 "proxy_mode": proxy_mode,
+                "proxy_relaxation": proxy_relaxation,
+                "relaxation_mode": relaxation_mode,
             },
             "with_soil": with_soil,
             "drive": drive,
@@ -282,6 +292,8 @@ if __name__ == "__main__":
     parser.add_argument("--particle-spacing", type=float, default=0.02)
     parser.add_argument("--air-drag", type=float, default=1.0)
     parser.add_argument("--proxy-mode", choices=["lagged", "staggered"], default="lagged")
+    parser.add_argument("--proxy-relaxation", type=float, default=1.0)
+    parser.add_argument("--relaxation-mode", choices=["fixed", "aitken"], default="fixed")
     parser.add_argument("--without-soil", action="store_true")
     parser.add_argument("--drive", action="store_true", help="force-limited down/up velocity servo")
     parser.add_argument("--hold", action="store_true", help="stationary tool above settling soil")
@@ -305,6 +317,8 @@ if __name__ == "__main__":
         args.particle_spacing,
         args.air_drag,
         args.proxy_mode,
+        args.proxy_relaxation,
+        args.relaxation_mode,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:

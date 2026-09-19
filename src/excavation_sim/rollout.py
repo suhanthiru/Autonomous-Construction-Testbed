@@ -9,6 +9,7 @@ from time import perf_counter
 from excavation_sim.core import Policy, World
 from excavation_sim.provenance import environment_info, source_identity
 from excavation_sim.recording import EpisodeWriter
+from excavation_sim.validation import validation_snapshot
 
 
 def rollout(
@@ -44,6 +45,7 @@ def rollout(
                 "privileged_evaluation_excluded": True,
             },
             "physical_validation": "not validated",
+            "validation_snapshot": validation_snapshot(source_root),
         },
     )
     completed = 0

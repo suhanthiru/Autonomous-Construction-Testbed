@@ -147,3 +147,12 @@ the workflow and repeated demo using:
 
 See `EXPERIMENT_PROTOCOL.md` for comparison and claim requirements, `API.md` for
 extension contracts, and `ASSET_PROVENANCE.md` for geometry/data origins.
+
+## Qualification records
+
+New episodes and evaluation suites include `validation_snapshot` in their manifest,
+including a canonical assessment hash and unresolved gates. Add
+`--require-passed-gates` to `run_tool_episode.py` or `evaluate_suite.py` to refuse
+launch while recorded gates remain incomplete. This is an assessment-integrity guard,
+not automatic proof that a new configuration is physically validated.
+See `COMPLETION_STATUS.md` for outstanding qualification dependencies.

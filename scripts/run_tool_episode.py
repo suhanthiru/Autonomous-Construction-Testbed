@@ -10,6 +10,7 @@ from pathlib import Path
 from excavation_sim.backends.newton_tool import NewtonToolWorld, ToolWorldConfig
 from excavation_sim.inspection import InspectionRecorder
 from excavation_sim.rollout import rollout
+from excavation_sim.validation import require_passed_gates, validation_snapshot
 
 
 def main():
@@ -30,7 +31,10 @@ def main():
     parser.add_argument("--scenario")
     parser.add_argument("--task-plugin", type=Path)
     parser.add_argument("--task-class")
+    parser.add_argument("--require-passed-gates", action="store_true")
     args = parser.parse_args()
+    if args.require_passed_gates:
+        require_passed_gates(validation_snapshot(Path.cwd()))
     # Explicit local extension code, chosen by the caller, not downloaded dataset code.
     spec = importlib.util.spec_from_file_location("experiment_policy", args.policy)
     if spec is None or spec.loader is None:

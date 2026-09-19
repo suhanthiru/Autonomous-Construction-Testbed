@@ -22,6 +22,38 @@ REQUIRED_GATES = frozenset(
 )
 
 
+def validation_snapshot(root: Path) -> dict:
+    """Capture assessments at run time; never infer a validated operating envelope."""
+    path = root / "validation" / "coverage.json"
+    try:
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+        status = coverage_status(root, manifest)
+        return {
+            **status,
+            "manifest_canonical_sha256": fingerprint(manifest),
+            "scope": manifest.get("scope"),
+            "applicability": "Recorded gate status only; no automatic claim that this "
+            "experiment lies within a validated physical operating envelope.",
+        }
+    except (OSError, ValueError, KeyError, TypeError, AttributeError) as error:
+        return {
+            "validation_complete": False,
+            "unresolved": sorted(REQUIRED_GATES),
+            "errors": [f"validation manifest unavailable or malformed: {type(error).__name__}"],
+            "manifest_canonical_sha256": None,
+            "gates": [],
+        }
+
+
+def require_passed_gates(snapshot: dict) -> None:
+    if not snapshot.get("validation_complete") or snapshot.get("errors"):
+        raise ValueError(
+            "Recorded validation gates have not passed: "
+            + ", ".join(snapshot.get("unresolved", []))
+            + ("; " + "; ".join(snapshot["errors"]) if snapshot.get("errors") else "")
+        )
+
+
 def coverage_status(root: Path, manifest: dict) -> dict:
     gates = manifest.get("gates", [])
     ids = [gate["id"] for gate in gates]

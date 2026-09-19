@@ -17,6 +17,8 @@ def main():
     parser.add_argument("--iterations", type=int, default=4)
     parser.add_argument("--mode", choices=["lagged", "staggered"], default="lagged")
     parser.add_argument("--dt", type=float, nargs="+", default=[0.005, 0.0025, 0.00125])
+    parser.add_argument("--proxy-relaxation", type=float, default=1.0)
+    parser.add_argument("--relaxation-mode", choices=["fixed", "aitken"], default="fixed")
     args = parser.parse_args()
     try:
         if args.iterations < 1 or len(set(args.dt)) != len(args.dt):
@@ -42,6 +44,8 @@ def main():
                 mpm_iterations=100,
                 mpm_tolerance=1e-5,
                 proxy_mode=args.mode,
+                proxy_relaxation=args.proxy_relaxation,
+                relaxation_mode=args.relaxation_mode,
             )
             (args.output / (name + ".json")).write_text(json.dumps(record, indent=2))
             status, error = "completed", None

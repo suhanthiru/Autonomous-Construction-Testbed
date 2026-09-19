@@ -56,6 +56,9 @@ def test_rollout_records_budget_and_separates_privileged_data(tmp_path):
     assert "123.456" not in (output / "transitions.jsonl").read_text()
     assert "123.456" in (output / "evaluation.jsonl").read_text()
     assert json.loads((output / "outcome.json").read_text())["status"] == "completed"
+    assessment = json.loads((output / "manifest.json").read_text())["validation_snapshot"]
+    assert not assessment["validation_complete"]
+    assert assessment["errors"]  # Fixture has no admitted physical evidence.
 
 
 def test_policy_failure_is_retained_and_world_closed(tmp_path):

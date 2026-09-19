@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "file": "dt-0.005.json",
+      "canonical_json_sha256": "d822db8668f82431895d39e49410b29f06cc3018c2ab19bdb6533405b08a519c",
+      "dt_s": 0.005,
+      "total_vertical_impulse_n_s": 63.614953909869605,
+      "peak_20ms_mean_n": 1022.0527434181249,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.0025.json",
+      "canonical_json_sha256": "e4ca6b7544af2ce64c8e39ed535035410fcfd429a6f7ecb2361a0a5d0ea190e4",
+      "dt_s": 0.0025,
+      "total_vertical_impulse_n_s": 73.02786646074537,
+      "peak_20ms_mean_n": 1041.1613305328058,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.00125.json",
+      "canonical_json_sha256": "a0bc4810b20a3c8d67da2f2a0172e7588b1b1ad2f5055533fcafc03945ce965b",
+      "dt_s": 0.00125,
+      "total_vertical_impulse_n_s": 84.83177895778128,
+      "peak_20ms_mean_n": 1133.6259328966623,
+      "source_changed": false
+    }
+  ],
+  "assessment": "Unresolved timestep sensitivity without rigid feedback. Different motion/actuation from force-limited fixture; absolute loads are not directly comparable."
+}

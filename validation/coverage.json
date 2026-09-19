@@ -4,10 +4,10 @@
     {
       "id": "software_contracts",
       "status": "passed",
-      "reason": "50 implemented CPU tests, lint, build and clean base-package installation pass for the pinned source; GPU integration is recorded separately and physical validation remains unresolved.",
+      "reason": "52 CPU tests, lint, build and clean base-package installation pass for the recorded source. A six-stage short GPU workflow also completes; physical qualification remains unresolved.",
       "evidence": {
         "path": "docs/evidence/software-contracts.json",
-        "canonical_json_sha256": "be246531680b75c923039eb03d6fc5f2cf30d32d135afd8550bb76627249a198"
+        "canonical_json_sha256": "4e2561743db96141e897b6da58e6e873d696f947779bff5cd9398028927fccda"
       }
     },
     {
@@ -23,7 +23,7 @@
     {
       "id": "contact_convergence",
       "status": "failed",
-      "reason": "Extended to 0.3125 ms: finest-pair impulse differs 1.74%, minimum height 1.90 mm, and peak 20 ms force about 15.2%. A 500-iteration/1e-7 inner-solve control does not explain the larger timestep discrepancy. No converged operating envelope established; see docs/CONTACT_REFINEMENT.md."
+      "reason": "Timestep sensitivity persists without rigid feedback: prescribed-motion impulse is 63.61, 73.03 and 84.83 N s at 5, 2.5 and 1.25 ms. Adaptive coupling relaxation also fails to resolve sensitivity. See docs/CONTACT_ISOLATION.md."
     },
     {
       "id": "terrain_convergence",

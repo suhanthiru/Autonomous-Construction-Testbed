@@ -14,6 +14,7 @@ from excavation_sim.core import JointCommand
 from excavation_sim.provenance import environment_info, source_identity
 from excavation_sim.recording import EpisodeWriter
 from excavation_sim.sensors import ObservedWorld, SensorConfig
+from excavation_sim.validation import validation_snapshot
 
 
 class Session:
@@ -60,6 +61,7 @@ class Session:
                     "policy_kwargs": self.policy_kwargs,
                 },
                 "source": source_identity(Path.cwd()),
+                "validation_snapshot": validation_snapshot(Path.cwd()),
                 "environment": environment_info(),
                 "mode": "live inspection; no physical validation claim",
             },

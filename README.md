@@ -8,6 +8,8 @@ Start with the [install-to-report guide](docs/REPRODUCE.md). The complete refere
 workflow is `python scripts/run_release_workflow.py --output runs/reference-workflow`.
 It generates data, trains the baseline, evaluates frozen scenarios, and writes reports.
 
+For exact delivery boundaries, see [completion status](docs/COMPLETION_STATUS.md).
+
 ## Current status
 
 The simulator provides coupled soil and a four-joint machine, external policies and
@@ -17,7 +19,7 @@ passed the 0.5 kg deposit task on a frozen run without resetting soil: 0.512 kg 
 58.54 simulated seconds. The complete six-stage data/training/evaluation workflow
 finished with unchanged source. See the [executed release report](docs/evidence/release-v1/README.md).
 
-Software checks pass 50 tests, lint, package build and clean installation; GitHub CI
+Software checks pass 52 tests, lint, package build and clean installation; GitHub CI
 passes on Windows and Linux. Physical validation has **not** passed. Numerical force
 and terrain sensitivity and shared-tool repeatability remain explicit qualification
 limits; see the [validation status](docs/VALIDATION_STATUS.md).

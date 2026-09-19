@@ -6,7 +6,7 @@ The original completion contract remains in `../SCOPE.md`.
 
 | Deliverable | Executed evidence | Remaining qualification |
 |---|---|---|
-| Installation and software | Pinned full runtime, built wheel, clean install, 50 CPU tests; Windows/Linux CI passes | Other GPU/OS profiles untested |
+| Installation and software | Pinned full runtime, built wheel, clean install, 52 CPU tests; Windows/Linux CI passes | Other GPU/OS profiles untested |
 | Coupled tool and machine | Reusable MPM/rigid worlds and four controlled joints | Contact and terrain convergence fail |
 | Repeated excavation | Frozen two-cut run deposits 0.512 kg in 58.54 s, zero recorded escaped mass | Physical accounting and repeat reliability |
 | Policy/task extensions | External policy and task; interrupted action chunks recorded | New extensions need their own verification |

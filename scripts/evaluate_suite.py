@@ -11,6 +11,7 @@ from time import perf_counter
 from excavation_sim.evaluation import summarize_episode
 from excavation_sim.provenance import environment_info, fingerprint, source_identity
 from excavation_sim.scenarios import load_suite
+from excavation_sim.validation import require_passed_gates, validation_snapshot
 
 
 def render_report(directory, results):
@@ -71,6 +72,7 @@ def main():
     )
     parser.add_argument("--sensor-config", type=Path)
     parser.add_argument("--report-only", action="store_true")
+    parser.add_argument("--require-passed-gates", action="store_true")
     args = parser.parse_args()
     if args.report_only:
         report = json.loads((args.output / "results.json").read_text())
@@ -78,6 +80,9 @@ def main():
         return 0
     if args.actions < 1:
         raise ValueError("positive action budget required")
+    assessment = validation_snapshot(Path.cwd())
+    if args.require_passed_gates:
+        require_passed_gates(assessment)
     suite = load_suite(args.suite)
     args.output.mkdir(parents=True, exist_ok=False)
     source = source_identity(Path.cwd())
@@ -91,6 +96,7 @@ def main():
         artifacts.append(args.sensor_config)
     manifest = {
         "source": source,
+        "validation_snapshot": assessment,
         "environment": environment_info(),
         "split": args.split,
         "actions_per_episode": args.actions,
@@ -124,6 +130,8 @@ def main():
         ]
         if args.policy_kwargs:
             command += ["--policy-kwargs", str(args.policy_kwargs)]
+        if args.require_passed_gates:
+            command += ["--require-passed-gates"]
         if args.sensor_config:
             command += ["--sensor-config", str(args.sensor_config)]
         started = perf_counter()

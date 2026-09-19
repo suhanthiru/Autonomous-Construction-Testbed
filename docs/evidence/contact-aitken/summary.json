@@ -1,0 +1,26 @@
+[
+  {
+    "file": "dt-0.00125.json",
+    "canonical_json_sha256": "19785a6b18bbbae776937d4913a46e2688b409af97f075f08a71cd5fa82f98ba",
+    "dt_s": 0.00125,
+    "total_impulse_n_s": 12.826582334947458,
+    "peak_20ms_mean_n": 54.39216770039366,
+    "min_height_m": 0.19673369824886322
+  },
+  {
+    "file": "dt-0.0025.json",
+    "canonical_json_sha256": "543a28be5cd300e27a0f74178d7c7a156e3861d0fa10c597661d33f84158b286",
+    "dt_s": 0.0025,
+    "total_impulse_n_s": 11.235443729873218,
+    "peak_20ms_mean_n": 46.676060574827716,
+    "min_height_m": 0.18537941575050354
+  },
+  {
+    "file": "dt-0.005.json",
+    "canonical_json_sha256": "994a80d861159a3c8d57afa8871d3044ca31e439e20add61b0d30987c4c001e5",
+    "dt_s": 0.005,
+    "total_impulse_n_s": 10.508984632483026,
+    "peak_20ms_mean_n": 39.46939505970339,
+    "min_height_m": 0.1792854517698288
+  }
+]
