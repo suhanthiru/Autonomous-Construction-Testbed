@@ -1,0 +1,104 @@
+{
+  "snapshot": {
+    "base_revision": "66f28c3eb933ddd3a3dea883732649e7413ef602",
+    "changes": [
+      "diagnostic interpolation, grid, rebuild, warm-start and rigid translation controls",
+      "existing workspace kernel cache"
+    ],
+    "imports": "snapshot/src; excludes concurrent implementation work"
+  },
+  "encoding": "gzip-compressed JSON; hashes apply to canonical decompressed content",
+  "cases": [
+    {
+      "file": "aligned-50000.json.gz",
+      "canonical_json_sha256": "d944fc676770d0bdb749cae6bf4f2d6b147236d32f76331871158c2fd83ba3f2",
+      "world_offset_m": [
+        0.02,
+        0.02,
+        0.02
+      ],
+      "mpm": {
+        "iterations": 50000,
+        "tolerance": 1e-05,
+        "solver_diagnostics": true,
+        "voxel_m": 0.04,
+        "spacing_m": 0.02,
+        "grid_margin_m": 0.0,
+        "grid_padding_cells": 0,
+        "particle_count": 4000,
+        "air_drag": 1.0,
+        "friction": 0.6,
+        "young_modulus_pa": 1000000000000000.0,
+        "poisson_ratio": 0.3,
+        "integration_scheme": "pic",
+        "grid_type": "sparse",
+        "max_active_cells": 16384,
+        "resolved_sparse_rebuildable": true,
+        "requested_warmstart": "auto",
+        "resolved_stress_warmstart": "particles",
+        "sparse_capacity_checked_each_step": true
+      },
+      "solver_health": {
+        "steps": 240,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "total_vertical_impulse_n_s": 66.41735058602386,
+      "peak_20ms_mean_n": 803.1284326729993,
+      "source_changed": false,
+      "wall_time_s": 21.07678339999984
+    },
+    {
+      "file": "unshifted-50000.json.gz",
+      "canonical_json_sha256": "4048d73d06dbadac338f3e98c550647510c7c7705a8a24563fadc2eaf709a29d",
+      "world_offset_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mpm": {
+        "iterations": 50000,
+        "tolerance": 1e-05,
+        "solver_diagnostics": true,
+        "voxel_m": 0.04,
+        "spacing_m": 0.02,
+        "grid_margin_m": 0.0,
+        "grid_padding_cells": 0,
+        "particle_count": 4000,
+        "air_drag": 1.0,
+        "friction": 0.6,
+        "young_modulus_pa": 1000000000000000.0,
+        "poisson_ratio": 0.3,
+        "integration_scheme": "pic",
+        "grid_type": "sparse",
+        "max_active_cells": 16384,
+        "resolved_sparse_rebuildable": true,
+        "requested_warmstart": "auto",
+        "resolved_stress_warmstart": "particles",
+        "sparse_capacity_checked_each_step": true
+      },
+      "solver_health": {
+        "steps": 240,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "total_vertical_impulse_n_s": 62.18689387120603,
+      "peak_20ms_mean_n": 645.3646367185283,
+      "source_changed": false,
+      "wall_time_s": 40.5513132000051
+    }
+  ],
+  "fixed_reference": "../contact-inner-converged/dt-0.005.json.gz",
+  "aligned_relative_impulse_difference": 0.0031841052322538754,
+  "aligned_relative_peak_difference": -0.014645819032265917,
+  "aligned_mean_final_particle_displacement_difference_m": 0.0001197324191150563,
+  "aligned_max_final_particle_displacement_difference_m": 0.0009877776602976907,
+  "capacity_control_particle_positions_identical": true,
+  "capacity_control_impulses_identical": true,
+  "assessment": "Alignment explains much of the fixed/sparse discrepancy in this fixture. Residual differences remain; no grid equivalence or physical qualification claimed.",
+  "physical_validation": false
+}

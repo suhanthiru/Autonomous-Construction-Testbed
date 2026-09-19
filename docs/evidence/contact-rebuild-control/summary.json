@@ -1,0 +1,45 @@
+{
+  "file": "dt-0.005.json.gz",
+  "canonical_json_sha256": "c5342942a943e26d9ffe5e14bc58a7e1a9399a9f11c4475a01caf95b5152fb87",
+  "snapshot": {
+    "base_revision": "66f28c3eb933ddd3a3dea883732649e7413ef602",
+    "changes": [
+      "diagnostic integration, grid, rebuildability and warm-start selectors",
+      "per-step sparse-capacity check and resolved settings",
+      "existing workspace kernel cache"
+    ],
+    "imports": "snapshot/src; excludes concurrent implementation work"
+  },
+  "encoding": "gzip-compressed JSON; hash applies to canonical decompressed content",
+  "mpm": {
+    "iterations": 20000,
+    "tolerance": 1e-05,
+    "solver_diagnostics": true,
+    "voxel_m": 0.04,
+    "spacing_m": 0.02,
+    "grid_margin_m": 0.0,
+    "grid_padding_cells": 0,
+    "particle_count": 4000,
+    "air_drag": 1.0,
+    "friction": 0.6,
+    "young_modulus_pa": 1000000000000000.0,
+    "poisson_ratio": 0.3,
+    "integration_scheme": "pic",
+    "grid_type": "sparse",
+    "max_active_cells": 262144,
+    "resolved_sparse_rebuildable": true,
+    "requested_warmstart": "auto",
+    "resolved_stress_warmstart": "particles",
+    "sparse_capacity_checked_each_step": true
+  },
+  "solver_health": {
+    "steps": 240,
+    "nonfinite_residual_steps": 0,
+    "outside_tolerance_steps": 0,
+    "at_iteration_limit_steps": 0,
+    "passed": true
+  },
+  "total_vertical_impulse_n_s": 62.18689387120603,
+  "peak_20ms_mean_n": 645.3646367185283,
+  "assessment": "Rebuild path activated and capacity checked each step; no physical qualification or fixed-grid equivalence established."
+}

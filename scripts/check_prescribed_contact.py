@@ -21,13 +21,19 @@ from excavation_sim.provenance import environment_info, source_identity
 
 def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         iterations=100, tolerance=1e-5, solver_diagnostics=False, integration_scheme="pic",
-        grid_type="fixed", max_active_cells=1 << 18):
+        grid_type="fixed", max_active_cells=1 << 18, rebuildable_sparse=False,
+        warmstart_mode="auto", world_offset=(0.0, 0.0, 0.0), progress=None):
+    if rebuildable_sparse and grid_type != "sparse":
+        raise ValueError("rebuildable sparse requires the sparse grid")
+    if len(world_offset) != 3 or not all(isfinite(v) for v in world_offset):
+        raise ValueError("world offset must contain three finite coordinates")
+    ox, oy, oz = world_offset
     steps = ticks_per_update(dt, 1.2)
     ticks_per_update(dt, 0.02)
     builder = newton.ModelBuilder()
     SolverImplicitMPM.register_custom_attributes(builder)
     body = builder.add_body(
-        is_kinematic=True, xform=wp.transform(wp.vec3(0, 0, 0.35), wp.quat_identity())
+        is_kinematic=True, xform=wp.transform(wp.vec3(ox, oy, 0.35 + oz), wp.quat_identity())
     )
     builder.add_shape_box(
         body,
@@ -36,10 +42,10 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         hz=0.04,
         cfg=newton.ModelBuilder.ShapeConfig(density=0, mu=0.5),
     )
-    builder.add_ground_plane()
+    builder.add_ground_plane(height=oz)
     dims = [ticks_per_update(spacing, extent) for extent in (0.4, 0.4, 0.2)]
     builder.add_particle_grid(
-        pos=wp.vec3(-0.2 + spacing / 2, -0.2 + spacing / 2, spacing / 2),
+        pos=wp.vec3(-0.2 + spacing / 2 + ox, -0.2 + spacing / 2 + oy, spacing / 2 + oz),
         rot=wp.quat_identity(),
         vel=wp.vec3(0),
         dim_x=dims[0],
@@ -57,7 +63,7 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
     cfg = SolverImplicitMPM.Config()
     cfg.voxel_size = voxel
     cfg.grid_type = grid_type
-    cfg.grid_padding = ceil(0.4 / voxel)
+    cfg.grid_padding = 0 if rebuildable_sparse else ceil(0.4 / voxel)
     cfg.max_active_cell_count = max_active_cells
     cfg.max_iterations = iterations
     cfg.tolerance = tolerance
@@ -65,15 +71,18 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
     cfg.strain_basis = "P0"
     cfg.critical_fraction = 0.0
     cfg.integration_scheme = integration_scheme
+    cfg.warmstart_mode = warmstart_mode
     solver = SolverImplicitMPM(model, cfg, verbose=solver_diagnostics)
+    if rebuildable_sparse and not solver._sparse_rebuildable:
+        raise RuntimeError("requested rebuildable sparse path was not activated")
     state, output = model.state(), model.state()
     solver.setup_collider(body_mass=wp.zeros_like(model.body_mass), body_q=state.body_q)
     trace = []
     for tick in range(steps):
         time = tick * dt
-        z = 0.35 - 0.3 * min(time, 0.8) + 0.3 * max(time - 0.8, 0)
+        z = 0.35 - 0.3 * min(time, 0.8) + 0.3 * max(time - 0.8, 0) + oz
         velocity = -0.3 if time < 0.8 else 0.3
-        state.body_q.assign(np.array([[0, 0, z, 0, 0, 0, 1]], dtype=np.float32))
+        state.body_q.assign(np.array([[ox, oy, z, 0, 0, 0, 1]], dtype=np.float32))
         state.body_qd.assign(np.array([[0, 0, velocity, 0, 0, 0]], dtype=np.float32))
         diagnostic = ""
         if solver_diagnostics:
@@ -86,6 +95,8 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         else:
             solver.step(state, output, None, None, dt)
         state, output = output, state
+        if solver._sparse_rebuildable:
+            solver.check_sparse_grid_rebuild_status()
         impulses, _, ids = solver.collect_collider_impulses(state)
         indices = ids.numpy()
         mapping = solver.collider_body_index.numpy()
@@ -105,6 +116,8 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
                 "solver_diagnostic": diagnostic,
             }
         )
+        if progress is not None:
+            progress(tick + 1, steps)
     force = windowed_force([row["impulse_n_s"][2] for row in trace], dt, 0.02)
     residuals = []
     if solver_diagnostics:
@@ -121,6 +134,7 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
     return {
         "dt_s": dt,
         "duration_s": steps * dt,
+        "world_offset_m": list(world_offset),
         "boundary": "kinematic prescribed box, zero rotation; no actuator or proxy feedback",
         "mpm": {
             "iterations": iterations,
@@ -128,7 +142,7 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
             "solver_diagnostics": solver_diagnostics,
             "voxel_m": voxel,
             "spacing_m": spacing,
-            "grid_margin_m": 0.4,
+            "grid_margin_m": 0.0 if rebuildable_sparse else 0.4,
             "grid_padding_cells": cfg.grid_padding,
             "particle_count": model.particle_count,
             "air_drag": air_drag,
@@ -138,6 +152,10 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
             "integration_scheme": integration_scheme,
             "grid_type": grid_type,
             "max_active_cells": max_active_cells,
+            "resolved_sparse_rebuildable": solver._sparse_rebuildable,
+            "requested_warmstart": warmstart_mode,
+            "resolved_stress_warmstart": solver._stress_warmstart or "none",
+            "sparse_capacity_checked_each_step": solver._sparse_rebuildable,
         },
         "peak_20ms_mean_n": max(force),
         "total_vertical_impulse_n_s": sum(row["impulse_n_s"][2] for row in trace),
@@ -169,6 +187,12 @@ def main():
     parser.add_argument("--integration-scheme", choices=("pic", "gimp"), default="pic")
     parser.add_argument("--grid-type", choices=("fixed", "sparse"), default="fixed")
     parser.add_argument("--max-active-cells", type=int, default=1 << 18)
+    parser.add_argument("--rebuildable-sparse", action="store_true")
+    parser.add_argument("--warmstart-mode", choices=("auto", "none", "particles", "grid"),
+                        default="auto")
+    parser.add_argument("--world-offset", nargs=3, type=float, default=(0.0, 0.0, 0.0))
+    parser.add_argument("--progress-every", type=int, default=0,
+                        help="Print progress every N physics steps; zero disables progress")
     parser.add_argument("--zero-initial-stress-delta", action="store_true",
                         help="Diagnostic only: zero borrowed Newton stress-delta scratch storage")
     args = parser.parse_args()
@@ -176,6 +200,14 @@ def main():
         parser.error("timesteps must be distinct")
     if args.max_active_cells <= 0:
         parser.error("active-cell capacity must be positive")
+    if args.rebuildable_sparse and args.grid_type != "sparse":
+        parser.error("--rebuildable-sparse requires --grid-type sparse")
+    if args.rebuildable_sparse and args.warmstart_mode == "grid":
+        parser.error("rebuildable sparse does not support grid warm starts")
+    if not all(isfinite(v) for v in args.world_offset):
+        parser.error("world offset must be finite")
+    if args.progress_every < 0:
+        parser.error("progress interval must be nonnegative")
     if not all(isfinite(v) and v > 0 for v in (args.voxel, args.spacing)):
         parser.error("spatial sizes must be finite and positive")
     if not isfinite(args.air_drag) or args.air_drag < 0:
@@ -209,10 +241,19 @@ def main():
     with wp.ScopedDevice("cuda:0"):
         for dt in args.dt:
             started = perf_counter()
+
+            def progress(tick, steps, case_dt=dt, case_started=started):
+                if args.progress_every and (tick % args.progress_every == 0 or tick == steps):
+                    print({"dt_s": case_dt, "completed_steps": tick, "total_steps": steps,
+                           "wall_time_s": perf_counter() - case_started, "terminal": False},
+                          flush=True)
+
             try:
                 record = run(dt, args.voxel, args.spacing, args.air_drag, args.young_modulus,
                              args.iterations, args.tolerance, args.solver_diagnostics,
-                             args.integration_scheme, args.grid_type, args.max_active_cells)
+                             args.integration_scheme, args.grid_type, args.max_active_cells,
+                             args.rebuildable_sparse, args.warmstart_mode, args.world_offset,
+                             progress if args.progress_every else None)
             except Exception as error:
                 (args.output / "failure.json").write_text(
                     json.dumps(
