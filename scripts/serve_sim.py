@@ -13,6 +13,7 @@ from excavation_sim.backends.newton_tool import ToolWorldConfig
 from excavation_sim.core import JointCommand
 from excavation_sim.provenance import environment_info, source_identity
 from excavation_sim.recording import EpisodeWriter
+from excavation_sim.sensors import ObservedWorld, SensorConfig
 
 
 class Session:
@@ -20,11 +21,19 @@ class Session:
         self.args = args
         args.output.mkdir(parents=True, exist_ok=False)
         self.config = ToolWorldConfig(**json.loads(args.world_config.read_text()))
-        self.world = NewtonExcavatorWorld(self.config)
+        self.sensor_config = (
+            SensorConfig(**json.loads(args.sensor_config.read_text()))
+            if args.sensor_config
+            else SensorConfig(surface_enabled=True, sample_every_actions=5)
+        )
+        self.world = ObservedWorld(NewtonExcavatorWorld(self.config), self.sensor_config)
         spec = importlib.util.spec_from_file_location("live_policy", args.policy)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
-        self.policy = module.ExcavatorPolicy()
+        self.policy_kwargs = (
+            json.loads(args.policy_kwargs.read_text()) if args.policy_kwargs else {}
+        )
+        self.policy = module.ExcavatorPolicy(**self.policy_kwargs)
         self.writer = None
         self.episode = -1
         self.reset(0)
@@ -44,11 +53,19 @@ class Session:
                 "seed": seed,
                 "backend": asdict(self.world.info),
                 "clock": asdict(self.world.clock),
-                "config": asdict(self.config),
+                "config": {
+                    "world": asdict(self.config),
+                    "sensors": asdict(self.sensor_config),
+                    "policy_path": str(self.args.policy),
+                    "policy_kwargs": self.policy_kwargs,
+                },
                 "source": source_identity(Path.cwd()),
                 "environment": environment_info(),
                 "mode": "live inspection; no physical validation claim",
             },
+        )
+        (self.writer.directory / "runtime-model.json").write_text(
+            json.dumps(self.world.runtime_metadata(), indent=2)
         )
         return self.snapshot()
 
@@ -59,6 +76,7 @@ class Session:
                 "observation": asdict(self.observation),
                 "bodies": state["body_poses"].tolist(),
                 "particles": state["particles"][::16].tolist(),
+                "diagnostics": asdict(self.world.diagnostics()),
             },
             "shapes": state["shapes"],
             "episode": self.episode,
@@ -71,7 +89,13 @@ class Session:
         try:
             after = self.world.step(action)
             diagnostics = self.world.diagnostics()
-            self.writer.append(self.observation, action, after, diagnostics)
+            self.writer.append(
+                self.observation,
+                action,
+                after,
+                diagnostics,
+                raw_soil_force_n=self.world.evaluation_observation().soil_force_n,
+            )
             if diagnostics.escaped_mass_kg > 0:
                 raise RuntimeError("material left supported domain")
             self.observation = after
@@ -175,7 +199,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--world-config", type=Path, default=Path("configs/machine-development.json")
     )
-    parser.add_argument("--policy", type=Path, default=Path("experiments/excavator_scripted.py"))
+    parser.add_argument("--policy", type=Path, default=Path("experiments/excavator_edge_cut.py"))
+    parser.add_argument("--policy-kwargs", type=Path, default=Path("configs/policy-repeat.json"))
+    parser.add_argument("--sensor-config", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--port", type=int, default=8766)
     main(parser.parse_args())

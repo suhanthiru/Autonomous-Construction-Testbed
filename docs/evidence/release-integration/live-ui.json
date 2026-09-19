@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "step advances clock",
+    "reset starts a new recorded episode",
+    "manual slew command moves slew joint",
+    "terrain layer visible with particle truth hidden",
+    "clean shutdown preserves outcomes"
+  ],
+  "manual_episode": {
+    "last_tick": 40,
+    "reason": "live session stopped",
+    "status": "interrupted"
+  },
+  "claim": "Manual UI and recording integration check; no physical validation claim"
+}

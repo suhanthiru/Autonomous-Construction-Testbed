@@ -122,8 +122,6 @@ def main():
         task=task,
     )
     (args.output / "performance.json").write_text(json.dumps(result, indent=2))
-    if hasattr(policy, "events"):
-        (args.output / "policy-events.json").write_text(json.dumps(policy.events, indent=2))
     if inspection is not None:
         inspection.write(args.output / "inspection.html")
     print(json.dumps(result, indent=2))

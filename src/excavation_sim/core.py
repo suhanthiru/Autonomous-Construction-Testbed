@@ -11,6 +11,10 @@ from excavation_sim.surface import SurfacePacket
 class Capability(StrEnum):
     GRANULAR_SOIL = "granular_soil"
     REACTION_WRENCH = "reaction_wrench"
+    REACTION_FORCE = "reaction_force"
+    SURFACE_OBSERVATION = "surface_observation"
+    DYNAMIC_OBSTACLE = "dynamic_obstacle"
+    ANCHORED_OBSTACLE = "anchored_obstacle"
     DYNAMIC_TOOL = "dynamic_tool"
     MOTION_REPLAY = "motion_replay"
     COMMAND_REPLAY = "command_replay"
@@ -76,7 +80,12 @@ class JointCommand:
 
 @dataclass(frozen=True)
 class Observation:
-    """Declared ideal sensor packet; never contains hidden material parameters."""
+    """Policy sensor packet; never contains hidden material parameters.
+
+    Positions name the tool body origin. Linear velocity is that body's center-of-mass
+    velocity in world coordinates (Newton convention), not the derivative of the origin
+    position when the COM is offset. Soil force is world-frame generated reaction force.
+    """
 
     tick: int
     time_s: float

@@ -4,10 +4,10 @@
     {
       "id": "software_contracts",
       "status": "passed",
-      "reason": "44 implemented CPU tests, lint, build and clean base-package installation pass for the pinned source; excludes GPU and physical validation.",
+      "reason": "50 implemented CPU tests, lint, build and clean base-package installation pass for the pinned source; GPU integration is recorded separately and physical validation remains unresolved.",
       "evidence": {
         "path": "docs/evidence/software-contracts.json",
-        "canonical_json_sha256": "56843e9658312dfc98793a201f076259d854f59bbc2baaf28c1b593b8e85cac9"
+        "canonical_json_sha256": "41758b0a20b8f0ce56f459ed535e2a68cf7e90cc63cdeb51d51d35d6ae22c7c1"
       }
     },
     {
@@ -53,7 +53,7 @@
     {
       "id": "repeated_excavation",
       "status": "not_assessed",
-      "reason": "Repeated scoop/deposit sequence is not implemented."
+      "reason": "Two cuts without soil reset pass the 0.5 kg deposit task in development; frozen replay and broader repeated-cycle physical accounting remain separate assessments."
     },
     {
       "id": "machine_actuation",

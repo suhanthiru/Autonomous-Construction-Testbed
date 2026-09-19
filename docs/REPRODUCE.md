@@ -29,6 +29,8 @@ All result directories must be new, so previous evidence cannot be silently over
 
 Open `http://127.0.0.1:8766/`. Step or play the simulation, select manual joint controls,
 reset to a new recorded episode, and use Stop session to preserve and close the run.
+The default policy repeats the edge-cut sequence. The terrain layer shows the masked
+height sensor; the live status includes deposited mass.
 Drag the view to orbit and scroll to zoom. The viewer is a privileged inspection tool;
 its particle truth and collision shapes are not policy observations.
 
@@ -104,7 +106,7 @@ not tuning data. A changed suite requires a new version and new reports.
 
 The buried rigid box conditions are original bench-scale approximations, with explicit
 dynamic and anchored variants. Soil is removed from their initial volume. Runtime model
-metadata records generated masses, inertias, initial transforms and the audit envelope.
+metadata records generated masses, inertias, captured transforms with their tick and the audit envelope.
 These conditions do not represent fractured rock or validated soil/rock behavior.
 
 ```powershell

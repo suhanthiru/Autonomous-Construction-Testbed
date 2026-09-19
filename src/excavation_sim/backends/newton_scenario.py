@@ -7,6 +7,7 @@ import warp as wp
 
 from excavation_sim.backends.newton_excavator import NewtonExcavatorWorld
 from excavation_sim.backends.newton_tool import ToolWorldConfig
+from excavation_sim.core import Capability
 from excavation_sim.scenarios import Scenario, particle_positions
 
 
@@ -19,6 +20,14 @@ class NewtonScenarioWorld(NewtonExcavatorWorld):
                 soil_friction=scenario.friction,
                 soil_density_kg_m3=scenario.density_kg_m3,
             )
+        )
+        capabilities = self.info.capabilities
+        if scenario.obstacle == "dynamic":
+            capabilities |= {Capability.DYNAMIC_OBSTACLE}
+        elif scenario.obstacle == "anchored":
+            capabilities |= {Capability.ANCHORED_OBSTACLE}
+        self.info = replace(
+            self.info, name="newton-scenario-excavator", capabilities=frozenset(capabilities)
         )
 
     def reset(self, seed):

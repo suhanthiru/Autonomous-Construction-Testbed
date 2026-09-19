@@ -67,6 +67,7 @@ def train(episodes, output, ridge, suite_path=None):
     started = perf_counter()
     xs, ys, inputs = [], [], []
     seen = set()
+    seen_transitions = set()
     suite = load_suite(suite_path) if suite_path else None
     for directory in episodes:
         directory = directory.resolve()
@@ -76,18 +77,18 @@ def train(episodes, output, ridge, suite_path=None):
         packed = (directory / "index.json").exists()
         if packed:
             path = directory / "index.json"
-            manifest = json.loads(path.read_text())["source_manifest"]
+            index = json.loads(path.read_text())
+            manifest = index["source_manifest"]
+            transition_hash = index["source_transitions_sha256"]
             rows = ((row["observation"], row["command"]) for row in iter_records(directory))
         else:
             outcome = json.loads((directory / "outcome.json").read_text())
             if outcome["status"] != "completed":
                 raise ValueError("failed or interrupted simulation cannot supply demonstrations")
             path = directory / "transitions.jsonl"
+            transition_hash = hashlib.sha256(path.read_bytes()).hexdigest()
             manifest = json.loads((directory / "manifest.json").read_text())
-            rows = (
-                (row.observation, asdict(row.command))
-                for row in load_episode(directory)
-            )
+            rows = ((row.observation, asdict(row.command)) for row in load_episode(directory))
         if suite:
             config = manifest["config"]
             if (
@@ -97,6 +98,9 @@ def train(episodes, output, ridge, suite_path=None):
             ):
                 raise ValueError("demonstration is not in the frozen training split")
         raw = path.read_bytes()
+        if transition_hash in seen_transitions:
+            raise ValueError("duplicate transition data in training inputs")
+        seen_transitions.add(transition_hash)
         count = 0
         for observation, command in rows:
             xs.append(features(observation))
@@ -112,6 +116,7 @@ def train(episodes, output, ridge, suite_path=None):
                 "episode": str(directory),
                 "transitions": count,
                 "sha256": hashlib.sha256(raw).hexdigest(),
+                "transitions_sha256": transition_hash,
             }
         )
     if not xs:

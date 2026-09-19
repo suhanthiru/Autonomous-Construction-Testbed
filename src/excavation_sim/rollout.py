@@ -52,7 +52,8 @@ def rollout(
         observation = world.reset(seed)
         if hasattr(world, "runtime_metadata"):
             (directory / "runtime-model.json").write_text(
-                json.dumps(world.runtime_metadata(), indent=2), encoding="utf-8")
+                json.dumps(world.runtime_metadata(), indent=2), encoding="utf-8"
+            )
         policy.reset(seed)
         if task is not None:
             task.reset()
@@ -69,8 +70,14 @@ def rollout(
             )
             if task is not None:
                 task_result = task.evaluate(evaluation, diagnostics)
-            writer.append(observation, command, after, diagnostics, task_result,
-                          raw_soil_force_n=evaluation.soil_force_n)
+            writer.append(
+                observation,
+                command,
+                after,
+                diagnostics,
+                task_result,
+                raw_soil_force_n=evaluation.soil_force_n,
+            )
             completed += 1
             if not diagnostics.finite:
                 raise RuntimeError("nonfinite world diagnostics")
@@ -103,3 +110,7 @@ def rollout(
         raise
     finally:
         world.close()
+        if hasattr(policy, "events"):
+            (directory / "policy-events.json").write_text(
+                json.dumps(policy.events, indent=2), encoding="utf-8"
+            )

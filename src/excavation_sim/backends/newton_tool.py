@@ -45,6 +45,8 @@ class ToolWorldConfig:
     velocity_limit_m_s: float = 0.3
 
     def __post_init__(self):
+        if type(self.with_soil) is not bool:
+            raise ValueError("with_soil must be boolean")
         if any(
             type(v) is not int or v < 1
             for v in (self.mpm_iterations, self.coupling_iterations, self.max_active_cells)
@@ -108,7 +110,14 @@ class NewtonToolWorld:
     info = BackendInfo(
         "newton-tool",
         "0.1",
-        frozenset({Capability.GRANULAR_SOIL, Capability.REACTION_WRENCH, Capability.DYNAMIC_TOOL}),
+        frozenset(
+            {
+                Capability.GRANULAR_SOIL,
+                Capability.REACTION_FORCE,
+                Capability.DYNAMIC_TOOL,
+                Capability.SURFACE_OBSERVATION,
+            }
+        ),
         (
             "Experimental lagged coupling; force convergence unresolved",
             "One box tool, no excavator or bucket",
@@ -409,7 +418,8 @@ class NewtonToolWorld:
             "body_mass_kg": self.model.body_mass.numpy().tolist(),
             "body_inertia_kg_m2": self.model.body_inertia.numpy().tolist(),
             "body_com_m": self.model.body_com.numpy().tolist(),
-            "initial_body_poses_xyzw": self.state.body_q.numpy().tolist(),
+            "capture_tick": self.tick,
+            "body_poses_xyzw": self.state.body_q.numpy().tolist(),
             "particle_count": self.model.particle_count,
             "particle_mass_kg": self.soil_mass,
             "audit_lower_m": list(self._audit_lower),

@@ -74,7 +74,14 @@ class NewtonExcavatorWorld(NewtonToolWorld):
     info = BackendInfo(
         "newton-excavator",
         "0.1",
-        frozenset({Capability.GRANULAR_SOIL, Capability.REACTION_WRENCH, Capability.DYNAMIC_TOOL}),
+        frozenset(
+            {
+                Capability.GRANULAR_SOIL,
+                Capability.REACTION_FORCE,
+                Capability.DYNAMIC_TOOL,
+                Capability.SURFACE_OBSERVATION,
+            }
+        ),
         (
             "Procedural bench-scale machine; not physically validated",
             "Experimental lagged coupling",
@@ -152,6 +159,20 @@ class NewtonExcavatorWorld(NewtonToolWorld):
             deposited_mass_kg=float(values[1]),
             positive_actuator_work_j=self._positive_work,
         )
+
+    def runtime_metadata(self):
+        return {
+            **super().runtime_metadata(),
+            "machine_asset": "procedural-excavator-v2",
+            "joint_order": ["slew", "boom", "stick", "bucket"],
+            "joint_lower_limits_rad": list(self.asset.lower_limits_rad),
+            "joint_upper_limits_rad": list(self.asset.upper_limits_rad),
+            "effort_limits_nm": list(self.asset.effort_limits_nm),
+            "commanded_velocity_limit_rad_s": 0.6,
+            "actuator_response_time_s": 0.05,
+            "actuator_update_dt_s": self.clock.dt_s,
+            "controller": "PD velocity-target tracking with self-weight gravity compensation",
+        }
 
     def _update_material_metrics(self):
         self._material_metrics.zero_()
