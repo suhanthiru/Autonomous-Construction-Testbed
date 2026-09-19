@@ -56,4 +56,16 @@ finite numbers only). Raw records include per-step solver output and reaction
 impulses, final particles, source hashes, environment and resolved settings.
 The compressed records were decoded and checked against the original results.
 
+To audit the saved evidence without Newton, Warp or a GPU, run:
+
+```powershell
+python docs/evidence/contact-spatial-refinement/reproduce.py
+```
+
+This standard-library checker verifies canonical hashes, trajectory duration and
+timestamps, recomputes impulse and 20 ms mean peaks, and reconstructs solver-health
+counts from per-step diagnostics. It reports the retained failed run as failed.
+Its successful exit indicates evidence integrity only, not numerical convergence
+or physical validation. An invalid checksum is rejected.
+
 No physical acceptance threshold is introduced or passed by this study.
