@@ -35,11 +35,18 @@ class InspectionRecorder:
 
     def write(self, output: Path):
         template = Path(__file__).with_name("inspection.html").read_text(encoding="utf-8")
-        data = json.dumps(
-            {"frames": self.frames, "particle_stride": self.stride, "shapes": self.shapes,
-             "frame_interval_s": self.frame_interval_s},
-            allow_nan=False,
-            separators=(",", ":"),
-        )
+        frames = self.frames
+        while True:
+            data = json.dumps(
+                {"frames": frames, "particle_stride": self.stride, "shapes": self.shapes,
+                 "frame_interval_s": self.frame_interval_s,
+                 "display_frames_decimated": len(frames) != len(self.frames)},
+                allow_nan=False, separators=(",", ":"))
+            if len(data.encode("utf-8")) <= 8_000_000 or len(frames) <= 2:
+                break
+            retained = frames[::2]
+            if retained[-1] is not frames[-1]:
+                retained.append(frames[-1])
+            frames = retained
         with output.open("x", encoding="utf-8") as stream:
             stream.write(template.replace("__EPISODE_DATA__", data.replace("<", "\\u003c")))

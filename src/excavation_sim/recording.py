@@ -25,6 +25,7 @@ class EpisodeWriter:
         after: Observation,
         diagnostics: Diagnostics,
         task_result: Any = None,
+        raw_soil_force_n=None,
     ) -> None:
         if self._closed:
             raise RuntimeError("episode is closed")
@@ -41,7 +42,8 @@ class EpisodeWriter:
             }
         )
         evaluation = canonical_json(
-            {"tick": after.tick, "diagnostics": diagnostics, "task": task_result}
+            {"tick": after.tick, "diagnostics": diagnostics, "task": task_result,
+             **({"raw_soil_force_n": raw_soil_force_n} if raw_soil_force_n is not None else {})}
         )
         self._transitions.write(transition + "\n")
         self._evaluation.write(evaluation + "\n")

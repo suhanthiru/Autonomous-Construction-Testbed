@@ -23,13 +23,16 @@ def blend(a, b, alpha):
 
 
 class ExcavatorPolicy:
+    def __init__(self, repeat=False):
+        self.repeat = repeat
+
     def reset(self, seed):
         self.seed = seed
 
     def act(self, observation):
         if not observation.sensor_valid:
             return JointCommand((0.0, 0.0, 0.0, 0.0))
-        t = observation.time_s
+        t = observation.time_s % 34.0 if self.repeat else observation.time_s
         waypoints = [
             (0.0, (0.008, 0.374, 0.0, 0.0)),
             (3.0, (-0.18, 0.28, 0.0, 0.0)),
@@ -41,6 +44,8 @@ class ExcavatorPolicy:
             (25.0, (0.0, 0.40, 0.7, 0.6)),
             (27.0, (0.0, 0.40, 0.7, 0.6)),
         ]
+        if self.repeat:
+            waypoints.append((34.0, (0.008, 0.374, 0.0, 0.0)))
         pose = waypoints[-1][1]
         for (ta, a), (tb, b) in zip(waypoints, waypoints[1:], strict=False):
             if ta <= t <= tb:

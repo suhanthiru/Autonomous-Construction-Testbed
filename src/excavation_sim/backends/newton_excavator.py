@@ -107,8 +107,8 @@ class NewtonExcavatorWorld(NewtonToolWorld):
         observation = super()._observation()
         return replace(
             observation,
-            joint_position_rad=tuple(map(float, self.state.joint_q.numpy())),
-            joint_velocity_rad_s=tuple(map(float, self.state.joint_qd.numpy())),
+            joint_position_rad=tuple(map(float, self.state.joint_q.numpy()[:4])),
+            joint_velocity_rad_s=tuple(map(float, self.state.joint_qd.numpy()[:4])),
         )
 
     def _command_forces(self, command: JointCommand):
@@ -117,7 +117,7 @@ class NewtonExcavatorWorld(NewtonToolWorld):
         return np.zeros((self.model.body_count, 6), dtype=np.float32)
 
     def _substep_forces(self, command, buffer):
-        q, qd = self.state.joint_q.numpy(), self.state.joint_qd.numpy()
+        q, qd = self.state.joint_q.numpy()[:4], self.state.joint_qd.numpy()[:4]
         requested_velocity = np.asarray(command.velocity_targets) * 0.6
         self._target_q = np.clip(
             self._target_q + requested_velocity * self.clock.dt_s,
@@ -132,7 +132,9 @@ class NewtonExcavatorWorld(NewtonToolWorld):
         alpha = 1 - np.exp(-self.clock.dt_s / 0.05)
         self._torque += alpha * (desired - self._torque)
         self._positive_work += float(np.maximum(self._torque * qd, 0).sum()) * self.clock.dt_s
-        self.control.joint_f.assign(self._torque.astype(np.float32))
+        efforts = np.zeros(self.model.joint_dof_count, dtype=np.float32)
+        efforts[:4] = self._torque
+        self.control.joint_f.assign(efforts)
         self._actuator = np.zeros(3)
         return np.zeros((self.model.body_count, 6), dtype=np.float32)
 

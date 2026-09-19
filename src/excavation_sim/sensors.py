@@ -131,5 +131,8 @@ class ObservedWorld:
     def inspection_state(self):
         return self.world.inspection_state()
 
+    def runtime_metadata(self):
+        return self.world.runtime_metadata()
+
     def close(self):
         self.world.close()

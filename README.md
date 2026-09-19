@@ -4,6 +4,10 @@ A modular research testbed for excavation and interaction with changing terrain.
 Experiments use a versioned simulator, declared observations and actions, and independent
 evaluation. Physics claims are tied to measured evidence and a stated operating range.
 
+Start with the [install-to-report guide](docs/REPRODUCE.md). The complete reference
+workflow is `python scripts/run_release_workflow.py --output runs/reference-workflow`.
+It generates data, trains the baseline, evaluates frozen scenarios, and writes reports.
+
 ## Current status
 
 Implementation in progress: reusable coupled worlds, articulated machine prototype,

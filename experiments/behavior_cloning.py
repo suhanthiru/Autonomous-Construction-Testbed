@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+from dataclasses import asdict
 from pathlib import Path
 from time import perf_counter
 
@@ -10,15 +11,15 @@ import numpy as np
 
 from excavation_sim.core import JointCommand
 from excavation_sim.episodes import load_episode
+from excavation_sim.packed import iter_records
 from excavation_sim.provenance import environment_info, source_identity
+from excavation_sim.scenarios import load_suite
 
 FEATURE_SCHEMA = "joint-reactive-v1:time,position3,velocity3,force3,joint_position4,joint_velocity4"
 
 
 def features(observation):
     if not isinstance(observation, dict):
-        from dataclasses import asdict
-
         observation = asdict(observation)
     values = [
         observation["time_s"],
@@ -59,29 +60,49 @@ class ClonedPolicy:
         return JointCommand(tuple(map(float, np.clip(x @ self.weights, -1.0, 1.0))))
 
 
-def train(episodes, output, ridge):
+def train(episodes, output, ridge, suite_path=None):
     if not np.isfinite(ridge) or ridge <= 0:
         raise ValueError("ridge must be finite and positive")
     output.mkdir(parents=True, exist_ok=False)
     started = perf_counter()
     xs, ys, inputs = [], [], []
     seen = set()
+    suite = load_suite(suite_path) if suite_path else None
     for directory in episodes:
         directory = directory.resolve()
         if directory in seen:
             raise ValueError("duplicate training episode")
         seen.add(directory)
-        outcome = json.loads((directory / "outcome.json").read_text())
-        if outcome["status"] != "completed":
-            raise ValueError("failed or interrupted simulation cannot supply demonstrations")
-        path = directory / "transitions.jsonl"
+        packed = (directory / "index.json").exists()
+        if packed:
+            path = directory / "index.json"
+            manifest = json.loads(path.read_text())["source_manifest"]
+            rows = ((row["observation"], row["command"]) for row in iter_records(directory))
+        else:
+            outcome = json.loads((directory / "outcome.json").read_text())
+            if outcome["status"] != "completed":
+                raise ValueError("failed or interrupted simulation cannot supply demonstrations")
+            path = directory / "transitions.jsonl"
+            manifest = json.loads((directory / "manifest.json").read_text())
+            rows = (
+                (row.observation, asdict(row.command))
+                for row in load_episode(directory)
+            )
+        if suite:
+            config = manifest["config"]
+            if (
+                config.get("split") != "train"
+                or config.get("suite_sha256") != suite["sha256"]
+                or config.get("scenario") not in suite["splits"]["train"]
+            ):
+                raise ValueError("demonstration is not in the frozen training split")
         raw = path.read_bytes()
         count = 0
-        for row in load_episode(directory):
-            xs.append(features(row.observation))
-            if not isinstance(row.command, JointCommand):
+        for observation, command in rows:
+            xs.append(features(observation))
+            if set(command) != {"velocity_targets"}:
                 raise ValueError("baseline requires joint velocity demonstrations")
-            y = np.asarray(row.command.velocity_targets, dtype=np.float64)
+            y = np.asarray(command["velocity_targets"], dtype=np.float64)
             if y.shape != (4,) or not np.isfinite(y).all() or (abs(y) > 1).any():
                 raise ValueError("invalid demonstration command")
             ys.append(y)
@@ -113,6 +134,7 @@ def train(episodes, output, ridge):
         "method": "linear ridge behavior cloning",
         "feature_schema": FEATURE_SCHEMA,
         "ridge": ridge,
+        "suite_sha256": suite["sha256"] if suite else None,
         "training_inputs": inputs,
         "training_transitions": len(x),
         "training_command_rmse": float(np.sqrt(((design @ weights - y) ** 2).mean())),
@@ -134,5 +156,6 @@ if __name__ == "__main__":
     parser.add_argument("episodes", nargs="+", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--ridge", type=float, default=1.0)
+    parser.add_argument("--suite", type=Path)
     args = parser.parse_args()
-    print(json.dumps(train(args.episodes, args.output, args.ridge), indent=2))
+    print(json.dumps(train(args.episodes, args.output, args.ridge, args.suite), indent=2))

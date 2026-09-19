@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "name": "bench-excavation-v1",
+  "status": "development physics; not physically validated",
+  "splits": {
+    "train": [
+      {
+        "name": "flat-reference",
+        "seed": 0,
+        "terrain": "flat",
+        "friction": 0.6,
+        "density_kg_m3": 1600.0,
+        "roughness_m": 0.0,
+        "obstacle": "none",
+        "version": 1
+      }
+    ],
+    "development": [
+      {
+        "name": "flat-loose",
+        "seed": 11,
+        "terrain": "flat",
+        "friction": 0.5,
+        "density_kg_m3": 1500,
+        "roughness_m": 0.0,
+        "obstacle": "none",
+        "version": 1
+      },
+      {
+        "name": "buried-free",
+        "seed": 12,
+        "terrain": "flat",
+        "friction": 0.6,
+        "density_kg_m3": 1600.0,
+        "roughness_m": 0.0,
+        "obstacle": "dynamic",
+        "version": 1
+      },
+      {
+        "name": "buried-fixed",
+        "seed": 13,
+        "terrain": "flat",
+        "friction": 0.6,
+        "density_kg_m3": 1600.0,
+        "roughness_m": 0.0,
+        "obstacle": "anchored",
+        "version": 1
+      }
+    ],
+    "test": [
+      {
+        "name": "slope-medium",
+        "seed": 101,
+        "terrain": "slope",
+        "friction": 0.55,
+        "density_kg_m3": 1600.0,
+        "roughness_m": 0.0,
+        "obstacle": "none",
+        "version": 1
+      },
+      {
+        "name": "mound-dense",
+        "seed": 102,
+        "terrain": "mound",
+        "friction": 0.7,
+        "density_kg_m3": 1700,
+        "roughness_m": 0.0,
+        "obstacle": "none",
+        "version": 1
+      }
+    ]
+  },
+  "sha256": "bf2cabd28e796fdba10fbc22764d03d6fd0566938a062ae0171f88367b3fcd5c"
+}

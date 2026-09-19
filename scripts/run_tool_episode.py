@@ -1,6 +1,7 @@
 """Execute an external policy through the reusable experimental tool backend."""
 
 import argparse
+import hashlib
 import importlib.util
 import json
 from dataclasses import asdict
@@ -25,6 +26,10 @@ def main():
     parser.add_argument("--policy-kwargs", type=Path)
     parser.add_argument("--world-config", type=Path)
     parser.add_argument("--sensor-config", type=Path)
+    parser.add_argument("--suite", type=Path)
+    parser.add_argument("--scenario")
+    parser.add_argument("--task-plugin", type=Path)
+    parser.add_argument("--task-class")
     args = parser.parse_args()
     # Explicit local extension code, chosen by the caller, not downloaded dataset code.
     spec = importlib.util.spec_from_file_location("experiment_policy", args.policy)
@@ -39,7 +44,28 @@ def main():
         world_config["with_soil"] = False
     config = ToolWorldConfig(**world_config)
     inspection = InspectionRecorder() if args.inspect else None
-    if args.machine:
+    scenario = None
+    if args.suite:
+        from excavation_sim.backends.newton_scenario import NewtonScenarioWorld
+        from excavation_sim.scenarios import Scenario, load_suite
+
+        suite = load_suite(args.suite)
+        matches = [
+            (split, row)
+            for split, rows in suite["splits"].items()
+            for row in rows
+            if row["name"] == args.scenario
+        ]
+        if len(matches) != 1:
+            raise ValueError("select exactly one named scenario from the suite")
+        split, data = matches[0]
+        scenario = Scenario(**data)
+        args.seed = scenario.seed
+        world = NewtonScenarioWorld(scenario, config)
+        config = world.config
+    elif args.scenario:
+        raise ValueError("--scenario requires --suite")
+    elif args.machine:
         from excavation_sim.backends.newton_excavator import NewtonExcavatorWorld
 
         world = NewtonExcavatorWorld(config)
@@ -61,6 +87,18 @@ def main():
         if args.task
         else None
     )
+    if args.task_plugin:
+        if args.task or not args.task_class:
+            raise ValueError("external task requires --task-class and excludes --task")
+        task_spec = importlib.util.spec_from_file_location("experiment_task", args.task_plugin)
+        task_module = importlib.util.module_from_spec(task_spec)
+        task_spec.loader.exec_module(task_module)
+        task = getattr(task_module, args.task_class)()
+    artifacts = [args.policy]
+    if args.task_plugin:
+        artifacts.append(args.task_plugin)
+    if "checkpoint" in kwargs:
+        artifacts.append(Path(kwargs["checkpoint"]))
     result = rollout(
         world,
         policy,
@@ -74,12 +112,18 @@ def main():
             "policy_kwargs": kwargs,
             "task": asdict(task.config) if task else None,
             "sensors": asdict(sensor_config) if sensor_config else "ideal instantaneous",
+            "scenario": asdict(scenario) if scenario else None,
+            "suite_sha256": suite["sha256"] if scenario else None,
+            "split": split if scenario else None,
+            "artifacts": {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in artifacts},
         },
         source_root=Path.cwd(),
         inspect=inspection,
         task=task,
     )
     (args.output / "performance.json").write_text(json.dumps(result, indent=2))
+    if hasattr(policy, "events"):
+        (args.output / "policy-events.json").write_text(json.dumps(policy.events, indent=2))
     if inspection is not None:
         inspection.write(args.output / "inspection.html")
     print(json.dumps(result, indent=2))

@@ -1,5 +1,6 @@
 """Headless policy execution with explicit budgets and failure-preserving recording."""
 
+import json
 from collections.abc import Callable
 from dataclasses import asdict
 from pathlib import Path
@@ -49,6 +50,9 @@ def rollout(
     task_result = None
     try:
         observation = world.reset(seed)
+        if hasattr(world, "runtime_metadata"):
+            (directory / "runtime-model.json").write_text(
+                json.dumps(world.runtime_metadata(), indent=2), encoding="utf-8")
         policy.reset(seed)
         if task is not None:
             task.reset()
@@ -58,14 +62,15 @@ def rollout(
             command = policy.act(observation)
             after = world.step(command)
             diagnostics = world.diagnostics()
+            evaluation = (
+                world.evaluation_observation()
+                if hasattr(world, "evaluation_observation")
+                else after
+            )
             if task is not None:
-                evaluation = (
-                    world.evaluation_observation()
-                    if hasattr(world, "evaluation_observation")
-                    else after
-                )
                 task_result = task.evaluate(evaluation, diagnostics)
-            writer.append(observation, command, after, diagnostics, task_result)
+            writer.append(observation, command, after, diagnostics, task_result,
+                          raw_soil_force_n=evaluation.soil_force_n)
             completed += 1
             if not diagnostics.finite:
                 raise RuntimeError("nonfinite world diagnostics")

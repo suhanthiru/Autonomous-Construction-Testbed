@@ -402,6 +402,22 @@ class NewtonToolWorld:
 
         return capture_surface(self)
 
+    def runtime_metadata(self):
+        self._require_ready()
+        return {
+            "access": "evaluator-only generated model metadata",
+            "body_mass_kg": self.model.body_mass.numpy().tolist(),
+            "body_inertia_kg_m2": self.model.body_inertia.numpy().tolist(),
+            "body_com_m": self.model.body_com.numpy().tolist(),
+            "initial_body_poses_xyzw": self.state.body_q.numpy().tolist(),
+            "particle_count": self.model.particle_count,
+            "particle_mass_kg": self.soil_mass,
+            "audit_lower_m": list(self._audit_lower),
+            "audit_upper_m": list(self._audit_upper),
+            "numerical_storage": "float32 Newton/Warp state; float64 host reductions",
+            "force_definition": "action-averaged generated MPM collider impulse / action duration",
+        }
+
     def close(self):
         self._ready = False
         for name in (

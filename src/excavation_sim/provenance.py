@@ -4,6 +4,7 @@ import hashlib
 import importlib.metadata
 import json
 import platform
+import shutil
 import subprocess
 import sys
 from dataclasses import asdict, is_dataclass
@@ -50,7 +51,7 @@ def source_identity(root: Path) -> dict[str, Any]:
 
     # Include uncommitted and untracked source, not just git diff (which misses new files).
     hashes = {}
-    for folder in ("src", "configs", "experiments", "scripts", "tests"):
+    for folder in ("src", "configs", "experiments", "scripts", "tests", "scenarios"):
         for path in sorted((root / folder).rglob("*")):
             if path.is_file() and not any(
                 part == "__pycache__" or part.endswith(".egg-info") for part in path.parts
@@ -77,4 +78,27 @@ def environment_info() -> dict[str, Any]:
             packages[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:
             packages[name] = None
-    return {"python": sys.version, "platform": platform.platform(), "packages": packages}
+    hardware = None
+    executable = shutil.which("nvidia-smi")
+    if executable:
+        try:
+            result = subprocess.run(
+                [
+                    executable,
+                    "--query-gpu=name,memory.total,driver_version",
+                    "--format=csv,noheader",
+                ],
+                capture_output=True,
+                text=True,
+                timeout=10,
+                check=False,
+            )
+            hardware = result.stdout.strip() if result.returncode == 0 else None
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+    return {
+        "python": sys.version,
+        "platform": platform.platform(),
+        "packages": packages,
+        "gpu_name_memory_driver": hardware,
+    }
