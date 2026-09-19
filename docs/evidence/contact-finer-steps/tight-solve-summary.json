@@ -1,0 +1,12 @@
+{
+  "canonical_json_sha256": "d58ec364035fd97fe560d3c1869e66386fa657017cedccc559b0b2327b7a91ea",
+  "source_changed": false,
+  "dt_s": 0.00125,
+  "mpm_iterations": 500,
+  "tolerance": 1e-07,
+  "peak_raw_n": 282.9921178519726,
+  "peak_20ms_n": 49.95706917441471,
+  "total_impulse_n_s": 11.75004424785508,
+  "min_height_m": 0.18853095173835754,
+  "final_height_m": 0.30404365062713623
+}

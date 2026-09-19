@@ -23,7 +23,7 @@
     {
       "id": "contact_convergence",
       "status": "failed",
-      "reason": "Dynamic penetration remains timestep-sensitive."
+      "reason": "Extended to 0.3125 ms: finest-pair impulse differs 1.74%, minimum height 1.90 mm, and peak 20 ms force about 15.2%. A 500-iteration/1e-7 inner-solve control does not explain the larger timestep discrepancy. No converged operating envelope established; see docs/CONTACT_REFINEMENT.md."
     },
     {
       "id": "terrain_convergence",

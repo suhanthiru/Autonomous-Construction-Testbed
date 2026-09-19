@@ -240,7 +240,7 @@ def run(
             "control_dt_s": control_dt,
             "rigid_substeps": 4,
             "coupling_iterations": coupling_iterations,
-            "coupling_mode": "lagged",
+            "coupling_mode": proxy_mode,
             "numerics": {
                 "mpm_iterations": mpm_iterations,
                 "mpm_tolerance": mpm_tolerance,

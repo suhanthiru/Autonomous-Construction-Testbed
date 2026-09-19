@@ -43,3 +43,7 @@ The supported statement is that the configured discrete testbed executes the rep
 tasks and exposes its measured sensitivity. These results do not establish physical
 force accuracy, continuum convergence, or real-machine load limits. The force and
 terrain convergence gates remain unresolved; physical calibration cannot replace them.
+
+The [further refinement study](CONTACT_REFINEMENT.md) extends lagged coupling to
+0.625 and 0.3125 ms and adds a tighter inner-solver control. It retains the failed
+contact gate and documents which metrics begin to agree and which still differ.
