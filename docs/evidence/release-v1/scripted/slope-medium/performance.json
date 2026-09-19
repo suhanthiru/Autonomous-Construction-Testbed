@@ -1,0 +1,19 @@
+{
+  "actions": 1258,
+  "task_result": {
+    "reward": 0.2047998309135437,
+    "success": true,
+    "terminated": true,
+    "truncated": false,
+    "metrics": {
+      "score": 0.6399998664855957,
+      "target": 0.5,
+      "time_s": 25.16,
+      "positive_actuator_work_j": 262.26900196747556,
+      "escaped_mass_kg": 0.0
+    }
+  },
+  "simulated_time_s": 25.16,
+  "wall_time_s": 288.8453961999912,
+  "source_changed": false
+}

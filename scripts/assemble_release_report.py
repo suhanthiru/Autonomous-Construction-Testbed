@@ -1,6 +1,7 @@
 """Assemble a portable report from executed workflow evidence without upgrading failed gates."""
 
 import argparse
+import gzip
 import hashlib
 import json
 import shutil
@@ -58,11 +59,30 @@ def main():
         copy(args.workflow / name, name)
     for name in ("manifest.json", "outcome.json", "performance.json", "runtime-model.json"):
         copy(args.repeat / name, "repeated/" + name)
+    copy(args.repeat / "inspection.html", "repeated/inspection.html")
+    episodes = [(args.repeat, "repeated")]
+    for group in ("scripted", "baseline-test"):
+        for episode in sorted((args.workflow / group).iterdir()):
+            if episode.is_dir() and (episode / "manifest.json").is_file():
+                relative = group + "/" + episode.name
+                episodes.append((episode, relative))
+                for name in ("manifest.json", "outcome.json", "performance.json"):
+                    copy(episode / name, relative + "/" + name)
+    for episode, relative in episodes:
+        for name in ("transitions.jsonl", "evaluation.jsonl"):
+            target = args.output / relative / (name + ".gz")
+            target.write_bytes(gzip.compress((episode / name).read_bytes(), mtime=0))
+            evidence[target.relative_to(args.output).as_posix()] = hashlib.sha256(
+                target.read_bytes()
+            ).hexdigest()
     for source in (args.workflow / "dataset").iterdir():
         if source.is_file():
             copy(source, "dataset/" + source.name)
     kwargs = {"checkpoint": (args.output / "baseline/policy.npz").as_posix()}
     (args.output / "baseline/policy-kwargs.json").write_text(json.dumps(kwargs, indent=2))
+    evidence["baseline/policy-kwargs.json"] = hashlib.sha256(
+        (args.output / "baseline/policy-kwargs.json").read_bytes()
+    ).hexdigest()
     coverage = coverage_status(Path.cwd(), read(Path("validation/coverage.json")))
     report = {
         "operational_workflow_complete": complete_workflow,

@@ -119,3 +119,31 @@ The validation status command deliberately exits nonzero while required gates re
 unresolved. An executed workflow is not proof of physical accuracy. Public-data loaders,
 replays, limitations and retained evidence are documented in `DATA_ADMISSION.md`,
 `FORCE_REPLAY.md`, `TERRAIN_REPLAY.md` and `VALIDATION_STATUS.md`.
+
+## Executed reference and portable evidence
+
+`docs/evidence/release-v1/README.md` reports the completed full-budget workflow.
+Its physics/training execution is frozen at `f9769f3`; subsequent interface metadata,
+live-view defaults, data-admission checks and reporting changes have separate evidence.
+Do not relabel the frozen results as execution of a later source revision.
+
+The bundle contains 1,350 training transitions, a fitted checkpoint, all held-out
+outcomes, compressed full-rate policy/evaluator streams, and the successful repeated
+replay at `docs/evidence/release-v1/repeated/inspection.html`. Open that HTML directly.
+The replay samples displayed frames; the exact final task state is in `performance.json`.
+
+To use the shipped checkpoint from the repository root, pass
+`--policy experiments/behavior_cloning.py --policy-class ClonedPolicy
+--policy-kwargs docs/evidence/release-v1/baseline/policy-kwargs.json` to the runner.
+Its held-out deposit result was zero on both conditions. This is a functioning trained
+reference with measured failures, not a competent excavating learned policy.
+
+The evidence manifest hashes all bundled data. Regenerate a bundle after executing
+the workflow and repeated demo using:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/assemble_release_report.py --workflow runs/reference-workflow --repeat runs/repeated-demo --output runs/release-report
+```
+
+See `EXPERIMENT_PROTOCOL.md` for comparison and claim requirements, `API.md` for
+extension contracts, and `ASSET_PROVENANCE.md` for geometry/data origins.

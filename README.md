@@ -10,12 +10,18 @@ It generates data, trains the baseline, evaluates frozen scenarios, and writes r
 
 ## Current status
 
-Implementation in progress: reusable coupled worlds, articulated machine prototype,
-external policy execution, typed episode loading, task evaluation, and offline inspection.
-An isolated GPU rigid-body/soil fixture runs with an empty-bed control; see the
-[measured feasibility results](docs/COUPLING_FEASIBILITY.md). Physical validation has
-not passed. The articulated prototype runs, but successful scoop/deposit and completed
-learning benchmarks remain open.
+The simulator provides coupled soil and a four-joint machine, external policies and
+tasks, masked terrain observations, recording, compressed datasets, baseline training,
+frozen-scenario evaluation, live control and offline replay. Repeated excavation has
+passed the 0.5 kg deposit task on a frozen run without resetting soil: 0.512 kg in
+58.54 simulated seconds. The complete six-stage data/training/evaluation workflow
+finished with unchanged source. See the [executed release report](docs/evidence/release-v1/README.md).
+
+Software checks pass 50 tests, lint, package build and clean installation; GitHub CI
+passes on Windows and Linux. Physical validation has **not** passed. Numerical force
+and terrain sensitivity and shared-tool repeatability remain explicit qualification
+limits; see the [validation status](docs/VALIDATION_STATUS.md).
+
 The [force-limited penetration check](docs/ACTUATION_CHECK.md) records actuator and
 soil forces; its timestep study exposes unresolved peak-force sensitivity.
 The [fixed-controller follow-up](docs/CONTROL_CLOCK_STUDY.md) confirms that separating
@@ -54,6 +60,9 @@ not imply GPU or physical validation.
 
 - [Project scope](SCOPE.md)
 - [Validation and public-data replay plan](docs/VALIDATION_PLAN.md)
+- [Simulator API and conventions](docs/API.md)
+- [Experiment and comparison protocol](docs/EXPERIMENT_PROTOCOL.md)
+- [Geometry and data provenance](docs/ASSET_PROVENANCE.md)
 
 The stable simulator is the main deliverable. Probing, QAM, and cooperative manipulation
 are separate experiments. Necessary physics changes receive new versions and rerun the
@@ -75,8 +84,8 @@ python scripts/run_tool_episode.py --machine --policy experiments/excavator_edge
 ```
 
 Open the generated `inspection.html` locally to inspect the episode. It uses no external
-web assets. The cutting-edge development run deposited 0.4224 kg, below its unchanged
-0.5 kg task goal. A linear behavior-cloning evaluation with delayed, noisy sensors
+web assets. The original single-cut development run deposited 0.4224 kg, below its unchanged
+0.5 kg task goal; the repeated-cut example in the install guide passes that goal. A linear behavior-cloning evaluation with delayed, noisy sensors
 deposited zero. A completed simulation is not a successful excavation demonstration.
 
 The [shared-soil two-tool fixture](docs/SHARED_TOOLS.md) also executes contact, but its

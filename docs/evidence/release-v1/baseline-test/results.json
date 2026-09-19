@@ -1,0 +1,72 @@
+{
+  "manifest_sha256": "973ba163d34a4957cd95f977c46fb4fca7e3983b0f00e12a84dfb6554ff3af0a",
+  "results": [
+    {
+      "episode": "runs\\full-reference\\baseline-test\\slope-medium",
+      "scenario": {
+        "density_kg_m3": 1600.0,
+        "friction": 0.55,
+        "name": "slope-medium",
+        "obstacle": "none",
+        "roughness_m": 0.0,
+        "seed": 101,
+        "terrain": "slope",
+        "version": 1
+      },
+      "status": "completed",
+      "reason": "task budget exhausted without success",
+      "task_success": false,
+      "simulated_time_s": 27.0,
+      "wall_time_s": 573.9488095999986,
+      "source_changed": false,
+      "deposited_mass_kg": 0.0,
+      "peak_lifted_mass_kg": 0.0,
+      "productivity_kg_s": 0.0,
+      "positive_actuator_work_j": 32.69052531460709,
+      "peak_load_n": 0.0,
+      "load_norm_integral_n_s": 0.0,
+      "load_limit_n": 100.0,
+      "time_over_load_limit_s": 0.0,
+      "escaped_mass_kg": 0.0,
+      "load_definition": "action-averaged generated soil-force norm; threshold is an evaluation budget, not a validated safe machine limit",
+      "force_access": "raw",
+      "scenario_name": "slope-medium",
+      "process_exit_code": 0,
+      "process_wall_time_s": 578.9641917000117
+    },
+    {
+      "episode": "runs\\full-reference\\baseline-test\\mound-dense",
+      "scenario": {
+        "density_kg_m3": 1700,
+        "friction": 0.7,
+        "name": "mound-dense",
+        "obstacle": "none",
+        "roughness_m": 0.0,
+        "seed": 102,
+        "terrain": "mound",
+        "version": 1
+      },
+      "status": "completed",
+      "reason": "task budget exhausted without success",
+      "task_success": false,
+      "simulated_time_s": 27.0,
+      "wall_time_s": 477.35876820000703,
+      "source_changed": false,
+      "deposited_mass_kg": 0.0,
+      "peak_lifted_mass_kg": 0.0,
+      "productivity_kg_s": 0.0,
+      "positive_actuator_work_j": 32.6898606931237,
+      "peak_load_n": 0.06121178208037093,
+      "load_norm_integral_n_s": 0.019211043926095614,
+      "load_limit_n": 100.0,
+      "time_over_load_limit_s": 0.0,
+      "escaped_mass_kg": 0.0,
+      "load_definition": "action-averaged generated soil-force norm; threshold is an evaluation budget, not a validated safe machine limit",
+      "force_access": "raw",
+      "scenario_name": "mound-dense",
+      "process_exit_code": 0,
+      "process_wall_time_s": 481.4658874000015
+    }
+  ],
+  "source_changed": false
+}

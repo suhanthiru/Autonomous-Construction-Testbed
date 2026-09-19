@@ -1,7 +1,8 @@
 # Development workflows
 
-These commands exercise implemented components. The initial release is incomplete:
-scripted excavation has not yet succeeded, and physical validation has not passed.
+These commands document development components and their historical outcomes.
+Use `REPRODUCE.md` for the current complete workflow. Repeated excavation now succeeds
+in development; physical validation has not passed.
 
 ## Live inspection
 

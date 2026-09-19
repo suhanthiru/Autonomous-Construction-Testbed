@@ -1,6 +1,6 @@
 # Modular excavation research platform
 
-Status: implementation started, 2026-09-17. The stable testbed is the primary deliverable. Core interfaces and recording are being implemented; coupled physics and physical validation remain unverified. Engine selection, numerical tolerances, and compute budgets remain subject to the feasibility measurements below. The end-to-end completion contract below defines the platform release; complete research studies are separate deliverables.
+Status: initial operational workflow implemented, 2026-09-18; frozen execution evidence is in docs/evidence/release-v1. See docs/IMPLEMENTATION_PROGRESS.md and docs/REPRODUCE.md for executed components. Numerical and physical qualification remain unresolved and are tracked separately in validation/coverage.json. The completion contract below is unchanged.
 
 ## Research purpose
 

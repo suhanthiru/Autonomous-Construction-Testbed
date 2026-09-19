@@ -1,0 +1,6 @@
+{
+  "revision": "168b20ab173f5b29975416b8b8f4f9a163e77f4c",
+  "conclusion": "success",
+  "url": "https://github.com/suhanthiru/Autonomous-Construction-Testbed/actions/runs/35414163001",
+  "scope": "Windows and Linux CPU tests, lint and package build; excludes GPU and physical validation"
+}

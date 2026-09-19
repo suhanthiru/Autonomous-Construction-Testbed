@@ -41,6 +41,7 @@ The optional `SurfacePacket` contains only masked visible column heights; see
 
 An external policy implements `reset(seed)` and `act(observation)`. An external task
 implements `reset()` and `evaluate(observation, diagnostics)`, returning `TaskResult`.
+The command-line task loader additionally records the task's dataclass `config`.
 Tasks do not receive a world reference. `rollout` evaluates the task using raw
 measurements, records transitions, and closes the world even on failure. Termination
 for task success and truncation for budget exhaustion are distinct. Simulation

@@ -1,26 +1,29 @@
 # Initial release implementation ledger
 
-This tracks construction separately from physical validation. A working component
-is not a passed research benchmark. The full contract remains in SCOPE.md.
+The operational workflow is implemented and executed. The frozen release report is
+in `evidence/release-v1/README.md`; physical qualification is **not complete**.
+The original completion contract remains in `../SCOPE.md`.
 
-| Deliverable | Status | Next exit condition |
+| Deliverable | Executed evidence | Remaining qualification |
 |---|---|---|
-| Pinned runtime and CPU contracts | Full pinned runtime and wheel installed cleanly; GPU obstacle/sensor smoke executed | Final release evidence aggregation |
-| Reusable coupled tool backend | Executed | Numerical operating envelope and performance audit |
-| Reset and independent worlds | Executed on laptop GPU | Broader scenarios and repeated-cycle coverage |
-| Four-joint procedural machine | Two cuts without resetting soil deposit 0.512 kg and pass the 0.5 kg task | Frozen repeat and actuator/numerical qualification |
-| Policy runner and recording | External policies/tasks, action chunks, typed and compressed data executed | Full-budget frozen report completion |
-| Offline and live inspection | Playback, collision geometry, step, reset, manual joints and clean shutdown checked | Packaged installation and longer-run checks |
-| Probe/scoop/deposit tasks | Implemented; deposit timeout executed | Successful task runs and further accounting tests |
-| Sensors | Delay/noise, masked overhead surface, GPU occlusion checks and recorded delivery executed | Calibrated sensing and task-level sensor ablations |
-| Scenarios and frozen splits | Checksummed material, terrain and obstacle specifications implemented; split admission tested | Full-budget frozen outcomes |
-| Behavior-cloning baseline | Packed-data training and short frozen-suite evaluation executed; full-budget run underway | Completed report, with failures retained |
-| Two-tool shared soil | Implemented; first contact replay check diverges | Isolate repeated-run variation, verify load budgets and supported envelope |
-| Repeated excavation and obstacles | Repeated deposit task passes; dynamic/anchored scenario smoke runs | Coupled obstacle integration and accounting assessment |
-| Numerical verification | Incomplete | Resolve existing timestep and spatial sensitivity |
-| Public physical comparisons | Executed development replays | Calibration, independent trials, tolerances, uncertainty |
-| End-to-end release | Incomplete | Execute installation through baseline evaluation and report |
+| Installation and software | Pinned full runtime, built wheel, clean install, 50 CPU tests; Windows/Linux CI passes | Other GPU/OS profiles untested |
+| Coupled tool and machine | Reusable MPM/rigid worlds and four controlled joints | Contact and terrain convergence fail |
+| Repeated excavation | Frozen two-cut run deposits 0.512 kg in 58.54 s, zero recorded escaped mass | Physical accounting and repeat reliability |
+| Policy/task extensions | External policy and task; interrupted action chunks recorded | New extensions need their own verification |
+| Data and training | 1,350 admitted transitions, compressed shards, actual ridge fit and checkpoint | Stronger learned algorithms are separate research |
+| Frozen evaluation | Scripted success on slope, failure on mound; baseline fails both | One fit/two conditions do not establish statistical ranking |
+| Offline/live viewer | Playback, step, reset, manual joints, terrain layer, clean stop; frozen replay inspected | Privileged inspection, not calibrated imagery |
+| Sensors | Masked height packet, noise/delay, GPU occlusion checks | Calibrated sensing and sensor ablations |
+| Scenarios/obstacles | Checksummed train/dev/test suite; dynamic and anchored integration runs | No fracture or validated rock/soil model |
+| Shared-soil tools | Two tools and simultaneous action mapping executed | Exact contact replay fails; statistical envelope unresolved |
+| Public physical comparisons | Force and terrain development replays and sensitivity studies | Calibration, uncertainty, independent criteria/trials |
+| Handoff | Install-to-report guide, API, experiment protocol, provenance, portable evidence | Physically qualified release remains open |
 
-The available GPU remains the laptop RTX 4060. No workstation performance is claimed.
-The procedural excavator is bench scale, fixed base, and does not represent a named
-commercial machine. Any accepted physical envelope must name its scale and material.
+The frozen workflow and repeated run use unchanged source at f9769f3. Later metadata,
+recording, live defaults and admission improvements have separate installed-package
+and software evidence. Failed gates remain failed in `validation/coverage.json`.
+
+All GPU measurements are from the RTX 4060 laptop. No workstation performance is
+claimed. The procedural machine is bench scale, fixed base, and not a named commercial
+excavator. This release supports reported experiments on its pinned discrete dynamics;
+it does not establish physical force accuracy or real-machine safety.

@@ -1,1 +1,3 @@
 * text=auto eol=lf
+# Preserve the exact bytes covered by the portable evidence manifest.
+docs/evidence/release-v1/** -text
