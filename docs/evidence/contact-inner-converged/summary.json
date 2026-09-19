@@ -1,0 +1,76 @@
+{
+  "scope": "Prescribed box fixture only; numerical inner residual test, not physical qualification",
+  "snapshot": {
+    "revision": "66f28c3eb933ddd3a3dea883732649e7413ef602",
+    "isolation": "git archive; package imports explicitly routed to snapshot/src",
+    "local_adjustment": "Only the diagnostic kernel-cache location points at the existing workspace cache",
+    "excluded": "Concurrent uncommitted files are not copied"
+  },
+  "encoding": "gzip-compressed JSON; hashes apply to canonical decompressed content",
+  "cases": [
+    {
+      "file": "dt-0.005.json.gz",
+      "canonical_json_sha256": "6c5713aa9aea35ecf54a42494bc740f952356ea0615960293140c0c2ad5e001c",
+      "dt_s": 0.005,
+      "source_sha256": "74a4788ca9a3b79807ef772496787bc2826f57778414d61281cce7eb5fe0b63d",
+      "source_changed": false,
+      "solver_health": {
+        "steps": 240,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "peak_20ms_mean_n": 815.0657379707187,
+      "total_vertical_impulse_n_s": 66.2065419892664,
+      "maximum_reported_iterations": 8431,
+      "maximum_reported_l2_residual": 6.12540247857396e-07,
+      "maximum_reported_linf_residual": 9.998703103389478e-06
+    },
+    {
+      "file": "dt-0.0025.json.gz",
+      "canonical_json_sha256": "c83273a5e87539711569230e9ad5fd289f3ab1de84a7ef97f4eedd6d1a98dab2",
+      "dt_s": 0.0025,
+      "source_sha256": "74a4788ca9a3b79807ef772496787bc2826f57778414d61281cce7eb5fe0b63d",
+      "source_changed": false,
+      "solver_health": {
+        "steps": 480,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "peak_20ms_mean_n": 948.0196108253937,
+      "total_vertical_impulse_n_s": 75.3230842137778,
+      "maximum_reported_iterations": 11726,
+      "maximum_reported_l2_residual": 6.324110017885687e-07,
+      "maximum_reported_linf_residual": 9.999338421339106e-06
+    },
+    {
+      "file": "dt-0.00125.json.gz",
+      "canonical_json_sha256": "cd9996db9d2dd359cea8d8521cae0a1801a70d769ba7dd9b54f256a85d922f79",
+      "dt_s": 0.00125,
+      "source_sha256": "74a4788ca9a3b79807ef772496787bc2826f57778414d61281cce7eb5fe0b63d",
+      "source_changed": false,
+      "solver_health": {
+        "steps": 960,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "peak_20ms_mean_n": 1200.3773348149255,
+      "total_vertical_impulse_n_s": 86.26304609561822,
+      "maximum_reported_iterations": 5656,
+      "maximum_reported_l2_residual": 6.990766223680112e-07,
+      "maximum_reported_linf_residual": 9.996038908549231e-06
+    }
+  ],
+  "inner_residual_assessment": "All reported steps satisfy both requested residual tolerances of 1e-5 with a common 20000 iteration cap",
+  "contact_timestep_assessment": "Unresolved: impulse changes remain substantial despite meeting inner tolerance",
+  "successive_relative_impulse_changes": [
+    0.13769851060925986,
+    0.14524049295155295
+  ],
+  "physical_validation": false
+}
