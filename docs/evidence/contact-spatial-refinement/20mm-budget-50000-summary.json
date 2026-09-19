@@ -1,0 +1,42 @@
+{
+  "file": "20mm-budget-50000.json.gz",
+  "canonical_json_sha256": "66229c13ca159a15dd00c8d2a718ccfedd0cfc586383187ad8b2f6936415e894",
+  "encoding": "gzip-compressed JSON; hash applies to canonical decompressed content",
+  "solver_health": {
+    "steps": 480,
+    "nonfinite_residual_steps": 0,
+    "outside_tolerance_steps": 1,
+    "at_iteration_limit_steps": 1,
+    "passed": false
+  },
+  "mpm": {
+    "iterations": 50000,
+    "tolerance": 1e-05,
+    "solver_diagnostics": true,
+    "voxel_m": 0.02,
+    "spacing_m": 0.01,
+    "grid_margin_m": 0.0,
+    "grid_padding_cells": 0,
+    "particle_count": 32000,
+    "air_drag": 1.0,
+    "friction": 0.6,
+    "young_modulus_pa": 1000000000000000.0,
+    "poisson_ratio": 0.3,
+    "integration_scheme": "pic",
+    "grid_type": "sparse",
+    "max_active_cells": 65536,
+    "resolved_sparse_rebuildable": true,
+    "requested_warmstart": "auto",
+    "resolved_stress_warmstart": "particles",
+    "sparse_capacity_checked_each_step": true
+  },
+  "world_offset_m": [
+    0.01,
+    0.01,
+    0.01
+  ],
+  "total_vertical_impulse_n_s": 60.25604189224862,
+  "peak_20ms_mean_n": 622.4202640368384,
+  "status": "Inner tolerance failed at one step; retained diagnostic, excluded from an inner-converged refinement series",
+  "physical_validation": false
+}
