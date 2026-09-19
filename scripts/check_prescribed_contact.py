@@ -20,7 +20,8 @@ from excavation_sim.provenance import environment_info, source_identity
 
 
 def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
-        iterations=100, tolerance=1e-5, solver_diagnostics=False):
+        iterations=100, tolerance=1e-5, solver_diagnostics=False, integration_scheme="pic",
+        grid_type="fixed", max_active_cells=1 << 18):
     steps = ticks_per_update(dt, 1.2)
     ticks_per_update(dt, 0.02)
     builder = newton.ModelBuilder()
@@ -55,14 +56,15 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
     model = builder.finalize()
     cfg = SolverImplicitMPM.Config()
     cfg.voxel_size = voxel
-    cfg.grid_type = "fixed"
+    cfg.grid_type = grid_type
     cfg.grid_padding = ceil(0.4 / voxel)
-    cfg.max_active_cell_count = 1 << 18
+    cfg.max_active_cell_count = max_active_cells
     cfg.max_iterations = iterations
     cfg.tolerance = tolerance
     cfg.air_drag = air_drag
     cfg.strain_basis = "P0"
     cfg.critical_fraction = 0.0
+    cfg.integration_scheme = integration_scheme
     solver = SolverImplicitMPM(model, cfg, verbose=solver_diagnostics)
     state, output = model.state(), model.state()
     solver.setup_collider(body_mass=wp.zeros_like(model.body_mass), body_q=state.body_q)
@@ -133,6 +135,9 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
             "friction": 0.6,
             "young_modulus_pa": young_modulus,
             "poisson_ratio": 0.3,
+            "integration_scheme": integration_scheme,
+            "grid_type": grid_type,
+            "max_active_cells": max_active_cells,
         },
         "peak_20ms_mean_n": max(force),
         "total_vertical_impulse_n_s": sum(row["impulse_n_s"][2] for row in trace),
@@ -161,11 +166,16 @@ def main():
     parser.add_argument("--iterations", type=int, default=100)
     parser.add_argument("--tolerance", type=float, default=1e-5)
     parser.add_argument("--solver-diagnostics", action="store_true")
+    parser.add_argument("--integration-scheme", choices=("pic", "gimp"), default="pic")
+    parser.add_argument("--grid-type", choices=("fixed", "sparse"), default="fixed")
+    parser.add_argument("--max-active-cells", type=int, default=1 << 18)
     parser.add_argument("--zero-initial-stress-delta", action="store_true",
                         help="Diagnostic only: zero borrowed Newton stress-delta scratch storage")
     args = parser.parse_args()
     if len(set(args.dt)) != len(args.dt):
         parser.error("timesteps must be distinct")
+    if args.max_active_cells <= 0:
+        parser.error("active-cell capacity must be positive")
     if not all(isfinite(v) and v > 0 for v in (args.voxel, args.spacing)):
         parser.error("spatial sizes must be finite and positive")
     if not isfinite(args.air_drag) or args.air_drag < 0:
@@ -201,7 +211,8 @@ def main():
             started = perf_counter()
             try:
                 record = run(dt, args.voxel, args.spacing, args.air_drag, args.young_modulus,
-                             args.iterations, args.tolerance, args.solver_diagnostics)
+                             args.iterations, args.tolerance, args.solver_diagnostics,
+                             args.integration_scheme, args.grid_type, args.max_active_cells)
             except Exception as error:
                 (args.output / "failure.json").write_text(
                     json.dumps(

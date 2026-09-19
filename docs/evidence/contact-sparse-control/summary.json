@@ -1,0 +1,24 @@
+{
+  "file": "dt-0.005.json.gz",
+  "canonical_json_sha256": "20c34994f09ce1658e7c1d662fb86aff6d1853560b39199dd3ad28a2b4952156",
+  "snapshot": {
+    "base_revision": "66f28c3eb933ddd3a3dea883732649e7413ef602",
+    "changes": [
+      "diagnostic integration and grid selectors with recorded values",
+      "kernel cache points at existing workspace cache"
+    ],
+    "imports": "snapshot/src; excludes concurrent implementation work"
+  },
+  "encoding": "gzip-compressed JSON; hash applies to canonical decompressed content",
+  "solver_health": {
+    "steps": 240,
+    "nonfinite_residual_steps": 0,
+    "outside_tolerance_steps": 0,
+    "at_iteration_limit_steps": 0,
+    "passed": true
+  },
+  "total_vertical_impulse_n_s": 62.080267008452445,
+  "peak_20ms_mean_n": 643.1982416408944,
+  "assessment": "Sparse with ten padding cells is not equivalent to fixed-grid active partition; it does not activate the capacity-bounded rebuildable path. Do not use as memory-only substitution.",
+  "physical_validation": false
+}

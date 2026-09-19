@@ -1,0 +1,60 @@
+{
+  "snapshot": {
+    "base_revision": "66f28c3eb933ddd3a3dea883732649e7413ef602",
+    "changes": [
+      "diagnostic integration-scheme selector and recorded value",
+      "kernel cache points at existing workspace cache"
+    ],
+    "imports": "snapshot/src; excludes concurrent implementation work"
+  },
+  "encoding": "gzip-compressed JSON; hashes apply to canonical decompressed content",
+  "cases": [
+    {
+      "file": "dt-0.00125.json.gz",
+      "canonical_json_sha256": "4969f0d79dea37fdcf333eacffde989b175ca61956f9ec3003c2d8da52ba929e",
+      "dt_s": 0.00125,
+      "solver_health": {
+        "steps": 960,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "total_vertical_impulse_n_s": 87.8045399210741,
+      "peak_20ms_mean_n": 1178.8990557347968,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.0025.json.gz",
+      "canonical_json_sha256": "38b0f7f0a35fc14d5f7ebf081cae23ecb7e000624deb7542cabe557079f15a7e",
+      "dt_s": 0.0025,
+      "solver_health": {
+        "steps": 480,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "total_vertical_impulse_n_s": 74.26675174052086,
+      "peak_20ms_mean_n": 953.0957628705625,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.005.json.gz",
+      "canonical_json_sha256": "d283e238330ba55b0c92a591bb4fbfb981f36a18bec374ee2cabdfaa1c21a7d3",
+      "dt_s": 0.005,
+      "solver_health": {
+        "steps": 240,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 1,
+        "at_iteration_limit_steps": 1,
+        "passed": false
+      },
+      "total_vertical_impulse_n_s": 65.99166139863672,
+      "peak_20ms_mean_n": 779.5651695938432,
+      "source_changed": false
+    }
+  ],
+  "assessment": "GIMP does not resolve timestep sensitivity; 5 ms case also has one inner-tolerance failure. No production setting changed.",
+  "physical_validation": false
+}
