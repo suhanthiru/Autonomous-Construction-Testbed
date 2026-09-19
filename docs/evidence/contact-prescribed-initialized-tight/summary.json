@@ -1,0 +1,21 @@
+{
+  "cases": [
+    {
+      "file": "dt-0.005.json.gz",
+      "canonical_json_sha256": "cff0a37bf423e3183b1a8fd8e2a8a7dbf617eb05255d6a1f17a9222c828f3bd9",
+      "dt_s": 0.005,
+      "total_vertical_impulse_n_s": 65.88167589324739,
+      "peak_20ms_mean_n": 812.9158213246462,
+      "source_changed": false,
+      "solver_health": {
+        "steps": 240,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 201,
+        "at_iteration_limit_steps": 201,
+        "passed": false
+      }
+    }
+  ],
+  "assessment": "Explicit initialization removes nonfinite reported residuals in these runs, but inner tolerance and contact convergence remain failed. Experimental private-API intervention, not production correction.",
+  "encoding": "gzip-compressed JSON; canonical_json_sha256 applies after decompression and canonicalization"
+}

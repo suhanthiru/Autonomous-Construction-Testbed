@@ -58,6 +58,83 @@ python scripts/check_prescribed_contact.py --output runs/contact-prescribed
 
 ## Release consequence
 
+### Spatial refinement and background drag controls
+
+Halving the grid to 20 mm and particle spacing to 10 mm produces the following
+results. The physical grid margin is held at 0.4 m, rather than holding the number
+of padding cells fixed. Particle count increases from 4,000 to 32,000.
+
+| Physics step (ms) | Total vertical impulse (N s) | Peak 20 ms mean (N) |
+|---|---:|---:|
+| 5 | 50.802 | 470.97 |
+| 2.5 | 57.374 | 555.42 |
+| 1.25 | 63.921 | 668.94 |
+
+Successive impulse changes are 12.9% and 11.4%. Neither spatial nor temporal
+qualification follows from these results. Records and canonical hashes are in
+`evidence/contact-prescribed-spatial-fine/`.
+
+A separate control retains the 40 mm grid and reduces numerical air drag from 1
+to 1e-6. Impulses are 63.633, 73.090 and 84.828 N s at the same three timesteps.
+Each is within 0.1% of the original corresponding impulse. The background-drag
+term does not explain the large timestep sensitivity in this fixture. This result
+does not negate its previously observed contribution to the stationary momentum
+budget. Records are in `evidence/contact-prescribed-low-drag/`.
+
+```sh
+python scripts/check_prescribed_contact.py --voxel 0.02 --spacing 0.01 --output runs/contact-prescribed-spatial-fine
+python scripts/check_prescribed_contact.py --air-drag 0.000001 --output runs/contact-prescribed-low-drag
+```
+
+All six new cases completed with unchanged source. Existing frozen release records
+and production material settings are unchanged.
+
+### Qualification status
+
+#### Inner residual diagnostics
+
+A 1,000-iteration, 1e-7-tolerance control gives impulses of 65.882, 75.275 and
+86.114 N s at 5, 2.5 and 1.25 ms. The timestep discrepancy remains. An initial
+instrumentation error assigned verbosity to `Config` instead of the solver
+constructor, so those records have empty diagnostic strings; their requested
+diagnostics flag is not proof of residual convergence. The original files are
+preserved in `evidence/contact-prescribed-tight/` with this limitation recorded.
+The script now requests verbosity through the constructor and rejects missing logs.
+
+With working instrumentation at the original 100-iteration setting, 169 of 240
+steps at 5 ms report nonfinite residuals despite finite forces and particle positions.
+The raw logs and assessment are in `evidence/contact-prescribed-residuals/`.
+
+The pinned Newton solver borrows a temporary stress-update array without explicitly
+initializing it. A controlled runtime intervention initializes that array to zero
+before the solve; installed dependency files and production defaults are unchanged.
+This removes the observed nonfinite residuals in three runs, but does not establish
+a complete upstream diagnosis or a validated correction.
+
+| Step (ms) | Steps outside 1e-5 inner tolerance | Total steps | Impulse (N s) |
+|---|---:|---:|---:|
+| 5 | 158 | 240 | 63.616 |
+| 2.5 | 229 | 480 | 72.967 |
+| 1.25 | 265 | 960 | 84.827 |
+
+The initialized 5 ms control with 1,000 iterations and 1e-7 tolerance still has
+201 of 240 steps outside that requested tolerance. Its maximum reported L-infinity
+residual is approximately 3.21e-4. No inner-convergence pass is claimed.
+Evidence is in `evidence/contact-prescribed-initialized/` and
+`evidence/contact-prescribed-initialized-tight/`. Diagnostic runs now return nonzero
+when reported residuals are nonfinite or above the requested tolerance.
+
+```sh
+python scripts/check_prescribed_contact.py --solver-diagnostics --zero-initial-stress-delta --output runs/contact-prescribed-initialized
+```
+
+A finite-compliance control changes only Young's modulus from the upstream
+1e15 Pa default to an explicitly uncalibrated 1 MPa. At 5, 2.5 and 1.25 ms it
+produces impulses of 54.042, 58.225 and 63.373 N s, respectively. Successive
+changes remain 7.7% and 8.8%; this does not establish convergence. These records
+are in `evidence/contact-prescribed-compliant/`. The material is a diagnostic
+contrast, not a fitted sand model or a production default.
+
 The operating workflow remains usable for explicitly labeled experiments on its
 discrete dynamics. Contact-force prediction and real-world transfer remain unqualified.
 No material coefficient, acceptance tolerance, or frozen result was changed to make

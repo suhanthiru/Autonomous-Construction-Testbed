@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "file": "dt-0.00125.json.gz",
+      "canonical_json_sha256": "900f8da717024fe3c8fac5cc7f79e2bf1627acc0b3545a23d9708a8bd3625355",
+      "dt_s": 0.00125,
+      "total_vertical_impulse_n_s": 63.37316349118419,
+      "peak_20ms_mean_n": 850.1517659442492,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.0025.json.gz",
+      "canonical_json_sha256": "d110a83172a8aead971cf09a9372809bb614f909139ebd2ad475ea9e76715ef7",
+      "dt_s": 0.0025,
+      "total_vertical_impulse_n_s": 58.22469242864235,
+      "peak_20ms_mean_n": 822.5601050556485,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.005.json.gz",
+      "canonical_json_sha256": "fdfdf5e0686580be301789b3ab6fef951c683698cba099bc213ae82fc07dd4fd",
+      "dt_s": 0.005,
+      "total_vertical_impulse_n_s": 54.041615125343355,
+      "peak_20ms_mean_n": 783.524103469302,
+      "source_changed": false
+    }
+  ],
+  "assessment": "Uncalibrated finite-compliance diagnostic (Young modulus 1 MPa); timestep sensitivity persists. Not adopted as a physical material fit.",
+  "encoding": "gzip-compressed JSON; canonical_json_sha256 applies after decompression and canonicalization"
+}

@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "file": "dt-0.00125.json.gz",
+      "canonical_json_sha256": "71041c2c35a61526d1c48fa77d03b0bc7bec3bcb446d98c2bac6bd075ad2d535",
+      "dt_s": 0.00125,
+      "total_vertical_impulse_n_s": 84.8280322319095,
+      "peak_20ms_mean_n": 1132.8934957238785,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.0025.json.gz",
+      "canonical_json_sha256": "77e529743f14d46cfd646e5d805e7fa32c8ffb6056f597448359c5571c6ef909",
+      "dt_s": 0.0025,
+      "total_vertical_impulse_n_s": 73.08975516692284,
+      "peak_20ms_mean_n": 1038.2143237075186,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.005.json.gz",
+      "canonical_json_sha256": "656e086a64a1093873b645a0975305d0ab101d609243db64e849106f324a3c95",
+      "dt_s": 0.005,
+      "total_vertical_impulse_n_s": 63.63290617965514,
+      "peak_20ms_mean_n": 1022.7411691036586,
+      "source_changed": false
+    }
+  ],
+  "assessment": "Reducing numerical air drag by six orders of magnitude does not resolve prescribed-motion timestep sensitivity.",
+  "encoding": "gzip-compressed JSON; canonical_json_sha256 applies after decompression and canonicalization"
+}

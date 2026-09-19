@@ -20,6 +20,12 @@ inside a validated operating envelope. Existing frozen evidence is unchanged.
 
 ## Not complete: numerical and physical qualification
 
+The user-selected target is a **specific real excavator and worksite**. Their
+identity and measurement package are pending. `REAL_MACHINE_QUALIFICATION.md`
+defines the required evidence; public bench-scale soil tests alone cannot qualify
+that target. `INTRUSION_DATA_ADMISSION.md` records the newly audited individual
+trial source and its unresolved measurement/admission issues.
+
 The requested fully validated testbed is not delivered. The present evidence does
 not support that claim, even though the software workflow is operational.
 

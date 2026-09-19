@@ -1,0 +1,51 @@
+{
+  "cases": [
+    {
+      "file": "dt-0.00125.json.gz",
+      "canonical_json_sha256": "1a1d38a117c7f0ef00f14e09fc936dbccb8ea0d7024e2e4034b68c13238e849d",
+      "dt_s": 0.00125,
+      "total_vertical_impulse_n_s": 84.82674526775382,
+      "peak_20ms_mean_n": 1133.579899996103,
+      "source_changed": false,
+      "solver_health": {
+        "steps": 960,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 265,
+        "at_iteration_limit_steps": 275,
+        "passed": false
+      }
+    },
+    {
+      "file": "dt-0.0025.json.gz",
+      "canonical_json_sha256": "6cd3dd1b9b76e1dedefc773ecf242fc1c40520da59a9dd8b93a89c27873cdfbf",
+      "dt_s": 0.0025,
+      "total_vertical_impulse_n_s": 72.96681960294029,
+      "peak_20ms_mean_n": 1040.706503629938,
+      "source_changed": false,
+      "solver_health": {
+        "steps": 480,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 229,
+        "at_iteration_limit_steps": 234,
+        "passed": false
+      }
+    },
+    {
+      "file": "dt-0.005.json.gz",
+      "canonical_json_sha256": "ea455f92b27acaa301a81940da38390ece716bab1ceeed3eed2a07b7bcbe519d",
+      "dt_s": 0.005,
+      "total_vertical_impulse_n_s": 63.61633736016654,
+      "peak_20ms_mean_n": 1022.0476147783202,
+      "source_changed": false,
+      "solver_health": {
+        "steps": 240,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 158,
+        "at_iteration_limit_steps": 158,
+        "passed": false
+      }
+    }
+  ],
+  "assessment": "Explicit initialization removes nonfinite reported residuals in these runs, but inner tolerance and contact convergence remain failed. Experimental private-API intervention, not production correction.",
+  "encoding": "gzip-compressed JSON; canonical_json_sha256 applies after decompression and canonicalization"
+}

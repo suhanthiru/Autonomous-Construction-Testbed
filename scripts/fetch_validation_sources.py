@@ -1,5 +1,6 @@
 """Fetch a bounded set of public source files without executing third-party code."""
 
+import argparse
 import hashlib
 import json
 import urllib.request
@@ -8,10 +9,12 @@ from pathlib import Path
 SOURCES = {
     "rheometer": "johnruck-sed/GRL_2023_RobotRheometer",
     "ddbot": "IanYangChina/DDBot-IEEE-TRO-2025",
+    "intrusion-2025": "johnruck-sed/UnifiedGranularIntrusionDynamics",
 }
 REVISIONS = {
     "rheometer": "f4b98b71162ab4400fb3ad3bedb38a4b71a3a8b1",
     "ddbot": "e642f7c73f37539c21161bd29669fa8d91912b88",
+    "intrusion-2025": "1c6056044728484836075e954d6ff1e768ab7280",
 }
 METADATA = {
     "scripts/run_si.py",
@@ -36,9 +39,14 @@ def fetch(url: str) -> bytes:
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", choices=sorted(SOURCES), action="append")
+    args = parser.parse_args()
     root = Path("data/raw/admission")
     root.mkdir(parents=True, exist_ok=True)
     for name, repository in SOURCES.items():
+        if args.source and name not in args.source:
+            continue
         commit = json.loads(
             fetch(f"https://api.github.com/repos/{repository}/commits/{REVISIONS[name]}")
         )
@@ -66,11 +74,17 @@ def main():
             if name == "rheometer":
                 selected |= path.startswith(("lab_data/", "matlab_files/"))
                 selected |= path == "jupyter_notebooks/Robot_Geometric_Trials.ipynb"
-            else:
+            elif name == "ddbot":
                 selected |= path in METADATA
                 selected |= path.startswith(
                     ("data/trajectories/", "data/system-identification-targets/sand/")
                 )
+            else:
+                selected |= path in {
+                    "NASA_Ames_Penetration.ipynb", "LabIntrusion_VolumeFrac_Penny.ipynb",
+                    "WRANGLER_Intrusion_SurfaceDisplacement.ipynb", "LHS1_fines_zipped.zip",
+                    "T2_zipped.zip", "glassBeads_zipped.zip",
+                }
             if not selected or entry["type"] != "blob":
                 continue
             output = folder / path

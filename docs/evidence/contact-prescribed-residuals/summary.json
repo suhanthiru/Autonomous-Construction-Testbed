@@ -1,0 +1,10 @@
+{
+  "file": "dt-0.005.json.gz",
+  "canonical_json_sha256": "09c19648e89ef1572ac30fd97e003f49bfa8cadbfa9d2c0851e9b6f223cd98ad",
+  "steps": 240,
+  "nonfinite_residual_steps": 169,
+  "outside_tolerance_steps": 209,
+  "at_iteration_limit_steps": 209,
+  "assessment": "Finite positions and forces do not establish a valid inner residual. Diagnostic observation, not attribution of cause.",
+  "encoding": "gzip-compressed JSON; canonical_json_sha256 applies after decompression and canonicalization"
+}

@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "file": "dt-0.00125.json.gz",
+      "canonical_json_sha256": "e7e65bee65727f23daa3516834bd8fdd925044c698762a66cba11a5d50a3fb12",
+      "dt_s": 0.00125,
+      "total_vertical_impulse_n_s": 86.11389919915419,
+      "peak_20ms_mean_n": 1200.3633451584715,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.0025.json.gz",
+      "canonical_json_sha256": "d606ebfe1e2ca7539813ade44730c69e36d45987165f60465cda3387b6e6dec7",
+      "dt_s": 0.0025,
+      "total_vertical_impulse_n_s": 75.27460622248671,
+      "peak_20ms_mean_n": 943.795956021434,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.005.json.gz",
+      "canonical_json_sha256": "f41f96f881fefafe407892e459a41e62f11e500b89c9c1b51778b88d17df2b73",
+      "dt_s": 0.005,
+      "total_vertical_impulse_n_s": 65.88167447010177,
+      "peak_20ms_mean_n": 812.9155254245136,
+      "source_changed": false
+    }
+  ],
+  "assessment": "1000 iterations and 1e-7 tolerance do not resolve timestep sensitivity. Requested diagnostics were incorrectly assigned to Config instead of the constructor; empty diagnostic strings do not establish residual convergence. Numerical values are preserved; instrumentation is corrected separately.",
+  "encoding": "gzip-compressed JSON; canonical_json_sha256 applies after decompression and canonicalization"
+}

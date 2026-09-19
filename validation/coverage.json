@@ -4,10 +4,10 @@
     {
       "id": "software_contracts",
       "status": "passed",
-      "reason": "52 CPU tests, lint, build and clean base-package installation pass for the recorded source. A six-stage short GPU workflow also completes; physical qualification remains unresolved.",
+      "reason": "57 CPU tests, lint, build and clean base-package installation pass for the recorded source. Physical qualification remains unresolved.",
       "evidence": {
         "path": "docs/evidence/software-contracts.json",
-        "canonical_json_sha256": "4e2561743db96141e897b6da58e6e873d696f947779bff5cd9398028927fccda"
+        "canonical_json_sha256": "8d2046ad694a0a3951cc1edfa61d7f3849abfc0b1623446b780248bb2d318a4b"
       }
     },
     {
@@ -23,7 +23,7 @@
     {
       "id": "contact_convergence",
       "status": "failed",
-      "reason": "Timestep sensitivity persists without rigid feedback: prescribed-motion impulse is 63.61, 73.03 and 84.83 N s at 5, 2.5 and 1.25 ms. Adaptive coupling relaxation also fails to resolve sensitivity. See docs/CONTACT_ISOLATION.md."
+      "reason": "Prescribed-motion timestep sensitivity persists after spatial refinement, low air drag, finite compliance and tighter solves. Uninitialized residual scratch was isolated experimentally; corrected residuals still exceed tolerance. See docs/CONTACT_ISOLATION.md."
     },
     {
       "id": "terrain_convergence",
@@ -33,7 +33,7 @@
     {
       "id": "force_data_admission",
       "status": "not_assessed",
-      "reason": "Rheometer transforms reproduced; independent repeat grouping and uncertainty unresolved."
+      "reason": "Pinned individual intrusion trials inventoried and calibration/development/holdout partitioned. Trial correspondence, force bias/calibration and measurement uncertainty remain unresolved. See docs/INTRUSION_DATA_ADMISSION.md."
     },
     {
       "id": "terrain_data_admission",

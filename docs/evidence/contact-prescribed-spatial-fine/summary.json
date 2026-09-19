@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "file": "dt-0.00125.json.gz",
+      "canonical_json_sha256": "d03a89d106acc9e8fa51ef784757c2f599852aa6f47972247ae978babf0ea997",
+      "dt_s": 0.00125,
+      "total_vertical_impulse_n_s": 63.92088870461538,
+      "peak_20ms_mean_n": 668.9356817815141,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.0025.json.gz",
+      "canonical_json_sha256": "83591ce5601529267adc3bf659527e7a46d8974f183d343cf9075454e88b6733",
+      "dt_s": 0.0025,
+      "total_vertical_impulse_n_s": 57.37362911300367,
+      "peak_20ms_mean_n": 555.4171323470903,
+      "source_changed": false
+    },
+    {
+      "file": "dt-0.005.json.gz",
+      "canonical_json_sha256": "4436c7238dc35c708abadc000495b3479535c0835c41aff8225ad0aff194ad75",
+      "dt_s": 0.005,
+      "total_vertical_impulse_n_s": 50.80193912421977,
+      "peak_20ms_mean_n": 470.9741160401515,
+      "source_changed": false
+    }
+  ],
+  "assessment": "Spatial refinement does not resolve timestep sensitivity; no physical qualification.",
+  "encoding": "gzip-compressed JSON; canonical_json_sha256 applies after decompression and canonicalization"
+}

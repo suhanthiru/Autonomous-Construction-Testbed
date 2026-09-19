@@ -1,0 +1,79 @@
+{
+  "sha": "1c6056044728484836075e954d6ff1e768ab7280",
+  "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/trees/1c6056044728484836075e954d6ff1e768ab7280",
+  "tree": [
+    {
+      "path": "LHS1_fines_zipped.zip",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "608b9447d84a7dff7ef6b6ecea3e11666e0b1654",
+      "size": 5917244,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/608b9447d84a7dff7ef6b6ecea3e11666e0b1654"
+    },
+    {
+      "path": "LHS1_zipped.zip",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d016e285bf353845702177dd266569de57fd23ac",
+      "size": 6939679,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/d016e285bf353845702177dd266569de57fd23ac"
+    },
+    {
+      "path": "LabIntrusion_VolumeFrac_Penny.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dea9124f3a627cfa3f9f3528e5374e0f418758d5",
+      "size": 4706619,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/dea9124f3a627cfa3f9f3528e5374e0f418758d5"
+    },
+    {
+      "path": "NASA_Ames_Penetration.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d7fbfdcf405aac9aacbe7f4b7cc4fba1150059f",
+      "size": 193521,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/3d7fbfdcf405aac9aacbe7f4b7cc4fba1150059f"
+    },
+    {
+      "path": "Paper2_Materials_GrainSizes.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d0b31e3056c3324d343c631a05d1360733bfd5c",
+      "size": 291182,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/0d0b31e3056c3324d343c631a05d1360733bfd5c"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45f3aeca61aa354a8c31d09725184e242fd1dc2e",
+      "size": 1229,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/45f3aeca61aa354a8c31d09725184e242fd1dc2e"
+    },
+    {
+      "path": "T2_zipped.zip",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f308c02e2756c375a73ba81ca5040e298509cbd",
+      "size": 14418564,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/1f308c02e2756c375a73ba81ca5040e298509cbd"
+    },
+    {
+      "path": "WRANGLER_Intrusion_SurfaceDisplacement.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fe212dfb0310a16dd39482ab4a2fb0b90b2c871",
+      "size": 149120,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/8fe212dfb0310a16dd39482ab4a2fb0b90b2c871"
+    },
+    {
+      "path": "glassBeads_zipped.zip",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6312919ef8169618061d608a2f4e44de69c6ab63",
+      "size": 21326498,
+      "url": "https://api.github.com/repos/johnruck-sed/UnifiedGranularIntrusionDynamics/git/blobs/6312919ef8169618061d608a2f4e44de69c6ab63"
+    }
+  ],
+  "truncated": false
+}
