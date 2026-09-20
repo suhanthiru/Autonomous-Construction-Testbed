@@ -1,0 +1,41 @@
+{
+  "tag": "v1.4.0",
+  "commit": "0ce793b42c945b6848aad624501b2ca756d3e244",
+  "retrieved_date": "2026-09-20",
+  "files": [
+    {
+      "path": "genesis/engine/couplers/legacy_coupler.py",
+      "bytes": 46473,
+      "sha256": "53ec19072dd2e177ab28278d029fa13f662ce5296b8d76cc463e5e21d5f702b2",
+      "computed_git_blob_sha1": "106778fcb4ad2b31af035c150617e2fb67d20cfb",
+      "listed_git_blob_sha1": "106778fcb4ad2b31af035c150617e2fb67d20cfb",
+      "matches_tree": true
+    },
+    {
+      "path": "genesis/engine/solvers/rigid/rigid_solver.py",
+      "bytes": 191727,
+      "sha256": "db3f8039a177078946fafb22492db8d65bc1deb40e304d5ba4db61650f5f6bf2",
+      "computed_git_blob_sha1": "c0a0748a66d10c906df9f6dcbaa00163f6237676",
+      "listed_git_blob_sha1": "c0a0748a66d10c906df9f6dcbaa00163f6237676",
+      "matches_tree": true
+    },
+    {
+      "path": "genesis/engine/solvers/rigid/abd/misc.py",
+      "bytes": 41874,
+      "sha256": "d655aaf41ab2079933166827f76e3678d1b7ed5e0aa097ced70a31a359bbb65e",
+      "computed_git_blob_sha1": "8aa2aa91c0f8b9f1018f214a1f097605683d7f59",
+      "listed_git_blob_sha1": "8aa2aa91c0f8b9f1018f214a1f097605683d7f59",
+      "matches_tree": true
+    },
+    {
+      "path": "genesis/engine/solvers/rigid/abd/forward_dynamics.py",
+      "bytes": 124740,
+      "sha256": "e9eb8421c40ee2c881ca2c809ee142350f31515fc63af4778a7d767873fe9f0a",
+      "computed_git_blob_sha1": "f1f22354075084a96987022f6ecb53e8700be973",
+      "listed_git_blob_sha1": "f1f22354075084a96987022f6ecb53e8700be973",
+      "matches_tree": true
+    }
+  ],
+  "status": "source review only; no installation or simulation",
+  "physical_validation": false
+}
