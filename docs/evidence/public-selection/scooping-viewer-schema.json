@@ -1,0 +1,108 @@
+{
+  "retrieved_date": "2026-09-20",
+  "sources": [
+    {
+      "url": "https://datasets-server.huggingface.co/size?dataset=pthangeda%2Fscooping-dataset",
+      "bytes": 683,
+      "sha256": "743f400c3e0a8814d8a26e0dfe90cda8def154012b0f08752a7dd2c2715b6c3a",
+      "response": {
+        "size": {
+          "dataset": {
+            "dataset": "pthangeda/scooping-dataset",
+            "num_bytes_original_files": null,
+            "num_bytes_parquet_files": 4942807126,
+            "num_bytes_memory": 5089186864,
+            "num_rows": 8100,
+            "estimated_num_rows": null
+          },
+          "configs": [
+            {
+              "dataset": "pthangeda/scooping-dataset",
+              "config": "default",
+              "num_bytes_original_files": null,
+              "num_bytes_parquet_files": 4942807126,
+              "num_bytes_memory": 5089186864,
+              "num_rows": 8100,
+              "num_columns": 2,
+              "estimated_num_rows": null
+            }
+          ],
+          "splits": [
+            {
+              "dataset": "pthangeda/scooping-dataset",
+              "config": "default",
+              "split": "train",
+              "num_bytes_parquet_files": 4942807126,
+              "num_bytes_memory": 5089186864,
+              "num_rows": 8100,
+              "num_columns": 2,
+              "estimated_num_rows": null
+            }
+          ]
+        },
+        "pending": [],
+        "failed": [],
+        "partial": true
+      }
+    },
+    {
+      "url": "https://datasets-server.huggingface.co/info?dataset=pthangeda%2Fscooping-dataset&config=default",
+      "bytes": 553,
+      "sha256": "898ff0ce158024de5356fa6dc79bdaa9b04d72bc4d9ebeab99ad5d475e8dbddd",
+      "response": {
+        "dataset_info": {
+          "description": "",
+          "citation": "",
+          "homepage": "",
+          "license": "",
+          "features": {
+            "image": {
+              "_type": "Image"
+            },
+            "label": {
+              "names": [
+                "depth_images",
+                "rgb_images"
+              ],
+              "_type": "ClassLabel"
+            }
+          },
+          "builder_name": "imagefolder",
+          "dataset_name": "scooping-dataset",
+          "config_name": "default",
+          "version": {
+            "version_str": "0.0.0",
+            "major": 0,
+            "minor": 0,
+            "patch": 0
+          },
+          "splits": {
+            "train": {
+              "name": "train",
+              "num_bytes": 5089186864,
+              "num_examples": 8100,
+              "shard_lengths": [
+                1300,
+                1200,
+                1100,
+                1100,
+                1100,
+                1000,
+                400,
+                400,
+                400,
+                100
+              ],
+              "dataset_name": "scooping-dataset"
+            }
+          },
+          "dataset_size": 5089186864
+        },
+        "partial": true
+      }
+    }
+  ],
+  "scope": "Unpinned current viewer metadata; no trial measurements read",
+  "finding": "The partial default viewer is imagefolder with image and label fields, so its 8100 rows are not a verified count of the saved Arrow trial table.",
+  "physical_validation": false
+}

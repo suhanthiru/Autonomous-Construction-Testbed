@@ -101,8 +101,8 @@ Neither guessed metadata nor a visually similar reconstructed scoop is a pass.
 ### Converted table consistency
 
 On 2026-09-20, the public dataset page displayed 8,100 rows, whereas its prose
-and the pinned file inventory describe 6,700 trials. This is an unresolved
-discrepancy, not proof of duplicate trials. The pinned
+and the pinned file inventory describe 6,700 trials. Follow-up viewer metadata
+shows that these counts refer to different representations. The pinned
 [`dataset_info.json`](https://huggingface.co/datasets/pthangeda/scooping-dataset/blob/74f8f8ac59a78a3f3710885b56fdaf119e7605ce/scooping_dataset/dataset_info.json)
 was retrieved separately. It declares integer `terrain_id` and `sample_index`,
 image fields, a force CSV path, and float32 action, volume and depth-normalization
@@ -115,6 +115,20 @@ Before importing the converted table, reconcile its actual row identities with
 the 6,700-trial channel inventory and verify original-to-converted equality.
 The row-count display alone cannot establish a valid split or data completeness.
 No additional numerical trial outcomes were inspected for this check.
+
+The public datasets-server `info` and `size` responses identify the default
+viewer as **`imagefolder`**, with only `image` and `label` features. Its labels
+are `depth_images` and `rgb_images`; both responses set `partial: true`. Thus
+the displayed 8,100 image rows are not a verified row count for the saved Arrow
+trial table. This is not evidence of duplicate scooping trials. The responses
+are current, unpinned viewer metadata, retained with checksums in
+`evidence/public-selection/scooping-viewer-schema.json`.
+
+An importer must reject this two-column image-folder representation when a
+trial table is required. Require explicit terrain/sample identifiers and the
+documented action, outcome and sensor fields; do not treat the default viewer's
+train split as a scientific train/test split. Actual saved-table row identities
+and original-array equality still need verification.
 
 ## RWTH: full-size machine candidate
 
