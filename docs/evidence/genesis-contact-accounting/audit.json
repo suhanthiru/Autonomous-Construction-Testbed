@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "case": "free",
+      "steps": 400,
+      "physical_mass_kg": 0.8192000122070309,
+      "cumulative_reaction_n_s": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cumulative_unaccounted_momentum_n_s": [
+        4.952049327044961e-06,
+        1.8009450553394845e-11,
+        3.2771495659329353e-10
+      ],
+      "max_abs_step_residual_n_s": 2.5062561448407905e-07,
+      "max_abs_step_reaction_n_s": 0.0
+    },
+    {
+      "case": "contact",
+      "steps": 400,
+      "physical_mass_kg": 0.8192000122070309,
+      "cumulative_reaction_n_s": [
+        0.35361630866803456,
+        4.911303760467163e-07,
+        -3.803918386533988e-07
+      ],
+      "cumulative_unaccounted_momentum_n_s": [
+        5.405118676985789e-06,
+        2.295972621960626e-08,
+        -1.1504647106614773e-08
+      ],
+      "max_abs_step_residual_n_s": 2.5062561448407905e-07,
+      "max_abs_step_reaction_n_s": 0.004309810256958008
+    }
+  ],
+  "fixed_inputs": {
+    "backend": "cpu",
+    "dt_s": 0.0001,
+    "steps": 400,
+    "particle_count": 512,
+    "physical_mass_kg": 0.8192000122070309,
+    "mass_scale": 1000.0,
+    "script_sha256": "6547d79235131b950fd9dba0d7fb61785f38dd570c747b9df9ceed564c03d0d6",
+    "initial_momentum_kg_m_s": [
+      0.8192000091552749,
+      0.0,
+      0.0
+    ]
+  },
+  "evidence_integrity_passed": true,
+  "physical_validation": false
+}

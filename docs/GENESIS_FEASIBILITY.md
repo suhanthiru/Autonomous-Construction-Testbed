@@ -4,15 +4,19 @@ Genesis and its resolved dependencies are installed in the isolated
 `runs/genesis-evaluation/.venv` environment. The installer exited successfully;
 all six reviewed source files in the installed wheel match their pinned-source
 SHA-256 hashes (`evidence/genesis-feasibility/installed-source-check.json`).
-CUDA PyTorch installation is in progress. No runtime comparison, backend
-replacement or physical qualification is claimed.
+CUDA PyTorch 2.8.0+cu126 is installed. Genesis and PyTorch import successfully,
+CUDA identifies the RTX 4060 Laptop GPU, and `pip check` exits successfully.
+Checks and runtime package hashes are retained in
+`evidence/genesis-feasibility/runtime-imports.json`. Two CPU force-accounting
+controls have completed; no excavation-backend replacement or physical
+qualification is claimed.
 
 A Windows/Python 3.12 dependency dry run resolved 81 packages for Genesis 1.4.0.
 It used wheels for native dependencies and the source distribution for pinned
 `pygltflib==1.16.0`, whose wheel was unavailable. Exact resolved versions and
 archive hashes are retained in `evidence/genesis-feasibility/dependency-resolution.json`.
-PyTorch was not included in that resolution; its CUDA setup and actual backend
-imports remain to be checked. The initial dependency installation used archive
+PyTorch was installed separately from its official CUDA 12.6 wheel. The initial
+dependency installation used archive
 hashes from the resolution with `--require-hashes --no-deps`; the pygltflib build
 environment itself was not fully locked. Resolution and installation success
 do not establish runtime correctness.
@@ -46,6 +50,28 @@ coupling code divide out that scale. A diagnostic using the raw particle-info
 mass must divide by `particle_volume_scale` before computing physical momentum.
 Record the actual scale, total physical mass, particle count and active mask;
 do not compare scaled particle momentum against an unscaled coupling impulse.
+
+## Initial CPU accounting controls
+
+`scripts/check_genesis_contact_accounting.py` runs a 512-particle sand block with
+zero gravity and a fixed rigid box, either separated or in its path. One initial
+step applies the velocity command and is explicitly excluded from accounting.
+The next 400 steps use 0.1 ms each and one substep per step. Material parameters
+are uncalibrated. This is a sensor/accounting control, not the excavation fixture.
+
+| Case | x reaction impulse (N s) | x unaccounted momentum (kg m/s) |
+|---|---:|---:|
+| Separated | 0 | 0.00000495205 |
+| Contact | 0.353616309 | 0.00000540512 |
+
+Both processes exit successfully. The independent audit recomputes every
+accounting residual and checks identical recorded numerical settings, mass,
+initial momentum and script hash. Raw compressed records and checksums are in
+`evidence/genesis-contact-accounting/`; run its `reproduce.py` to recompute.
+The observations support the chosen sign and mass scaling in this CPU control.
+They do not validate material response, boundary independence, GPU behavior,
+or convergence. A Quadrants warning disabled template-mapper caching; no
+performance claim is made.
 
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different
