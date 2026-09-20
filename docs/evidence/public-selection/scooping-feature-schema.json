@@ -1,0 +1,83 @@
+{
+  "url": "https://huggingface.co/datasets/pthangeda/scooping-dataset/resolve/74f8f8ac59a78a3f3710885b56fdaf119e7605ce/scooping_dataset/dataset_info.json",
+  "retrieved_date": "2026-09-20",
+  "bytes": 1320,
+  "sha256": "5cd895f0ff023d430f13c45d13f06c1d1b0ee2120145632969ea48aa5507eb09",
+  "metadata": {
+    "citation": "",
+    "description": "",
+    "features": {
+      "terrain_id": {
+        "dtype": "int32",
+        "_type": "Value"
+      },
+      "composition": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "material_1": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "material_2": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "material_3": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "sample_index": {
+        "dtype": "int32",
+        "_type": "Value"
+      },
+      "rgb_image": {
+        "_type": "Image"
+      },
+      "depth_image": {
+        "_type": "Image"
+      },
+      "ft_csv_path": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "depth_min": {
+        "dtype": "float32",
+        "_type": "Value"
+      },
+      "depth_max": {
+        "dtype": "float32",
+        "_type": "Value"
+      },
+      "pixel_x": {
+        "dtype": "float32",
+        "_type": "Value"
+      },
+      "pixel_y": {
+        "dtype": "float32",
+        "_type": "Value"
+      },
+      "yaw": {
+        "dtype": "float32",
+        "_type": "Value"
+      },
+      "scoop_depth": {
+        "dtype": "float32",
+        "_type": "Value"
+      },
+      "stiffness": {
+        "dtype": "float32",
+        "_type": "Value"
+      },
+      "scooped_volume": {
+        "dtype": "float32",
+        "_type": "Value"
+      }
+    },
+    "homepage": "",
+    "license": ""
+  },
+  "scope": "Feature schema only; no numerical trial outcomes inspected",
+  "unresolved": "The current web page reports 8100 rows versus the documented 6700 trials. This pinned schema supplies no row count or original-to-converted identity proof.",
+  "physical_validation": false
+}

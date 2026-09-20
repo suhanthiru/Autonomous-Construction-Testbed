@@ -98,6 +98,24 @@ If essential metadata cannot be recovered publicly, retain this source for an
 offline prediction benchmark and select another physical component dataset.
 Neither guessed metadata nor a visually similar reconstructed scoop is a pass.
 
+### Converted table consistency
+
+On 2026-09-20, the public dataset page displayed 8,100 rows, whereas its prose
+and the pinned file inventory describe 6,700 trials. This is an unresolved
+discrepancy, not proof of duplicate trials. The pinned
+[`dataset_info.json`](https://huggingface.co/datasets/pthangeda/scooping-dataset/blob/74f8f8ac59a78a3f3710885b56fdaf119e7605ce/scooping_dataset/dataset_info.json)
+was retrieved separately. It declares integer `terrain_id` and `sample_index`,
+image fields, a force CSV path, and float32 action, volume and depth-normalization
+fields. It contains no row count, force acquisition metadata, or conversion
+provenance. Its empty license field does not replace the repository card's
+license declaration. Raw metadata and its checksum are retained in
+`evidence/public-selection/scooping-feature-schema.json`.
+
+Before importing the converted table, reconcile its actual row identities with
+the 6,700-trial channel inventory and verify original-to-converted equality.
+The row-count display alone cannot establish a valid split or data completeness.
+No additional numerical trial outcomes were inspected for this check.
+
 ## RWTH: full-size machine candidate
 
 [University record](https://publications.rwth-aachen.de/record/1037760),
