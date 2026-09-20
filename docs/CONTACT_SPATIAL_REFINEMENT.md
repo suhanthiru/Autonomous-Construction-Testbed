@@ -31,6 +31,7 @@ isolated source. Concurrent implementation changes are excluded from these runs.
 | 20 mm / 10 mm / 2.5 ms | 32,000 | 50,000 | 60.256042 | 622.4203 | 479/480 pass; excluded |
 | 20 mm / 10 mm / 2.5 ms | 32,000 | 200,000 | 60.256227 | 622.4143 | 480/480 pass |
 | 10 mm / 5 mm / 1.25 ms | 256,000 | 200,000 | 51.715698 | 422.8910 | 959/960 pass; excluded |
+| 10 mm / 5 mm / 1.25 ms | 256,000 | 500,000 | 51.706923 | 422.4283 | 959/960 pass; excluded |
 
 The 50,000-budget run missed the maximum residual tolerance at 0.7525 s
 (1.571208e-5). It is retained, but excluded from the inner-converged series.
@@ -60,6 +61,21 @@ throughput comparison with the uninterrupted coarse runs. The terminal process
 result, complete trajectory, unchanged source hashes and residual audit establish
 what was executed; no repeatability claim across such interruptions is made.
 
+## Increased fine-grid solver budget
+
+A matched rerun increases only the iteration cap to 500,000. It completes all
+960 steps in 1,775.10 seconds and returns exit code 1. The same step at 0.6275 s
+still misses tolerance: residuals are 5.267385e-8 and 1.034126e-5 after 500,001
+reported iterations. No nonfinite residuals, source changes or sparse capacity
+failures are recorded. This run is also excluded from the inner-converged series.
+
+Relative to the 200,000-cap fine run, total impulse changes by approximately
+0.017% and averaged peak by 0.109%. This measured budget sensitivity is small
+compared with the difference between the 20 mm and 10 mm results. It does not
+bound the remaining solver error or turn a failed tolerance check into a pass.
+The tolerance remains unchanged. Neither fine run supports an accepted
+three-level convergence series, and no physical qualification follows.
+
 Joint refinement also does not separately establish temporal and spatial error.
 An acceptable trend here would still require checking timestep error at a fixed
 fine grid, and sensitivity to soil preparation, domain boundaries and grid phase.
@@ -69,7 +85,7 @@ mass transport or repeated cycles on a real machine.
 ## Evidence
 
 The coarse case is `evidence/contact-grid-alignment/aligned-50000.json.gz`.
-Both 20 mm cases, the failed 10 mm case and their summaries are in
+Both 20 mm cases, both failed 10 mm cases and their summaries are in
 `evidence/contact-spatial-refinement/`.
 Hashes apply to canonical decompressed JSON (sorted keys, compact separators,
 finite numbers only). Raw records include per-step solver output and reaction

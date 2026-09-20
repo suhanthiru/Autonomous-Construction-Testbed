@@ -1,0 +1,45 @@
+{
+  "dt_s": 0.00125,
+  "solver_health": {
+    "steps": 960,
+    "nonfinite_residual_steps": 0,
+    "outside_tolerance_steps": 1,
+    "at_iteration_limit_steps": 1,
+    "passed": false
+  },
+  "mpm": {
+    "iterations": 500000,
+    "tolerance": 1e-05,
+    "solver_diagnostics": true,
+    "voxel_m": 0.01,
+    "spacing_m": 0.005,
+    "grid_margin_m": 0.0,
+    "grid_padding_cells": 0,
+    "particle_count": 256000,
+    "air_drag": 1.0,
+    "friction": 0.6,
+    "young_modulus_pa": 1000000000000000.0,
+    "poisson_ratio": 0.3,
+    "integration_scheme": "pic",
+    "grid_type": "sparse",
+    "max_active_cells": 131072,
+    "resolved_sparse_rebuildable": true,
+    "requested_warmstart": "auto",
+    "resolved_stress_warmstart": "particles",
+    "sparse_capacity_checked_each_step": true
+  },
+  "world_offset_m": [
+    0.005,
+    0.005,
+    0.005
+  ],
+  "total_vertical_impulse_n_s": 51.70692259496853,
+  "peak_20ms_mean_n": 422.42828599311224,
+  "source_changed": false,
+  "wall_time_s": 1775.0958131999942,
+  "file": "10mm-budget-500000.json.gz",
+  "canonical_json_sha256": "b27613232870acbfe77cda7734f8487a32afe7f704b54b78e8cf7c41089accae",
+  "encoding": "gzip-compressed JSON; hash applies to canonical decompressed content",
+  "physical_validation": false,
+  "status": "Same step misses inner tolerance at increased budget; excluded from inner-converged series"
+}
