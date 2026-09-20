@@ -1,0 +1,31 @@
+{
+  "status": "completed and audited; no convergence or physical validation claimed",
+  "purpose": "Isolate particle integration resolution from grid and time resolution",
+  "source_snapshot": "runs/numerical-preparation-fingerprints",
+  "source_sha256": "86044e2ac005d0e95ec1f1af0967d8daa193432b109d9e07dfc0332d332047e5",
+  "baseline": "docs/evidence/contact-prepared-time/dt-0.00125.json.gz",
+  "output": "runs/numerical-preparation-fingerprints/runs/prepared-particles5mm/dt-0.00125.json",
+  "fixed": {
+    "voxel_m": 0.02,
+    "dt_s": 0.00125,
+    "collider_basis": "Q1",
+    "settle_s": 1,
+    "settle_dt_s": 0.0025,
+    "iteration_cap": 200000,
+    "residual_tolerance": 1e-05,
+    "max_active_cells": 262144
+  },
+  "varied": {
+    "particle_spacing_m": [
+      0.01,
+      0.005
+    ],
+    "particle_count": [
+      32000,
+      256000
+    ]
+  },
+  "interpretation": "Prepared arrays necessarily differ in size. Compare physical configuration and preparation diagnostics; do not require identical state hashes across particle counts. A force difference is evidence of sampling sensitivity, not improved accuracy.",
+  "physical_validation": false,
+  "process_exit_code": 0
+}

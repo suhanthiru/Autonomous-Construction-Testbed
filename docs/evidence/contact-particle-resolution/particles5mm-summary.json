@@ -1,0 +1,45 @@
+{
+  "dt_s": 0.00125,
+  "mpm": {
+    "iterations": 200000,
+    "tolerance": 1e-05,
+    "solver_diagnostics": true,
+    "voxel_m": 0.02,
+    "spacing_m": 0.005,
+    "grid_margin_m": 0.0,
+    "grid_padding_cells": 0,
+    "particle_count": 256000,
+    "air_drag": 1.0,
+    "friction": 0.6,
+    "young_modulus_pa": 1000000000000000.0,
+    "poisson_ratio": 0.3,
+    "integration_scheme": "pic",
+    "collider_basis": "Q1",
+    "velocity_basis": "Q1",
+    "grid_type": "sparse",
+    "max_active_cells": 262144,
+    "resolved_sparse_rebuildable": true,
+    "requested_warmstart": "particles",
+    "resolved_stress_warmstart": "particles",
+    "sparse_capacity_checked_each_step": true
+  },
+  "world_offset_m": [
+    0.01,
+    0.01,
+    0.01
+  ],
+  "solver_health": {
+    "steps": 960,
+    "nonfinite_residual_steps": 0,
+    "outside_tolerance_steps": 0,
+    "at_iteration_limit_steps": 0,
+    "passed": true
+  },
+  "source_changed": false,
+  "wall_time_s": 396.60343349998584,
+  "total_vertical_impulse_n_s": 50.571153224664755,
+  "peak_20ms_mean_n": 475.1716331038207,
+  "file": "particles5mm.json.gz",
+  "canonical_json_sha256": "5ac6fce3122c63d52636ceae711410fa37da7dff7b6702978189e5f9843f9d33",
+  "physical_validation": false
+}
