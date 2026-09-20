@@ -1,0 +1,39 @@
+{
+  "status": "running; no result claimed",
+  "purpose": "Separate grid resolution from particle spacing and time resolution",
+  "source_snapshot": "runs/numerical-preparation-fingerprints",
+  "source_sha256": "86044e2ac005d0e95ec1f1af0967d8daa193432b109d9e07dfc0332d332047e5",
+  "baseline": "docs/evidence/contact-particle-resolution/particles5mm.json.gz",
+  "output": "runs/numerical-preparation-fingerprints/runs/prepared-grid10mm/dt-0.00125.json",
+  "fixed": {
+    "particle_spacing_m": 0.005,
+    "particle_count": 256000,
+    "dt_s": 0.00125,
+    "collider_basis": "Q1",
+    "settle_s": 1,
+    "settle_dt_s": 0.0025,
+    "iteration_cap": 200000,
+    "residual_tolerance": 1e-05,
+    "max_active_cells": 262144
+  },
+  "varied": {
+    "voxel_m": [
+      0.02,
+      0.01
+    ],
+    "world_offset_m": [
+      [
+        0.01,
+        0.01,
+        0.01
+      ],
+      [
+        0.005,
+        0.005,
+        0.005
+      ]
+    ]
+  },
+  "alignment": "Translate the entire fixture including ground by half the voxel width in each axis, following the existing spatial-refinement convention. This is not identical global coordinates.",
+  "physical_validation": false
+}
