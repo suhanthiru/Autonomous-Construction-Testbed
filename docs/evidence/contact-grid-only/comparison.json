@@ -1,0 +1,295 @@
+{
+  "baseline": {
+    "digging": {
+      "file": "particles5mm.json.gz",
+      "voxel_m": 0.02,
+      "dt_s": 0.00125,
+      "mpm": {
+        "air_drag": 1.0,
+        "collider_basis": "Q1",
+        "friction": 0.6,
+        "grid_margin_m": 0.0,
+        "grid_padding_cells": 0,
+        "grid_type": "sparse",
+        "integration_scheme": "pic",
+        "iterations": 200000,
+        "max_active_cells": 262144,
+        "particle_count": 256000,
+        "poisson_ratio": 0.3,
+        "requested_warmstart": "particles",
+        "resolved_sparse_rebuildable": true,
+        "resolved_stress_warmstart": "particles",
+        "solver_diagnostics": true,
+        "spacing_m": 0.005,
+        "sparse_capacity_checked_each_step": true,
+        "tolerance": 1e-05,
+        "velocity_basis": "Q1",
+        "voxel_m": 0.02,
+        "young_modulus_pa": 1000000000000000.0
+      },
+      "world_offset_m": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "impulse_n_s": 50.571153224664755,
+      "peak_20ms_mean_n": 475.1716331038207,
+      "solver_health": {
+        "steps": 960,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "loading_impulse_n_s": 50.64869204021326,
+      "withdrawal_impulse_n_s": -0.0775388155485109,
+      "peak_window_s": [
+        0.74,
+        0.76
+      ],
+      "source_sha256": "86044e2ac005d0e95ec1f1af0967d8daa193432b109d9e07dfc0332d332047e5",
+      "physical_validation": false
+    },
+    "preparation_steps": 400,
+    "preparation_dt_s": 0.0025,
+    "preparation_duration_s": 1.0,
+    "state_fingerprints": {
+      "body_q": {
+        "dtype": "float32",
+        "sha256": "0ce6b8d6deef805baf9d7d15280609a0231d02c07115caf12667348d3ec679fe",
+        "shape": [
+          1,
+          7
+        ]
+      },
+      "body_qd": {
+        "dtype": "float32",
+        "sha256": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+        "shape": [
+          1,
+          6
+        ]
+      },
+      "mpm.particle_Jp": {
+        "dtype": "float32",
+        "sha256": "60331e9338344d3ece0bd08c23abadc5fc8321ab596ba04aa0fe5ccb7b0e9ebe",
+        "shape": [
+          256000
+        ]
+      },
+      "mpm.particle_elastic_strain": {
+        "dtype": "float32",
+        "sha256": "4c84dd98735a708b3d933afea9033bb45196f4e9b0821247d417fad98dfc90c7",
+        "shape": [
+          256000,
+          3,
+          3
+        ]
+      },
+      "mpm.particle_qd_grad": {
+        "dtype": "float32",
+        "sha256": "19d91fd3387f8dfa52d76712cb4bfcfb410365f8d644b9bc00a55ad0707079b5",
+        "shape": [
+          256000,
+          3,
+          3
+        ]
+      },
+      "mpm.particle_stress": {
+        "dtype": "float32",
+        "sha256": "149e26d452a4d3c7fd2874d9afb624f1f0b5fd756016a309f3dd80e2ff8e0563",
+        "shape": [
+          256000,
+          3,
+          3
+        ]
+      },
+      "mpm.particle_transform": {
+        "dtype": "float32",
+        "sha256": "4c84dd98735a708b3d933afea9033bb45196f4e9b0821247d417fad98dfc90c7",
+        "shape": [
+          256000,
+          3,
+          3
+        ]
+      },
+      "particle_q": {
+        "dtype": "float32",
+        "sha256": "a6d449ae9bae2e54038fe2c87355e02bf708fe19eef83cafbe48f9dedbb48de7",
+        "shape": [
+          256000,
+          3
+        ]
+      },
+      "particle_qd": {
+        "dtype": "float32",
+        "sha256": "918561384f4317dce496d316c73a596467f89eefc49561dbc344748f8b539ba0",
+        "shape": [
+          256000,
+          3
+        ]
+      }
+    },
+    "preparation_failed_steps": 0,
+    "preparation_inner_passed": true,
+    "final_max_speed_m_s": 0.006151425652205944,
+    "final_rms_speed_m_s": 0.00019361918384674937,
+    "last_100ms_max_speed_m_s": 0.006933605298399925,
+    "evidence_integrity_passed": true,
+    "equilibrium_qualified": false,
+    "physical_validation": false
+  },
+  "fine": {
+    "digging": {
+      "file": "grid10mm.json.gz",
+      "voxel_m": 0.01,
+      "dt_s": 0.00125,
+      "mpm": {
+        "air_drag": 1.0,
+        "collider_basis": "Q1",
+        "friction": 0.6,
+        "grid_margin_m": 0.0,
+        "grid_padding_cells": 0,
+        "grid_type": "sparse",
+        "integration_scheme": "pic",
+        "iterations": 200000,
+        "max_active_cells": 262144,
+        "particle_count": 256000,
+        "poisson_ratio": 0.3,
+        "requested_warmstart": "particles",
+        "resolved_sparse_rebuildable": true,
+        "resolved_stress_warmstart": "particles",
+        "solver_diagnostics": true,
+        "spacing_m": 0.005,
+        "sparse_capacity_checked_each_step": true,
+        "tolerance": 1e-05,
+        "velocity_basis": "Q1",
+        "voxel_m": 0.01,
+        "young_modulus_pa": 1000000000000000.0
+      },
+      "world_offset_m": [
+        0.005,
+        0.005,
+        0.005
+      ],
+      "impulse_n_s": 50.33397677745151,
+      "peak_20ms_mean_n": 510.9467874124168,
+      "solver_health": {
+        "steps": 960,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 1,
+        "at_iteration_limit_steps": 1,
+        "passed": false
+      },
+      "loading_impulse_n_s": 50.43259782764621,
+      "withdrawal_impulse_n_s": -0.09862105019470396,
+      "peak_window_s": [
+        0.78,
+        0.8
+      ],
+      "source_sha256": "86044e2ac005d0e95ec1f1af0967d8daa193432b109d9e07dfc0332d332047e5",
+      "physical_validation": false
+    },
+    "preparation_steps": 400,
+    "preparation_dt_s": 0.0025,
+    "preparation_duration_s": 1.0,
+    "state_fingerprints": {
+      "body_q": {
+        "dtype": "float32",
+        "sha256": "ad82d2c1a383e1bb26b66cc2dbbe7dad55a5882d16fdc9d273d7e136a842a4e0",
+        "shape": [
+          1,
+          7
+        ]
+      },
+      "body_qd": {
+        "dtype": "float32",
+        "sha256": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+        "shape": [
+          1,
+          6
+        ]
+      },
+      "mpm.particle_Jp": {
+        "dtype": "float32",
+        "sha256": "a1a6177b42b2f8a5cebcc10ad1973f0904446dbc58e4b73fbd4572502fa5e51c",
+        "shape": [
+          256000
+        ]
+      },
+      "mpm.particle_elastic_strain": {
+        "dtype": "float32",
+        "sha256": "4c84dd98735a708b3d933afea9033bb45196f4e9b0821247d417fad98dfc90c7",
+        "shape": [
+          256000,
+          3,
+          3
+        ]
+      },
+      "mpm.particle_qd_grad": {
+        "dtype": "float32",
+        "sha256": "c1f204c161ad955771aacf061f2567da07ef6a8645775709b710d815f3045023",
+        "shape": [
+          256000,
+          3,
+          3
+        ]
+      },
+      "mpm.particle_stress": {
+        "dtype": "float32",
+        "sha256": "e90ff62576edfe192ea087c249a58c53dd98c44eaf17cf8d83e573abe3b5df40",
+        "shape": [
+          256000,
+          3,
+          3
+        ]
+      },
+      "mpm.particle_transform": {
+        "dtype": "float32",
+        "sha256": "4c84dd98735a708b3d933afea9033bb45196f4e9b0821247d417fad98dfc90c7",
+        "shape": [
+          256000,
+          3,
+          3
+        ]
+      },
+      "particle_q": {
+        "dtype": "float32",
+        "sha256": "4a988f80b6f00f95c508d1a93c14d71b3f0745da8c565b6977b5cd71f5b76614",
+        "shape": [
+          256000,
+          3
+        ]
+      },
+      "particle_qd": {
+        "dtype": "float32",
+        "sha256": "f4a686acb120d5bb2b6420d371391b16d1313888e197cdd924fe20ce7584ae17",
+        "shape": [
+          256000,
+          3
+        ]
+      }
+    },
+    "preparation_failed_steps": 0,
+    "preparation_inner_passed": true,
+    "final_max_speed_m_s": 0.010888570919632912,
+    "final_rms_speed_m_s": 0.00010529326391406357,
+    "last_100ms_max_speed_m_s": 0.03115760162472725,
+    "evidence_integrity_passed": true,
+    "equilibrium_qualified": false,
+    "physical_validation": false
+  },
+  "configuration_differences": {
+    "voxel_m": [
+      0.02,
+      0.01
+    ]
+  },
+  "impulse_change_fraction": -0.004689955282601077,
+  "peak_change_fraction": 0.07528890997745985,
+  "evidence_integrity_passed": true,
+  "recorded_motion_and_physical_inputs_match": true,
+  "all_inner_checks_passed": false,
+  "physical_validation": false,
+  "limitation": "Grid and whole-fixture half-cell translation change; prepared states may differ"
+}
