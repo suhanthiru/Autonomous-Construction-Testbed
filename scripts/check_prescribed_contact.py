@@ -23,7 +23,7 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         iterations=100, tolerance=1e-5, solver_diagnostics=False, integration_scheme="pic",
         grid_type="fixed", max_active_cells=1 << 18, rebuildable_sparse=False,
         warmstart_mode="auto", world_offset=(0.0, 0.0, 0.0), progress=None,
-        collider_basis="S2", momentum_audit=False):
+        collider_basis="S2", momentum_audit=False, settle_s=0.0, settle_dt=0.0025):
     if collider_basis not in ("S2", "Q1", "pic"):
         raise ValueError("unsupported diagnostic collider basis")
     if rebuildable_sparse and grid_type != "sparse":
@@ -81,6 +81,33 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         raise RuntimeError("requested rebuildable sparse path was not activated")
     state, output = model.state(), model.state()
     solver.setup_collider(body_mass=wp.zeros_like(model.body_mass), body_q=state.body_q)
+    preparation = []
+    preparation_steps = ticks_per_update(settle_dt, settle_s) if settle_s else 0
+    for prep_tick in range(preparation_steps):
+        captured = io.StringIO()
+        with redirect_stdout(captured):
+            solver.step(state, output, None, None, settle_dt)
+        state, output = output, state
+        if solver._sparse_rebuildable:
+            solver.check_sparse_grid_rebuild_status()
+        diagnostic = captured.getvalue()
+        if solver_diagnostics:
+            match = re.search(r"terminated after (\d+) iterations with residuals ([^,\s]+), "
+                              r"([^\s]+)", diagnostic)
+            if match is None or not all(isfinite(float(v)) and float(v) <= tolerance
+                                        for v in match.groups()[1:]):
+                raise RuntimeError(f"preparation residual failure at step {prep_tick + 1}: "
+                                   f"{diagnostic}")
+        speeds = np.linalg.norm(state.particle_qd.numpy(), axis=1)
+        if not np.isfinite(speeds).all() or not np.isfinite(state.particle_q.numpy()).all():
+            raise RuntimeError(f"nonfinite preparation state at step {prep_tick + 1}")
+        preparation.append({"time_s": (prep_tick + 1) * settle_dt,
+                            "max_particle_speed_m_s": float(speeds.max()),
+                            "rms_particle_speed_m_s": float(np.sqrt(np.mean(speeds**2))),
+                            "solver_diagnostic": diagnostic})
+        if progress is not None and (prep_tick + 1) % 100 == 0:
+            print({"phase": "preparation", "completed_steps": prep_tick + 1,
+                   "total_steps": preparation_steps}, flush=True)
     momentum_metadata = None
     if momentum_audit:
         masses = model.particle_mass.numpy().astype(np.float64)
@@ -179,6 +206,9 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         "duration_s": steps * dt,
         "world_offset_m": list(world_offset),
         "momentum_accounting": momentum_metadata,
+        "preparation": {"duration_s": settle_s, "dt_s": settle_dt,
+                        "trajectory": preparation,
+                        "claim": "Fixed-duration preparation; equilibrium is not asserted"},
         "boundary": "kinematic prescribed box, zero rotation; no actuator or proxy feedback",
         "mpm": {
             "iterations": iterations,
@@ -235,6 +265,9 @@ def main():
                         help="Contact sampling basis; production defaults are unchanged")
     parser.add_argument("--momentum-audit", action="store_true",
                         help="Record particle momentum, gravity and all collider reactions")
+    parser.add_argument("--settle-s", type=float, default=0.0)
+    parser.add_argument("--settle-dt", type=float, default=0.0025,
+                        help="Preparation timestep, independent of digging timestep")
     parser.add_argument("--grid-type", choices=("fixed", "sparse"), default="fixed")
     parser.add_argument("--max-active-cells", type=int, default=1 << 18)
     parser.add_argument("--rebuildable-sparse", action="store_true")
@@ -258,6 +291,12 @@ def main():
         parser.error("world offset must be finite")
     if args.progress_every < 0:
         parser.error("progress interval must be nonnegative")
+    if not isfinite(args.settle_s) or args.settle_s < 0:
+        parser.error("settling duration must be finite and nonnegative")
+    if not isfinite(args.settle_dt) or args.settle_dt <= 0:
+        parser.error("settling timestep must be finite and positive")
+    if args.settle_s:
+        ticks_per_update(args.settle_dt, args.settle_s)
     if not all(isfinite(v) and v > 0 for v in (args.voxel, args.spacing)):
         parser.error("spatial sizes must be finite and positive")
     if not isfinite(args.air_drag) or args.air_drag < 0:
@@ -304,7 +343,7 @@ def main():
                              args.integration_scheme, args.grid_type, args.max_active_cells,
                              args.rebuildable_sparse, args.warmstart_mode, args.world_offset,
                              progress if args.progress_every else None, args.collider_basis,
-                             args.momentum_audit)
+                             args.momentum_audit, args.settle_s, args.settle_dt)
             except Exception as error:
                 (args.output / "failure.json").write_text(
                     json.dumps(

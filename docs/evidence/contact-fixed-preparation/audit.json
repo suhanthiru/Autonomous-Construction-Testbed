@@ -1,0 +1,61 @@
+{
+  "digging": {
+    "file": "q1-settle1.json.gz",
+    "voxel_m": 0.02,
+    "dt_s": 0.00125,
+    "mpm": {
+      "air_drag": 1.0,
+      "collider_basis": "Q1",
+      "friction": 0.6,
+      "grid_margin_m": 0.0,
+      "grid_padding_cells": 0,
+      "grid_type": "sparse",
+      "integration_scheme": "pic",
+      "iterations": 200000,
+      "max_active_cells": 262144,
+      "particle_count": 32000,
+      "poisson_ratio": 0.3,
+      "requested_warmstart": "particles",
+      "resolved_sparse_rebuildable": true,
+      "resolved_stress_warmstart": "particles",
+      "solver_diagnostics": true,
+      "spacing_m": 0.01,
+      "sparse_capacity_checked_each_step": true,
+      "tolerance": 1e-05,
+      "velocity_basis": "Q1",
+      "voxel_m": 0.02,
+      "young_modulus_pa": 1000000000000000.0
+    },
+    "world_offset_m": [
+      0.01,
+      0.01,
+      0.01
+    ],
+    "impulse_n_s": 49.76458611161384,
+    "peak_20ms_mean_n": 466.95554002875156,
+    "solver_health": {
+      "steps": 960,
+      "nonfinite_residual_steps": 0,
+      "outside_tolerance_steps": 0,
+      "at_iteration_limit_steps": 0,
+      "passed": true
+    },
+    "loading_impulse_n_s": 49.83458051454744,
+    "withdrawal_impulse_n_s": -0.06999440293360501,
+    "peak_window_s": [
+      0.74,
+      0.76
+    ],
+    "source_sha256": "6dbc3f98874e080f6a7fc51dee05bc3465867295ef52c515abd3b9156b36b5aa",
+    "physical_validation": false
+  },
+  "preparation_steps": 400,
+  "preparation_failed_steps": 0,
+  "preparation_inner_passed": true,
+  "final_max_speed_m_s": 0.007024358958005905,
+  "final_rms_speed_m_s": 0.0002500317932572216,
+  "last_100ms_max_speed_m_s": 0.007456409744918346,
+  "evidence_integrity_passed": true,
+  "equilibrium_qualified": false,
+  "physical_validation": false
+}
