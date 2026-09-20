@@ -23,6 +23,8 @@
   "preprint_sha256": "c878a26ad14890e81b2b360f96fee5ba6a616194b7d4b1bd8877db48b460affd",
   "outcomes_inspected": false,
   "material_characterization_inspected": true,
-  "archive_status": "downloading",
-  "qualification_split": null
+  "archive_status": "downloaded; published MD5 verified",
+  "qualification_split": "furrows-split.json; reserved outcomes not evaluated",
+  "archive_sha256": "ad031e458adc60b51b75f95461b2e4d1102d6eacc1f4cc4f0b765307eedfd9c7",
+  "tool_meshes_inspected": true
 }

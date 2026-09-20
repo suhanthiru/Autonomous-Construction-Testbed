@@ -1,0 +1,82 @@
+{
+  "audits": [
+    {
+      "record_integrity": true,
+      "physical_validation": false,
+      "steps": 3000,
+      "tool_vertical_impulse_n_s": 29.692657326618583,
+      "peak_20ms_mean_n": 229.83661529541016,
+      "cumulative_unaccounted_momentum_n_s": [
+        -4.719883581194693e-06,
+        -1.2136781177734548e-06,
+        -0.00015483813546425876
+      ],
+      "max_step_unaccounted_momentum_n_s": [
+        2.432122966802909e-07,
+        2.0244420728058593e-07,
+        7.555554544791399e-07
+      ],
+      "max_position_error_m": 1.4896392841468042e-08,
+      "max_velocity_error_m_s": 1.1920928966180355e-08,
+      "max_orientation_quaternion_error": 0.0
+    },
+    {
+      "record_integrity": true,
+      "physical_validation": false,
+      "steps": 6000,
+      "tool_vertical_impulse_n_s": 39.91872250387736,
+      "peak_20ms_mean_n": 299.8805094909668,
+      "cumulative_unaccounted_momentum_n_s": [
+        1.9982159825691697e-06,
+        -6.5184018996178076e-06,
+        -0.00039006915782487323
+      ],
+      "max_step_unaccounted_momentum_n_s": [
+        2.428114512582471e-07,
+        2.2486638117577424e-07,
+        6.838092934807749e-07
+      ],
+      "max_position_error_m": 1.4896392841468042e-08,
+      "max_velocity_error_m_s": 1.1920928966180355e-08,
+      "max_orientation_quaternion_error": 0.0
+    },
+    {
+      "record_integrity": true,
+      "physical_validation": false,
+      "steps": 12000,
+      "tool_vertical_impulse_n_s": 57.84690265120765,
+      "peak_20ms_mean_n": 411.4208934783935,
+      "cumulative_unaccounted_momentum_n_s": [
+        -4.156061236664799e-06,
+        -7.210903027496314e-06,
+        -0.0006779797804630538
+      ],
+      "max_step_unaccounted_momentum_n_s": [
+        1.9165646201550688e-07,
+        1.8725852200654824e-07,
+        5.503008662019471e-07
+      ],
+      "max_position_error_m": 1.4896392841468042e-08,
+      "max_velocity_error_m_s": 1.1920928966180355e-08,
+      "max_orientation_quaternion_error": 0.0
+    }
+  ],
+  "timestep_s": [
+    0.0004,
+    0.0002,
+    0.0001
+  ],
+  "relative_changes": [
+    {
+      "tool_vertical_impulse_n_s": 0.34439710345801267,
+      "peak_20ms_mean_n": 0.30475515881370274
+    },
+    {
+      "tool_vertical_impulse_n_s": 0.44911708147947116,
+      "peak_20ms_mean_n": 0.3719494280463953
+    }
+  ],
+  "recorded_fixed_inputs_match": true,
+  "physical_validation": false,
+  "interpretation": "Force changes grow under refinement; convergence not established"
+}

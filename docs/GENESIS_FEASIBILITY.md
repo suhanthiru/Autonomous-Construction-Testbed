@@ -146,7 +146,26 @@ gravity and all collider reactions, checks the commanded boundary, and verifies
 that particles remain inside the instrumented domain's safety margin.
 It passes record integrity; no physical accuracy or convergence gate is passed.
 Evidence, exact source, and the audit are in `evidence/genesis-digging/`.
-A 0.2 ms run is the next time-refinement comparison, with other inputs unchanged.
+The 0.2 and 0.1 ms repeats also complete and pass raw-record audits. Recorded
+fixed inputs match across all three runs, including source and package versions.
+
+| Timestep (ms) | Tool impulse (N s) | Peak 20 ms mean (N) |
+| --- | ---: | ---: |
+| 0.4 | 29.6926573 | 229.836615 |
+| 0.2 | 39.9187225 | 299.880509 |
+| 0.1 | 57.8469027 | 411.420893 |
+
+Impulse changes grow from about 34% to 45% with refinement. This fixture is not
+converged. Its small unaccounted momentum does not make its predicted force
+accurate. Recompute with `docs/evidence/genesis-digging/time_refinement.py`.
+The corresponding raw records are in `genesis-digging-dt200us/` and
+`genesis-digging-dt100us/`. No backend promotion is supported by this study.
+
+One source-level hypothesis for a controlled follow-up is the contact softness:
+the legacy coupler blends relative velocity using a distance-dependent influence
+on every substep. This is an observation about the inspected implementation,
+not a demonstrated explanation of the force drift. Test it independently before
+changing the production configuration or claiming a correction.
 
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different

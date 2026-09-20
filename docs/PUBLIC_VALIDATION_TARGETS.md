@@ -18,7 +18,12 @@ The public [rigid-runner furrow dataset](https://zenodo.org/records/21159754)
 is now the leading candidate for a **terrain-deformation component** reference.
 Its pinned version declares CC BY 4.0 and includes raw/reconstructed scans,
 tool STL files, and laboratory material measurements. The fine-sand archive
-is being retrieved; scan outcomes have not been opened and no holdout is evaluated.
+has been retrieved and matches the published MD5 checksum. Its inventory contains
+150 raw OBJ trials and both tool meshes. Scan outcomes have not been opened.
+The split reserves complete conditions: 25 plain-runner trials at the lowest
+speed are development data; the other 125 are reserved pending admission and
+accuracy preregistration. This prevents repeats of one condition crossing roles;
+it does not establish independent preparation groups. No holdout is evaluated.
 This candidate does not qualify a real excavator or replace the scooping task.
 
 The [methods preprint](https://doi.org/10.21203/rs.3.rs-8287044/v1) describes

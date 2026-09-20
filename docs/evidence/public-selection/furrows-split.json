@@ -1,0 +1,1208 @@
+{
+  "record_id": 21159754,
+  "archive_sha256": "ad031e458adc60b51b75f95461b2e4d1102d6eacc1f4cc4f0b765307eedfd9c7",
+  "outcomes_inspected": false,
+  "split_basis": "All repeats of each tool/speed/load condition kept together; lowest-speed plain runner for development. Reserved outcomes remain unopened pending admission and preregistration.",
+  "trials": [
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/0/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/0/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/0/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/0/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/0/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/1/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/1/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/1/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/1/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/1/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/2/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/2/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/2/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/2/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/2/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/3/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/3/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/3/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/3/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/3/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/4/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/4/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/4/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/4/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/10Hz/4/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/0/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/0/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/0/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/0/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/0/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/1/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/1/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/1/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/1/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/1/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/2/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/2/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/2/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/2/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/2/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/3/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/3/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/3/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/3/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/3/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/4/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/4/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/4/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/4/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/15Hz/4/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/0/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "1",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/0/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "2",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/0/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "3",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/0/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "4",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/0/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "5",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/1/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "1",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/1/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "2",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/1/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "3",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/1/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "4",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/1/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "5",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/2/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "1",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/2/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "2",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/2/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "3",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/2/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "4",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/2/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "5",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/3/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "1",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/3/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "2",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/3/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "3",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/3/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "4",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/3/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "5",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/4/OBJ_raw/1.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "1",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/4/OBJ_raw/2.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "2",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/4/OBJ_raw/3.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "3",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/4/OBJ_raw/4.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "4",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/5Hz/4/OBJ_raw/5.obj",
+      "tool": "Skis_without_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "5",
+      "role": "development"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/0/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/0/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/0/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/0/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/0/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 0,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/1/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/1/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/1/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/1/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/1/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 1,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/2/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/2/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/2/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/2/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/2/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 2,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/3/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/3/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/3/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/3/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/3/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 3,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/4/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/4/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/4/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/4/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/10Hz/4/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "10Hz",
+      "weights": 4,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/0/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/0/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/0/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/0/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/0/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 0,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/1/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/1/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/1/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/1/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/1/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 1,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/2/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/2/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/2/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/2/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/2/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 2,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/3/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/3/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/3/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/3/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/3/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 3,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/4/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/4/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/4/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/4/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/15Hz/4/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "15Hz",
+      "weights": 4,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/0/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/0/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/0/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/0/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/0/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 0,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/1/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/1/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/1/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/1/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/1/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 1,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/2/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/2/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/2/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/2/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/2/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 2,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/3/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/3/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/3/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/3/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/3/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 3,
+      "repeat": "5",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/4/OBJ_raw/1.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "1",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/4/OBJ_raw/2.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "2",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/4/OBJ_raw/3.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "3",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/4/OBJ_raw/4.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "4",
+      "role": "reserved"
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/5Hz/4/OBJ_raw/5.obj",
+      "tool": "Skis_with_active_elements",
+      "speed_setting": "5Hz",
+      "weights": 4,
+      "repeat": "5",
+      "role": "reserved"
+    }
+  ]
+}
