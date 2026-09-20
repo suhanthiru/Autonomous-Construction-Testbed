@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "1.25 ms completed and audited; 0.625 ms running; convergence not established",
+  "status": "completed; raw evidence audited; physical validation not passed",
   "purpose": "Separate timestep sensitivity from joint grid/time refinement at 20 mm resolution",
   "source_snapshot": "runs/numerical-grid-alignment",
   "expected_source_sha256": "9298bc41be4feecd12b5bbb94d797aa3e522c850f8dfa4fea6e4a76ff45c891e",
@@ -29,5 +29,6 @@
     "Check resolved parameters against baseline and report differences",
     "Retain failures; do not infer physical accuracy from numerical consistency"
   ],
-  "physical_validation": false
+  "physical_validation": false,
+  "process_exit_code": 0
 }

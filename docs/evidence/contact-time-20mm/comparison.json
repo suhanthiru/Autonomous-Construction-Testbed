@@ -1,0 +1,194 @@
+{
+  "cases": [
+    {
+      "file": "20mm-budget-200000.json.gz",
+      "voxel_m": 0.02,
+      "dt_s": 0.0025,
+      "mpm": {
+        "air_drag": 1.0,
+        "friction": 0.6,
+        "grid_margin_m": 0.0,
+        "grid_padding_cells": 0,
+        "grid_type": "sparse",
+        "integration_scheme": "pic",
+        "iterations": 200000,
+        "max_active_cells": 65536,
+        "particle_count": 32000,
+        "poisson_ratio": 0.3,
+        "requested_warmstart": "auto",
+        "resolved_sparse_rebuildable": true,
+        "resolved_stress_warmstart": "particles",
+        "solver_diagnostics": true,
+        "spacing_m": 0.01,
+        "sparse_capacity_checked_each_step": true,
+        "tolerance": 1e-05,
+        "voxel_m": 0.02,
+        "young_modulus_pa": 1000000000000000.0
+      },
+      "world_offset_m": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "impulse_n_s": 60.25622681754419,
+      "peak_20ms_mean_n": 622.414252673545,
+      "solver_health": {
+        "steps": 480,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "loading_impulse_n_s": 60.30848290839823,
+      "withdrawal_impulse_n_s": -0.052256090854043015,
+      "peak_window_s": [
+        0.78,
+        0.8
+      ],
+      "source_sha256": "9298bc41be4feecd12b5bbb94d797aa3e522c850f8dfa4fea6e4a76ff45c891e",
+      "physical_validation": false
+    },
+    {
+      "file": "dt-0.00125.json.gz",
+      "voxel_m": 0.02,
+      "dt_s": 0.00125,
+      "mpm": {
+        "air_drag": 1.0,
+        "friction": 0.6,
+        "grid_margin_m": 0.0,
+        "grid_padding_cells": 0,
+        "grid_type": "sparse",
+        "integration_scheme": "pic",
+        "iterations": 200000,
+        "max_active_cells": 262144,
+        "particle_count": 32000,
+        "poisson_ratio": 0.3,
+        "requested_warmstart": "particles",
+        "resolved_sparse_rebuildable": true,
+        "resolved_stress_warmstart": "particles",
+        "solver_diagnostics": true,
+        "spacing_m": 0.01,
+        "sparse_capacity_checked_each_step": true,
+        "tolerance": 1e-05,
+        "voxel_m": 0.02,
+        "young_modulus_pa": 1000000000000000.0
+      },
+      "world_offset_m": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "impulse_n_s": 64.68613773165937,
+      "peak_20ms_mean_n": 671.2491545700209,
+      "solver_health": {
+        "steps": 960,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "loading_impulse_n_s": 64.73534550541117,
+      "withdrawal_impulse_n_s": -0.04920777375179433,
+      "peak_window_s": [
+        0.78,
+        0.8
+      ],
+      "source_sha256": "9298bc41be4feecd12b5bbb94d797aa3e522c850f8dfa4fea6e4a76ff45c891e",
+      "physical_validation": false
+    },
+    {
+      "file": "dt-0.000625.json.gz",
+      "voxel_m": 0.02,
+      "dt_s": 0.000625,
+      "mpm": {
+        "air_drag": 1.0,
+        "friction": 0.6,
+        "grid_margin_m": 0.0,
+        "grid_padding_cells": 0,
+        "grid_type": "sparse",
+        "integration_scheme": "pic",
+        "iterations": 200000,
+        "max_active_cells": 262144,
+        "particle_count": 32000,
+        "poisson_ratio": 0.3,
+        "requested_warmstart": "particles",
+        "resolved_sparse_rebuildable": true,
+        "resolved_stress_warmstart": "particles",
+        "solver_diagnostics": true,
+        "spacing_m": 0.01,
+        "sparse_capacity_checked_each_step": true,
+        "tolerance": 1e-05,
+        "voxel_m": 0.02,
+        "young_modulus_pa": 1000000000000000.0
+      },
+      "world_offset_m": [
+        0.01,
+        0.01,
+        0.01
+      ],
+      "impulse_n_s": 68.20054115205212,
+      "peak_20ms_mean_n": 691.0000280581357,
+      "solver_health": {
+        "steps": 1920,
+        "nonfinite_residual_steps": 0,
+        "outside_tolerance_steps": 0,
+        "at_iteration_limit_steps": 0,
+        "passed": true
+      },
+      "loading_impulse_n_s": 68.25321429020943,
+      "withdrawal_impulse_n_s": -0.05267313815730609,
+      "peak_window_s": [
+        0.78,
+        0.8
+      ],
+      "source_sha256": "9298bc41be4feecd12b5bbb94d797aa3e522c850f8dfa4fea6e4a76ff45c891e",
+      "physical_validation": false
+    }
+  ],
+  "comparisons": [
+    {
+      "coarse_dt_s": 0.0025,
+      "fine_dt_s": 0.00125,
+      "impulse_change_fraction": 0.07351789430043398,
+      "peak_change_fraction": 0.07846044926945095,
+      "both_inner_checks_passed": true
+    },
+    {
+      "coarse_dt_s": 0.00125,
+      "fine_dt_s": 0.000625,
+      "impulse_change_fraction": 0.054330085913796955,
+      "peak_change_fraction": 0.029424057153214056,
+      "both_inner_checks_passed": true
+    }
+  ],
+  "configuration_differences": [
+    {
+      "dt_s": 0.00125,
+      "differences": {
+        "max_active_cells": [
+          65536,
+          262144
+        ],
+        "requested_warmstart": [
+          "auto",
+          "particles"
+        ]
+      }
+    },
+    {
+      "dt_s": 0.000625,
+      "differences": {
+        "max_active_cells": [
+          65536,
+          262144
+        ],
+        "requested_warmstart": [
+          "auto",
+          "particles"
+        ]
+      }
+    }
+  ],
+  "evidence_integrity_passed": true,
+  "physical_validation": false
+}
