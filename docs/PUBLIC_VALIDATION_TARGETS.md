@@ -113,6 +113,31 @@ force without the mechanical and hydraulic reconstruction.
 The browser attempt also remained on a loading screen and did not expose README
 content; raw-file access remains unresolved.
 
+### Recovered project report
+
+The [TIB report](https://oa.tib.eu/renate/handle/123456789/35121) was successfully
+downloaded on 2026-09-20 (178 pages; retrieval manifest in
+`docs/evidence/public-selection/rwth-report-retrieval.json`). Pages 38–40 describe
+four draw-wire sensors and 24 MH-4 CAN pressure sensors. Figure 20, visually
+inspected, distinguishes cylinder-side and valve-side pressures and includes an
+adjustable-boom circuit in addition to boom, stick, bucket and swing.
+
+This requires an adjustable-boom machine configuration and explicit sensor-location
+mapping; the present bench articulation is insufficient. The schematic supplies
+topology, not cylinder areas, pivot dimensions or calibrated channel identities.
+The earlier demonstrator's stated processing capacity of up to 1 kHz must not be
+used as the Volvo recording's verified sampling frequency.
+
+Page 42 reports approximately 2 cm average static and 5 cm average dynamic
+camera/environment reconstruction accuracy. Those aggregate results are not
+per-sample uncertainty bounds or independent bucket-force validation. Appendix
+page 175 identifies the Volvo pilots with the Nörvenich gravel pit; the selected
+pickle's trial-to-site mapping still needs verification.
+
+Next admission requirement: obtain the raw data dictionary and match its actual
+channels to this topology before any pressure-to-force reconstruction. Report
+access has been resolved; dataset-file access has not.
+
 ## Supplementary option
 
 [Fuxi excavator-motion](https://huggingface.co/datasets/fuxi-robot/excavator-motion)

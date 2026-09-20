@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "retrieved_date": "2026-09-20",
+  "doi": "10.34657/34189",
+  "landing_url": "https://oa.tib.eu/renate/handle/123456789/35121",
+  "download_url": "https://oa.tib.eu/renate/bitstreams/6f9a2b8d-2de9-41ce-af84-a2f958c5988c/download",
+  "files": [
+    {
+      "path": "data/raw/admission/public-selection/rwth-report-landing.html",
+      "bytes": 486970,
+      "sha256": "63597945f18124c136588884a895860aa8ee644e0aaf137063d05c06008059aa"
+    },
+    {
+      "path": "data/raw/admission/public-selection/rwth-report.pdf",
+      "bytes": 8254899,
+      "sha256": "3c6cba9217a39319880f4d5c38b353db2aad11fb0b49a99954f26c051071a7e3"
+    }
+  ],
+  "pdf_pages": 178,
+  "inspected_text_pages": [
+    38,
+    39,
+    40,
+    41,
+    42,
+    175,
+    176
+  ],
+  "visually_inspected_pages": [
+    40
+  ],
+  "raw_dataset_retrieved": false,
+  "qualification_pass": false
+}
