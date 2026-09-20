@@ -1,0 +1,76 @@
+{
+  "contact_audit": {
+    "file": "q1-accounting.json.gz",
+    "voxel_m": 0.02,
+    "dt_s": 0.00125,
+    "mpm": {
+      "air_drag": 1.0,
+      "collider_basis": "Q1",
+      "friction": 0.6,
+      "grid_margin_m": 0.0,
+      "grid_padding_cells": 0,
+      "grid_type": "sparse",
+      "integration_scheme": "pic",
+      "iterations": 200000,
+      "max_active_cells": 262144,
+      "particle_count": 32000,
+      "poisson_ratio": 0.3,
+      "requested_warmstart": "particles",
+      "resolved_sparse_rebuildable": true,
+      "resolved_stress_warmstart": "particles",
+      "solver_diagnostics": true,
+      "spacing_m": 0.01,
+      "sparse_capacity_checked_each_step": true,
+      "tolerance": 1e-05,
+      "velocity_basis": "Q1",
+      "voxel_m": 0.02,
+      "young_modulus_pa": 1000000000000000.0
+    },
+    "world_offset_m": [
+      0.01,
+      0.01,
+      0.01
+    ],
+    "impulse_n_s": 51.28517595345431,
+    "peak_20ms_mean_n": 490.786862619137,
+    "solver_health": {
+      "steps": 960,
+      "nonfinite_residual_steps": 0,
+      "outside_tolerance_steps": 0,
+      "at_iteration_limit_steps": 0,
+      "passed": true
+    },
+    "loading_impulse_n_s": 51.38214908510123,
+    "withdrawal_impulse_n_s": -0.09697313164691918,
+    "peak_window_s": [
+      0.74,
+      0.76
+    ],
+    "source_sha256": "d940575b501b7a0b6530608abb125fd14c1adb565351644eb84af7a81de4d09d",
+    "physical_validation": false
+  },
+  "cumulative_unaccounted_n_s": [
+    -5.037579070795691e-06,
+    -2.7537437676291723e-06,
+    0.004190465036017388
+  ],
+  "sum_absolute_unaccounted_n_s": [
+    6.271919791704574e-05,
+    7.822963700755532e-05,
+    0.004193103315138336
+  ],
+  "max_step_unaccounted_n_s": [
+    1.0548863254890295e-06,
+    1.7497917119049106e-06,
+    2.6061880766370393e-05
+  ],
+  "sum_absolute_unassigned_reaction_n_s": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "tool_impulse_change_from_uninstrumented_n_s": 0.0,
+  "evidence_integrity_passed": true,
+  "physical_validation": false,
+  "limitation": "Unaccounted momentum is not attributed to a particular numerical mechanism"
+}

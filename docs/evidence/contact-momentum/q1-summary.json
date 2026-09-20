@@ -1,0 +1,61 @@
+{
+  "dt_s": 0.00125,
+  "mpm": {
+    "iterations": 200000,
+    "tolerance": 1e-05,
+    "solver_diagnostics": true,
+    "voxel_m": 0.02,
+    "spacing_m": 0.01,
+    "grid_margin_m": 0.0,
+    "grid_padding_cells": 0,
+    "particle_count": 32000,
+    "air_drag": 1.0,
+    "friction": 0.6,
+    "young_modulus_pa": 1000000000000000.0,
+    "poisson_ratio": 0.3,
+    "integration_scheme": "pic",
+    "collider_basis": "Q1",
+    "velocity_basis": "Q1",
+    "grid_type": "sparse",
+    "max_active_cells": 262144,
+    "resolved_sparse_rebuildable": true,
+    "requested_warmstart": "particles",
+    "resolved_stress_warmstart": "particles",
+    "sparse_capacity_checked_each_step": true
+  },
+  "world_offset_m": [
+    0.01,
+    0.01,
+    0.01
+  ],
+  "solver_health": {
+    "steps": 960,
+    "nonfinite_residual_steps": 0,
+    "outside_tolerance_steps": 0,
+    "at_iteration_limit_steps": 0,
+    "passed": true
+  },
+  "source_changed": false,
+  "wall_time_s": 245.4425810999819,
+  "total_vertical_impulse_n_s": 51.28517595345431,
+  "peak_20ms_mean_n": 490.786862619137,
+  "momentum_accounting": {
+    "particle_mass_kg": 51.19999870657921,
+    "gravity_m_s2": [
+      -0.0,
+      -0.0,
+      -9.8100004196167
+    ],
+    "initial_particle_momentum_kg_m_s": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "reaction_sign": "reported collider impulse acts on colliders, opposite to particles",
+    "residual_definition": "particle momentum change - gravity impulse + all collider reaction impulses",
+    "qualification": "diagnostic only; background drag and transfer effects are not separately measured"
+  },
+  "file": "q1-accounting.json.gz",
+  "canonical_json_sha256": "1438dd1ea2acf9fa3559eb85a3475bebbbaeb1ad5c53f8702827ad2ee5f65931",
+  "physical_validation": false
+}

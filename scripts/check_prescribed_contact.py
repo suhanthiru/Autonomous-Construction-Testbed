@@ -23,7 +23,7 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         iterations=100, tolerance=1e-5, solver_diagnostics=False, integration_scheme="pic",
         grid_type="fixed", max_active_cells=1 << 18, rebuildable_sparse=False,
         warmstart_mode="auto", world_offset=(0.0, 0.0, 0.0), progress=None,
-        collider_basis="S2"):
+        collider_basis="S2", momentum_audit=False):
     if collider_basis not in ("S2", "Q1", "pic"):
         raise ValueError("unsupported diagnostic collider basis")
     if rebuildable_sparse and grid_type != "sparse":
@@ -81,6 +81,25 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         raise RuntimeError("requested rebuildable sparse path was not activated")
     state, output = model.state(), model.state()
     solver.setup_collider(body_mass=wp.zeros_like(model.body_mass), body_q=state.body_q)
+    momentum_metadata = None
+    if momentum_audit:
+        masses = model.particle_mass.numpy().astype(np.float64)
+        gravity = model.gravity.numpy().reshape(-1, 3)
+        if len(gravity) != 1:
+            raise ValueError("momentum audit requires the single-world fixture")
+        previous_momentum = (masses[:, None] * state.particle_qd.numpy()).sum(axis=0)
+        gravity_impulse = masses.sum() * gravity[0].astype(np.float64) * dt
+        momentum_metadata = {
+            "particle_mass_kg": float(masses.sum()),
+            "gravity_m_s2": gravity[0].tolist(),
+            "initial_particle_momentum_kg_m_s": previous_momentum.tolist(),
+            "reaction_sign": "reported collider impulse acts on colliders, opposite to particles",
+            "residual_definition": (
+                "particle momentum change - gravity impulse + all collider reaction impulses"),
+            "qualification": (
+                "diagnostic only; background drag and transfer effects are not separately measured"
+            ),
+        }
     trace = []
     for tick in range(steps):
         time = tick * dt
@@ -107,7 +126,26 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         valid = (indices >= 0) & (indices < len(mapping))
         selected = np.zeros(len(indices), dtype=bool)
         selected[valid] = mapping[indices[valid]] == body
-        impulse = impulses.numpy()[selected].sum(axis=0, dtype=np.float64)
+        all_impulses = impulses.numpy()
+        impulse = all_impulses[selected].sum(axis=0, dtype=np.float64)
+        momentum_row = {}
+        if momentum_audit:
+            momentum = (masses[:, None] * state.particle_qd.numpy()).sum(axis=0)
+            reaction = all_impulses.sum(axis=0, dtype=np.float64)
+            change = momentum - previous_momentum
+            residual = change - gravity_impulse + reaction
+            if not all(np.isfinite(v).all() for v in (momentum, reaction, residual)):
+                raise RuntimeError(f"nonfinite momentum accounting at tick {tick + 1}")
+            momentum_row = {
+                "particle_momentum_kg_m_s": momentum.tolist(),
+                "particle_momentum_change_n_s": change.tolist(),
+                "gravity_impulse_n_s": gravity_impulse.tolist(),
+                "all_collider_reaction_n_s": reaction.tolist(),
+                "unassigned_collider_reaction_n_s": (
+                    all_impulses[~valid].sum(axis=0, dtype=np.float64).tolist()),
+                "unaccounted_momentum_n_s": residual.tolist(),
+            }
+            previous_momentum = momentum
         particles = state.particle_q.numpy()
         if not np.isfinite(impulse).all() or not np.isfinite(particles).all():
             raise RuntimeError(f"nonfinite state at tick {tick + 1}")
@@ -118,6 +156,7 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
                 "input_vz_m_s": velocity,
                 "impulse_n_s": impulse.tolist(),
                 "solver_diagnostic": diagnostic,
+                **momentum_row,
             }
         )
         if progress is not None:
@@ -139,6 +178,7 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         "dt_s": dt,
         "duration_s": steps * dt,
         "world_offset_m": list(world_offset),
+        "momentum_accounting": momentum_metadata,
         "boundary": "kinematic prescribed box, zero rotation; no actuator or proxy feedback",
         "mpm": {
             "iterations": iterations,
@@ -193,6 +233,8 @@ def main():
     parser.add_argument("--integration-scheme", choices=("pic", "gimp"), default="pic")
     parser.add_argument("--collider-basis", choices=("S2", "Q1", "pic"), default="S2",
                         help="Contact sampling basis; production defaults are unchanged")
+    parser.add_argument("--momentum-audit", action="store_true",
+                        help="Record particle momentum, gravity and all collider reactions")
     parser.add_argument("--grid-type", choices=("fixed", "sparse"), default="fixed")
     parser.add_argument("--max-active-cells", type=int, default=1 << 18)
     parser.add_argument("--rebuildable-sparse", action="store_true")
@@ -261,7 +303,8 @@ def main():
                              args.iterations, args.tolerance, args.solver_diagnostics,
                              args.integration_scheme, args.grid_type, args.max_active_cells,
                              args.rebuildable_sparse, args.warmstart_mode, args.world_offset,
-                             progress if args.progress_every else None, args.collider_basis)
+                             progress if args.progress_every else None, args.collider_basis,
+                             args.momentum_audit)
             except Exception as error:
                 (args.output / "failure.json").write_text(
                     json.dumps(
