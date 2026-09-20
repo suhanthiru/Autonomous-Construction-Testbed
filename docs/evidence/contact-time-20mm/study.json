@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "running; no result claimed",
+  "purpose": "Separate timestep sensitivity from joint grid/time refinement at 20 mm resolution",
+  "source_snapshot": "runs/numerical-grid-alignment",
+  "expected_source_sha256": "9298bc41be4feecd12b5bbb94d797aa3e522c850f8dfa4fea6e4a76ff45c891e",
+  "output_directory": "runs/numerical-grid-alignment/runs/time-20mm",
+  "baseline": "docs/evidence/contact-spatial-refinement/20mm-budget-200000.json.gz",
+  "dt_s": [
+    0.00125,
+    0.000625
+  ],
+  "voxel_m": 0.02,
+  "particle_spacing_m": 0.01,
+  "world_offset_m": [
+    0.01,
+    0.01,
+    0.01
+  ],
+  "iteration_cap": 200000,
+  "residual_tolerance": 1e-05,
+  "max_active_cells": 262144,
+  "warmstart_requested": "particles",
+  "baseline_allocation_difference": "Baseline cap is 65536; new cap is 262144. Both use rebuildable sparse grids and check capacity every step. Report this allocation difference explicitly; do not present as bitwise-identical configuration.",
+  "baseline_warmstart_difference": "Baseline requests auto and resolves particles; new runs request particles directly. Verify resolved mode.",
+  "completion_requirements": [
+    "Complete trajectories and unchanged source hash",
+    "Recompute force metrics and residual checks from raw records",
+    "Check resolved parameters against baseline and report differences",
+    "Retain failures; do not infer physical accuracy from numerical consistency"
+  ],
+  "physical_validation": false
+}
