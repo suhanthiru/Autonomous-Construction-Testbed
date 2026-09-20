@@ -63,6 +63,41 @@ three channels. This checks listed names only, not remote content integrity,
 independence of trials or measurement accuracy. The audit and source-response
 hash are retained in `docs/evidence/public-selection/scooping-inventory.json`.
 
+### Example-code review and admission limits
+
+The [original training example](https://uofi.app.box.com/s/vid2ycxzgqrzdn2w2vr0xkxwwjzpj5p8/file/1238046116258)
+was inspected in the public browser preview on 2026-09-20, without executing it.
+Its loop selects action row `i - 1` but constructs the image filename using the
+literal `1`, so it reuses the first image for every trial. An importer must join
+images, actions and force records by explicit terrain/sample identity. Do not
+copy this loader as an authoritative preprocessing implementation. This finding
+does not establish that the published experiments or converted release used it.
+The example does not load force records or resolve their timing/calibration.
+
+The [extended paper](https://arxiv.org/html/2408.02949v1) confirms the UIUC setup
+and command parameters, but the inspected setup section does not establish the
+missing force acquisition metadata or measured tracking. It also says actions
+whose motion planning fails are discarded before execution; the dataset cannot
+estimate planning-failure frequency from its successful records alone.
+
+Current admission is **schema development only**. Before physical fitting:
+
+1. Verify original-to-converted equality for the designated development sample;
+   preserve original depth precision and trial identities.
+2. Recover geometry, camera transforms and measurement definitions needed for
+   the specific output. Unknown force timing blocks impulse/phase comparison;
+   unknown channel units/frame blocks dimensional force comparison.
+3. Establish preparation/reset groups before freezing a holdout. If those groups
+   cannot be recovered, report that limitation rather than claiming independent
+   trials from different timestamps or sample numbers.
+4. Qualify the matched numerical fixture and predeclare output-specific accuracy
+   thresholds before evaluating reserved outcomes. Existing convergence failures
+   cannot be repaired by fitting material parameters to experimental data.
+
+If essential metadata cannot be recovered publicly, retain this source for an
+offline prediction benchmark and select another physical component dataset.
+Neither guessed metadata nor a visually similar reconstructed scoop is a pass.
+
 ## RWTH: full-size machine candidate
 
 [University record](https://publications.rwth-aachen.de/record/1037760),
