@@ -1,0 +1,16 @@
+{
+  "probe_process_exit_code": 0,
+  "probe_steps": 40,
+  "probe_dt_s": 0.001,
+  "warning": "substep_dt 0.001 exceeds suggested_dt 0.0004",
+  "interpretation": "Pose/velocity probe only; not accepted as a loaded-material numerical qualification",
+  "repeat_output": "runs/genesis-evaluation/prescribed-boundary-dt100us/record.json",
+  "repeat_status": "completed",
+  "physical_validation": false,
+  "repeat_process_exit_code": 0,
+  "repeat_file": "dt100us.json.gz",
+  "canonical_json_sha256": "317f2de2616d34c0d5c4e8ed04c486cb7e0b03c3be7b22107fd6a597ab483a99",
+  "boundary_position_tolerance_m": 1e-07,
+  "boundary_velocity_tolerance_m_s": 1e-07,
+  "scope": "Separated CPU collider boundary only; loaded response and excavation convergence remain unqualified"
+}

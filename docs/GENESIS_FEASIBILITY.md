@@ -90,6 +90,28 @@ Audit individual traces with the existing `reproduce.py`, specifying
 The runs overlapped an independent Newton GPU job; their durations are not
 performance measurements. GPU excavation response and convergence remain open.
 
+## Prescribed collider boundary
+
+`scripts/check_genesis_prescribed_boundary.py` tests an explicit diagnostic
+boundary condition: immediately before legacy coupling, it overwrites the
+freely integrated tool pose and velocity with the prescribed values. This
+deliberately removes actuator dynamics from the fixture. It checks the actual
+collider position and the link velocity fields consumed by contact, including
+a direction reversal. It does not modify installed dependency source.
+
+The initial 1 ms probe completed, but Genesis warned that this exceeded its
+suggested 0.4 ms timestep. Its source and record are retained as a probe. A repeat
+at 0.1 ms completed all 400 steps with maximum position error 2.98024e-9 m,
+maximum velocity error 1.19210e-8 m/s, zero angular velocity, and zero coupling
+force for the separated tool. The independent raw-record audit passes the
+declared 1e-7 position and velocity bounds. Evidence and its `reproduce.py` are
+in `evidence/genesis-prescribed-boundary/`.
+
+This establishes the separated CPU boundary check only. The same boundary must
+still be checked under load, and its reaction must be reconciled with particle
+momentum before using it for the excavation refinement study. It supplies no
+actuator or physical-material qualification.
+
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different
 constitutive laws and numerical methods. Verify zero-contact readings and
