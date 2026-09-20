@@ -27,3 +27,30 @@ audit are in `evidence/contact-basis/`. The audit uses the shared
 were fitted. The next control is timestep refinement with this basis, followed by
 spatial refinement if temporal error can be bounded; a lower force is not itself
 an improvement in accuracy.
+
+## Completed Q1 timestep control
+
+| Timestep | Impulse (N s) | Peak 20 ms mean (N) | Inner checks |
+|---|---:|---:|---|
+| 2.5 ms | 47.867892 | 459.818188 | 480/480 pass |
+| 1.25 ms | 51.285176 | 490.786863 | 960/960 pass |
+| 0.625 ms | 54.556105 | 508.616938 | 1920/1920 pass |
+
+Successive impulse increases are 7.14% and 6.38%; peak increases are 6.73% and
+3.63%. Q1 contact sampling does not resolve the observed temporal sensitivity.
+It is not promoted as a correction or a physically qualified configuration.
+Both added runs exited successfully, with unchanged source and no failed residual
+checks. Their complete configuration dictionaries, alignment and source digests
+match the existing Q1 record.
+
+Run `python docs/evidence/contact-basis/reproduce.py` to verify all three saved
+records and recompute the comparison. The retained output is
+`evidence/contact-basis/time-comparison.json`. Missing records, mismatched raw
+configuration fields and checksum failures are rejected. A successful evidence
+audit establishes the integrity of these numerical results, not their accuracy
+against physical measurements. No new acceptance threshold is inferred from them.
+
+The hypothesis that changing S2 contact sampling to Q1 would remove the timestep
+sensitivity is not supported at these resolutions. Further work must address the
+remaining discretization error and the independently unresolved experimental-data
+requirements; reducing runtime alone does not qualify this backend.
