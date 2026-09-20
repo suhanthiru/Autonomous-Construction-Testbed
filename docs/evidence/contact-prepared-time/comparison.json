@@ -1,0 +1,442 @@
+{
+  "cases": [
+    {
+      "digging": {
+        "file": "dt-0.0025.json.gz",
+        "voxel_m": 0.02,
+        "dt_s": 0.0025,
+        "mpm": {
+          "air_drag": 1.0,
+          "collider_basis": "Q1",
+          "friction": 0.6,
+          "grid_margin_m": 0.0,
+          "grid_padding_cells": 0,
+          "grid_type": "sparse",
+          "integration_scheme": "pic",
+          "iterations": 200000,
+          "max_active_cells": 262144,
+          "particle_count": 32000,
+          "poisson_ratio": 0.3,
+          "requested_warmstart": "particles",
+          "resolved_sparse_rebuildable": true,
+          "resolved_stress_warmstart": "particles",
+          "solver_diagnostics": true,
+          "spacing_m": 0.01,
+          "sparse_capacity_checked_each_step": true,
+          "tolerance": 1e-05,
+          "velocity_basis": "Q1",
+          "voxel_m": 0.02,
+          "young_modulus_pa": 1000000000000000.0
+        },
+        "world_offset_m": [
+          0.01,
+          0.01,
+          0.01
+        ],
+        "impulse_n_s": 47.47594563149835,
+        "peak_20ms_mean_n": 449.35300001407813,
+        "solver_health": {
+          "steps": 480,
+          "nonfinite_residual_steps": 0,
+          "outside_tolerance_steps": 0,
+          "at_iteration_limit_steps": 0,
+          "passed": true
+        },
+        "loading_impulse_n_s": 47.56312991966793,
+        "withdrawal_impulse_n_s": -0.08718428816958414,
+        "peak_window_s": [
+          0.74,
+          0.76
+        ],
+        "source_sha256": "86044e2ac005d0e95ec1f1af0967d8daa193432b109d9e07dfc0332d332047e5",
+        "physical_validation": false
+      },
+      "preparation_steps": 400,
+      "preparation_dt_s": 0.0025,
+      "preparation_duration_s": 1.0,
+      "state_fingerprints": {
+        "body_q": {
+          "dtype": "float32",
+          "sha256": "0ce6b8d6deef805baf9d7d15280609a0231d02c07115caf12667348d3ec679fe",
+          "shape": [
+            1,
+            7
+          ]
+        },
+        "body_qd": {
+          "dtype": "float32",
+          "sha256": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "shape": [
+            1,
+            6
+          ]
+        },
+        "mpm.particle_Jp": {
+          "dtype": "float32",
+          "sha256": "e3b1ab701a1a9e4f42ac4d70b2903a306e2d9193c997730c248e79489b3d1dfb",
+          "shape": [
+            32000
+          ]
+        },
+        "mpm.particle_elastic_strain": {
+          "dtype": "float32",
+          "sha256": "1125cf2753f1fc0a19585e173f2fcedf3761ac23ac866bab95a2bbfe9d605604",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_qd_grad": {
+          "dtype": "float32",
+          "sha256": "9b403b480ec33ab682a82936a563d470ec63a4acee307f76325698db3f7fa0f1",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_stress": {
+          "dtype": "float32",
+          "sha256": "35e5cf8c0d3233e1e64c0fcce6a6b80526d0386fa0dc0e20239c507cf16dae38",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_transform": {
+          "dtype": "float32",
+          "sha256": "1125cf2753f1fc0a19585e173f2fcedf3761ac23ac866bab95a2bbfe9d605604",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "particle_q": {
+          "dtype": "float32",
+          "sha256": "a1d270befcbb0b81f150d2524065f64c5604c79979dba985dbaf15df7b8ea914",
+          "shape": [
+            32000,
+            3
+          ]
+        },
+        "particle_qd": {
+          "dtype": "float32",
+          "sha256": "4ebd0f80f8bddc7cb9415ada7fa3b26dbb8b6c5f1322299247242f0b2f30eb29",
+          "shape": [
+            32000,
+            3
+          ]
+        }
+      },
+      "preparation_failed_steps": 0,
+      "preparation_inner_passed": true,
+      "final_max_speed_m_s": 0.007024358958005905,
+      "final_rms_speed_m_s": 0.0002500317932572216,
+      "last_100ms_max_speed_m_s": 0.007456409744918346,
+      "evidence_integrity_passed": true,
+      "equilibrium_qualified": false,
+      "physical_validation": false
+    },
+    {
+      "digging": {
+        "file": "dt-0.00125.json.gz",
+        "voxel_m": 0.02,
+        "dt_s": 0.00125,
+        "mpm": {
+          "air_drag": 1.0,
+          "collider_basis": "Q1",
+          "friction": 0.6,
+          "grid_margin_m": 0.0,
+          "grid_padding_cells": 0,
+          "grid_type": "sparse",
+          "integration_scheme": "pic",
+          "iterations": 200000,
+          "max_active_cells": 262144,
+          "particle_count": 32000,
+          "poisson_ratio": 0.3,
+          "requested_warmstart": "particles",
+          "resolved_sparse_rebuildable": true,
+          "resolved_stress_warmstart": "particles",
+          "solver_diagnostics": true,
+          "spacing_m": 0.01,
+          "sparse_capacity_checked_each_step": true,
+          "tolerance": 1e-05,
+          "velocity_basis": "Q1",
+          "voxel_m": 0.02,
+          "young_modulus_pa": 1000000000000000.0
+        },
+        "world_offset_m": [
+          0.01,
+          0.01,
+          0.01
+        ],
+        "impulse_n_s": 49.76458611161384,
+        "peak_20ms_mean_n": 466.95554002875156,
+        "solver_health": {
+          "steps": 960,
+          "nonfinite_residual_steps": 0,
+          "outside_tolerance_steps": 0,
+          "at_iteration_limit_steps": 0,
+          "passed": true
+        },
+        "loading_impulse_n_s": 49.83458051454744,
+        "withdrawal_impulse_n_s": -0.06999440293360501,
+        "peak_window_s": [
+          0.74,
+          0.76
+        ],
+        "source_sha256": "86044e2ac005d0e95ec1f1af0967d8daa193432b109d9e07dfc0332d332047e5",
+        "physical_validation": false
+      },
+      "preparation_steps": 400,
+      "preparation_dt_s": 0.0025,
+      "preparation_duration_s": 1.0,
+      "state_fingerprints": {
+        "body_q": {
+          "dtype": "float32",
+          "sha256": "0ce6b8d6deef805baf9d7d15280609a0231d02c07115caf12667348d3ec679fe",
+          "shape": [
+            1,
+            7
+          ]
+        },
+        "body_qd": {
+          "dtype": "float32",
+          "sha256": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "shape": [
+            1,
+            6
+          ]
+        },
+        "mpm.particle_Jp": {
+          "dtype": "float32",
+          "sha256": "e3b1ab701a1a9e4f42ac4d70b2903a306e2d9193c997730c248e79489b3d1dfb",
+          "shape": [
+            32000
+          ]
+        },
+        "mpm.particle_elastic_strain": {
+          "dtype": "float32",
+          "sha256": "1125cf2753f1fc0a19585e173f2fcedf3761ac23ac866bab95a2bbfe9d605604",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_qd_grad": {
+          "dtype": "float32",
+          "sha256": "9b403b480ec33ab682a82936a563d470ec63a4acee307f76325698db3f7fa0f1",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_stress": {
+          "dtype": "float32",
+          "sha256": "35e5cf8c0d3233e1e64c0fcce6a6b80526d0386fa0dc0e20239c507cf16dae38",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_transform": {
+          "dtype": "float32",
+          "sha256": "1125cf2753f1fc0a19585e173f2fcedf3761ac23ac866bab95a2bbfe9d605604",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "particle_q": {
+          "dtype": "float32",
+          "sha256": "a1d270befcbb0b81f150d2524065f64c5604c79979dba985dbaf15df7b8ea914",
+          "shape": [
+            32000,
+            3
+          ]
+        },
+        "particle_qd": {
+          "dtype": "float32",
+          "sha256": "4ebd0f80f8bddc7cb9415ada7fa3b26dbb8b6c5f1322299247242f0b2f30eb29",
+          "shape": [
+            32000,
+            3
+          ]
+        }
+      },
+      "preparation_failed_steps": 0,
+      "preparation_inner_passed": true,
+      "final_max_speed_m_s": 0.007024358958005905,
+      "final_rms_speed_m_s": 0.0002500317932572216,
+      "last_100ms_max_speed_m_s": 0.007456409744918346,
+      "evidence_integrity_passed": true,
+      "equilibrium_qualified": false,
+      "physical_validation": false
+    },
+    {
+      "digging": {
+        "file": "dt-0.000625.json.gz",
+        "voxel_m": 0.02,
+        "dt_s": 0.000625,
+        "mpm": {
+          "air_drag": 1.0,
+          "collider_basis": "Q1",
+          "friction": 0.6,
+          "grid_margin_m": 0.0,
+          "grid_padding_cells": 0,
+          "grid_type": "sparse",
+          "integration_scheme": "pic",
+          "iterations": 200000,
+          "max_active_cells": 262144,
+          "particle_count": 32000,
+          "poisson_ratio": 0.3,
+          "requested_warmstart": "particles",
+          "resolved_sparse_rebuildable": true,
+          "resolved_stress_warmstart": "particles",
+          "solver_diagnostics": true,
+          "spacing_m": 0.01,
+          "sparse_capacity_checked_each_step": true,
+          "tolerance": 1e-05,
+          "velocity_basis": "Q1",
+          "voxel_m": 0.02,
+          "young_modulus_pa": 1000000000000000.0
+        },
+        "world_offset_m": [
+          0.01,
+          0.01,
+          0.01
+        ],
+        "impulse_n_s": 52.781467416166315,
+        "peak_20ms_mean_n": 490.20606672077315,
+        "solver_health": {
+          "steps": 1920,
+          "nonfinite_residual_steps": 0,
+          "outside_tolerance_steps": 0,
+          "at_iteration_limit_steps": 0,
+          "passed": true
+        },
+        "loading_impulse_n_s": 52.85785662241044,
+        "withdrawal_impulse_n_s": -0.07638920624412501,
+        "peak_window_s": [
+          0.74,
+          0.76
+        ],
+        "source_sha256": "86044e2ac005d0e95ec1f1af0967d8daa193432b109d9e07dfc0332d332047e5",
+        "physical_validation": false
+      },
+      "preparation_steps": 400,
+      "preparation_dt_s": 0.0025,
+      "preparation_duration_s": 1.0,
+      "state_fingerprints": {
+        "body_q": {
+          "dtype": "float32",
+          "sha256": "0ce6b8d6deef805baf9d7d15280609a0231d02c07115caf12667348d3ec679fe",
+          "shape": [
+            1,
+            7
+          ]
+        },
+        "body_qd": {
+          "dtype": "float32",
+          "sha256": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+          "shape": [
+            1,
+            6
+          ]
+        },
+        "mpm.particle_Jp": {
+          "dtype": "float32",
+          "sha256": "e3b1ab701a1a9e4f42ac4d70b2903a306e2d9193c997730c248e79489b3d1dfb",
+          "shape": [
+            32000
+          ]
+        },
+        "mpm.particle_elastic_strain": {
+          "dtype": "float32",
+          "sha256": "1125cf2753f1fc0a19585e173f2fcedf3761ac23ac866bab95a2bbfe9d605604",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_qd_grad": {
+          "dtype": "float32",
+          "sha256": "9b403b480ec33ab682a82936a563d470ec63a4acee307f76325698db3f7fa0f1",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_stress": {
+          "dtype": "float32",
+          "sha256": "35e5cf8c0d3233e1e64c0fcce6a6b80526d0386fa0dc0e20239c507cf16dae38",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "mpm.particle_transform": {
+          "dtype": "float32",
+          "sha256": "1125cf2753f1fc0a19585e173f2fcedf3761ac23ac866bab95a2bbfe9d605604",
+          "shape": [
+            32000,
+            3,
+            3
+          ]
+        },
+        "particle_q": {
+          "dtype": "float32",
+          "sha256": "a1d270befcbb0b81f150d2524065f64c5604c79979dba985dbaf15df7b8ea914",
+          "shape": [
+            32000,
+            3
+          ]
+        },
+        "particle_qd": {
+          "dtype": "float32",
+          "sha256": "4ebd0f80f8bddc7cb9415ada7fa3b26dbb8b6c5f1322299247242f0b2f30eb29",
+          "shape": [
+            32000,
+            3
+          ]
+        }
+      },
+      "preparation_failed_steps": 0,
+      "preparation_inner_passed": true,
+      "final_max_speed_m_s": 0.007024358958005905,
+      "final_rms_speed_m_s": 0.0002500317932572216,
+      "last_100ms_max_speed_m_s": 0.007456409744918346,
+      "evidence_integrity_passed": true,
+      "equilibrium_qualified": false,
+      "physical_validation": false
+    }
+  ],
+  "changes": [
+    {
+      "coarse_dt_s": 0.0025,
+      "fine_dt_s": 0.00125,
+      "impulse_change_fraction": 0.04820631689739474,
+      "peak_change_fraction": 0.03917307776763912
+    },
+    {
+      "coarse_dt_s": 0.00125,
+      "fine_dt_s": 0.000625,
+      "impulse_change_fraction": 0.06062305627914011,
+      "peak_change_fraction": 0.04979173539859927
+    }
+  ],
+  "evidence_integrity_passed": true,
+  "recorded_prepared_arrays_match": true,
+  "all_inner_checks_passed": true,
+  "physical_validation": false
+}
