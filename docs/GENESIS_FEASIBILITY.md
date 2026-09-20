@@ -211,6 +211,28 @@ The digging diagnostic now accepts `--precision 64` and records the effective
 epsilon. A full-fixture comparison is required before interpreting this as a
 solution; double precision also changes rounding throughout the engine.
 
+The completed GPU double-precision comparison does **not** resolve the digging
+drift. Both runs pass their raw-record audits, including boundary commands,
+source stability, mass accounting and domain margins:
+
+| Timestep (ms) | Tool impulse (N s) | Peak 20 ms mean (N) |
+| --- | ---: | ---: |
+| 0.4 | 29.9416728 | 231.189821 |
+| 0.2 | 40.2266461 | 298.899400 |
+
+Impulse rises 34.3500%, despite substantially smaller momentum-accounting
+residuals. Thus the identified regularizer cannot be presented as a sufficient
+explanation or a correction for this fixture's force sensitivity. No production
+precision change is justified as a validation fix. Recompute the retained pair
+with `docs/evidence/genesis-digging/time_refinement.py --double-precision`.
+
+The remaining diagnostic should isolate particle/grid transfer and contact
+projection from constitutive stress before another full-fixture refinement.
+The inspected MPM implementation transfers velocities between particles and
+grid every substep; whether repeated transfers explain the response is still a
+hypothesis. A zero-stress, zero-gravity transport control can measure transfer
+effects without interpreting an arbitrary sand fit as a numerical correction.
+
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different
 constitutive laws and numerical methods. Verify zero-contact readings and

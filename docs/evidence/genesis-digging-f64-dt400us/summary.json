@@ -1,0 +1,6 @@
+{
+  "record_sha256": "0be79536e25302603d644268729cee43f171274461a95c66c67e9173015c1438",
+  "terminal_exit_code": 0,
+  "physical_validation": false,
+  "command": "runs/genesis-evaluation/.venv/Scripts/python.exe scripts/check_genesis_digging.py --output runs/genesis-evaluation/digging-f64-dt400us --precision 64"
+}

@@ -1,0 +1,57 @@
+{
+  "audits": [
+    {
+      "record_integrity": true,
+      "physical_validation": false,
+      "steps": 3000,
+      "tool_vertical_impulse_n_s": 29.941672812118334,
+      "peak_20ms_mean_n": 231.18982141065126,
+      "cumulative_unaccounted_momentum_n_s": [
+        -1.8587212529462244e-15,
+        4.84496826821635e-15,
+        1.774301192081218e-13
+      ],
+      "max_step_unaccounted_momentum_n_s": [
+        3.0050319177464e-14,
+        1.4368574038914531e-15,
+        6.156186671546493e-14
+      ],
+      "max_position_error_m": 5.551115123125783e-17,
+      "max_velocity_error_m_s": 0.0,
+      "max_orientation_quaternion_error": 0.0
+    },
+    {
+      "record_integrity": true,
+      "physical_validation": false,
+      "steps": 6000,
+      "tool_vertical_impulse_n_s": 40.226646070603586,
+      "peak_20ms_mean_n": 298.89939979737636,
+      "cumulative_unaccounted_momentum_n_s": [
+        -3.198402445392387e-15,
+        -4.987689715143893e-15,
+        2.7889583004148122e-14
+      ],
+      "max_step_unaccounted_momentum_n_s": [
+        3.0177496612715535e-14,
+        1.349589884292331e-15,
+        6.003531005660534e-14
+      ],
+      "max_position_error_m": 5.551115123125783e-17,
+      "max_velocity_error_m_s": 0.0,
+      "max_orientation_quaternion_error": 0.0
+    }
+  ],
+  "timestep_s": [
+    0.0004,
+    0.0002
+  ],
+  "relative_changes": [
+    {
+      "tool_vertical_impulse_n_s": 0.3435002888122738,
+      "peak_20ms_mean_n": 0.2928743920194301
+    }
+  ],
+  "recorded_fixed_inputs_match": true,
+  "physical_validation": false,
+  "interpretation": "Reports sensitivity; no physical gate is evaluated"
+}
