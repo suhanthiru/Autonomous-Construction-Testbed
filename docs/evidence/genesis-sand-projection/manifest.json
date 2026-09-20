@@ -1,0 +1,13 @@
+{
+  "files": {
+    "projection32.json": "e42b64ad6061ddc70ac5e40ee718129a69cc549bd419a379a9ecd77a7b5a00fc",
+    "projection64.json": "d1a7d4fe5abcad326e54d7f175574bfa9fb04103850cf652552fd7d1815e9591",
+    "run-source.py.txt": "401d50a4748b7077adccf6756dc9ebc76bb26e249746750d44fc1e1a08fe3cfc"
+  },
+  "terminal_exit_codes": {
+    "32": 0,
+    "64": 0
+  },
+  "physical_validation": false,
+  "command": "runs/genesis-evaluation/.venv/Scripts/python.exe scripts/check_genesis_sand_projection.py --precision <32|64> --output <new-file.json>"
+}

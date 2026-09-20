@@ -1,0 +1,23 @@
+{
+  "precision": "64",
+  "effective_epsilon": 1e-15,
+  "norm_floor": 3.162277660168379e-08,
+  "input_log_strain": [
+    -0.00011,
+    -0.0001,
+    -9e-05
+  ],
+  "unregularized_delta_gamma": -0.00031543438831308033,
+  "regularized_delta_gamma": -0.00031543435295778546,
+  "installed_projected_log_strain": [
+    -0.00010999999999999334,
+    -0.00010000000000000135,
+    -8.99999999999936e-05
+  ],
+  "source_sha256": {
+    "E:\\Projects\\Sim_projs\\bedrock_sim\\runs\\genesis-evaluation\\.venv\\Lib\\site-packages\\genesis\\__init__.py": "2b2377b688c65fded39275aa769d3b8d35810cd1dea89ec3c9f2ea3d757c0f4f",
+    "E:\\Projects\\Sim_projs\\bedrock_sim\\runs\\genesis-evaluation\\.venv\\Lib\\site-packages\\genesis\\engine\\materials\\MPM\\sand.py": "fc286b1d1f7731d7559cb60b042c282dad9d9c8249f05cf897a6117306a8ecf8",
+    "E:\\Projects\\Sim_projs\\bedrock_sim\\runs\\genesis-evaluation\\.venv\\Lib\\site-packages\\quadrants\\lang\\matrix_ops.py": "07ceec2522c4433d8487eeb1642167f162b33ccee58b61a0728c50e8a2cf07d3"
+  },
+  "physical_validation": false
+}

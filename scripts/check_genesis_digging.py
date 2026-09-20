@@ -16,6 +16,7 @@ def main():
     parser.add_argument("--spacing", type=float, default=0.02)
     parser.add_argument("--backend", choices=("cpu", "gpu"), default="gpu")
     parser.add_argument("--coupling-softness", type=float, default=0.002)
+    parser.add_argument("--precision", choices=("32", "64"), default="32")
     args = parser.parse_args()
     if not math.isfinite(args.coupling_softness) or args.coupling_softness < 0:
         parser.error("Coupling softness must be finite and nonnegative")
@@ -52,7 +53,8 @@ def run(args):
         digest = hashlib.sha256((package_root / entry["path"]).read_bytes()).hexdigest()
         if digest != entry["sha256"]:
             raise RuntimeError(f"Pinned source mismatch: {entry['path']}")
-    gs.init(backend=gs.gpu if args.backend == "gpu" else gs.cpu, seed=0, logging_level="warning")
+    gs.init(backend=gs.gpu if args.backend == "gpu" else gs.cpu, seed=0,
+            precision=args.precision, logging_level="warning")
     offset = args.voxel / 2
     lower, upper = (-0.6, -0.6, -0.2), (0.6, 0.6, 0.8)
     gravity = (0, 0, -9.81)
@@ -159,7 +161,8 @@ def run(args):
     impulses = [row["tool_reaction_impulse_n_s"][2] for row in trace]
     means = [sum(impulses[i:i + window]) / 0.02 for i in range(0, steps, window)]
     record = dict(dt_s=args.dt, voxel_m=args.voxel, spacing_m=args.spacing,
-                  backend=args.backend, material=material, world_offset_m=[offset] * 3,
+                  backend=args.backend, precision=args.precision, effective_epsilon=gs.EPS,
+                  material=material, world_offset_m=[offset] * 3,
                   coupling_softness_m=args.coupling_softness, coupling_friction=0.5,
                   domain_lower_m=lower, domain_upper_m=upper, mass_scale=scale,
                   particle_count=len(masses), physical_mass_kg=float(masses.sum()),

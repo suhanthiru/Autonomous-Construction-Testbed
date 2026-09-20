@@ -182,6 +182,35 @@ pair only to expose and validate the softness argument and record its value;
 each pair's own source hash matches. No additional hard-contact refinements are
 justified as a substitute for diagnosing the remaining sensitivity.
 
+## Precision-dependent material regularization
+
+Inspection of the installed implementation identified a specific mechanism:
+`Sand._sand_projection` uses `epsilon_hat.norm(gs.EPS)`, Quadrants computes
+`sqrt(norm_sqr + eps)`, and Genesis clamps its global epsilon to at least the
+machine epsilon of the selected precision. With the default 32-bit precision,
+the strain-norm floor is therefore approximately 0.000345267. This floor is
+independent of the timestep and can alter the return-mapping yield decision.
+
+`scripts/check_genesis_sand_projection.py` calls the installed mapping directly
+on logarithmic principal strains [-0.00011, -0.00010, -0.00009], with Jp = 0,
+E = 1 MPa, nu = 0.3 and friction angle atan(0.6). The unregularized delta-gamma
+is negative (elastic). Adding the 32-bit norm regularizer makes it positive;
+the actual installed update changes the strain by up to 5.00272e-7. In 64-bit
+mode the effective epsilon is 1e-15, the yield decision stays elastic, and the
+maximum strain change is 6.66784e-18.
+
+The probe is an implementation-level counterexample to precision-independent
+elastic behavior, not physical validation and not proof that this mechanism
+explains the full digging drift. Source hashes, exact probe source, raw results,
+and the independent equation audit are in `evidence/genesis-sand-projection/`.
+Both corrected probe processes exit successfully. The first attempt failed on
+a diagnostic integer-to-float literal before producing a result; it was corrected
+without modifying the installed dependency.
+
+The digging diagnostic now accepts `--precision 64` and records the effective
+epsilon. A full-fixture comparison is required before interpreting this as a
+solution; double precision also changes rounding throughout the engine.
+
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different
 constitutive laws and numerical methods. Verify zero-contact readings and

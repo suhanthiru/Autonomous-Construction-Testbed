@@ -1,0 +1,7 @@
+{
+  "evidence_integrity": true,
+  "physical_validation": false,
+  "max_log_strain_change_32": 5.002721585333386e-07,
+  "max_log_strain_change_64": 6.667843360785852e-18,
+  "interpretation": "The regularizer changes the yield decision for this probe; its contribution to digging drift remains unproven"
+}
