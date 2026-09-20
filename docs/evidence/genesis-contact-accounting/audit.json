@@ -50,5 +50,6 @@
     ]
   },
   "evidence_integrity_passed": true,
+  "scope": "paired controls",
   "physical_validation": false
 }

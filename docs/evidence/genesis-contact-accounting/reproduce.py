@@ -1,5 +1,6 @@
 """Recompute accounting metrics without asserting a physical validation pass."""
 
+import argparse
 import gzip
 import hashlib
 import json
@@ -7,12 +8,14 @@ import math
 from pathlib import Path
 
 
-def main():
-    folder = Path(__file__).resolve().parent
+def main(folder=None, case=None):
+    folder = Path(folder).resolve() if folder else Path(__file__).resolve().parent
     results = []
     fixed_inputs = None
     seen = set()
     for summary in json.loads((folder / "summaries.json").read_text()):
+        if case is not None and summary["case"] != case:
+            continue
         raw = gzip.decompress((folder / summary["file"]).read_bytes())
         if hashlib.sha256(raw).hexdigest() != summary["canonical_json_sha256"]:
             raise ValueError("Raw evidence checksum differs")
@@ -56,11 +59,16 @@ def main():
                             cumulative_unaccounted_momentum_n_s=residual,
                             max_abs_step_residual_n_s=max_residual,
                             max_abs_step_reaction_n_s=max_reaction))
-    if seen != {"free", "contact"}:
-        raise ValueError("Both controls are required")
+    if seen != ({case} if case else {"free", "contact"}):
+        raise ValueError("Requested controls are missing")
     print(json.dumps(dict(cases=results, fixed_inputs=fixed_inputs, evidence_integrity_passed=True,
+                          scope="single trace" if case else "paired controls",
                           physical_validation=False), indent=2, allow_nan=False))
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--folder", type=Path)
+    parser.add_argument("--case", choices=("free", "contact"))
+    args = parser.parse_args()
+    main(args.folder, args.case)

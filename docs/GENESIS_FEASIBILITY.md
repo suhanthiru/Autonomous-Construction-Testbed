@@ -73,6 +73,23 @@ They do not validate material response, boundary independence, GPU behavior,
 or convergence. A Quadrants warning disabled template-mapper caching; no
 performance claim is made.
 
+## Initial GPU accounting controls
+
+The same two controls also completed 400 steps each on CUDA. The separated case
+again reports zero reaction, with x momentum drift of 0.00000108347 kg m/s.
+The contact case reports x reaction impulse 0.353554423 N s and unaccounted
+x momentum 0.00000195864 kg m/s. Each raw trace passes its independent accounting
+audit. Records are retained in `evidence/genesis-contact-accounting-gpu/`.
+
+The strict paired audit **fails**: initial x momentum differs by
+-4.95910646e-9 kg m/s between the two runs. Do not describe them as identical
+initial states. No threshold was relaxed to turn that comparison into a pass.
+Audit individual traces with the existing `reproduce.py`, specifying
+`--folder docs/evidence/genesis-contact-accounting-gpu --case free` or
+`--case contact`. The default paired mode still rejects this pair.
+The runs overlapped an independent Newton GPU job; their durations are not
+performance measurements. GPU excavation response and convergence remain open.
+
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different
 constitutive laws and numerical methods. Verify zero-contact readings and

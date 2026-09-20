@@ -1,0 +1,14 @@
+[
+  {
+    "case": "free",
+    "file": "free.json.gz",
+    "canonical_json_sha256": "f4eb452b1b09c0b37928e38588309a5e2f963f400dddd7186a2f2dc7f4ed70f6",
+    "process_exit_code": 0
+  },
+  {
+    "case": "contact",
+    "file": "contact.json.gz",
+    "canonical_json_sha256": "071a0082a7c93bff4f10e5117717ec412269a032df87480f8158f40a270b41cb",
+    "process_exit_code": 0
+  }
+]

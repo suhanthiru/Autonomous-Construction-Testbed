@@ -1,0 +1,89 @@
+{
+  "individual_audits": [
+    {
+      "cases": [
+        {
+          "case": "free",
+          "steps": 400,
+          "physical_mass_kg": 0.8192000122070309,
+          "cumulative_reaction_n_s": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "cumulative_unaccounted_momentum_n_s": [
+            1.0834694064154604e-06,
+            -7.78731203146228e-11,
+            -8.94826384558318e-11
+          ],
+          "max_abs_step_residual_n_s": 1.8949509039689616e-07,
+          "max_abs_step_reaction_n_s": 0.0
+        }
+      ],
+      "fixed_inputs": {
+        "backend": "gpu",
+        "dt_s": 0.0001,
+        "steps": 400,
+        "particle_count": 512,
+        "physical_mass_kg": 0.8192000122070309,
+        "mass_scale": 1000.0,
+        "script_sha256": "6547d79235131b950fd9dba0d7fb61785f38dd570c747b9df9ceed564c03d0d6",
+        "initial_momentum_kg_m_s": [
+          0.8192000208854677,
+          0.0,
+          0.0
+        ]
+      },
+      "evidence_integrity_passed": true,
+      "scope": "single trace",
+      "physical_validation": false
+    },
+    {
+      "cases": [
+        {
+          "case": "contact",
+          "steps": 400,
+          "physical_mass_kg": 0.8192000122070309,
+          "cumulative_reaction_n_s": [
+            0.3535544231722773,
+            2.0450196662893406e-07,
+            3.610362133166846e-07
+          ],
+          "cumulative_unaccounted_momentum_n_s": [
+            1.958640133675066e-06,
+            4.063091429969144e-08,
+            -5.261406712446132e-08
+          ],
+          "max_abs_step_residual_n_s": 1.777648956924338e-07,
+          "max_abs_step_reaction_n_s": 0.004309041976928711
+        }
+      ],
+      "fixed_inputs": {
+        "backend": "gpu",
+        "dt_s": 0.0001,
+        "steps": 400,
+        "particle_count": 512,
+        "physical_mass_kg": 0.8192000122070309,
+        "mass_scale": 1000.0,
+        "script_sha256": "6547d79235131b950fd9dba0d7fb61785f38dd570c747b9df9ceed564c03d0d6",
+        "initial_momentum_kg_m_s": [
+          0.8192000159263613,
+          0.0,
+          0.0
+        ]
+      },
+      "evidence_integrity_passed": true,
+      "scope": "single trace",
+      "physical_validation": false
+    }
+  ],
+  "paired_initial_momentum_equal": false,
+  "paired_check_passed": false,
+  "initial_momentum_difference_kg_m_s": [
+    -4.959106458812812e-09,
+    0.0,
+    0.0
+  ],
+  "physical_validation": false,
+  "limitation": "Strict paired-control audit failed on unequal initial momentum; each trajectory is audited independently. Concurrent GPU jobs preclude a performance claim."
+}
