@@ -48,6 +48,11 @@ def audit(folder, record):
              for i in range(0, len(impulses), width)]
     impulse = math.fsum(impulses)
     peak = max(force)
+    reversal = round(0.8 / dt)
+    require(math.isclose(reversal * dt, 0.8), "Unaligned motion reversal")
+    loading = math.fsum(impulses[:reversal])
+    withdrawal = math.fsum(impulses[reversal:])
+    peak_bin = force.index(peak)
     require(math.isclose(impulse, data["total_vertical_impulse_n_s"], rel_tol=1e-12),
             "Stored impulse differs from trajectory")
     require(math.isclose(peak, data["peak_20ms_mean_n"], rel_tol=1e-12),
@@ -60,6 +65,8 @@ def audit(folder, record):
     require(data["mpm"]["sparse_capacity_checked_each_step"], "Capacity checks absent")
     return dict(file=record["file"], voxel_m=data["mpm"]["voxel_m"], dt_s=dt,
                 impulse_n_s=impulse, peak_20ms_mean_n=peak, solver_health=health,
+                loading_impulse_n_s=loading, withdrawal_impulse_n_s=withdrawal,
+                peak_window_s=[peak_bin * 0.02, (peak_bin + 1) * 0.02],
                 source_sha256=data["source"]["source_sha256"], physical_validation=False)
 
 

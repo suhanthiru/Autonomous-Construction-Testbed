@@ -76,6 +76,31 @@ bound the remaining solver error or turn a failed tolerance check into a pass.
 The tolerance remains unchanged. Neither fine run supports an accepted
 three-level convergence series, and no physical qualification follows.
 
+## Where the resolution difference occurs
+
+Splitting the existing trajectories at the prescribed 0.8-second motion reversal
+localizes the impulse difference to loading. This is an exploratory breakdown of
+the same evidence, including the failed fine-grid case, not an acceptance test.
+
+| Grid / iteration cap | Loading impulse (N s) | Withdrawal impulse (N s) | Peak averaging interval (s) |
+|---|---:|---:|---|
+| 40 mm / 50,000 | 66.434519 | -0.017168 | 0.74–0.76 |
+| 20 mm / 200,000 | 60.308483 | -0.052256 | 0.78–0.80 |
+| 10 mm / 500,000 | 51.786710 | -0.079787 | 0.78–0.80 |
+
+Withdrawal contributes less than 0.08 N s in magnitude in each case. It cannot
+account for the several-newton-second differences in total impulse. The loading
+force history and its peak timing therefore need attention; a change confined to
+post-reversal behavior would not resolve the observed mismatch. This does not
+identify its cause, distinguish spatial from temporal error, or establish which
+resolution is physically accurate.
+
+`evidence/contact-spatial-refinement/phase-comparison.json` stores the derived
+values for all five records, including failed runs. `reproduce.py` recomputes them
+after checking the raw evidence hashes; the loading and withdrawal contributions
+were checked to sum to each recorded total. No additional simulation was run for
+this breakdown.
+
 Joint refinement also does not separately establish temporal and spatial error.
 An acceptable trend here would still require checking timestep error at a fixed
 fine grid, and sensitivity to soil preparation, domain boundaries and grid phase.
