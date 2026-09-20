@@ -31,12 +31,37 @@ Verified retrieval: pinned Hugging Face revision
 `terrain_1_sample_1` was designated schema-development only. Its force CSV is
 downloadable and has 733 rows and six columns, without a timestamp column or
 header. Remaining numerical trial outcomes were not inspected. This record is not
-a qualification holdout or a confirmed sand trial.
+a qualification holdout. The original terrain table subsequently confirmed terrain
+1 as single-material sand; equivalence of the converted measurements to the original
+arrays remains to be checked.
 
 Admission work: verify trial/material mapping, reconcile the converted release
 with the original, establish force order/units/frame/rate/tare, obtain scoop
 geometry and camera calibration, and resolve motion tracking and volume uncertainty.
 Freeze splits and useful accuracy criteria before qualification evaluation.
+
+### Original documentation and inventory audit
+
+The public Box folder was accessible through the browser without a login. Its
+[original README](https://uofi.app.box.com/s/vid2ycxzgqrzdn2w2vr0xkxwwjzpj5p8/file/1238032743312)
+confirms image shape `(720, 1280, 4)`, action/outcome shape `(100, 6)`, and field
+order `[pixel_x, pixel_y, yaw, scoop_depth, stiffness, scooped_volume]`. It assigns
+radians to yaw, meters to depth, cubic meters to volume, and binary low/high
+stiffness values. It does not supply force sampling rate, force channel mapping,
+sensor frame, calibration, or measured tool trajectories.
+
+The [original terrain table](https://uofi.app.box.com/s/vid2ycxzgqrzdn2w2vr0xkxwwjzpj5p8/file/1238050100136)
+identifies terrain 1 as single sand, terrain 2 as single pebbles, terrain 3 as
+single slate, and terrain 4 as single gravel. This was read from the browser
+preview; no original-array equality check is implied. The original archive is
+listed as 38.1 GB and was not downloaded.
+
+The pinned Hugging Face file inventory contains exactly 6,700 RGB paths, 6,700
+depth paths and 6,700 force paths, each covering terrain IDs 1–67 and sample IDs
+1–100 once. No missing, extra or duplicate trial identifiers were found in those
+three channels. This checks listed names only, not remote content integrity,
+independence of trials or measurement accuracy. The audit and source-response
+hash are retained in `docs/evidence/public-selection/scooping-inventory.json`.
 
 ## RWTH: full-size machine candidate
 
@@ -50,6 +75,8 @@ that response is not admitted as a README. No pickle was loaded. File accessibil
 channel calibration, machine/linkage/bucket geometry, soil characterization and
 terrain/mass observations remain unverified. Pressure must not be relabeled bucket
 force without the mechanical and hydraulic reconstruction.
+The browser attempt also remained on a loading screen and did not expose README
+content; raw-file access remains unresolved.
 
 ## Supplementary option
 

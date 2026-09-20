@@ -1,0 +1,27 @@
+{
+  "revision": "74f8f8ac59a78a3f3710885b56fdaf119e7605ce",
+  "api_sha256": "c4216e521a2b7057ebdd06decf4b8016be1ac6afaf5e56c2d521fbb231e37b23",
+  "listed_files": 20131,
+  "expected_trials": 6700,
+  "channels": {
+    "rgb": {
+      "count": 6700,
+      "missing": [],
+      "unexpected": []
+    },
+    "depth": {
+      "count": 6700,
+      "missing": [],
+      "unexpected": []
+    },
+    "force": {
+      "count": 6700,
+      "missing": [],
+      "unexpected": []
+    }
+  },
+  "duplicates": [],
+  "inspection_scope": "Names only; no additional numerical trial outcomes inspected",
+  "physical_validation": false,
+  "inventory_complete": true
+}
