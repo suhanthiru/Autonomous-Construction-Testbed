@@ -22,7 +22,10 @@ from excavation_sim.provenance import environment_info, source_identity
 def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         iterations=100, tolerance=1e-5, solver_diagnostics=False, integration_scheme="pic",
         grid_type="fixed", max_active_cells=1 << 18, rebuildable_sparse=False,
-        warmstart_mode="auto", world_offset=(0.0, 0.0, 0.0), progress=None):
+        warmstart_mode="auto", world_offset=(0.0, 0.0, 0.0), progress=None,
+        collider_basis="S2"):
+    if collider_basis not in ("S2", "Q1", "pic"):
+        raise ValueError("unsupported diagnostic collider basis")
     if rebuildable_sparse and grid_type != "sparse":
         raise ValueError("rebuildable sparse requires the sparse grid")
     if len(world_offset) != 3 or not all(isfinite(v) for v in world_offset):
@@ -72,6 +75,7 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
     cfg.critical_fraction = 0.0
     cfg.integration_scheme = integration_scheme
     cfg.warmstart_mode = warmstart_mode
+    cfg.collider_basis = collider_basis
     solver = SolverImplicitMPM(model, cfg, verbose=solver_diagnostics)
     if rebuildable_sparse and not solver._sparse_rebuildable:
         raise RuntimeError("requested rebuildable sparse path was not activated")
@@ -150,6 +154,8 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
             "young_modulus_pa": young_modulus,
             "poisson_ratio": 0.3,
             "integration_scheme": integration_scheme,
+            "collider_basis": solver.collider_basis,
+            "velocity_basis": solver.velocity_basis,
             "grid_type": grid_type,
             "max_active_cells": max_active_cells,
             "resolved_sparse_rebuildable": solver._sparse_rebuildable,
@@ -185,6 +191,8 @@ def main():
     parser.add_argument("--tolerance", type=float, default=1e-5)
     parser.add_argument("--solver-diagnostics", action="store_true")
     parser.add_argument("--integration-scheme", choices=("pic", "gimp"), default="pic")
+    parser.add_argument("--collider-basis", choices=("S2", "Q1", "pic"), default="S2",
+                        help="Contact sampling basis; production defaults are unchanged")
     parser.add_argument("--grid-type", choices=("fixed", "sparse"), default="fixed")
     parser.add_argument("--max-active-cells", type=int, default=1 << 18)
     parser.add_argument("--rebuildable-sparse", action="store_true")
@@ -253,7 +261,7 @@ def main():
                              args.iterations, args.tolerance, args.solver_diagnostics,
                              args.integration_scheme, args.grid_type, args.max_active_cells,
                              args.rebuildable_sparse, args.warmstart_mode, args.world_offset,
-                             progress if args.progress_every else None)
+                             progress if args.progress_every else None, args.collider_basis)
             except Exception as error:
                 (args.output / "failure.json").write_text(
                     json.dumps(
