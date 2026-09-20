@@ -1,0 +1,57 @@
+{
+  "audits": [
+    {
+      "record_integrity": true,
+      "physical_validation": false,
+      "steps": 3000,
+      "tool_vertical_impulse_n_s": 25.01791101772338,
+      "peak_20ms_mean_n": 164.65455230712894,
+      "cumulative_unaccounted_momentum_n_s": [
+        -2.5045818545493976e-06,
+        -4.178023642976179e-06,
+        -0.0001506149112587684
+      ],
+      "max_step_unaccounted_momentum_n_s": [
+        2.2783279012512647e-07,
+        2.537244720557094e-07,
+        7.008829201980704e-07
+      ],
+      "max_position_error_m": 1.4896392841468042e-08,
+      "max_velocity_error_m_s": 1.1920928966180355e-08,
+      "max_orientation_quaternion_error": 0.0
+    },
+    {
+      "record_integrity": true,
+      "physical_validation": false,
+      "steps": 6000,
+      "tool_vertical_impulse_n_s": 34.03427793419534,
+      "peak_20ms_mean_n": 212.81985931396483,
+      "cumulative_unaccounted_momentum_n_s": [
+        2.437082475755012e-07,
+        3.446485071685534e-07,
+        -0.00038669208518543434
+      ],
+      "max_step_unaccounted_momentum_n_s": [
+        2.838290908253078e-07,
+        2.3317973213245743e-07,
+        5.95176212439541e-07
+      ],
+      "max_position_error_m": 1.4896392841468042e-08,
+      "max_velocity_error_m_s": 1.1920928966180355e-08,
+      "max_orientation_quaternion_error": 0.0
+    }
+  ],
+  "timestep_s": [
+    0.0004,
+    0.0002
+  ],
+  "relative_changes": [
+    {
+      "tool_vertical_impulse_n_s": 0.3603964739535812,
+      "peak_20ms_mean_n": 0.2925233850625246
+    }
+  ],
+  "recorded_fixed_inputs_match": true,
+  "physical_validation": false,
+  "interpretation": "Force changes remain large under refinement; convergence not established"
+}

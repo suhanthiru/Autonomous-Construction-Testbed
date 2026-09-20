@@ -3,4 +3,5 @@
 docs/evidence/release-v1/** -text
 docs/evidence/genesis-digging/run-source.py.txt -text
 docs/evidence/genesis-digging-dt*/run-source.py.txt -text
+docs/evidence/genesis-digging-hard-dt*/run-source.py.txt -text
 docs/evidence/public-selection/furrows-record.json -text

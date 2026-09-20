@@ -1,0 +1,52 @@
+{
+  "archive_integrity": true,
+  "partition_integrity": true,
+  "trials": 150,
+  "development_trials": 25,
+  "reserved_trials": 125,
+  "meshes": [
+    {
+      "path": "Sand_0.3-1_mm/Skis_without_active_elements/Skis_without_active_elements.stl",
+      "sha256": "03973711f43175cfdbc579e5687b05f60682090262f18db02a4723aa47a9d0ec",
+      "triangles": 420,
+      "units": "not established",
+      "bounds": [
+        [
+          -6.123233998228043e-16,
+          249.1491241455078
+        ],
+        [
+          -60.0,
+          60.0
+        ],
+        [
+          -5.0,
+          50.0
+        ]
+      ]
+    },
+    {
+      "path": "Sand_0.3-1_mm/Skis_with_active_elements/Skis_with_active_elements.stl",
+      "sha256": "4ae8dcba5ac69c3d14ec5a2b8fe321af526a5e2b9770b94b760c68be994ee4bf",
+      "triangles": 572,
+      "units": "not established",
+      "bounds": [
+        [
+          -2.465190328815662e-31,
+          249.1491241455078
+        ],
+        [
+          -60.0,
+          60.0
+        ],
+        [
+          -13.0,
+          50.0
+        ]
+      ]
+    }
+  ],
+  "outcomes_read": false,
+  "physical_validation": false,
+  "limitation": "File identity and grouping do not establish measurement accuracy"
+}

@@ -41,6 +41,17 @@ the underlying readings. Do not import either summary as unquestioned SI input.
 The downloaded README refers to the older version DOI; use record 21159754 and
 its checksums as the actual retrieval identity. No material fitting has begun.
 
+`scripts/audit_furrow_reference.py` now verifies the downloaded archive against
+the pinned source checksum, reconciles all 150 raw-trial identities and the
+30 condition groups, and confirms that repeats stay together in the recorded
+partition. It reads only the two tool meshes from the archive; no terrain outcome
+is decompressed. Mesh bounds and exact hashes are in
+`docs/evidence/public-selection/furrows-audit.json`. Dimensions remain in native
+STL units pending independent confirmation. The preprint's tool figure was
+visually inspected and has no dimension annotations, so it cannot supply that
+confirmation. The apparatus PDF retrieval failed at both a mirror (522) and
+publisher endpoint (403); this is a retrieval limit, not missing-data proof.
+
 ## UIUC: first component target
 
 [Author project](https://drillaway.github.io/scooping-dataset.html) and

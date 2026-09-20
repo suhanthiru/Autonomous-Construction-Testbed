@@ -1,0 +1,6 @@
+{
+  "record_sha256": "7aaef7d7fcfdde90ed186c1289fb288f83bd45bff6019d60dc3f03aa8bb45164",
+  "terminal_exit_code": 0,
+  "physical_validation": false,
+  "command": "runs/genesis-evaluation/.venv/Scripts/python.exe scripts/check_genesis_digging.py --output runs/genesis-evaluation/digging-hard-dt400us --dt 0.0004 --coupling-softness 0"
+}

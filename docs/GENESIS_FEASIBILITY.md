@@ -167,6 +167,21 @@ on every substep. This is an observation about the inspected implementation,
 not a demonstrated explanation of the force drift. Test it independently before
 changing the production configuration or claiming a correction.
 
+The completed zero-softness control does not resolve the drift. With all other
+recorded inputs fixed between its two runs, impulse rises from 25.0179110 N s at
+0.4 ms to 34.0342779 N s at 0.2 ms (about 36%). Peak 20 ms mean force rises from
+164.654552 N to 212.819859 N. Each run passes its raw-record and prescribed-boundary
+audit, but this is still strong timestep sensitivity. Softness is not the sole
+cause; no correction or backend promotion follows. The diagnostic now exposes
+`--coupling-softness`, retaining the original 0.002 m default.
+
+Recompute this pair using the time-refinement audit's `--hard-contact` option.
+The two records and exact source are retained in `genesis-digging-hard-dt400us/`
+and `genesis-digging-hard-dt200us/`. Their source differs from the earlier soft
+pair only to expose and validate the softness argument and record its value;
+each pair's own source hash matches. No additional hard-contact refinements are
+justified as a substitute for diagnosing the remaining sensitivity.
+
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different
 constitutive laws and numerical methods. Verify zero-contact readings and
