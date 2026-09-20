@@ -1,6 +1,7 @@
 """Isolate soil/contact timestep sensitivity under identical prescribed box motion."""
 
 import argparse
+import hashlib
 import io
 import json
 import re
@@ -108,6 +109,21 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         if progress is not None and (prep_tick + 1) % 100 == 0:
             print({"phase": "preparation", "completed_steps": prep_tick + 1,
                    "total_steps": preparation_steps}, flush=True)
+    preparation_fingerprints = {}
+    if preparation_steps:
+        arrays = {"particle_q": state.particle_q, "particle_qd": state.particle_qd,
+                  "body_q": state.body_q, "body_qd": state.body_qd}
+        for name in ("particle_elastic_strain", "particle_transform", "particle_qd_grad",
+                     "particle_stress", "particle_Jp"):
+            arrays[f"mpm.{name}"] = getattr(state.mpm, name)
+        for name, array in arrays.items():
+            values = array.numpy()
+            if not np.isfinite(values).all():
+                raise RuntimeError(f"nonfinite prepared state: {name}")
+            preparation_fingerprints[name] = {
+                "shape": list(values.shape), "dtype": str(values.dtype),
+                "sha256": hashlib.sha256(values.tobytes(order="C")).hexdigest(),
+            }
     momentum_metadata = None
     if momentum_audit:
         masses = model.particle_mass.numpy().astype(np.float64)
@@ -208,6 +224,9 @@ def run(dt, voxel=0.04, spacing=0.02, air_drag=1.0, young_modulus=1e15,
         "momentum_accounting": momentum_metadata,
         "preparation": {"duration_s": settle_s, "dt_s": settle_dt,
                         "trajectory": preparation,
+                        "state_fingerprints": preparation_fingerprints,
+                        "fingerprint_scope": (
+                            "Listed particle and body arrays; not a solver checkpoint"),
                         "claim": "Fixed-duration preparation; equilibrium is not asserted"},
         "boundary": "kinematic prescribed box, zero rotation; no actuator or proxy feedback",
         "mpm": {

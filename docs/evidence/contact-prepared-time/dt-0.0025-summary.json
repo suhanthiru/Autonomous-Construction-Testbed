@@ -1,0 +1,45 @@
+{
+  "dt_s": 0.0025,
+  "mpm": {
+    "iterations": 200000,
+    "tolerance": 1e-05,
+    "solver_diagnostics": true,
+    "voxel_m": 0.02,
+    "spacing_m": 0.01,
+    "grid_margin_m": 0.0,
+    "grid_padding_cells": 0,
+    "particle_count": 32000,
+    "air_drag": 1.0,
+    "friction": 0.6,
+    "young_modulus_pa": 1000000000000000.0,
+    "poisson_ratio": 0.3,
+    "integration_scheme": "pic",
+    "collider_basis": "Q1",
+    "velocity_basis": "Q1",
+    "grid_type": "sparse",
+    "max_active_cells": 262144,
+    "resolved_sparse_rebuildable": true,
+    "requested_warmstart": "particles",
+    "resolved_stress_warmstart": "particles",
+    "sparse_capacity_checked_each_step": true
+  },
+  "world_offset_m": [
+    0.01,
+    0.01,
+    0.01
+  ],
+  "solver_health": {
+    "steps": 480,
+    "nonfinite_residual_steps": 0,
+    "outside_tolerance_steps": 0,
+    "at_iteration_limit_steps": 0,
+    "passed": true
+  },
+  "source_changed": false,
+  "wall_time_s": 264.7259671000065,
+  "total_vertical_impulse_n_s": 47.47594563149835,
+  "peak_20ms_mean_n": 449.35300001407813,
+  "file": "dt-0.0025.json.gz",
+  "canonical_json_sha256": "babbca75c75ba1f3521a1c1ac58e40c9d81347eef38baac9134faa5a374d7963",
+  "physical_validation": false
+}

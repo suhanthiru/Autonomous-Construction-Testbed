@@ -8,13 +8,11 @@ import re
 from pathlib import Path
 
 
-def main():
-    folder = Path(__file__).resolve().parent
+def audit_record(folder, summary):
     spec = importlib.util.spec_from_file_location(
         "contact_audit", folder.parent / "contact-spatial-refinement/reproduce.py")
     audit = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(audit)
-    summary = json.loads((folder / "q1-settle1-summary.json").read_text())
     digging = audit.audit(folder, summary)
     data = json.loads(gzip.decompress((folder / summary["file"]).read_bytes()))
     prep = data["preparation"]
@@ -35,14 +33,23 @@ def main():
         audit.require(all(math.isfinite(v) for v in speeds) and 0 <= speeds[0] <= speeds[1],
                       "Invalid preparation speeds")
     tail = [r for r in trace if r["time_s"] > prep["duration_s"] - 0.1]
-    print(json.dumps(dict(digging=digging, preparation_steps=len(trace),
+    return dict(digging=digging, preparation_steps=len(trace),
+                          preparation_dt_s=prep["dt_s"],
+                          preparation_duration_s=prep["duration_s"],
+                          state_fingerprints=prep.get("state_fingerprints", {}),
                           preparation_failed_steps=failed,
                           preparation_inner_passed=failed == 0,
                           final_max_speed_m_s=trace[-1]["max_particle_speed_m_s"],
                           final_rms_speed_m_s=trace[-1]["rms_particle_speed_m_s"],
                           last_100ms_max_speed_m_s=max(r["max_particle_speed_m_s"] for r in tail),
                           evidence_integrity_passed=True, equilibrium_qualified=False,
-                          physical_validation=False), indent=2, allow_nan=False))
+                          physical_validation=False)
+
+
+def main():
+    folder = Path(__file__).resolve().parent
+    summary = json.loads((folder / "q1-settle1-summary.json").read_text())
+    print(json.dumps(audit_record(folder, summary), indent=2, allow_nan=False))
 
 
 if __name__ == "__main__":
