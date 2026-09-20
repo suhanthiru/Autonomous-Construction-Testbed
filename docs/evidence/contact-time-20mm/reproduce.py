@@ -15,6 +15,7 @@ def main():
     baseline = json.loads((shared / "20mm-budget-200000-summary.json").read_text())
     study = json.loads((folder / "study.json").read_text())
     cases = [module.audit(shared, baseline)]
+    baseline = cases[0]
     differences = []
     for dt in study["dt_s"]:
         summary = json.loads((folder / f"dt-{dt}-summary.json").read_text())
@@ -22,11 +23,13 @@ def main():
         module.require(math.isclose(result["dt_s"], dt), "Unexpected timestep")
         module.require(result["source_sha256"] == study["expected_source_sha256"],
                        "Unexpected source snapshot")
-        module.require(summary["world_offset_m"] == baseline["world_offset_m"],
+        module.require(result["world_offset_m"] == baseline["world_offset_m"],
                        "Fixture alignment changed")
-        changes = {key: [value, summary["mpm"].get(key)]
+        module.require(result["mpm"].keys() == baseline["mpm"].keys(),
+                       "Configuration fields differ")
+        changes = {key: [value, result["mpm"].get(key)]
                    for key, value in baseline["mpm"].items()
-                   if value != summary["mpm"].get(key)}
+                   if value != result["mpm"].get(key)}
         expected = {"max_active_cells": [65536, 262144],
                     "requested_warmstart": ["auto", "particles"]}
         module.require(changes == expected, f"Unexpected parameter differences: {changes}")

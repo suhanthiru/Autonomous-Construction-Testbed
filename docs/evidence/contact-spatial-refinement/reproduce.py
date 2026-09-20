@@ -64,6 +64,7 @@ def audit(folder, record):
     require(not data["source_changed"], "Source changed during execution")
     require(data["mpm"]["sparse_capacity_checked_each_step"], "Capacity checks absent")
     return dict(file=record["file"], voxel_m=data["mpm"]["voxel_m"], dt_s=dt,
+                mpm=data["mpm"], world_offset_m=data["world_offset_m"],
                 impulse_n_s=impulse, peak_20ms_mean_n=peak, solver_health=health,
                 loading_impulse_n_s=loading, withdrawal_impulse_n_s=withdrawal,
                 peak_window_s=[peak_bin * 0.02, (peak_bin + 1) * 0.02],
