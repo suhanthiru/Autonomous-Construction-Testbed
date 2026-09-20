@@ -1,8 +1,11 @@
 # Qualification for a named excavator and worksite
 
-The requested qualification target is now a specific real excavator operating at a
-specific worksite. The machine and site have not yet been identified. The current
-procedural bench-scale articulation cannot stand in for that machine.
+The user has confirmed no personal access to a machine or worksite and authorized
+selecting public data. The initial full-size candidate is the RWTH Volvo EW160D
+trenching/backfilling dataset; file-level admission and reconstruction are pending.
+UIUC UR5e scooping is the first component-benchmark candidate. See
+`PUBLIC_VALIDATION_TARGETS.md` for verified sources and remaining gaps. The current
+procedural bench-scale articulation cannot stand in for a qualified real machine.
 
 ## Required target definition
 

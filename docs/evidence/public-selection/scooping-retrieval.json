@@ -1,0 +1,32 @@
+{
+  "repository": "pthangeda/scooping-dataset",
+  "revision": "74f8f8ac59a78a3f3710885b56fdaf119e7605ce",
+  "development_only": [
+    "terrain_1_sample_1"
+  ],
+  "remaining_trials": "reserved; no numerical outcome inspection",
+  "files": [
+    {
+      "path": "README.md",
+      "local_file": "scooping-README.md",
+      "url": "https://huggingface.co/datasets/pthangeda/scooping-dataset/resolve/74f8f8ac59a78a3f3710885b56fdaf119e7605ce/README.md",
+      "bytes": 9272,
+      "sha256": "8b36ca92591fbba6ab0f9660c84fdb2e124fbc49a73570fb289bdbfbe4b47d62"
+    },
+    {
+      "path": "ft_data/terrain_1_sample_1_ft.csv",
+      "local_file": "scooping-terrain_1_sample_1_ft.csv",
+      "url": "https://huggingface.co/datasets/pthangeda/scooping-dataset/resolve/74f8f8ac59a78a3f3710885b56fdaf119e7605ce/ft_data/terrain_1_sample_1_ft.csv",
+      "bytes": 112511,
+      "sha256": "0e05eedf3891bd714a917141bae2affe42a1c135f9e67a56ecc62ddc9b1a2e6e"
+    }
+  ],
+  "admission": "candidate only; force channel mapping and timing not established",
+  "schema_observation": {
+    "development_record": "terrain_1_sample_1",
+    "rows": 733,
+    "columns": 6,
+    "header": false,
+    "timestamp_column_present": false
+  }
+}
