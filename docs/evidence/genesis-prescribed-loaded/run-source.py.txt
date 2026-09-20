@@ -124,8 +124,7 @@ def run(output, dt, steps, case):
         initial_momentum_kg_m_s=initial.tolist(),
         script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         physical_validation=False,
-        limitation=("CPU boundary/accounting diagnostic only; "
-                    "no excavation or actuator qualification"),
+        limitation="CPU boundary/accounting diagnostic only; no excavation or actuator qualification",
     ), indent=2, allow_nan=False) + "\n")
 
 

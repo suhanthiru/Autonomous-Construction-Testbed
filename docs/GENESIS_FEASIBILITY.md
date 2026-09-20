@@ -112,6 +112,19 @@ still be checked under load, and its reaction must be reconciled with particle
 momentum before using it for the excavation refinement study. It supplies no
 actuator or physical-material qualification.
 
+The loaded CPU counterpart places a 64-particle, 0.102400 kg block in the
+prescribed tool's path. It completes 400 steps at 0.1 ms, including reversal,
+with the same maximum pose/velocity errors. The x reaction impulse is
+-0.0342266762 N s; x unaccounted momentum is 1.21013e-7 kg m/s. The independent
+audit recomputes each force-to-impulse conversion and particle-momentum residual.
+Raw evidence, exact run source (archived as text), and audit are in
+`evidence/genesis-prescribed-loaded/`. Recompute using the boundary audit with
+`--folder docs/evidence/genesis-prescribed-loaded`.
+
+This supports the instrumented boundary's force accounting under this small
+CPU load. It is not an excavation test or a comparison of material accuracy.
+The larger fixture and its time, grid and particle refinements remain required.
+
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different
 constitutive laws and numerical methods. Verify zero-contact readings and

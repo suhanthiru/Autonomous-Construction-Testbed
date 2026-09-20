@@ -1,0 +1,20 @@
+{
+  "steps": 400,
+  "maximum_errors": {
+    "position_m": 2.980232227667301e-09,
+    "velocity_m_s": 1.1920928966180355e-08
+  },
+  "cumulative_reaction_n_s": [
+    -0.03422667621927104,
+    1.799343077436788e-07,
+    9.289778718084563e-08
+  ],
+  "cumulative_unaccounted_momentum_n_s": [
+    1.2101316008672487e-07,
+    -5.847412324893332e-09,
+    2.1258722998513008e-09
+  ],
+  "boundary_checks_passed": true,
+  "physical_validation": false,
+  "scope": "Loaded CPU prescribed boundary with momentum accounting; no excavation convergence or physical qualification"
+}

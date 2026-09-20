@@ -1,0 +1,10 @@
+{
+  "case": "loaded",
+  "repeat_file": "loaded.json.gz",
+  "canonical_json_sha256": "daeb4152ec408471a08534ccc0b49884da08aa3dc0845770be1f4166397be04b",
+  "process_exit_code": 0,
+  "boundary_position_tolerance_m": 1e-07,
+  "boundary_velocity_tolerance_m_s": 1e-07,
+  "scope": "Loaded CPU prescribed boundary with momentum accounting; no excavation convergence or physical qualification",
+  "physical_validation": false
+}
