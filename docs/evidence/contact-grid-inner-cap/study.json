@@ -1,5 +1,5 @@
 {
-  "status": "running; no result claimed",
+  "status": "complete; inner solver gate failed",
   "purpose": "Test iteration-cap sensitivity for the prepared 10 mm grid case that failed at 0.76125 s",
   "source_snapshot": "runs/numerical-preparation-fingerprints",
   "source_sha256": "86044e2ac005d0e95ec1f1af0967d8daa193432b109d9e07dfc0332d332047e5",
@@ -29,5 +29,6 @@
   "interpretation": "Require complete raw evidence and unchanged prepared-state fingerprints. A residual pass resolves this inner gate only; separate time, space, and physical validation remain required.",
   "physical_validation": false,
   "command": "scripts/check_prescribed_contact.py --output runs/prepared-grid10mm-cap500k --dt 0.00125 --voxel 0.01 --spacing 0.005 --collider-basis Q1 --settle-s 1 --settle-dt 0.0025 --momentum-audit --grid-type sparse --rebuildable-sparse --max-active-cells 262144 --warmstart-mode particles --world-offset 0.005 0.005 0.005 --iterations 500000 --solver-diagnostics --zero-initial-stress-delta --progress-every 120",
-  "execution": "Project virtualenv Python; working directory is source_snapshot; PYTHONPATH points to its src directory. Use a new output directory for reproduction."
+  "execution": "Project virtualenv Python; working directory is source_snapshot; PYTHONPATH points to its src directory. Use a new output directory for reproduction.",
+  "terminal_exit_code": 1
 }
