@@ -125,6 +125,29 @@ This supports the instrumented boundary's force accounting under this small
 CPU load. It is not an excavation test or a comparison of material accuracy.
 The larger fixture and its time, grid and particle refinements remain required.
 
+The earlier small boundary records check position and velocity, not orientation.
+They must not be described as verifying the full six-degree-of-freedom pose.
+The larger digging diagnostic explicitly resets and checks the collider quaternion
+at every coupling evaluation, in addition to position and linear/angular velocity.
+
+## Full digging diagnostic
+
+The first GPU run of `scripts/check_genesis_digging.py` completes 3,000 steps
+at 0.4 ms with a 40 mm grid and 20 mm particle spacing. It uses the prescribed
+120 x 120 x 80 mm box, a 400 x 400 x 200 mm bed, and the 1.2-second downward/upward
+trajectory. The bed is unprepared. Material settings are explicit: E = 1 MPa,
+Poisson ratio 0.3, bulk density 1,600 kg/m3, and friction angle atan(0.6).
+These do not establish constitutive equivalence to the Newton fixture.
+
+The retained trace reports vertical tool impulse 29.6926573 N s and peak 20 ms
+mean vertical force 229.836615 N. Cumulative unaccounted vertical momentum is
+-0.000154838 N s. The independent audit recomputes momentum balance including
+gravity and all collider reactions, checks the commanded boundary, and verifies
+that particles remain inside the instrumented domain's safety margin.
+It passes record integrity; no physical accuracy or convergence gate is passed.
+Evidence, exact source, and the audit are in `evidence/genesis-digging/`.
+A 0.2 ms run is the next time-refinement comparison, with other inputs unchanged.
+
 Before a comparison, pin an isolated dependency environment and reproduce the
 same geometry, motion and reported observables. Explicitly account for different
 constitutive laws and numerical methods. Verify zero-contact readings and

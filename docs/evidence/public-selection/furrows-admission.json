@@ -1,0 +1,28 @@
+{
+  "record_id": 21159754,
+  "record_sha256": "7448e23d9056c2f7722295443d11beefab0ab2f9fe2d4adb7f5071516aca7a2f",
+  "license": "CC-BY-4.0",
+  "status": "metadata_review",
+  "physical_validation": false,
+  "files": [
+    {
+      "local": "furrows-readme.txt",
+      "remote": "ReadMe.txt",
+      "sha256": "b2848a85691da4d29d2e0c9c98eb20e74246bbd9c8569c79ed939fc3225003d2",
+      "published_checksum": "md5:9376b08b4b0e71f6154bb23aaaf7c9a5",
+      "bytes": 2320
+    },
+    {
+      "local": "furrows-material-measurements.pdf",
+      "remote": "Laboratory_Measurements_of_the_Mechanical_and_Physical_Properties_of_Bulk_Materials.pdf",
+      "sha256": "7e23079f706f84a6aac80ce3296f4c892b4c8626350d1dcbe643f92b7346861e",
+      "published_checksum": "md5:540a981fabb41ffa75b2adc697dae53b",
+      "bytes": 249041
+    }
+  ],
+  "preprint_sha256": "c878a26ad14890e81b2b360f96fee5ba6a616194b7d4b1bd8877db48b460affd",
+  "outcomes_inspected": false,
+  "material_characterization_inspected": true,
+  "archive_status": "downloading",
+  "qualification_split": null
+}

@@ -1,0 +1,6 @@
+{
+  "record_sha256": "f7acc515143122f8f619cb02325c7d2a51d951303923052112297a655b27bec2",
+  "command": "runs/genesis-evaluation/.venv/Scripts/python.exe scripts/check_genesis_digging.py --output runs/genesis-evaluation/digging-grid40mm-dt400us",
+  "terminal_exit_code": 0,
+  "physical_validation": false
+}

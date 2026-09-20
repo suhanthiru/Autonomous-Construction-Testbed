@@ -12,6 +12,30 @@ machine target. Keep their claims separate: a laboratory scoop cannot qualify a
 construction excavator, and pressure logs alone cannot validate soil deformation.
 The existing numerical failures remain open.
 
+### Additional terrain reference under admission
+
+The public [rigid-runner furrow dataset](https://zenodo.org/records/21159754)
+is now the leading candidate for a **terrain-deformation component** reference.
+Its pinned version declares CC BY 4.0 and includes raw/reconstructed scans,
+tool STL files, and laboratory material measurements. The fine-sand archive
+is being retrieved; scan outcomes have not been opened and no holdout is evaluated.
+This candidate does not qualify a real excavator or replace the scooping task.
+
+The [methods preprint](https://doi.org/10.21203/rs.3.rs-8287044/v1) describes
+a 0.40 x 1.50 x 0.075 m bed, three speeds, five loads and repeated traverses.
+Its detailed design explains the 375-versus-450 count: active-tool stone trials
+were excluded after shocks/jamming/damage. Preserve this exclusion in any claim.
+The speed table gives 0.051 m/s where one prose passage says 0.51 m/s;
+resolve configuration mapping from records rather than silently merging them.
+
+Admission still requires mesh units and orientation, load/guide boundary mapping,
+preparation and scan registration, and an output-specific uncertainty model.
+The laboratory PDF contains density values labelled kg/m3 in its summary but
+g/cm3 in detailed tables. Its repose summary also needs reconciliation with
+the underlying readings. Do not import either summary as unquestioned SI input.
+The downloaded README refers to the older version DOI; use record 21159754 and
+its checksums as the actual retrieval identity. No material fitting has begun.
+
 ## UIUC: first component target
 
 [Author project](https://drillaway.github.io/scooping-dataset.html) and
